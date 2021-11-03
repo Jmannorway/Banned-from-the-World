@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Effects/RedStatic.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform vec2 u_effect_position;
+uniform vec2 u_position;
+uniform vec2 u_size;
+uniform float u_radius;
+
+float random (vec2 st) {
+    return fract(sin(dot(mod(st.xy,vec2(5.0)),vec2(12.9898,78.233)))*43758.5453123);
+}
+
+float circle(vec2 pos, vec2 st, float rad) {
+	return 1.0 - step(distance(pos, st), rad);
+}
+
+float smooth_circle(vec2 pos, vec2 st, float rad) {
+	return smoothstep(distance(pos, st), 0, rad);
+}
+
+void fragment() {
+	vec2 effect_position = (u_effect_position - u_position) / u_size;
+	effect_position.x *= u_size.x / u_size.y;
+	vec2 position = (FRAGCOORD.xy - u_position) / u_size;
+	position.x *= u_size.x / u_size.y;
+	position.y = 1.0 - position.y;
+	COLOR = vec4(random(UV + TIME)) * smooth_circle(u_effect_position, u_position, u_radius);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/u_effect_position = Vector2( 500, 0 )
+shader_param/u_position = Vector2( 0, 0 )
+shader_param/u_size = Vector2( 320, 240 )
+shader_param/u_radius = 100.0
+
+[node name="Effect" type="Node2D"]
+material = SubResource( 3 )
+script = ExtResource( 1 )
