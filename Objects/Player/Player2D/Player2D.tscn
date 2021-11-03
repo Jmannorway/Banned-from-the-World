@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Objects/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Player/Player2D/Player2D.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Character/AnimatedCharacterSprite.tscn" type="PackedScene" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 7.5 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -13,4 +14,4 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AnimatedCharacterSprite" parent="." instance=ExtResource( 2 )]
-offset = Vector2( 0, -7 )
+offset = Vector2( 0, -9 )

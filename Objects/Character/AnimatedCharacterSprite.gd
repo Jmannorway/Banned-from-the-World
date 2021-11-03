@@ -9,14 +9,18 @@ func walk(direction : Vector2) -> void:
 		
 		if current_direction.y == 0:
 			if direction.x > 0:
+				frame = 0
 				play("walk right")
 			elif direction.x < 0:
+				frame = 0
 				play("walk left")
 
 		if current_direction.x == 0:
 			if direction.y > 0:
+				frame = 0
 				play("walk down")
 			elif direction.y < 0:
+				frame = 0
 				play("walk up")
 		
 		if direction.x == 0 && direction.y == 0:
