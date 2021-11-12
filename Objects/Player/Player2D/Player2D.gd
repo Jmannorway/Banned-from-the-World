@@ -1,13 +1,47 @@
 extends KinematicBody2D
 
-var speed = 100
-onready var character_sprite = $AnimatedCharacterSprite
+var base = PlayerBase.new()
+onready var sprite = $AnimatedCharacterSprite
+onready var movement : CharacterMovement = $CharacterMovement
+var interactables : Array
 
-func get_input_vector() -> Vector2:
-	return Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
+func is_facing(pos : Vector2) -> bool:
+	return (pos - position).normalized().dot(Util.v3tov2(base.direction)) == 1
+
+func find_facing_interactable() -> Area2D:
+	for i in interactables:
+		if is_facing(i.position):
+			return i
+	return null
+
+func _process(delta):
+	if not movement.is_moving() && Input.is_action_just_pressed("ui_accept"):
+		var _interactable = find_facing_interactable()
+		if _interactable:
+			_interactable.interact()
 
 func _physics_process(delta):
-	var input_vector = get_input_vector()
-	move_and_slide(input_vector.normalized() * speed)
-	character_sprite.walk(input_vector)
+	var _input_vector = PlayerStatics.get_input_vector()
+	var _try_move = snap_to_player_grid(position + _input_vector * Vector2(base.grid.x, base.grid.y)) - position
+	if not movement.is_moving():
+		if (_input_vector.x != 0 || _input_vector.y != 0) && !test_move(transform, _try_move):
+			movement.move_2d(_try_move, base.speed)
+			sprite.walk(_input_vector)
+			base.direction = Util.v2tov3(sprite.current_direction)
+		else:
+			sprite.idle()
+	
+	move_and_collide(movement.get_position_delta_2d())
+
+func snap_to_player_grid(v : Vector2) -> Vector2:
+	return Util.snap(v, Vector2(base.grid.x, base.grid.y), Vector2(base.offset.x, base.offset.y))
+
+func _on_InteractableDetector_area_entered(area : Interactable2D):
+	interactables.push_back(area)
+
+func _on_InteractableDetector_area_exited(area : Interactable2D):
+	print(area)
+	for i in range(interactables.size()):
+		if interactables[i] == area:
+			interactables.remove(i)
+			break

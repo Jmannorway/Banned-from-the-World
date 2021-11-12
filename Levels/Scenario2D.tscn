@@ -8,6 +8,7 @@
 
 [node name="NPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 104 )
+collision_layer = 4
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 152, 168 )
