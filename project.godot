@@ -44,6 +44,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/2D/Player/PlayerStatics.gd"
 }, {
+"base": "Node2D",
+"class": "Room2D",
+"language": "GDScript",
+"path": "res://Intangible/Room2D.gd"
+}, {
+"base": "Object",
+"class": "RoomLoader",
+"language": "GDScript",
+"path": "res://Intangible/RoomLoader.gd"
+}, {
 "base": "Reference",
 "class": "Util",
 "language": "GDScript",
@@ -57,6 +67,8 @@ _global_script_class_icons={
 "Maze": "",
 "PlayerBase": "",
 "PlayerStatics": "",
+"Room2D": "",
+"RoomLoader": "",
 "Util": ""
 }
 

@@ -1,16 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Objects/2D/Walls/Wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Rooms/InnerWorldHub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/2D/Player/Player2D/Player2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Rooms/GeneratedMaze.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Intangible/Room2D.gd" type="Script" id=4]
 
 [node name="Map" type="Node2D"]
 
-[node name="HubRoom" type="Node2D" parent="."]
+[node name="HubRoomLoader" type="Node2D" parent="."]
+script = ExtResource( 4 )
+room_scene = ExtResource( 1 )
+size = Vector2( 160, 160 )
+loaded = true
 
-[node name="Walls" parent="HubRoom" instance=ExtResource( 1 )]
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 65536, 0, 0, 65545, 0, 0, 131072, 0, 0, 131081, 0, 0, 196608, 0, 0, 196617, 0, 0, 393216, 0, 0, 393225, 0, 0, 458752, 0, 0, 458761, 0, 0, 524288, 0, 0, 524297, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0 )
-
-[node name="Maze" type="Node2D" parent="."]
+[node name="MazeRoomLoader" type="Node2D" parent="."]
+position = Vector2( 160, 0 )
+script = ExtResource( 4 )
+room_scene = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 81.5671, 76.1013 )
