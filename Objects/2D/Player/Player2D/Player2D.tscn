@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/2D/Player/Player2D/Player2D.gd" type="Script" id=1]
+[ext_resource path="res://Objects/3D/Character/AnimatedCharacterSprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/3D/Character/CharacterMovement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/2D/Player/Player2D/PlayerFrames.tres" type="SpriteFrames" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 7.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15, 15 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedCharacterSprite" parent="." instance=ExtResource( 2 )]
+frames = ExtResource( 4 )
+offset = Vector2( 0, -9 )
+
+[node name="CharacterMovement" parent="." instance=ExtResource( 3 )]
+
+[node name="InteractableDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape2D" parent="InteractableDetector"]
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="InteractableDetector" to="." method="_on_InteractableDetector_area_entered"]
+[connection signal="area_exited" from="InteractableDetector" to="." method="_on_InteractableDetector_area_exited"]

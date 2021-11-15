@@ -9,30 +9,45 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Object",
+"class": "Carver",
+"language": "GDScript",
+"path": "res://Objects/2D/Maze/Cursed Bitmap/Carver.gd"
+}, {
+"base": "TileMap",
+"class": "CarverMap",
+"language": "GDScript",
+"path": "res://CarverMap.gd"
+}, {
 "base": "Tween",
 "class": "CharacterMovement",
 "language": "GDScript",
-"path": "res://Objects/Character/CharacterMovement.gd"
+"path": "res://Objects/3D/Character/CharacterMovement.gd"
+}, {
+"base": "Area",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://Objects/3D/Interactable.gd"
 }, {
 "base": "Area2D",
 "class": "Interactable2D",
 "language": "GDScript",
-"path": "res://Objects/Interactable/Interactable2D.gd"
+"path": "res://Objects/2D/Interactable/Interactable2D.gd"
 }, {
 "base": "TileMap",
 "class": "Maze",
 "language": "GDScript",
-"path": "res://Objects/Maze/GeneratedMaze.gd"
+"path": "res://Objects/2D/Maze/Recursive Backtrack/GeneratedMaze.gd"
 }, {
 "base": "Node",
 "class": "PlayerBase",
 "language": "GDScript",
-"path": "res://Objects/Player/PlayerBase.gd"
+"path": "res://Objects/2D/Player/PlayerBase.gd"
 }, {
 "base": "Reference",
 "class": "PlayerStatics",
 "language": "GDScript",
-"path": "res://Objects/Player/PlayerStatics.gd"
+"path": "res://Objects/2D/Player/PlayerStatics.gd"
 }, {
 "base": "Reference",
 "class": "Util",
@@ -40,7 +55,10 @@ _global_script_classes=[ {
 "path": "res://Intangible/Util.gd"
 } ]
 _global_script_class_icons={
+"Carver": "",
+"CarverMap": "",
 "CharacterMovement": "",
+"Interactable": "",
 "Interactable2D": "",
 "Maze": "",
 "PlayerBase": "",
@@ -51,7 +69,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Banned from the World"
-run/main_scene="res://Objects/Maze/GeneratedMaze.tscn"
+run/main_scene="res://Levels/Scenario2D.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -121,6 +139,11 @@ mouse_left={
 mouse_right={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

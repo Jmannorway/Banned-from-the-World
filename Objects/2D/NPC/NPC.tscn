@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/2D/Interactable/Interactable2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/2D/NPC/NPC_frames.tres" type="SpriteFrames" id=2]
+
+[node name="Interactable" instance=ExtResource( 1 )]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+frames = ExtResource( 2 )
+animation = "walk down"
+frame = 1
+offset = Vector2( 0, -9 )
