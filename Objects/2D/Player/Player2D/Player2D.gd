@@ -36,12 +36,11 @@ func _physics_process(delta):
 func snap_to_player_grid(v : Vector2) -> Vector2:
 	return Util.snap(v, Vector2(base.grid.x, base.grid.y), Vector2(base.offset.x, base.offset.y))
 
-func _on_InteractableDetector_area_entered(area : Interactable2D):
+func _on_InteractableDetector_area_entered(area):
 	interactables.push_back(area)
-
-func _on_InteractableDetector_area_exited(area : Interactable2D):
 	print(area)
-	for i in range(interactables.size()):
-		if interactables[i] == area:
-			interactables.remove(i)
-			break
+
+func _on_InteractableDetector_area_exited(area):
+	var _ind = interactables.find(area)
+	if _ind != -1:
+		interactables.remove(_ind)

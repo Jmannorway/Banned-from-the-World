@@ -27,12 +27,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "Interactable",
 "language": "GDScript",
-"path": "res://Objects/3D/Interactable.gd"
-}, {
-"base": "Area2D",
-"class": "Interactable2D",
-"language": "GDScript",
-"path": "res://Objects/2D/Interactable/Interactable2D.gd"
+"path": "res://Intangible/Interactable.gd"
 }, {
 "base": "TileMap",
 "class": "Maze",
@@ -59,7 +54,6 @@ _global_script_class_icons={
 "CarverMap": "",
 "CharacterMovement": "",
 "Interactable": "",
-"Interactable2D": "",
 "Maze": "",
 "PlayerBase": "",
 "PlayerStatics": "",
@@ -69,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Banned from the World"
-run/main_scene="res://Levels/Scenario2D.tscn"
+run/main_scene="res://Levels/Test levels/Scenario2D.tscn"
 config/icon="res://icon.png"
 
 [display]

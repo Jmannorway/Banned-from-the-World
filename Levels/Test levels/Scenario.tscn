@@ -61,3 +61,8 @@ shape = SubResource( 6 )
 
 [node name="MeshInstance4" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 0.5, 0, 0.1, 0, -1, 0, -2.18557e-08, -3.30592, 0.057461, 0 )
+
+[node name="Interactable" parent="MeshInstance4" index="0"]
+room = "Scenario2D"
+
+[editable path="MeshInstance4"]
