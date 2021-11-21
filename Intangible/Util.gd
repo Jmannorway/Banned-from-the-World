@@ -24,5 +24,3 @@ static func make_array_2d(size : Vector2, value = 0) -> Array:
 static func array_2d_set(arr2d : Array, pos : Vector2, value = 0) -> void:
 	arr2d[pos.x][pos.y] = value
 
-#static func array_as_string(arr : Array) -> String:
-	

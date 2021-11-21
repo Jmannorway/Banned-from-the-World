@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Objects/3D/Player/Player3D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/3D/Bed/Bed.tscn" type="PackedScene" id=2]
@@ -15,6 +15,13 @@ data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1
 
 [sub_resource type="ConcavePolygonShape" id=6]
 data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 2
+emission_box_extents = Vector3( 4, 4, 4 )
+
+[sub_resource type="CubeMesh" id=9]
+size = Vector3( 1, 1, 1 )
 
 [node name="Room" type="Spatial"]
 
@@ -64,5 +71,12 @@ transform = Transform( -4.37114e-08, 0, 0.5, 0, 0.1, 0, -1, 0, -2.18557e-08, -3.
 
 [node name="Interactable" parent="MeshInstance4" index="0"]
 room = "Scenario2D"
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 0.767814, 0, -0.640673, 0, 1, 0, 0.640673, 0, 0.767814, -8.16742, 0, 0 )
+lifetime = 4.0
+explosiveness = 0.25
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 9 )
 
 [editable path="MeshInstance4"]

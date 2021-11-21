@@ -9,9 +9,9 @@
 
 [node name="HubRoomLoader" type="Node2D" parent="."]
 script = ExtResource( 4 )
-room_scene = ExtResource( 1 )
 size = Vector2( 160, 160 )
 loaded = true
+room_scene = ExtResource( 1 )
 
 [node name="MazeRoomLoader" type="Node2D" parent="."]
 position = Vector2( 160, 0 )
