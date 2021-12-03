@@ -9,61 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Object",
-"class": "Carver",
+"base": "Spatial",
+"class": "CameraController",
 "language": "GDScript",
-"path": "res://Objects/2D/Maze/Cursed Bitmap/Carver.gd"
-}, {
-"base": "TileMap",
-"class": "CarverMap",
-"language": "GDScript",
-"path": "res://CarverMap.gd"
-}, {
-"base": "Tween",
-"class": "CharacterMovement",
-"language": "GDScript",
-"path": "res://Objects/3D/Character/CharacterMovement.gd"
-}, {
-"base": "Area",
-"class": "Interactable",
-"language": "GDScript",
-"path": "res://Intangible/Interactable.gd"
-}, {
-"base": "TileMap",
-"class": "Maze",
-"language": "GDScript",
-"path": "res://Objects/2D/Maze/Recursive Backtrack/GeneratedMaze.gd"
-}, {
-"base": "Node",
-"class": "PlayerBase",
-"language": "GDScript",
-"path": "res://Objects/2D/Player/PlayerBase.gd"
-}, {
-"base": "Reference",
-"class": "PlayerStatics",
-"language": "GDScript",
-"path": "res://Objects/2D/Player/PlayerStatics.gd"
-}, {
-"base": "Node2D",
-"class": "Room2D",
-"language": "GDScript",
-"path": "res://Intangible/Room2D.gd"
-}, {
-"base": "Reference",
-"class": "Util",
-"language": "GDScript",
-"path": "res://Intangible/Util.gd"
+"path": "res://scripts/CameraController.gd"
 } ]
 _global_script_class_icons={
-"Carver": "",
-"CarverMap": "",
-"CharacterMovement": "",
-"Interactable": "",
-"Maze": "",
-"PlayerBase": "",
-"PlayerStatics": "",
-"Room2D": "",
-"Util": ""
+"CameraController": ""
 }
 
 [application]
