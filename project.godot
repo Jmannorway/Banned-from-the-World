@@ -8,64 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Object",
-"class": "Carver",
-"language": "GDScript",
-"path": "res://Objects/2D/Maze/Cursed Bitmap/Carver.gd"
-}, {
-"base": "TileMap",
-"class": "CarverMap",
-"language": "GDScript",
-"path": "res://CarverMap.gd"
-}, {
-"base": "Tween",
-"class": "CharacterMovement",
-"language": "GDScript",
-"path": "res://Objects/3D/Character/CharacterMovement.gd"
-}, {
-"base": "Area",
-"class": "Interactable",
-"language": "GDScript",
-"path": "res://Intangible/Interactable.gd"
-}, {
-"base": "TileMap",
-"class": "Maze",
-"language": "GDScript",
-"path": "res://Objects/2D/Maze/Recursive Backtrack/GeneratedMaze.gd"
-}, {
-"base": "Node",
-"class": "PlayerBase",
-"language": "GDScript",
-"path": "res://Objects/2D/Player/PlayerBase.gd"
-}, {
-"base": "Reference",
-"class": "PlayerStatics",
-"language": "GDScript",
-"path": "res://Objects/2D/Player/PlayerStatics.gd"
-}, {
-"base": "Node2D",
-"class": "Room2D",
-"language": "GDScript",
-"path": "res://Intangible/Room2D.gd"
-}, {
-"base": "Reference",
-"class": "Util",
-"language": "GDScript",
-"path": "res://Intangible/Util.gd"
-} ]
-_global_script_class_icons={
-"Carver": "",
-"CarverMap": "",
-"CharacterMovement": "",
-"Interactable": "",
-"Maze": "",
-"PlayerBase": "",
-"PlayerStatics": "",
-"Room2D": "",
-"Util": ""
-}
-
 [application]
 
 config/name="Banned from the World"
@@ -129,16 +71,6 @@ move_down={
 move_up={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
-mouse_left={
-"deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
- ]
-}
-mouse_right={
-"deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 interact={
