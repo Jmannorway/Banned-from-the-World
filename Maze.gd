@@ -2,9 +2,11 @@ extends TileMap
 
 var maze := Maze2D.new()
 var grid : Array
+var size := Vector2(320, 320)
 
-func _ready():
-	maze.make_maze(Vector2(8,8))
+func _enter_tree():
+	var _maze_size = size / cell_size / 2
+	maze.make_maze(_maze_size)
 	grid = maze.make_grid()
 	
 	for x in grid.size():

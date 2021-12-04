@@ -10,7 +10,7 @@ const DIRECTIONV = [
 	Vector2.LEFT
 ]
 
-export var size := Vector2(8, 8)
+var size := Vector2(8, 8)
 var data : Array
 
 func make_grid() -> Array:

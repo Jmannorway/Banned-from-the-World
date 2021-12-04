@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/rooms/inner_world_hub.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/rooms/inner_world_maze.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/RoomLoader2D.gd" type="Script" id=3]
+[ext_resource path="res://scenes/main_camera_2d.tscn" type="PackedScene" id=4]
+
+[node name="map" type="Node2D"]
+
+[node name="hub" type="Node2D" parent="."]
+script = ExtResource( 3 )
+room = ExtResource( 1 )
+loaded = true
+
+[node name="red_maze" type="Node2D" parent="."]
+position = Vector2( 320, 0 )
+script = ExtResource( 3 )
+room = ExtResource( 2 )
+loaded = true
+
+[node name="camera" parent="." instance=ExtResource( 4 )]
+current = true
+target_group = "player"
