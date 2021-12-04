@@ -1,6 +1,6 @@
 extends TileMap
 
-var maze := Maze2D.new()
+var maze := RecursiveBacktrack.new()
 var grid : Array
 var size := Vector2(320, 320)
 

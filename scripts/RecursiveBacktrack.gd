@@ -1,6 +1,6 @@
 extends Object
 
-class_name Maze2D
+class_name RecursiveBacktrack
 
 enum DIRECTION {UP, RIGHT, DOWN, LEFT, _MAX}
 const DIRECTIONV = [
