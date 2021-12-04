@@ -21,6 +21,9 @@ func _process(delta):
 	
 	if _input_vector.is_equal_approx(Vector2.ZERO):
 		$animated_sprite.idle()
+	
+	if Input.is_action_just_pressed("interact"):
+		$interactable_detector.interact_with_facing(global_position, _input_vector.normalized())
 
 func _physics_process(delta):
 	var _input_vector = get_input_vector()

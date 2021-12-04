@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/CameraController.gd"
 }, {
+"base": "Area2D",
+"class": "Interactable2D",
+"language": "GDScript",
+"path": "res://scripts/Interactable2D.gd"
+}, {
 "base": "Object",
 "class": "RecursiveBacktrack",
 "language": "GDScript",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CameraController": "",
+"Interactable2D": "",
 "RecursiveBacktrack": "",
 "RoomLoader2D": "",
 "Util": ""
