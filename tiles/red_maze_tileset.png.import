@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blocking_tileset.png-9d56e2ff8a597581e0a021e155bd7350.stex"
+path="res://.import/red_maze_tileset.png-ac85eecb4961fe15f47ecdab9aaeaaa7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/blocking_tileset.png"
-dest_files=[ "res://.import/blocking_tileset.png-9d56e2ff8a597581e0a021e155bd7350.stex" ]
+source_file="res://tiles/red_maze_tileset.png"
+dest_files=[ "res://.import/red_maze_tileset.png-ac85eecb4961fe15f47ecdab9aaeaaa7.stex" ]
 
 [params]
 
