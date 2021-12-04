@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/rooms/3d/bedroom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/RoomManager.gd" type="Script" id=3]
+[ext_resource path="res://scenes/characters/max.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/rooms/3d/balcony.tscn" type="PackedScene" id=5]
+
+[node name="real_world" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="max" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34131, 0.608804, -0.289418 )
+movementSpeed = 140.0
+
+[node name="main_camera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2424, 0, 0.223542 )
+
+[node name="rooms" type="Spatial" parent="."]
+
+[node name="bedroom" parent="rooms" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0583762, 0, 1.01628 )
+pathFollowType = 1
+
+[node name="balcony" parent="rooms" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88251, 9.53674e-07, -1.84011 )
+pathFollowType = 1

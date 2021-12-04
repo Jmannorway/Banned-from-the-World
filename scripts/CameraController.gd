@@ -7,33 +7,38 @@ export var movementSpeed: float = 1.0
 var controlZone = null
 var controlCallbackName
 
-func _ready():
-	var _rect: Rect2
-	
-	_rect.position = Vector2.ZERO
-	_rect.size = Vector2.ONE * 4.0
-	
-	set_control_mode(FollowPathType.RECT, _rect)
+var targetNode: Spatial = null
+
+onready var tween: Tween = get_node("Tween")
 
 # warning-ignore:unused_argument
 func _process(delta):
-	translate(temp_movement() * movementSpeed * delta)
+	follow_target()
 	
 	call(controlCallbackName)
 
-func temp_movement() -> Vector3:
-	return Vector3(float(Input.is_action_pressed("move_right")) - float(Input.is_action_pressed("move_left")), 0.0, float(Input.is_action_pressed("move_down")) - float(Input.is_action_pressed("move_up"))).normalized()
+func set_follow_target(var target: Spatial) -> void:
+	targetNode = target
 
-func set_control_mode(var mode: int, var controller) -> void:
+func set_control_mode(var mode: int, var controller: Room3D) -> void:
 	match mode:
 		FollowPathType.PATH:
 			controlCallbackName = "follow_path"
 		FollowPathType.RECT:
 			controlCallbackName = "follow_rect"
+			controlZone = Rect2(controller.offset + Vector2(controller.translation.x, controller.translation.z), controller.size)
+			print()
 		FollowPathType.POINT:
 			pass
+
+func transition_to_room() -> void:
+	pass
+
+func follow_target() -> void:
+	if targetNode == null:
+		return
 	
-	controlZone = controller
+	translation = targetNode.translation
 
 func follow_path() -> void:
 	pass
@@ -41,8 +46,8 @@ func follow_path() -> void:
 func follow_rect() -> void:
 	var _rect: Rect2 = controlZone
 	
-	translation.x = clamp(translation.x, -_rect.size.x, _rect.size.x)
-	translation.z = clamp(translation.z, -_rect.size.y, _rect.size.y)
+	translation.x = clamp(translation.x, -_rect.size.x + _rect.position.x, _rect.size.x+ _rect.position.x)
+	translation.z = clamp(translation.z, -_rect.size.y + _rect.position.y, _rect.size.y + _rect.position.y)
 
 enum FollowPathType {
 	PATH,
