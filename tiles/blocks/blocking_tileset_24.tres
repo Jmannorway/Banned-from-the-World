@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://tiles/blocking_tileset.png" type="Texture" id=1]
+[ext_resource path="res://tiles/blocks/blocking_tileset.png" type="Texture" id=1]
 
 [resource]
 0/name = "blocking_tileset.png 0"

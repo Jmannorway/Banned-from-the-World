@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://models/placeholders/balcony.fbx" type="PackedScene" id=1]
-[ext_resource path="res://scripts/RoomController.gd" type="Script" id=2]
-[ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=3]
+[ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=1]
+[ext_resource path="res://models/placeholders/balcony.fbx" type="PackedScene" id=2]
+[ext_resource path="res://scripts/RoomController.gd" type="Script" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -19,7 +19,7 @@ extents = Vector3( 0.459842, 1, 1 )
 [node name="balcony" type="ImmediateGeometry"]
 material_override = SubResource( 1 )
 cast_shadow = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -27,7 +27,7 @@ offset = Vector2( -2.367, 1.208 )
 rect = Rect2( 110.4, 11.713, 0.067, 0.057 )
 rectHeight = 0.027
 
-[node name="balcony" parent="." instance=ExtResource( 1 )]
+[node name="balcony" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
@@ -40,7 +40,7 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 4
 collision_mask = 2
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 roomName = "bedroom"
 
 [node name="CollisionShape" type="CollisionShape" parent="window_entrance"]

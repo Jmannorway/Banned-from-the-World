@@ -24,10 +24,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Interactable.gd"
 }, {
+"base": "Area2D",
+"class": "Interactable2D",
+"language": "GDScript",
+"path": "res://scripts/Interactable2D.gd"
+}, {
 "base": "Interactable",
 "class": "InteractableRoom",
 "language": "GDScript",
 "path": "res://scripts/InteractableRoom.gd"
+}, {
+"base": "Object",
+"class": "RecursiveBacktrack",
+"language": "GDScript",
+"path": "res://scripts/RecursiveBacktrack.gd"
 }, {
 "base": "ImmediateGeometry",
 "class": "Room3D",
@@ -43,15 +53,23 @@ _global_script_classes=[ {
 "class": "RoomManager3D",
 "language": "GDScript",
 "path": "res://scripts/RoomManager.gd"
+}, {
+"base": "Reference",
+"class": "Util",
+"language": "GDScript",
+"path": "res://scripts/Util.gd"
 } ]
 _global_script_class_icons={
 "CameraController": "",
 "CharacterController3D": "",
 "Interactable": "",
+"Interactable2D": "",
 "InteractableRoom": "",
+"RecursiveBacktrack": "",
 "Room3D": "",
 "RoomLoader2D": "",
-"RoomManager3D": ""
+"RoomManager3D": "",
+"Util": ""
 }
 
 [application]

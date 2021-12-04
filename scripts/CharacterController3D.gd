@@ -8,6 +8,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+# warning-ignore:return_value_discarded
 	move_and_slide(movement() * movementSpeed * delta)
 
 func movement() -> Vector3:
