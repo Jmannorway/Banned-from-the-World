@@ -1,27 +1,23 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/2d/rooms/phase 2/phase_2_hub.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/2d/rooms/phase 2/phase_2_maze_east.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/2d/rooms/phase 2/phase_2_hubroom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/2d/rooms/phase 2/phase_2_red_maze.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/RoomLoader2D.gd" type="Script" id=4]
+[ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/2d/player/player_start_2d.tscn" type="PackedScene" id=5]
 
 [node name="map" type="Node2D"]
 
-[node name="hub" type="Node2D" parent="."]
-script = ExtResource( 4 )
-room = ExtResource( 1 )
-loaded = true
-
-[node name="red_maze" type="Node2D" parent="."]
-position = Vector2( 320, 0 )
-script = ExtResource( 4 )
-room = ExtResource( 2 )
-loaded = true
-
 [node name="camera" parent="." instance=ExtResource( 3 )]
-current = true
 target_group = "player"
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
 position = Vector2( 160, 160 )
+
+[node name="hub" parent="." instance=ExtResource( 4 )]
+room = ExtResource( 1 )
+loaded = true
+
+[node name="maze" parent="." instance=ExtResource( 4 )]
+position = Vector2( 320, 0 )
+room = ExtResource( 2 )

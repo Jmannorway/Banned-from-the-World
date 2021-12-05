@@ -37,7 +37,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717947, -0.172076, -1.40931
 shape = SubResource( 2 )
 
 [node name="window_entrance" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )

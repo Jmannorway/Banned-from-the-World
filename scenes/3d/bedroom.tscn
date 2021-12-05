@@ -60,7 +60,6 @@ transform = Transform( 0.999998, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 0.999
 shape = SubResource( 4 )
 
 [node name="window_exit" type="Area" parent="walls_floor_withholes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
