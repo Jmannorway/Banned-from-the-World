@@ -13,6 +13,7 @@ room_music = ExtResource( 6 )
 [node name="maze" parent="." index="0" instance=ExtResource( 2 )]
 
 [node name="sister" type="Sprite" parent="." index="1"]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 184, 120 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -10 )

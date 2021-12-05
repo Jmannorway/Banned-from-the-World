@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Room2D",
 "language": "GDScript",
-"path": "res://scenes/2d/Room2D.gd"
+"path": "res://scripts/Room2D.gd"
 }, {
 "base": "ImmediateGeometry",
 "class": "Room3D",
