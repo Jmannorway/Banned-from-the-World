@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/placeholders/balcony.fbx" type="PackedScene" id=2]
@@ -11,9 +11,12 @@ params_cull_mode = 2
 albedo_color = Color( 0.694118, 0.0431373, 0.0431373, 1 )
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 3.09759, 0.0991626, 2.41202 )
+extents = Vector3( 0.237916, 1, 5.24711 )
 
 [sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 1, 0.327976 )
+
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.459842, 1, 1 )
 
 [node name="balcony" type="ImmediateGeometry"]
@@ -23,8 +26,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-offset = Vector2( -2.367, 1.208 )
-rect = Rect2( 110.4, 11.713, 0.067, 0.057 )
+offset = Vector2( -2.367, 1.759 )
+size = Vector2( 0, 1 )
 rectHeight = 0.027
 
 [node name="balcony" parent="." instance=ExtResource( 2 )]
@@ -33,16 +36,24 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717947, -0.172076, -1.40931 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.002, 0.872096, 0 )
 shape = SubResource( 2 )
 
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155091, 0.872096, 5.54211 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155091, 0.872096, -5.5536 )
+shape = SubResource( 3 )
+
 [node name="window_entrance" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
 roomName = "bedroom"
+addPosition = Vector3( 1, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="window_entrance"]
 transform = Transform( 0.999999, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 0.999999, 0.251976, 0.790344, 1.39064 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )

@@ -6,12 +6,11 @@ class_name Room3D
 export (int, "Path", "Rect", "Point") var pathFollowType: int
 export var offset: Vector2 setget set_room_rect_offset
 export var size: Vector2 setget set_room_rect_size
-export var rect: Rect2 setget set_room_rect
 export var rectHeight: float setget set_rect_height
 
 func _ready():
 	if !Engine.editor_hint:
-		pass #clear()
+		clear()
 
 func set_room_rect_size(var newSize: Vector2) -> void:
 	size = newSize
@@ -23,12 +22,6 @@ func set_room_rect_offset(var newOffset: Vector2) -> void:
 
 func set_rect_height(var height: float) -> void:
 	rectHeight = height
-	draw_rect()
-
-func set_room_rect(var newRect: Rect2) -> void:
-	rect.size = newRect.size
-	rect.position = newRect.position
-	
 	draw_rect()
 
 func draw_rect() -> void:

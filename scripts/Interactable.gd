@@ -11,17 +11,14 @@ func _ready():
 	connect("body_exited", self, "_on_exit_body")
 
 # warning-ignore:unused_argument
-func _input(event):
-	if playerInsideEvent and Input.is_action_just_pressed("interact"):
-		_event()
-
-func _event() -> void:
+func _event(var player: CharacterController3D) -> void:
 	pass
 
 func _on_enter_body(var body: Node) -> void:
 	if body is CharacterController3D:
-		playerInsideEvent = true
+# warning-ignore:return_value_discarded
+		body.connect("action_event", self, "_event")
 
 func _on_exit_body(var body: Node) -> void:
 	if body is CharacterController3D:
-		playerInsideEvent = false
+		body.disconnect("action_event", self, "_event")

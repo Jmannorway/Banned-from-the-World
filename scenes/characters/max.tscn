@@ -1,24 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/CharacterController3D.gd" type="Script" id=1]
+[ext_resource path="res://models/placeholders/Max.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.281895
-height = 0.601339
-
-[sub_resource type="CapsuleMesh" id=2]
-radius = 0.28
-mid_height = 0.6
+radius = 0.233021
+height = 0.706397
 
 [node name="max" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.593931, 0 )
 shape = SubResource( 1 )
 
-[node name="character_mesh" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="model" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.0329683, 0 )
