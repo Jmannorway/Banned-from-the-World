@@ -11,9 +11,11 @@ extents = Vector2( 7, 7 )
 extents = Vector2( 15, 15 )
 
 [node name="player_2d" type="KinematicBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="animated_sprite" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.101961, 0, 1, 1 )
 offset = Vector2( 0, -10 )
 
 [node name="hitbox" type="CollisionShape2D" parent="."]

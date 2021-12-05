@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/RoomLoader2D.gd" type="Script" id=2]
 
-[node name="room_loader_2d" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 176, 176 )
+
+[node name="room_loader_2d" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
+
+[node name="bounds" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_room_loader_2d_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_room_loader_2d_body_exited"]
