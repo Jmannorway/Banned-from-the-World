@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var speed : float = 100
+var run_speed : float = 175
 
 func get_input_vector() -> Vector2:
 	return Vector2(
@@ -9,6 +10,10 @@ func get_input_vector() -> Vector2:
 
 func _process(delta):
 	var _input_vector = get_input_vector()
+	var _speed = speed
+	
+	if Input.is_action_pressed("run"):
+		_speed = run_speed
 	
 	if _input_vector.x == -1:
 		$animated_sprite.play("left")

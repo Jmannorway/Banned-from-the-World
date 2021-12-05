@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/maze.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/2d/maze.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/2d/sister_warp.tscn" type="PackedScene" id=2]
 
 [sub_resource type="GDScript" id=1]
