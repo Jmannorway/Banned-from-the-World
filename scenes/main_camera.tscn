@@ -4,6 +4,9 @@
 
 [node name="main_camera" type="Spatial"]
 script = ExtResource( 1 )
+movementSpeed = 20.0
 
 [node name="camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.726551, 0.687113, 0, -0.687113, 0.726551, -9.53674e-07, 5.0657, 3.66775 )
+transform = Transform( 1, 0, 0, 0, 0.539388, 0.842057, 0, -0.842057, 0.539388, 0, 4.992, 2.698 )
+
+[node name="Tween" type="Tween" parent="."]
