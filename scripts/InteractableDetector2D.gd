@@ -2,6 +2,8 @@ extends Area2D
 
 var interactables : Array
 
+# TODO: Proper way to handle interaction facing something
+
 func interact_with_facing(pos : Vector2, look : Vector2):
 	for i in interactables.size():
 		interactables[i].interact()

@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/InteractableRoom.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Player2D",
+"language": "GDScript",
+"path": "res://scripts/Player2D.gd"
+}, {
 "base": "Object",
 "class": "RecursiveBacktrack",
 "language": "GDScript",
@@ -65,6 +70,7 @@ _global_script_class_icons={
 "Interactable": "",
 "Interactable2D": "",
 "InteractableRoom": "",
+"Player2D": "",
 "RecursiveBacktrack": "",
 "Room3D": "",
 "RoomLoader2D": "",
@@ -75,6 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Banned from the World"
+run/main_scene="res://scenes/2d/maps/phase_2_map.tscn"
 config/icon="res://icon.png"
 
 [autoload]
