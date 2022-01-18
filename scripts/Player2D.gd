@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-class_name Player2D
+#class_name Player2D
 
 var walk_speed : float = 100
 var run_speed : float = 175

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tiles/blocks/blocking_tileset_24.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/maze related/Maze.gd" type="Script" id=2]
+
+[node name="maze" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 24, 24 )
+format = 1
+script = ExtResource( 2 )

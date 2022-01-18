@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/2d/maze/shifting_maze.gd" type="Script" id=1]
+[ext_resource path="res://tiles/shifting maze tiles/ShiftingMazeTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://tiles/blocks/blocking_tilemap_24.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tiles/shifting maze tiles/ShiftingMazeFloorTileset.tres" type="TileSet" id=4]
+
+[node name="maze_2d" type="Node2D"]
+script = ExtResource( 1 )
+autotile_tile_index = 2
+
+[node name="floor_tiles" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 24, 24 )
+format = 1
+
+[node name="tiles" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 24, 24 )
+format = 1
+
+[node name="blocking_tilemap_24" parent="." instance=ExtResource( 3 )]
+visible = false
