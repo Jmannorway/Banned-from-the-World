@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "MapManager2D",
 "language": "GDScript",
-"path": "res://scenes/2d/map_manager_2d.gd"
+"path": "res://scripts/MapManager2D.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player2D",
