@@ -4,25 +4,40 @@ class_name RoomManager3D
 
 var rooms: Dictionary
 
-onready var mainCharacter: CharacterController3D = get_node("max")
-onready var mainCamera: CameraController = get_node("main_camera")
+onready var mainCharacter: CharacterController3D = $max
+onready var mainCamera: CameraController = $main_camera
 
-var currentRoom: Room3D
+var currentRoom
+var currentRoomName: String
 
 func _ready():
 	get_rooms()
 # warning-ignore:return_value_discarded
-	request_room_change("bedroom")
+	prewarp_room(Statistics.metadata["room"], Statistics.metadata["position"])
 	mainCamera.set_follow_target(mainCharacter)
-	mainCamera.set_control_mode(currentRoom.pathFollowType, currentRoom)
+	
+	mainCharacter.roomManager = self
 
-func request_room_change(var roomName: String) -> Node:
+func prewarp_room(var roomName: String, var position: Vector3) -> void:
+# warning-ignore:return_value_discarded
+	request_room_change(roomName, true)
+	# set Max's position, through the position parameter
+	mainCharacter.teleport_to(position)
+	
+	check_for_room_availability()
+
+func check_for_room_availability() -> void:
+	for roomName in rooms:
+		rooms[roomName].activate(Statistics.metadata["fog_stage"] >= rooms[roomName].unlockStage)
+
+func request_room_change(var roomName: String, var instant: bool = false) -> Room3D:
 	if !rooms.has(roomName):
 		return null
 	
 	currentRoom = rooms[roomName]
-	mainCamera.set_control_mode(currentRoom.pathFollowType, currentRoom)
-	mainCamera.transition_to_room()
+	mainCamera.set_control_mode(currentRoom.pathFollowType, currentRoomName, currentRoom)
+	mainCamera.transition_to_room(instant)
+	currentRoomName = roomName
 	
 	return currentRoom
 
@@ -31,3 +46,6 @@ func get_rooms() -> void:
 	
 	for i in _roomNodes.size():
 		rooms[_roomNodes[i].name] = _roomNodes[i]
+
+func _exit_tree():
+	Statistics.metadata["room"] = currentRoomName

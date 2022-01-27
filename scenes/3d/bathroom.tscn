@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=1]
+[ext_resource path="res://scripts/RoomController.gd" type="Script" id=3]
+[ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=10]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+params_blend_mode = 1
+params_cull_mode = 2
+albedo_color = Color( 0.694118, 0.0431373, 0.0431373, 1 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.2, 0.5, 0.2 )
+
+[node name="bathroom" type="ImmediateGeometry"]
+material_override = SubResource( 1 )
+cast_shadow = 0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+pathFollowType = 1
+offset = Vector2( 0, -0.25 )
+size = Vector2( 2.141, 1.346 )
+rectHeight = 0.027
+
+[node name="room_events" type="Spatial" parent="."]
+
+[node name="to_hallway" type="Area" parent="room_events"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1 )
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource( 1 )
+roomName = "hallway"
+
+[node name="CollisionShape" type="CollisionShape" parent="room_events/to_hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
+shape = SubResource( 9 )
+
+[node name="room_grid" type="GridMap" parent="."]
+mesh_library = ExtResource( 10 )
+cell_size = Vector3( 1, 1, 1 )
+data = {
+"cells": PoolIntArray( 1, 0, 0, 65533, 0, 0, 65537, 0, 0, 131069, 0, 0, -65536, 0, 0, -65535, 0, 0, -2, 0, 0, -1, 0, 0, 1, 1, 0, 65533, 1, 0, 65537, 1, 0, 131069, 1, 0, -65536, 1, 0, -65535, 1, 0, -2, 1, 0, -1, 1, 0, 1, 2, 0, 65533, 2, 0, 65537, 2, 0, 131069, 2, 0, -65536, 2, 0, -65535, 2, 0, -2, 2, 0, -1, 2, 0, 0, 3, 0, 1, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 65536, 3, 0, 65537, 3, 0, 131069, 3, 0, 131070, 3, 0, 131071, 3, 0, -65536, 3, 0, -65535, 3, 0, -3, 3, 0, -2, 3, 0, -1, 3, 0, 0, 65532, 0, 1, 65532, 0, 65533, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 65536, 65532, 0, 65537, 65532, 0, 131069, 65532, 0, 131070, 65532, 0, 131071, 65532, 0, -65535, 65532, 0, 1, 65533, 0, 65533, 65533, 0, 65537, 65533, 0, 131069, 65533, 0, -65536, 65533, 0, -65535, 65533, 0, -2, 65533, 0, -1, 65533, 0, 1, 65534, 0, 65537, 65534, 0, -65536, 65534, 0, -65535, 65534, 0, -3, 65534, 0, -2, 65534, 0, -1, 65534, 0, 1, 65535, 0, 65533, 65535, 0, 65537, 65535, 0, 131069, 65535, 0, -65536, 65535, 0, -65535, 65535, 0, -2, 65535, 0, -1, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
