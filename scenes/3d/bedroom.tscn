@@ -1,14 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=1]
-[ext_resource path="res://models/placeholders/walls_floor_withholes.fbx" type="PackedScene" id=2]
 [ext_resource path="res://scripts/RoomController.gd" type="Script" id=3]
-[ext_resource path="res://models/placeholders/door.fbx" type="PackedScene" id=4]
-[ext_resource path="res://models/placeholders/bed.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://models/placeholders/shelf.obj" type="ArrayMesh" id=6]
-[ext_resource path="res://models/placeholders/desk.obj" type="ArrayMesh" id=7]
-[ext_resource path="res://scripts/InteractableWarp.gd" type="Script" id=8]
-[ext_resource path="res://scenes/2d/maps/phase_2_map.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=10]
 
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -17,23 +11,8 @@ params_blend_mode = 1
 params_cull_mode = 2
 albedo_color = Color( 0.694118, 0.0431373, 0.0431373, 1 )
 
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 1, 1, 0.457316 )
-
-[sub_resource type="BoxShape" id=8]
-extents = Vector3( 0.637121, 0.834995, 0.422365 )
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 3.21359, 1.21651, 0.0235233 )
-
-[sub_resource type="BoxShape" id=6]
-extents = Vector3( 1.06704, 0.497164, 0.445578 )
-
-[sub_resource type="BoxShape" id=7]
-extents = Vector3( 0.196629, 1, 0.591962 )
-
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.121105, 1, 2.50182 )
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.2, 0.5, 0.2 )
 
 [node name="bedroom" type="ImmediateGeometry"]
 material_override = SubResource( 1 )
@@ -42,101 +21,43 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-offset = Vector2( 1.383, -0.245 )
+pathFollowType = 1
+size = Vector2( 2.141, 1.346 )
 rectHeight = 0.027
 
-[node name="walls_floor_withholes" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0 )
+[node name="room_events" type="Spatial" parent="."]
 
-[node name="window_exit" type="Area" parent="walls_floor_withholes"]
+[node name="to_balcony" type="Area" parent="room_events"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
 collision_layer = 4
-collision_mask = 2
+collision_mask = 0
+monitoring = false
 script = ExtResource( 1 )
 roomName = "balcony"
-addPosition = Vector3( -1, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="walls_floor_withholes/window_exit"]
-transform = Transform( 1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, -1.50526, 0.790344, 0.554362 )
-shape = SubResource( 5 )
+[node name="CollisionShape" type="CollisionShape" parent="room_events/to_balcony"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
+shape = SubResource( 9 )
 
-[node name="hallway" type="Area" parent="walls_floor_withholes"]
-transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0 )
+[node name="to_hallway" type="Area" parent="room_events"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
 collision_layer = 4
-collision_mask = 2
+collision_mask = 0
+monitoring = false
 script = ExtResource( 1 )
 roomName = "hallway"
-enableAxiety = true
 
-[node name="CollisionShape" type="CollisionShape" parent="walls_floor_withholes/hallway"]
-transform = Transform( 0.999999, 0, -7.10543e-14, 0, 1, 0, 7.10543e-14, 0, 0.999999, -2.59909, 0.790344, -3.34185 )
-shape = SubResource( 5 )
+[node name="CollisionShape" type="CollisionShape" parent="room_events/to_hallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
+shape = SubResource( 9 )
 
-[node name="photo_album" type="Area" parent="walls_floor_withholes"]
-transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0 )
-collision_layer = 4
-collision_mask = 2
-script = ExtResource( 8 )
-changeToScene = ExtResource( 9 )
-
-[node name="CollisionShape" type="CollisionShape" parent="walls_floor_withholes/photo_album"]
-transform = Transform( 0.999999, 0, -7.10543e-14, 0, 1, 0, 7.10543e-14, 0, 0.999999, 0.635266, 0.790344, -2.55889 )
-shape = SubResource( 8 )
-
-[node name="door" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
-
-[node name="bed" type="MeshInstance" parent="."]
-transform = Transform( -0.05, 0, -4.37114e-09, 0, 0.05, 0, 4.37114e-09, 0, -0.05, -0.792725, -0.0476459, 0.249963 )
-mesh = ExtResource( 5 )
-material/0 = null
-material/1 = null
-
-[node name="desk" type="MeshInstance" parent="."]
-transform = Transform( -2.18557e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.18557e-09, 2.81783, -0.034959, 0.126539 )
-mesh = ExtResource( 7 )
-material/0 = null
-
-[node name="shelf" type="MeshInstance" parent="."]
-transform = Transform( -0.05, 0, -7.54979e-09, 0, 0.05, 0, 7.54979e-09, 0, -0.05, 3.60345, -0.0228865, -3.02108 )
-mesh = ExtResource( 6 )
-material/0 = null
-
-[node name="shelf2" type="MeshInstance" parent="."]
-transform = Transform( -0.05, 0, -7.54979e-09, 0, 0.05, 0, 7.54979e-09, 0, -0.05, 0.307137, -0.0228865, -3.02108 )
-mesh = ExtResource( 6 )
-material/0 = null
-
-[node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( -4.3712e-08, 0, -1, 0, 1, 0, 1, 0, -4.3712e-08, 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.681409, 0.976856, -3.80772 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape10" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.681409, 0.976856, 1.05469 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.0249349, 0.292122, -3.26096 )
-shape = SubResource( 6 )
-
-[node name="CollisionShape7" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0.150724, 0.0156854, 0.458396 )
-shape = SubResource( 6 )
-
-[node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -3.49524, 0.418877, 0.278955 )
-shape = SubResource( 7 )
-
-[node name="CollisionShape9" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -3.49524, 0.418877, -2.99428 )
-shape = SubResource( 7 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.999998, 0, 2.4869e-14, 0, 1, 0, -2.4869e-14, 0, 0.999998, 2.42376, 0.983059, -1.33284 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.999998, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 0.999998, -3.85486, 0.983059, -1.33284 )
-shape = SubResource( 4 )
+[node name="room_grid" type="GridMap" parent="."]
+mesh_library = ExtResource( 10 )
+cell_size = Vector3( 1, 1, 1 )
+data = {
+"cells": PoolIntArray( 3, 0, 0, 65532, 0, 0, 65539, 0, 0, 131068, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, 3, 1, 0, 65532, 1, 0, 65539, 1, 0, 131068, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 65532, 2, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 131068, 2, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 2, 0, 0, 65532, 0, 2, 65532, 0, 3, 65532, 0, 65532, 65532, 0, 65533, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 65536, 65532, 0, 65538, 65532, 0, 65539, 65532, 0, 131068, 65532, 0, 131069, 65532, 0, 131070, 65532, 0, 131071, 65532, 0, -65536, 65532, 0, -65535, 65532, 0, -65534, 65532, 0, -65533, 65532, 0, -4, 65532, 0, -3, 65532, 0, -2, 65532, 0, -1, 65532, 0, 3, 65533, 0, 65532, 65533, 0, 65539, 65533, 0, 131068, 65533, 0, -65536, 65533, 0, -65535, 65533, 0, -65534, 65533, 0, -65533, 65533, 0, -4, 65533, 0, -3, 65533, 0, -2, 65533, 0, -1, 65533, 0, 3, 65534, 0, 65532, 65534, 0, 65539, 65534, 0, -65536, 65534, 0, -65535, 65534, 0, -65534, 65534, 0, -65533, 65534, 0, -4, 65534, 0, -3, 65534, 0, -2, 65534, 0, -1, 65534, 0, 3, 65535, 0, 65532, 65535, 0, 65539, 65535, 0, -65536, 65535, 0, -65535, 65535, 0, -65534, 65535, 0, -65533, 65535, 0, -4, 65535, 0, -3, 65535, 0, -2, 65535, 0, -1, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}

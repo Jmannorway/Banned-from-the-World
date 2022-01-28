@@ -5,6 +5,6 @@ class_name InteractableWarp
 export var changeToScene: PackedScene
 
 # warning-ignore:unused_argument
-func _event(var player: CharacterController3D) -> void:
+func _interact(var roomManager) -> void:
 # warning-ignore:return_value_discarded
 	get_tree().change_scene_to(changeToScene)
