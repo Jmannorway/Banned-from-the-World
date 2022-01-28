@@ -6,7 +6,7 @@ func _enter_tree():
 	$interactable_hitbox_2d.shape.extents = Vector2(Game.SNAP / 2 - 1, Game.SNAP / 2 - 1)
 
 func step():
-	print("yup")
+	print("Default step function called")
 
 func interact():
-	print("nope")
+	print("Default interact function called")
