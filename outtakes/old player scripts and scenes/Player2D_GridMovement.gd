@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-class_name Player2D
+#class_name Player2D
 
 var move_distance : Vector2
-var grid := 24.0
+var grid : int = Game.SNAP
 var walk_speed := 200.0
 
 func get_input_vector() -> Vector2:
@@ -15,6 +15,10 @@ func get_input_vector() -> Vector2:
 func is_moving() -> bool:
 	return move_distance.x != 0 || move_distance.y != 0
 
+func _process(delta):
+	if Input.is_action_just_pressed("interact"):
+		$interactable_detector.interact_with_facing(position, move_distance.normalized())
+
 #TODO: This sorta simulates a tween (could be simplified using one)
 func _physics_process(delta):
 	var _input_vector = get_input_vector()
@@ -22,6 +26,7 @@ func _physics_process(delta):
 	
 	if _attempting_move && !is_moving() && !move_and_collide(_input_vector * grid, true, true, true):
 		move_distance = _input_vector * grid;
+		$animated_sprite.play_direction(_input_vector)
 	
 	if is_moving():
 		var _movement_speed = walk_speed * delta
@@ -36,3 +41,6 @@ func _physics_process(delta):
 			move_distance -= _movement_distance
 		else:
 			print("what?")
+		
+		if Util.compare_v2(move_distance, 0) && Util.compare_v2(_input_vector, 0):
+			$animated_sprite.idle()

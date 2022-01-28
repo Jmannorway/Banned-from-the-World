@@ -2,13 +2,13 @@ extends Node2D
 
 var maze := RecursiveBacktrack.new()
 export var size := Vector2(480,480)
-export var grid := 24
+export var grid := Game.SNAP
 export var autotile_tile_index := 0
 var bitgrid : Array
 
 func _ready():
 	#generate a maze
-	maze.make_maze(Util.snap_v2(size, grid))
+	maze.make_maze(Util.floor_v2(Util.snap_v2(size, grid) / 2))
 	bitgrid = maze.make_grid()
 	
 	#create an entrance in the maze where the player is

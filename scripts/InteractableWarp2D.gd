@@ -1,10 +1,10 @@
-extends Node2D
+extends Interactable2D
 
-export var map_scene : PackedScene
-export var player_start_index : int
+export var map_name : PackedScene
+export var player_start_index = 0
 
-func warp() -> void:
-	Game.warp_to_map(map_scene, player_start_index)
+func step():
+	pass
 
-func _on_interactable_2d_interacted():
-	warp()
+func interact():
+	MapManager.warp_to_map(map_name, player_start_index)

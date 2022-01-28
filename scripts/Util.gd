@@ -22,3 +22,15 @@ static func absolute_to_relative_position(absolute_node : Node, relative_node : 
 
 static func snap_v2(v : Vector2, grid) -> Vector2:
 	return Vector2(floor(v.x / grid), floor(v.y / grid))
+
+static func floor_v2(v : Vector2) -> Vector2:
+	return Vector2(floor(v.x), floor(v.y))
+
+static func compare_v2(v : Vector2, val : float) -> bool:
+	return v.x == val && v.y == val
+
+static func tern(condition : bool, return_if_true, return_if_false):
+	if condition:
+		return return_if_true
+	else:
+		return return_if_false

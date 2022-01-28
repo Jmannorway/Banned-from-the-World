@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://scripts/Interactable2D.gd" type="Script" id=1]
+[gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 7 )
+extents = Vector2( 11, 11 )
 
 [node name="interactable_2d" type="Area2D"]
-script = ExtResource( 1 )
+collision_layer = 0
+collision_mask = 4
 
-[node name="hitbox" type="CollisionShape2D" parent="."]
+[node name="interactable_hitbox_2d" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

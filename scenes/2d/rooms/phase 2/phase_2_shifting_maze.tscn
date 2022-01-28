@@ -6,3 +6,4 @@
 [node name="room" instance=ExtResource( 1 )]
 
 [node name="maze_2d" parent="." index="0" instance=ExtResource( 2 )]
+size = Vector2( 1200, 960 )

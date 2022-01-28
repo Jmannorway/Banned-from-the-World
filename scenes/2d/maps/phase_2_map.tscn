@@ -12,13 +12,16 @@
 target_group = "player"
 
 [node name="hub" parent="." instance=ExtResource( 4 )]
+room_name = "hub"
 room = ExtResource( 1 )
 loaded = true
 
 [node name="maze" parent="." instance=ExtResource( 4 )]
-position = Vector2( 320, -312 )
+position = Vector2( 360, -336 )
+room_name = "maze"
 room = ExtResource( 2 )
-size = Vector2( 960, 960 )
+loaded = true
+size = Vector2( 1200, 960 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
-position = Vector2( 236, 132 )
+position = Vector2( 60, 60 )

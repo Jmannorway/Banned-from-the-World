@@ -9,15 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "AnimatedSprite",
+"class": "AnimatedCharacterSprite2D",
+"language": "GDScript",
+"path": "res://scripts/Player2D/AnimatedCharacterSprite2D.gd"
+}, {
 "base": "Object",
 "class": "BitGridUtil",
 "language": "GDScript",
-"path": "res://scripts/maze related/BitGridUtil.gd"
+"path": "res://scripts/Maze2D/BitGridUtil.gd"
 }, {
 "base": "Spatial",
 "class": "CameraController",
 "language": "GDScript",
 "path": "res://scripts/CameraController.gd"
+}, {
+"base": "Node2D",
+"class": "Character2D",
+"language": "GDScript",
+"path": "res://scripts/Player2D/Character2D.gd"
 }, {
 "base": "KinematicBody",
 "class": "CharacterController3D",
@@ -34,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Interactable2D.gd"
 }, {
+"base": "Area2D",
+"class": "InteractableDetector2D",
+"language": "GDScript",
+"path": "res://scenes/2d/player/InteractableDetector2D.gd"
+}, {
 "base": "Interactable",
 "class": "InteractableRoom",
 "language": "GDScript",
@@ -47,32 +62,37 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "MapManager2D",
 "language": "GDScript",
-"path": "res://scripts/MapManager2D.gd"
+"path": "res://scripts/Room2D/MapManager2D.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Character2D",
 "class": "Player2D",
 "language": "GDScript",
-"path": "res://scripts/Player2D_GridMovement.gd"
+"path": "res://scripts/Player2D/Player2D.gd"
+}, {
+"base": "Reference",
+"class": "Player2DUtil",
+"language": "GDScript",
+"path": "res://scripts/Player2D/Player2DUtil.gd"
 }, {
 "base": "Object",
 "class": "RecursiveBacktrack",
 "language": "GDScript",
-"path": "res://scripts/maze related/RecursiveBacktrack.gd"
+"path": "res://scripts/Maze2D/RecursiveBacktrack.gd"
 }, {
-"base": "Area2D",
+"base": "Node2D",
 "class": "Room2D",
 "language": "GDScript",
-"path": "res://scripts/Room2D.gd"
+"path": "res://scripts/Room2D/Room2D.gd"
 }, {
 "base": "ImmediateGeometry",
 "class": "Room3D",
 "language": "GDScript",
 "path": "res://scripts/RoomController.gd"
 }, {
-"base": "Node2D",
+"base": "Area2D",
 "class": "RoomLoader2D",
 "language": "GDScript",
-"path": "res://scripts/RoomLoader2D.gd"
+"path": "res://scripts/Room2D/RoomLoader2D.gd"
 }, {
 "base": "Spatial",
 "class": "RoomManager3D",
@@ -85,15 +105,19 @@ _global_script_classes=[ {
 "path": "res://scripts/Util.gd"
 } ]
 _global_script_class_icons={
+"AnimatedCharacterSprite2D": "",
 "BitGridUtil": "",
 "CameraController": "",
+"Character2D": "",
 "CharacterController3D": "",
 "Interactable": "",
 "Interactable2D": "",
+"InteractableDetector2D": "",
 "InteractableRoom": "",
 "InteractableWarp": "",
 "MapManager2D": "",
 "Player2D": "",
+"Player2DUtil": "",
 "RecursiveBacktrack": "",
 "Room2D": "",
 "Room3D": "",
@@ -112,6 +136,8 @@ config/icon="res://icon.png"
 
 Game="*res://scripts/Game.gd"
 RoomMusic="*res://scenes/room_music.tscn"
+MapManager="*res://scenes/2d/map_manager_2d.tscn"
+SolidGrid2D="*res://scenes/2d/solid_grid_2d.tscn"
 
 [display]
 

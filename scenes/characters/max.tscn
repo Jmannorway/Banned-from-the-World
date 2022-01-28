@@ -3,6 +3,7 @@
 [ext_resource path="res://scripts/CharacterController3D.gd" type="Script" id=1]
 [ext_resource path="res://models/placeholders/Max.tscn" type="PackedScene" id=2]
 
+
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.233021
 height = 0.706397
