@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/SolidGrid2D/WorldGrid2D.gd" type="Script" id=1]
+[ext_resource path="res://tiles/blocks/blocking_tilemap_24.tscn" type="PackedScene" id=2]
+
+[node name="world_grid_2d" instance=ExtResource( 2 )]
+script = ExtResource( 1 )

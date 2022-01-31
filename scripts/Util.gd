@@ -10,6 +10,14 @@ static func make_array_2d(w : int, h : int, val = 0) -> Array:
 			_arr[x][y] = val
 	return _arr
 
+static func get_filename_from_path(path : String) -> String:
+	var _last_slash = path.find_last("/")
+	var _dot = path.find_last(".")
+	if _last_slash != -1 && _dot != -1:
+		return path.substr(_last_slash + 1, _dot - _last_slash - 1)
+	else:
+		return ""
+
 static func get_first_node_in_group(tree : SceneTree, group_name : String):
 	var group = tree.get_nodes_in_group(group_name)
 	if group.size() > 0:

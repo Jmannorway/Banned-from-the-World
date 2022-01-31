@@ -19,5 +19,5 @@ func move(dir : Vector2) -> void:
 
 func check_solid_relative(dir : Vector2) -> bool:
 	var _check_position = global_position + dir * Game.SNAP
-	var _cell = SolidGrid.get_cellv(SolidGrid.world_to_map(_check_position))
+	var _cell = WorldGrid.get_cellv(WorldGrid.world_to_map(_check_position))
 	return Util.tern(_cell == TileMap.INVALID_CELL, false, true)

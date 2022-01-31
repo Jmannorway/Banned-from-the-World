@@ -1,10 +1,13 @@
 extends Interactable2D
 
-export var map_name : PackedScene
+export(String, FILE, "*.tscn") var map_path
 export var player_start_index = 0
+export var on_step := false
 
 func step():
-	pass
+	if on_step:
+		MapManager.warp_to_map_by_path(map_path, player_start_index)
 
 func interact():
-	MapManager.warp_to_map(map_name, player_start_index)
+	if !on_step:
+		MapManager.warp_to_map_by_path(map_path, player_start_index)
