@@ -143,6 +143,7 @@ config/icon="res://icon.png"
 Game="*res://scripts/Game.gd"
 MapManager="*res://scenes/2d/maps/map_manager_2d.tscn"
 SolidGrid="*res://scenes/2d/solid_grid_2d.tscn"
+Statistics="*res://scripts/GameStatistics.gd"
 
 [display]
 
