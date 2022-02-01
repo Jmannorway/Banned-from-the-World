@@ -4,6 +4,8 @@ class_name InteractableDetector2D
 
 var interactables : Array
 
+# TODO: Make it so that 'facing' something isn't dependent on dot == -1
+# This will make it more convenient to create doors spanning multiple squares
 func interact_with_facing(pos : Vector2, facing : Vector2):
 	facing = facing.normalized()
 	for i in interactables:

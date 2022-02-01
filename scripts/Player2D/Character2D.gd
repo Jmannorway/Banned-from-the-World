@@ -2,8 +2,11 @@ extends Node2D
 
 class_name Character2D
 
-var move_cooldown_length := 0.4
+var move_cooldown_length := 0.5
 var move_cooldown_timer := Timer.new()
+
+func set_move_speed(squares_per_second) -> void:
+	move_cooldown_length = 1 / squares_per_second
 
 func _ready():
 	add_child(move_cooldown_timer)

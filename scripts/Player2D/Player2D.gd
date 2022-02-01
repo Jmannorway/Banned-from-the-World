@@ -2,7 +2,10 @@ extends Character2D
 
 class_name Player2D
 
-signal move_finished
+var walk_speed := 2.0
+var run_speed := 4.0
+
+signal move_finished(pos)
 
 var facing : Vector2
 
@@ -28,6 +31,11 @@ func move_animated(dir : Vector2) -> void:
 	$animated_character_sprite_2d.play_direction(dir, move_cooldown_length)
 
 func _process(delta):
+	if Input.is_action_pressed("run"):
+		set_move_speed(run_speed)
+	else:
+		set_move_speed(walk_speed)
+	
 	var _movement_vector = make_input_vector_4way(get_input_vector())
 	
 	if is_movable():
@@ -47,4 +55,4 @@ func _on_MoveCooldownTimer_timeout():
 		$animated_character_sprite_2d.idle()
 
 func _on_animated_character_sprite_2d_move_animation_finished():
-	emit_signal("move_finished")
+	emit_signal("move_finished", position)

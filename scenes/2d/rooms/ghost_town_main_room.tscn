@@ -44,17 +44,18 @@ tile_data = PoolIntArray( 65537, 5, 0, 65541, 2, 0, 65544, 0, 0, 65545, 6, 0, 65
 [node name="ghost" type="AnimatedSprite" parent="entities"]
 position = Vector2( 132, 120 )
 frames = ExtResource( 3 )
+frame = 1
 playing = true
 
 [node name="ghost2" type="AnimatedSprite" parent="entities"]
 position = Vector2( 420, 216 )
 frames = ExtResource( 3 )
-frame = 1
 playing = true
 
 [node name="ghost3" type="AnimatedSprite" parent="entities"]
 position = Vector2( 120, 252 )
 frames = ExtResource( 3 )
+frame = 1
 playing = true
 
 [node name="solid_grid_2d" parent="." instance=ExtResource( 1 )]

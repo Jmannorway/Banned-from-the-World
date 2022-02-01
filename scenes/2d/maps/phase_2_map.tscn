@@ -15,6 +15,7 @@ target_group = "player"
 room_name = "hub"
 room = ExtResource( 1 )
 loaded = true
+size = Vector2( 320, 320 )
 
 [node name="maze" parent="." instance=ExtResource( 4 )]
 position = Vector2( 360, -336 )

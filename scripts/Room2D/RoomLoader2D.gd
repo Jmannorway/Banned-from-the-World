@@ -10,7 +10,7 @@ class_name RoomLoader2D
 export var room_name : String
 export var room : PackedScene
 export var loaded := false setget set_loaded
-export var size := Vector2(320, 320) setget set_size
+export var size := Vector2(480, 360) setget set_size
 var detection_margin := 16.0
 var room_instance : Node
 
