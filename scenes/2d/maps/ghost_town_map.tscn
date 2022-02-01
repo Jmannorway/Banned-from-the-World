@@ -1,0 +1,3 @@
+[gd_scene format=2]
+
+[node name="ghost_town_map" type="Node2D"]
