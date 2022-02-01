@@ -135,7 +135,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Banned from the World"
-run/main_scene="res://scenes/2d/maps/phase_2_map.tscn"
+run/main_scene="res://scenes/2d/maps/ghost_town_map.tscn"
 config/icon="res://icon.png"
 
 [autoload]

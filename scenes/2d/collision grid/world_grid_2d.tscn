@@ -4,4 +4,5 @@
 [ext_resource path="res://tiles/blocks/blocking_tilemap_24.tscn" type="PackedScene" id=2]
 
 [node name="world_grid_2d" instance=ExtResource( 2 )]
+visible = false
 script = ExtResource( 1 )

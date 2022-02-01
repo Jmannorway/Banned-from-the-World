@@ -1,8 +1,8 @@
 extends Camera2D
 
 export var target_group := Player2DUtil.PLAYER_GROUP_NAME
+export var target_is_character := true
 var target : Node2D
-var target_is_character := true
 
 func _process(delta):
 	if is_instance_valid(target):

@@ -10,6 +10,7 @@ const INVALID_PLAYER_START_INDEX := -1
 var player_start_index := 0
 
 var room_loaders : Dictionary
+var current_room_name : String
 const MAP_DIRECTORY = "res://scenes/2d/maps/"
 const ROOM_LOADER_GROUP_NAME = "room_loaders"
 
@@ -21,6 +22,8 @@ func _ready():
 		current_map_instance = get_tree().current_scene
 	
 	collect_rooms()
+
+# MAP FUNCTIONS START HERE
 
 func warp_to_map(map_scene : PackedScene, psi = 0) -> void:
 	player_start_index = psi
@@ -37,31 +40,8 @@ func warp_to_map_by_path(map_path : String, psi = 0) -> void:
 	call_deferred("change_map_by_path", map_path)
 	emit_signal("changing_map")
 
-func load_room(room_loader_name : String) -> void:
-	if room_loaders.has(room_loader_name):
-		room_loaders[room_loader_name].set_loaded(true)
-	else:
-		print("MapManager2D: Doesn't have room named '" + room_loader_name + "'")
-
-func unload_room(room_loader_name : String) -> void:
-	if room_loaders.has(room_loader_name):
-		room_loaders[room_loader_name].set_loaded(false)
-
-func collect_rooms() -> void:
-	room_loaders.clear()
-	var room_group = get_tree().get_nodes_in_group(ROOM_LOADER_GROUP_NAME)
-	for r in room_group:
-		room_loaders[r.room_name] = r
-		connect("loaded", r, "_on_RoomLoader_Loaded")
-
-func _on_RoomLoader_Loaded():
-	print("yeah")
-
 func reset_player_start_index() -> void:
 	player_start_index = INVALID_PLAYER_START_INDEX
-
-func get_room_loader_by_name(room_name : String) -> RoomLoader2D:
-	return room_loaders[room_name]
 
 func change_map(map_scene : PackedScene) -> void:
 	if current_map_instance:
@@ -94,3 +74,38 @@ func change_map_by_path(map_path : String) -> void:
 		call_deferred("change_map", _map)
 	else:
 		print("MapManager2D: Invalid map path, couldn't load from: ", map_path)
+
+
+# ROOM FUNCTIONS START HERE
+
+func get_room_by_name(room_name : String) -> RoomLoader2D:
+	return room_loaders.get(room_name)
+
+func room_is_loaded(room_name : String) -> bool:
+	return room_loaders.has(room_name)
+
+func room_is_current(room_name : String) -> bool:
+	return room_name == current_room_name
+
+func load_room(room_name : String) -> void:
+	if room_loaders.has(room_name):
+		current_room_name = room_name
+		room_loaders[room_name].call_deferred("set_loaded", true)
+	else:
+		print("MapManager2D: Current map doesn't contain a registered room called '", room_name, "'")
+
+func unload_room(room_name : String) -> void:
+	if room_loaders.has(room_name):
+		room_loaders[room_name].call_deferred("set_loaded", false)
+	else:
+		print("MapManager2D: Current map doesn't contain a registered room called '", room_name, "'")
+
+func change_room(room_name : String) -> void:
+	unload_room(current_room_name)
+	load_room(room_name)
+
+func collect_rooms() -> void:
+	room_loaders.clear()
+	var room_group = get_tree().get_nodes_in_group(ROOM_LOADER_GROUP_NAME)
+	for r in room_group:
+		room_loaders[r.room_name] = r

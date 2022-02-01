@@ -10,5 +10,6 @@ func paint_to_world_grid() -> void:
 			WorldGrid.set_cell(x + offset.x, y + offset.y, get_cell(x, y))
 
 func _ready():
+	visible = false
 	if add_on_ready:
 		paint_to_world_grid()
