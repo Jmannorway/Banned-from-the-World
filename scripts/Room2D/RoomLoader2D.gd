@@ -14,19 +14,17 @@ export var size := Vector2(480, 360) setget set_size
 var detection_margin := 16.0
 var room_instance : Node
 
-signal loaded
-signal unloaded
+func get_global_middle() -> Vector2:
+	return global_position + size / 2.0
 
 func load_room() -> void:
 	room_instance = room.instance()
 	add_child(room_instance)
-	emit_signal("loaded")
 
 func unload_room() -> void:
 	if room_instance:
 		room_instance.queue_free()
 		room_instance = null
-		emit_signal("unloaded")
 
 func is_loaded() -> bool:
 	return is_instance_valid(room_instance)
@@ -49,13 +47,8 @@ func _draw():
 func _enter_tree():
 	if room_name.empty():
 		room_name = name
+	MapManager.get_room_manager().register_room(self)
 
 func _ready():
 	$bounds.position = size / 2
 	$bounds.shape.extents = size / 2 + Vector2.ONE * detection_margin
-
-#func _on_room_loader_2d_body_entered(body : Player2D):
-#	call_deferred("set_loaded", true)
-#
-#func _on_room_loader_2d_body_exited(body : Player2D):
-#	call_deferred("set_loaded", false)

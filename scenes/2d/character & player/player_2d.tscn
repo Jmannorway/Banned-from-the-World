@@ -11,6 +11,5 @@ script = ExtResource( 1 )
 position = Vector2( 0, -8 )
 
 [node name="interactable_detector_2d" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [connection signal="move_animation_finished" from="animated_character_sprite_2d" to="." method="_on_animated_character_sprite_2d_move_animation_finished"]

@@ -1,8 +1,9 @@
 extends Sprite
 
 export var index := 0
+export(String) var room_name
 
-func _enter_tree():
+func _ready():
 	visible = false
 	
 	if MapManager.player_start_index == index:
@@ -14,3 +15,6 @@ func _enter_tree():
 		
 		_player.position = position
 		MapManager.reset_player_start_index()
+		
+		if !room_name.empty():
+			MapManager.get_room_manager().focus_room(room_name)

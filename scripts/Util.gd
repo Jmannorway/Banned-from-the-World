@@ -34,11 +34,21 @@ static func snap_v2(v : Vector2, grid) -> Vector2:
 static func floor_v2(v : Vector2) -> Vector2:
 	return Vector2(floor(v.x), floor(v.y))
 
+static func clamp_v2(v : Vector2, mn : Vector2, mx : Vector2) -> Vector2:
+	return Vector2(clamp(v.x, mn.x, mx.x), clamp(v.y, mn.y, mx.y))
+
 static func compare_v2(v : Vector2, val : float) -> bool:
 	return v.x == val && v.y == val
 
+static func min_v2(a : Vector2, b : Vector2) -> Vector2:
+	return Vector2(min(a.x, b.x), min(a.y, b.y))
+
+static func max_v2(a : Vector2, b : Vector2) -> Vector2:
+	return Vector2(max(a.x, b.x), max(a.y, b.y))
+
 static func tern(condition : bool, return_if_true, return_if_false):
-	if condition:
-		return return_if_true
-	else:
-		return return_if_false
+	return return_if_true if condition else return_if_false
+#	if condition:
+#		return return_if_true
+#	else:
+#		return return_if_false

@@ -20,7 +20,6 @@ func _ready():
 func get_room_manager() -> RoomManager2D:
 	return $room_manager_2d as RoomManager2D
 
-# MAP FUNCTIONS START HERE
 func warp_to_map(map_scene : PackedScene, psi = 0) -> void:
 	player_start_index = psi
 	call_deferred("change_map", map_scene)
