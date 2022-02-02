@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/2d/rooms/ghost_town_side_room.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/2d/functional/interactable_room_changer_2d.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/2d/rooms/ghost_town_top_room.tscn" type="PackedScene" id=7]
 
 [node name="ghost_town_map" type="Node2D"]

@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Room2D/RoomLoader2D.gd"
 }, {
+"base": "Node2D",
+"class": "RoomManager2D",
+"language": "GDScript",
+"path": "res://scripts/Room2D/RoomManager2D.gd"
+}, {
 "base": "Spatial",
 "class": "RoomManager3D",
 "language": "GDScript",
@@ -128,6 +133,7 @@ _global_script_class_icons={
 "Room2D": "",
 "Room3D": "",
 "RoomLoader2D": "",
+"RoomManager2D": "",
 "RoomManager3D": "",
 "Util": ""
 }
@@ -141,7 +147,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Game="*res://scripts/Game.gd"
-MapManager="*res://scenes/2d/maps/map_manager_2d.tscn"
+MapManager="*res://scenes/2d/map_manager_2d.tscn"
 Statistics="*res://scripts/GameStatistics.gd"
 WorldGrid="*res://scenes/2d/collision grid/world_grid_2d.tscn"
 

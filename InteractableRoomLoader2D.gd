@@ -7,7 +7,7 @@ export(bool) var teleport_relative
 export(Vector2) var teleport_coords
 
 func goto():
-	MapManager.change_room(room_name)
+	MapManager.get_room_manager().change_room(room_name)
 	var _player = Util.get_first_node_in_group(get_tree(), Player2DUtil.PLAYER_GROUP_NAME)
 	if teleport && _player:
 		if teleport_relative:
@@ -16,9 +16,9 @@ func goto():
 			_player.position = teleport_coords
 
 func step():
-	if on_step && !MapManager.room_is_current(room_name):
+	if on_step && !MapManager.get_room_manager().room_is_current(room_name):
 		goto()
 
 func interact():
-	if !on_step && !MapManager.room_is_current(room_name):
+	if !on_step && !MapManager.get_room_manager().room_is_current(room_name):
 		goto()
