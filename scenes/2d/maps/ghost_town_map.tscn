@@ -13,20 +13,20 @@
 [node name="main" parent="." instance=ExtResource( 2 )]
 room_name = "main"
 room = ExtResource( 1 )
+preview = true
 
 [node name="side" parent="." instance=ExtResource( 2 )]
 position = Vector2( 480, 0 )
 room_name = "side"
 room = ExtResource( 5 )
-loaded = true
+preview = true
 size = Vector2( 624, 456 )
 
 [node name="top" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -360 )
 room_name = "top"
 room = ExtResource( 7 )
-
-[node name="camera" parent="." instance=ExtResource( 3 )]
+preview = true
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
 position = Vector2( 372, 252 )
@@ -70,3 +70,8 @@ room_name = "top"
 position = Vector2( 228, 12 )
 scale = Vector2( 20.48, 1 )
 room_name = "main"
+
+[node name="main_main_camera_2d" parent="." instance=ExtResource( 3 )]
+target_group = "player"
+target_is_character = true
+smoothing_enabled = true

@@ -6,8 +6,12 @@ export(bool) var teleport
 export(bool) var teleport_relative
 export(Vector2) var teleport_coords
 
+onready var group_name : String = get_groups()[0]
+var previous_room_name : String
+const TRANSITION_LENGTH_MAX := 2.0
+
 func goto():
-	MapManager.get_room_manager().change_room(room_name)
+	MapManager.get_room_manager().smooth_transition_to_room(room_name)
 	var _player = Util.get_first_node_in_group(get_tree(), Player2DUtil.PLAYER_GROUP_NAME)
 	if teleport && _player:
 		if teleport_relative:
