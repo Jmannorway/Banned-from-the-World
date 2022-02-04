@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tiles/sound_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/SolidGrid2D/SoundGrid2D.gd" type="Script" id=2]
+[ext_resource path="res://sounds/sounds/walk1.wav" type="AudioStream" id=3]
+
+[node name="sound_grid_2d" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 24, 24 )
+format = 1
+script = ExtResource( 2 )
+default_sound = ExtResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

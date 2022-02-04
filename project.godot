@@ -84,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Maze2D/RecursiveBacktrack.gd"
 }, {
+"base": "TileMap",
+"class": "ResourceGridBase2D",
+"language": "GDScript",
+"path": "res://scripts/SolidGrid2D/ResourceGridBase2D.gd"
+}, {
 "base": "Node2D",
 "class": "Room2D",
 "language": "GDScript",
@@ -130,6 +135,7 @@ _global_script_class_icons={
 "Player2D": "",
 "Player2DUtil": "",
 "RecursiveBacktrack": "",
+"ResourceGridBase2D": "",
 "Room2D": "",
 "Room3D": "",
 "RoomLoader2D": "",

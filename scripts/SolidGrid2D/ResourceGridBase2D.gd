@@ -1,5 +1,7 @@
 extends TileMap
 
+class_name ResourceGridBase2D
+
 export var add_on_ready := true
 
 func paint_to_world_grid() -> void:
