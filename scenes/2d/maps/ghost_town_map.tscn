@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/2d/rooms/ghost_town_main_room.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/2d/rooms/ghost_town_side_room.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/2d/rooms/ghost_town_top_room.tscn" type="PackedScene" id=7]
+
+[node name="ghost_town_map" type="Node2D"]
+
+[node name="room_loader_2d" parent="." instance=ExtResource( 2 )]
+room_name = "main"
+room = ExtResource( 1 )
+loaded = true
+
+[node name="room_loader_2d2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 480, 0 )
+room_name = "side"
+room = ExtResource( 5 )
+
+[node name="room_loader_2d3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -360 )
+room_name = "top"
+room = ExtResource( 7 )
+
+[node name="camera" parent="." instance=ExtResource( 3 )]
+
+[node name="player_start" parent="." instance=ExtResource( 4 )]
+position = Vector2( 372, 252 )
+
+[node name="player_start2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 372, 180 )
+index = 1
+
+[node name="goto_side_from_main" parent="." instance=ExtResource( 6 )]
+position = Vector2( 492, 204 )
+room_name = "side"
+
+[node name="goto_main_from_side" parent="." instance=ExtResource( 6 )]
+position = Vector2( 468, 204 )
+room_name = "main"
+
+[node name="teleport_from_main_to_top" parent="." instance=ExtResource( 6 )]
+position = Vector2( 252, 276 )
+room_name = "top"
+on_step = false
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 0, -480 )
+
+[node name="teleport_from_top_to_main" parent="." instance=ExtResource( 6 )]
+position = Vector2( 252, -204 )
+room_name = "main"
+on_step = false
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 0, 480 )
+
+[node name="goto_top_from_main" parent="." instance=ExtResource( 6 )]
+position = Vector2( 228, -12 )
+scale = Vector2( 20.48, 1 )
+room_name = "top"
+
+[node name="goto_main_from_top" parent="." instance=ExtResource( 6 )]
+position = Vector2( 228, 12 )
+scale = Vector2( 20.48, 1 )
+room_name = "main"

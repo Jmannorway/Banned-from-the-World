@@ -1,14 +1,14 @@
 extends Camera2D
 
-export var target_group : String
+export var target_group := Player2DUtil.PLAYER_GROUP_NAME
+export var target_is_character := true
 var target : Node2D
 
 func _process(delta):
 	if is_instance_valid(target):
-		offset = target.position
-	else:
-		var _group = get_tree().get_nodes_in_group(target_group)
-		if _group.size() > 0:
-			target = _group[0]
+		if target_is_character:
+			offset = target.get_animated_position()
 		else:
-			target = null
+			offset = target.position
+	else:
+		target = Util.get_first_node_in_group(get_tree(), target_group)

@@ -1,14 +1,12 @@
 extends Node
 
-var player_start_index := 0
-var player_2d := load("res://scenes/2d/player/player_2d.tscn")
+const SNAP := 24
+const DEBUG := true
 
-func warp_to_map(map : PackedScene, psi : int = 0) -> void:
-	get_tree().change_scene_to(map)
-	player_start_index = psi
+func _ready():
+	VisualServer.set_default_clear_color(Color.black)
 
-func instance_player_2d() -> Player2D:
-	if player_2d:
-		return player_2d.instance()
-	else:
-		return null
+func create_player() -> Player2D:
+	var _player = Player2DUtil.instance_player_2d()
+	get_viewport().call_deferred("add_child", _player)
+	return _player

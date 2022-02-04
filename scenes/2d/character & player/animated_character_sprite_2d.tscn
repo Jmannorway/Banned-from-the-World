@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://animations/animated_character_max.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/Player2D/AnimatedCharacterSprite2D.gd" type="Script" id=2]
+
+[node name="animated_character_sprite_2d" type="AnimatedSprite"]
+frames = ExtResource( 1 )
+animation = "down"
+script = ExtResource( 2 )
+
+[node name="move_animation_tween" type="Tween" parent="."]

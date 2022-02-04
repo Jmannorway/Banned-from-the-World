@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/2d/rooms/test/test_room.tscn" type="PackedScene" id=2]
+
+[node name="test_map" type="Node2D"]
+
+[node name="room_loader_2d" parent="." instance=ExtResource( 1 )]
+room = ExtResource( 2 )
+loaded = true
