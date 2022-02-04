@@ -21,10 +21,10 @@ func move(dir : Vector2) -> void:
 	var _move_distance = dir * Game.SNAP
 	
 	if isSolid:
-		WorldGrid.move_solid(position, _move_distance)
+		WorldGrid.solid_grid.move_solid(position, _move_distance)
 	
 	position += _move_distance
 	move_cooldown_timer.start(move_cooldown_length)
 
 func check_solid_relative(dir : Vector2) -> bool:
-	return WorldGrid.get_solid_cell(global_position + dir * Game.SNAP) != TileMap.INVALID_CELL
+	return WorldGrid.solid_grid.get_cell_at_pixel(global_position + dir * Game.SNAP) == 0

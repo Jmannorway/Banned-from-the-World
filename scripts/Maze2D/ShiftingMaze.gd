@@ -22,8 +22,9 @@ func _ready():
 	
 	# set tiles
 	BitGridUtil.autotile_47_bitgrid_wrap(bitgrid, $tiles, autotile_tile_index)
-	BitGridUtil.autotile_1_bitgrid(bitgrid, $blocking_tilemap_24, 0)
+	BitGridUtil.autotile_1_bitgrid(bitgrid, $solid_grid_2d, 0)
 	for x in bitgrid.size():
 		for y in bitgrid[x].size():
 			$floor_tiles.set_cell(x, y, 0)
 	
+	$solid_grid_2d.paint_to_world_grid()

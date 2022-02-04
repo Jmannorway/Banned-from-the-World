@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://tiles/sound_tiles.png" type="Texture" id=1]
+[ext_resource path="res://tiles/blocks/sound_tiles.png" type="Texture" id=1]
 
 [resource]
 0/name = "sound_tiles.png 0"

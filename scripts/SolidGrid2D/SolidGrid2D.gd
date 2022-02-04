@@ -1,34 +1,16 @@
-extends TileMap
+extends ResourceGrid2D
 
-export var add_on_ready := true
-export (int, "Solid", "Navigation", "Audio") var drawToWhatGrid: int 
+class_name SolidGrid2D
 
-func paint_to_world_grid() -> void:
-	call_on_used_rect("_add_cell_to_world_grid")
+func _add_cell_to_world_grid(x : int, y : int, world_x : int, world_y : int):
+	WorldGrid.solid_grid.set_cell(world_x, world_y, get_cell(x, y))
 
-func erase_from_world_grid() -> void:
-	call_on_used_rect("_clear_cell_in_world_grid")
+func _clear_cell_in_world_grid(x : int, y : int, world_x : int, world_y : int):
+	WorldGrid.solid_grid.set_cell(world_x, world_y, INVALID_CELL)
 
-func call_on_used_rect(function_name : String) -> void:
-	var area = get_used_rect()
-	var offset = Util.floor_v2(global_position / Game.SNAP)
+func move_solid(var fromPosition: Vector2, var moveDirection: Vector2) -> void:
+	var _gridFromPos: Vector2 = world_to_map(fromPosition)
+	var _gridMovePos: Vector2 = world_to_map(fromPosition + moveDirection)
 	
-	for x in range(area.position.x, area.end.x):
-		for y in range(area.position.y, area.end.y):
-			call(function_name, x, y, offset)
-
-func _ready():
-	visible = false
-	if add_on_ready:
-		paint_to_world_grid()
-
-func _add_cell_to_world_grid(x : int, y : int, offset : Vector2):
-	var _tileID: int = get_cell(x, y)
-	
-	if _tileID == 0:
-		WorldGrid.set_solid_cell(x + offset.x, y + offset.y, _tileID)
-	elif _tileID == 1:
-		WorldGrid.set_navigation_cell(x + offset.x, y + offset.y, _tileID)
-
-func _clear_cell_in_world_grid(x : int, y : int, offset : Vector2):
-	WorldGrid.set_solid_cell(x + offset.x, y + offset.y, INVALID_CELL)
+	set_cellv(_gridFromPos, TileMap.INVALID_CELL)
+	set_cellv(_gridMovePos, 0)

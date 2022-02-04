@@ -1,8 +1,11 @@
 extends TileMap
 
-class_name ResourceGridBase2D
+class_name ResourceGrid2D
 
 export var add_on_ready := true
+
+func update_snap() -> void:
+	cell_size = Vector2(Game.SNAP, Game.SNAP)
 
 func paint_to_world_grid() -> void:
 	call_on_used_rect("_add_cell_to_world_grid")
@@ -16,15 +19,19 @@ func call_on_used_rect(function_name : String) -> void:
 	
 	for x in range(area.position.x, area.end.x):
 		for y in range(area.position.y, area.end.y):
-			call(function_name, x, y, offset)
+			call(function_name, x, y, x + offset.x, y + offset.y)
 
 func _ready():
 	visible = false
+	update_snap()
 	if add_on_ready:
 		paint_to_world_grid()
 
-func _add_cell_to_world_grid(x : int, y : int, offset : Vector2):
-	WorldGrid.set_cell(x + offset.x, y + offset.y, get_cell(x, y))
+func get_cell_at_pixel(pos : Vector2) -> int:
+	return get_cellv(world_to_map(pos))
 
-func _clear_cell_in_world_grid(x : int, y : int, offset : Vector2):
-	WorldGrid.set_cell(x + offset.x, y + offset.y, INVALID_CELL)
+func _add_cell_to_world_grid(x : int, y : int, world_x : int, world_y : int):
+	pass # override this and add cell to the correct child of world grid
+
+func _clear_cell_in_world_grid(x : int, y : int, world_x : int, world_y : int):
+	pass # override this and clear cell in the correct child of world grid

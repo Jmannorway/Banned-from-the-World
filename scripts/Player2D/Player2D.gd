@@ -23,11 +23,12 @@ func get_animated_position() -> Vector2:
 func make_input_vector_4way(iv : Vector2) -> Vector2:
 	return Vector2(
 		iv.x,
-		iv.y * (iv.x == 0) as int
-	)
+		iv.y * (iv.x == 0) as int)
 
 func move_animated(dir : Vector2) -> void:
 	move(dir)
+	var _new_position = position / Game.SNAP
+	WorldGrid.sound_grid.play_cell_sound(_new_position.x, _new_position.y)
 	$animated_character_sprite_2d.play_direction(dir, move_cooldown_length)
 
 func _process(delta):

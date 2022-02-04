@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://tiles/blocks/blocking_tileset_24.tres" type="TileSet" id=1]
-
-[node name="blocking_tilemap_24" type="TileMap"]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 24, 24 )
-format = 1

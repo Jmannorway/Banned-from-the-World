@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://tiles/blocks/blocking_tileset_24.tres" type="TileSet" id=1]
+[ext_resource path="res://tiles/blocks/blocking_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/SolidGrid2D/SolidGrid2D.gd" type="Script" id=2]
 
-[node name="solid_grid_2d" type="TileMap" groups=["solid_grid"]]
+[node name="solid_grid_2d" type="TileMap"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 24, 24 )
 format = 1

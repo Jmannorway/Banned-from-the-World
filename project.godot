@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Room2D/MapManager2D.gd"
 }, {
+"base": "ResourceGrid2D",
+"class": "NavigationGrid2D",
+"language": "GDScript",
+"path": "res://scripts/SolidGrid2D/NavigationGrid2D.gd"
+}, {
 "base": "Character2D",
 "class": "Player2D",
 "language": "GDScript",
@@ -85,7 +90,7 @@ _global_script_classes=[ {
 "path": "res://scripts/Maze2D/RecursiveBacktrack.gd"
 }, {
 "base": "TileMap",
-"class": "ResourceGridBase2D",
+"class": "ResourceGrid2D",
 "language": "GDScript",
 "path": "res://scripts/SolidGrid2D/ResourceGridBase2D.gd"
 }, {
@@ -114,6 +119,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/RoomManager.gd"
 }, {
+"base": "ResourceGrid2D",
+"class": "SolidGrid2D",
+"language": "GDScript",
+"path": "res://scripts/SolidGrid2D/SolidGrid2D.gd"
+}, {
+"base": "ResourceGrid2D",
+"class": "SoundGrid2D",
+"language": "GDScript",
+"path": "res://scripts/SolidGrid2D/SoundGrid2D.gd"
+}, {
 "base": "Reference",
 "class": "Util",
 "language": "GDScript",
@@ -132,22 +147,25 @@ _global_script_class_icons={
 "InteractableRoom": "",
 "InteractableWarp": "",
 "MapManager2D": "",
+"NavigationGrid2D": "",
 "Player2D": "",
 "Player2DUtil": "",
 "RecursiveBacktrack": "",
-"ResourceGridBase2D": "",
+"ResourceGrid2D": "",
 "Room2D": "",
 "Room3D": "",
 "RoomLoader2D": "",
 "RoomManager2D": "",
 "RoomManager3D": "",
+"SolidGrid2D": "",
+"SoundGrid2D": "",
 "Util": ""
 }
 
 [application]
 
 config/name="Banned from the World"
-run/main_scene="res://scenes/3d/real_world.tscn"
+run/main_scene="res://scenes/2d/maps/ghost_town_map.tscn"
 config/icon="res://icon.png"
 
 [autoload]
