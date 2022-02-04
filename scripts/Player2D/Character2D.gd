@@ -20,13 +20,11 @@ func is_movable() -> bool:
 func move(dir : Vector2) -> void:
 	var _move_distance = dir * Game.SNAP
 	
-#	if isSolid:
-#		WorldGrid.set_character_move_solid(_move_distance, position)
+	if isSolid:
+		WorldGrid.move_solid(position, _move_distance)
 	
 	position += _move_distance
 	move_cooldown_timer.start(move_cooldown_length)
 
 func check_solid_relative(dir : Vector2) -> bool:
-	var _check_position = global_position + dir * Game.SNAP
-	var _cell = WorldGrid.get_cellv(WorldGrid.world_to_map(_check_position))
-	return Util.tern(_cell == TileMap.INVALID_CELL, false, true)
+	return WorldGrid.get_solid_cell(global_position + dir * Game.SNAP) != TileMap.INVALID_CELL

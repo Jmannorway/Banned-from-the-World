@@ -9,27 +9,22 @@ class_name RoomLoader2D
 
 export var room_name : String
 export var room : PackedScene
-export var loaded := false setget set_loaded
-export var size := Vector2(480, 360) setget set_size
-var detection_margin := 16.0
 var room_instance : Node
 
-signal loaded
-signal unloaded
+export var preview := false setget set_preview
+export var size := Vector2(480, 360) setget set_size
+var loaded := false setget set_loaded
 
-func load_room() -> void:
-	room_instance = room.instance()
-	add_child(room_instance)
-	emit_signal("loaded")
+func set_preview(val) -> void:
+	if Engine.editor_hint:
+		set_loaded(val)
+		preview = loaded
 
-func unload_room() -> void:
-	if room_instance:
-		room_instance.queue_free()
-		room_instance = null
-		emit_signal("unloaded")
+func get_global_middle() -> Vector2:
+	return global_position + size / 2.0
 
 func is_loaded() -> bool:
-	return is_instance_valid(room_instance)
+	return loaded
 
 func set_size(val : Vector2) -> void:
 	size = val
@@ -37,25 +32,31 @@ func set_size(val : Vector2) -> void:
 
 func set_loaded(val : bool) -> void:
 	if val && !loaded:
-		load_room()
+		_load_room()
 	elif !val && loaded:
-		unload_room()
+		_unload_room()
 	loaded = val
 
 func _draw():
 	if Engine.editor_hint:
-		draw_rect(Rect2(Vector2.ZERO, size), Color.white, false)
+		draw_rect(Rect2(Vector2.ZERO, size), Color.white, false, 2.0)
 
 func _enter_tree():
 	if room_name.empty():
 		room_name = name
+	if !Engine.editor_hint:
+		MapManager.get_room_manager().register_room(self)
 
 func _ready():
 	$bounds.position = size / 2
-	$bounds.shape.extents = size / 2 + Vector2.ONE * detection_margin
+	$bounds.shape.extents = size / 2
 
-#func _on_room_loader_2d_body_entered(body : Player2D):
-#	call_deferred("set_loaded", true)
-#
-#func _on_room_loader_2d_body_exited(body : Player2D):
-#	call_deferred("set_loaded", false)
+# INTERNAL FUNCTIONS
+func _load_room():
+	room_instance = room.instance()
+	add_child(room_instance)
+
+func _unload_room():
+	if is_instance_valid(room_instance):
+		room_instance.queue_free()
+	room_instance = null
