@@ -48,7 +48,7 @@ func change_map(map_scene : PackedScene) -> void:
 	if current_map:
 		current_map_instance = current_map.instance()
 		add_child(current_map_instance)
-		emit_signal("map_changed")
+		emit_signal("map_changed", current_map_name)
 	else:
 		current_map_instance = null
 		print("MapManager2D: Invalid map scene couldn't instance")
@@ -65,6 +65,6 @@ func change_map_by_path(map_path : String) -> void:
 	var _map = load(map_path)
 	if _map:
 		current_map_name = Util.get_filename_from_path(map_path)
-		call_deferred("change_map", _map)
+		change_map(_map)
 	else:
 		print("MapManager2D: Invalid map path, couldn't load from: ", map_path)

@@ -171,7 +171,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Game="*res://scripts/Game.gd"
-RoomMusic="*res://scenes/room_music.tscn"
 Statistics="*res://scripts/GameStatistics.gd"
 MapManager="*res://scenes/2d/map_manager_2d.tscn"
 WorldGrid="*res://scenes/2d/collision grid/world_grid_2d.tscn"

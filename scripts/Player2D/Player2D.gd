@@ -4,10 +4,13 @@ class_name Player2D
 
 var walk_speed := 2.0
 var run_speed := 4.0
+var frozen : bool
+var facing : Vector2
 
 signal move_finished(pos)
 
-var facing : Vector2
+func set_frozen(val : bool) -> void:
+	frozen = val
 
 func get_snapped_position() -> Vector2:
 	return Util.floor_v2(position / Game.SNAP)
@@ -31,24 +34,35 @@ func move_animated(dir : Vector2) -> void:
 	WorldGrid.sound_grid.play_cell_sound(_new_position.x, _new_position.y)
 	$animated_character_sprite_2d.play_direction(dir, move_cooldown_length)
 
+func _ready():
+	XToFocus.connect("focus", self, "_on_XToFocus_focus")
+	XToFocus.connect("unfocus", self, "_on_XToFocus_unfocus")
+
+func _on_XToFocus_focus():
+	set_frozen(true)
+
+func _on_XToFocus_unfocus():
+	set_frozen(false)
+
 func _process(delta):
-	if Input.is_action_pressed("run"):
-		set_move_speed(run_speed)
-	else:
-		set_move_speed(walk_speed)
-	
-	var _movement_vector = make_input_vector_4way(get_input_vector())
-	
-	if is_movable():
-		if !Util.compare_v2(_movement_vector, 0):
-			if !check_solid_relative(_movement_vector):
-				move_animated(_movement_vector)
-			else:
-				$animated_character_sprite_2d.look_in_direction(_movement_vector)
-			facing = _movement_vector
-	
-	if Input.is_action_just_pressed("interact") && is_movable():
-		$interactable_detector_2d.interact_with_facing(position, facing)
+	if !frozen:
+		if Input.is_action_pressed("run"):
+			set_move_speed(run_speed)
+		else:
+			set_move_speed(walk_speed)
+		
+		var _movement_vector = make_input_vector_4way(get_input_vector())
+		
+		if is_movable():
+			if !Util.compare_v2(_movement_vector, 0):
+				if !check_solid_relative(_movement_vector):
+					move_animated(_movement_vector)
+				else:
+					$animated_character_sprite_2d.look_in_direction(_movement_vector)
+				facing = _movement_vector
+		
+		if Input.is_action_just_pressed("interact") && is_movable():
+			$interactable_detector_2d.interact_with_facing(position, facing)
 
 func _on_MoveCooldownTimer_timeout():
 	._on_MoveCooldownTimer_timeout()

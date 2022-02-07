@@ -10,7 +10,6 @@
 [node name="room_loader_2d" parent="." instance=ExtResource( 1 )]
 room_name = "piano"
 room = ExtResource( 2 )
-loaded = true
 size = Vector2( 144, 168 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
