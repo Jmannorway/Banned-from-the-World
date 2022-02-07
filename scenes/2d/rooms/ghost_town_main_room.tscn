@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/2d/collision grid/solid_grid_2d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Room2D/Room2D.gd" type="Script" id=2]
@@ -12,6 +12,13 @@
 [ext_resource path="res://sounds/sounds/walk3.wav" type="AudioStream" id=10]
 [ext_resource path="res://scenes/2d/collision grid/sound_grid_2d.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/2d/collision grid/navigation_grid_2d.tscn" type="PackedScene" id=12]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends AnimatedSprite
+
+func _ready():
+	XToFocus.set_faded_node2d(self)
+"
 
 [node name="ghost_town" type="Node2D"]
 script = ExtResource( 2 )
@@ -49,6 +56,14 @@ playing = true
 position = Vector2( 120, 252 )
 frames = ExtResource( 3 )
 playing = true
+
+[node name="ghost5" type="AnimatedSprite" parent="entities"]
+position = Vector2( 216, 240 )
+scale = Vector2( 4.625, 5 )
+frames = ExtResource( 3 )
+frame = 1
+playing = true
+script = SubResource( 1 )
 
 [node name="ghost4" type="AnimatedSprite" parent="entities"]
 modulate = Color( 0, 0.788235, 1, 1 )
