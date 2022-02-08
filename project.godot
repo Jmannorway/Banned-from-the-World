@@ -64,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/InteractableWarp.gd"
 }, {
+"base": "Node",
+"class": "Map2D",
+"language": "GDScript",
+"path": "res://scripts/Room2D/Map2D.gd"
+}, {
 "base": "Node2D",
 "class": "MapManager2D",
 "language": "GDScript",
@@ -146,6 +151,7 @@ _global_script_class_icons={
 "InteractableDetector2D": "",
 "InteractableRoom": "",
 "InteractableWarp": "",
+"Map2D": "",
 "MapManager2D": "",
 "NavigationGrid2D": "",
 "Player2D": "",
