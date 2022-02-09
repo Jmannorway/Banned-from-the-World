@@ -85,9 +85,9 @@ _global_script_classes=[ {
 "path": "res://scripts/Player2D/Player2D.gd"
 }, {
 "base": "Reference",
-"class": "Player2DUtil",
+"class": "PlayerUtil",
 "language": "GDScript",
-"path": "res://scripts/Player2D/Player2DUtil.gd"
+"path": "res://scripts/Player2D/PlayerUtil.gd"
 }, {
 "base": "Object",
 "class": "RecursiveBacktrack",
@@ -155,7 +155,7 @@ _global_script_class_icons={
 "MapManager2D": "",
 "NavigationGrid2D": "",
 "Player2D": "",
-"Player2DUtil": "",
+"PlayerUtil": "",
 "RecursiveBacktrack": "",
 "ResourceGrid2D": "",
 "Room2D": "",

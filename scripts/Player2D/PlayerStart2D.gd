@@ -8,8 +8,8 @@ func _ready():
 	
 	if MapManager.player_start_index == index:
 		var _player
-		if Player2DUtil.player_exists(get_tree()):
-			_player = Player2DUtil.get_player(get_tree())
+		if PlayerUtil.player_2d_exists(get_tree()):
+			_player = PlayerUtil.get_player_2d(get_tree())
 		else:
 			_player = Game.create_player()
 		
