@@ -11,7 +11,7 @@
 [ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/x to focus/focus_scenes/focus_scene_3d_placeholder.tscn" type="PackedScene" id=10]
 
-[node name="ghost_town_map" type="Node2D"]
+[node name="ghost_town_map" type="Node"]
 script = ExtResource( 8 )
 
 [node name="main" parent="." instance=ExtResource( 2 )]

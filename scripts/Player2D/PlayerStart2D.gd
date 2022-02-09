@@ -8,10 +8,12 @@ func _ready():
 	
 	if MapManager.player_start_index == index:
 		var _player
-		if PlayerUtil.player_2d_exists(get_tree()):
-			_player = PlayerUtil.get_player_2d(get_tree())
+		if PlayerAccess.player_2d_exists(get_tree()):
+			_player = PlayerAccess.get_player_2d(get_tree())
 		else:
-			_player = Game.create_player()
+			# TODO: Add the player node somewhere meaningful
+			_player = PlayerAccess.instance_player_2d()
+			get_viewport().call_deferred("add_child", _player)
 		
 		_player.position = position
 		MapManager.reset_player_start_index()

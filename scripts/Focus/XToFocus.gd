@@ -6,7 +6,9 @@ extends Node
 # For bigger scenes it might be better to add the entire scene
 # to the viewport using add_focus_scene. Although, adding a whole
 # scene will only let you overlay it. Keep in mind that 3d scenes
-# need a camera for them to work in the viewport
+# need a camera for them to work in the viewport.
+# And don't forget to use a world environment with a transparent
+# clear color unless you intend to flush the entire screen
 
 class ObjectColorPathPair:
 	var object : Object
@@ -86,8 +88,6 @@ func toggle_focus():
 	else:
 		$alpha_tween.interpolate_property(self, "alpha", null, _new_alpha, fade_duration)
 		$alpha_tween.start()
-
-
 
 func _ready():
 	MapManager.connect("map_changed", self, "_on_MapManager_map_changed")

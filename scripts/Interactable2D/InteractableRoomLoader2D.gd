@@ -12,7 +12,7 @@ const TRANSITION_LENGTH_MAX := 2.0
 
 func goto():
 	MapManager.get_room_manager().smooth_transition_to_room(room_name)
-	var _player = Util.get_first_node_in_group(get_tree(), PlayerUtil.PLAYER_2D_GROUP_NAME)
+	var _player = PlayerAccess.get_player_2d(get_tree())
 	if teleport && _player:
 		if teleport_relative:
 			_player.position += teleport_coords

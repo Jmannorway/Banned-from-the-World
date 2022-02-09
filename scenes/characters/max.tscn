@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.2, 0.6, 0.2 )
 
-[node name="max" type="Area"]
+[node name="max" type="Area" groups=["player_3d"]]
 collision_layer = 2
 collision_mask = 4
 monitorable = false

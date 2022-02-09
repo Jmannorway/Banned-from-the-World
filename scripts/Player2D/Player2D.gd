@@ -61,15 +61,15 @@ func _on_XToFocus_focus_changed(val):
 	set_frozen(val)
 
 # Internal utility
-func make_input_vector_4way(iv : Vector2) -> Vector2:
-	return Vector2(
-		iv.x,
-		iv.y * (iv.x == 0) as int)
-
 func get_snapped_position() -> Vector2:
 	return Util.floor_v2(position / Game.SNAP)
 
-func get_input_vector() -> Vector2:
+static func get_input_vector() -> Vector2:
 	return Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
+
+static func make_input_vector_4way(iv : Vector2) -> Vector2:
+	return Vector2(
+		iv.x,
+		iv.y * (iv.x == 0) as int)

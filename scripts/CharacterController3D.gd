@@ -24,9 +24,6 @@ signal action_event(playerRef)
 func _ready():
 	$model/RootNode/AnimationTree.active = true
 	
-	# add self to player 3d group
-	add_to_group(PlayerUtil.PLAYER_3D_GROUP_NAME)
-	
 	# warning-ignore:return_value_discarded
 	connect("area_entered", self, "on_enter_area")
 # warning-ignore:return_value_discarded
