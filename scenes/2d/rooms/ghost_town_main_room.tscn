@@ -50,6 +50,12 @@ position = Vector2( 120, 252 )
 frames = ExtResource( 3 )
 playing = true
 
+[node name="ghost5" type="AnimatedSprite" parent="entities"]
+position = Vector2( 216, 240 )
+frames = ExtResource( 3 )
+frame = 1
+playing = true
+
 [node name="ghost4" type="AnimatedSprite" parent="entities"]
 modulate = Color( 0, 0.788235, 1, 1 )
 position = Vector2( 252, 276 )

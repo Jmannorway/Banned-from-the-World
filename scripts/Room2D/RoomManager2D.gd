@@ -88,4 +88,3 @@ func stop_transition() -> void:
 
 func _on_room_unload_timer_timeout():
 	unload_room(previous_room_name)
-	print("finished")

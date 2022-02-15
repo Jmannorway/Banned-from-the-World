@@ -25,6 +25,19 @@ static func get_first_node_in_group(tree : SceneTree, group_name : String):
 	else:
 		return null
 
+static func object_set_alpha(object : Object, color_path : String, val : float):
+	var _col = object.get(color_path)
+	object.set(color_path, Color(_col.r, _col.g, _col.b, val))
+
+static func reparent_to(node : Node, target : Node):
+	if target.is_a_parent_of(node):
+		return
+	
+	if node.get_parent():
+		node.get_parent().remove_child(node)
+	
+	target.add_child(node)
+
 static func absolute_to_relative_position(absolute_node : Node, relative_node : Node) -> Vector2:
 	return absolute_node.global_position - relative_node.global_position
 

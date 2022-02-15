@@ -3,14 +3,10 @@
 [ext_resource path="res://scripts/CharacterController3D.gd" type="Script" id=1]
 [ext_resource path="res://models/placeholders/Max.tscn" type="PackedScene" id=2]
 
-
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.233021
-height = 0.706397
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.2, 0.6, 0.2 )
 
-[node name="max" type="Area"]
+[node name="max" type="Area" groups=["player_3d"]]
 collision_layer = 2
 collision_mask = 4
 monitorable = false

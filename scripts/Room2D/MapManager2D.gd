@@ -22,21 +22,27 @@ func get_room_manager() -> RoomManager2D:
 
 func warp_to_map(map_scene : PackedScene, psi = 0) -> void:
 	player_start_index = psi
-	call_deferred("change_map", map_scene)
+	change_map(map_scene)
 	emit_signal("changing_map")
 
 func warp_to_map_by_name(map_name : String, psi = 0) -> void:
 	player_start_index = psi
-	call_deferred("change_map_by_name", map_name)
+	change_map_by_name(map_name)
 	emit_signal("changing_map")
 
 func warp_to_map_by_path(map_path : String, psi = 0) -> void:
 	player_start_index = psi
-	call_deferred("change_map_by_path", map_path)
+	change_map_by_path(map_path)
 	emit_signal("changing_map")
 
 func reset_player_start_index() -> void:
 	player_start_index = INVALID_PLAYER_START_INDEX
+
+func set_map_instance_child(map_inst : Map2D):
+	call_deferred("add_child", map_inst)
+	current_map_instance = map_inst
+	current_map_name = map_inst.name
+	emit_signal("map_changed", current_map_name)
 
 func change_map(map_scene : PackedScene) -> void:
 	if current_map_instance:
@@ -46,9 +52,7 @@ func change_map(map_scene : PackedScene) -> void:
 	current_map = map_scene
 	
 	if current_map:
-		current_map_instance = current_map.instance()
-		add_child(current_map_instance)
-		emit_signal("map_changed")
+		set_map_instance_child(map_scene.instance())
 	else:
 		current_map_instance = null
 		print("MapManager2D: Invalid map scene couldn't instance")
@@ -65,6 +69,6 @@ func change_map_by_path(map_path : String) -> void:
 	var _map = load(map_path)
 	if _map:
 		current_map_name = Util.get_filename_from_path(map_path)
-		call_deferred("change_map", _map)
+		change_map(_map)
 	else:
 		print("MapManager2D: Invalid map path, couldn't load from: ", map_path)

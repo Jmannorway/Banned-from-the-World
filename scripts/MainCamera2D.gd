@@ -27,7 +27,7 @@ func _get_property_list() -> Array:
 	return _props
 
 func _enter_tree():
-	if !Engine.editor_hint:
+	if !Engine.editor_hint && !MapManager.get_room_manager().is_connected("room_focused", self, "_on_RoomManager_RoomFocused"):
 		MapManager.get_room_manager().connect("room_focused", self, "_on_RoomManager_RoomFocused")
 
 func _process(delta):
