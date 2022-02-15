@@ -120,11 +120,6 @@ _global_script_classes=[ {
 "path": "res://scripts/RoomManager.gd"
 }, {
 "base": "ResourceGrid2D",
-"class": "SolidGrid2D",
-"language": "GDScript",
-"path": "res://scripts/SolidGrid2D/SolidGrid2D.gd"
-}, {
-"base": "ResourceGrid2D",
 "class": "SoundGrid2D",
 "language": "GDScript",
 "path": "res://scripts/SolidGrid2D/SoundGrid2D.gd"
@@ -157,7 +152,6 @@ _global_script_class_icons={
 "RoomLoader2D": "",
 "RoomManager2D": "",
 "RoomManager3D": "",
-"SolidGrid2D": "",
 "SoundGrid2D": "",
 "Util": ""
 }
@@ -165,7 +159,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Banned from the World"
-run/main_scene="res://scenes/2d/maps/ghost_town_map.tscn"
+run/main_scene="res://scenes/3d/real_world.tscn"
 config/icon="res://icon.png"
 
 [autoload]
