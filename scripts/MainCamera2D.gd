@@ -6,7 +6,7 @@ var bounds : Rect2
 var target : Node2D
 var camera_position : Vector2
 
-export(String) var target_group
+export(String) var target_group = PlayerAccess.PLAYER_2D_GROUP_NAME
 export(bool) var target_is_character
 export(bool) var free
 export(bool) var smoothing_enabled

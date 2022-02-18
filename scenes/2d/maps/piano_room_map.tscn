@@ -7,7 +7,7 @@
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=5]
 [ext_resource path="res://scenes/x to focus/focus_scenes/focus_scene_3d_real_world.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/2d/minigame_controller.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/2d/rooms/minigame_controller.tscn" type="PackedScene" id=8]
 
 [node name="piano_room_map" type="Node2D"]
 script = ExtResource( 5 )
@@ -21,7 +21,7 @@ size = Vector2( 144, 168 )
 [node name="camera" parent="." instance=ExtResource( 3 )]
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
-position = Vector2( 108, 108 )
+position = Vector2( 132, 108 )
 room_name = "piano"
 
 [node name="focus_scene" parent="." instance=ExtResource( 7 )]

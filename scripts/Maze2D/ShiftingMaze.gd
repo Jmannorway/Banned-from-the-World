@@ -27,4 +27,4 @@ func _ready():
 		for y in bitgrid[x].size():
 			$floor_tiles.set_cell(x, y, 0)
 	
-	$solid_grid_2d.paint_to_world_grid()
+	#$solid_grid_2d.paint_to_world_grid()

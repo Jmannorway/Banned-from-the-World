@@ -20,3 +20,4 @@ cell_size = Vector2( 24, 24 )
 format = 1
 
 [node name="solid_grid_2d" parent="." instance=ExtResource( 3 )]
+add_on_ready = false

@@ -24,6 +24,17 @@ func move_animated(dir : Vector2) -> void:
 	WorldGrid.sound_grid.play_cell_sound(_new_position.x, _new_position.y)
 	$animated_character_sprite_2d.play_direction(dir, move_cooldown_length)
 
+# Reverses a current move
+func reverse_move() -> bool:
+	if !is_movable():
+		move(facing * -1)
+		var _new_position = position / Game.SNAP
+		WorldGrid.sound_grid.play_cell_sound(_new_position.x, _new_position.y)
+		$animated_character_sprite_2d.reverse_move()
+		return true
+	else:
+		return false
+
 # Main functionality
 func _ready():
 	XToFocus.connect("focus_changed", self, "_on_XToFocus_focus_changed")

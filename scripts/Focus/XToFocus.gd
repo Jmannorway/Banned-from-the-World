@@ -23,7 +23,8 @@ var object_alpha_pairs : Dictionary
 var alpha := 0.0
 var focus := false
 var fade_duration := 1.0
-onready var viewport = $viewport
+onready var viewport := $game_viewport
+onready var viewport_sprite := $canvas_layer/game_viewport_sprite
 
 # Removes all-focus affected nodes and scenes
 func clear_all():
@@ -36,6 +37,9 @@ func clear_focus_nodes_and_objects():
 func clear_focus_scenes():
 	for _node in viewport.get_children():
 		_node.queue_free()
+
+func is_in_focus(node : Node) -> bool:
+	return node.is_a_parent_of(self)
 
 # Adds a node to have its alpha value changed along with focus
 func add_focus_node(node : Node, color_path : String):
@@ -61,12 +65,11 @@ func add_focus_object(owning_node : Node, object : Object, color_path : String):
 
 func add_focus_scene(scene : PackedScene, is_2d : bool):
 	var _node = scene.instance()
+	viewport.call_deferred("add_child", _node)
 	
 	if is_2d:
-		viewport.call_deferred("add_child", _node)
 		viewport.set_mode(viewport.MODE.TWO_DIMENSIONAL)
 	else:
-		viewport.call_deferred("add_child", _node)
 		viewport.set_mode(viewport.MODE.THREE_DIMENSIONAL)
 
 func diagnose_node_color_path_pair(node : Node, color_path : String):
@@ -99,7 +102,7 @@ func _process(delta):
 	for _key in object_alpha_pairs:
 		Util.object_set_alpha(object_alpha_pairs[_key].object, object_alpha_pairs[_key].color_path, alpha)
 	
-	$layer/viewport_sprite.modulate.a = alpha
+	viewport_sprite.modulate.a = alpha
 
 func _on_MapManager_map_changed(map_name):
 	clear_all()

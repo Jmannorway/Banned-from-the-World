@@ -6,7 +6,7 @@
 [ext_resource path="res://tiles/floor_tiles.tres" type="TileSet" id=4]
 [ext_resource path="res://tiles/ghost_town_decorations.tres" type="TileSet" id=5]
 
-[node name="ghost_town" type="Node2D"]
+[node name="ghost_town" type="YSort"]
 script = ExtResource( 2 )
 
 [node name="floor" type="TileMap" parent="."]
@@ -26,18 +26,19 @@ format = 1
 [node name="ghost2" type="AnimatedSprite" parent="entities"]
 position = Vector2( 240, 240 )
 frames = ExtResource( 3 )
+frame = 1
 playing = true
 
 [node name="ghost4" type="AnimatedSprite" parent="entities"]
 modulate = Color( 0, 0.858824, 1, 1 )
 position = Vector2( 252, 156 )
 frames = ExtResource( 3 )
+frame = 1
 playing = true
 
 [node name="ghost3" type="AnimatedSprite" parent="entities"]
 position = Vector2( 324, 192 )
 frames = ExtResource( 3 )
-frame = 1
 playing = true
 
 [node name="solid_grid_2d" parent="." instance=ExtResource( 1 )]

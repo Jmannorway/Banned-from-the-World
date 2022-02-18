@@ -7,13 +7,11 @@ func _ready():
 	visible = false
 	
 	if MapManager.player_start_index == index:
-		var _player
-		if PlayerAccess.player_2d_exists(get_tree()):
-			_player = PlayerAccess.get_player_2d(get_tree())
+		var _player = PlayerAccess.get_player_2d(get_tree())
+		if !_player:
+			_player = PlayerAccess.spawn_player_2d()
 		else:
-			# TODO: Add the player node somewhere meaningful
-			_player = PlayerAccess.instance_player_2d()
-			get_viewport().call_deferred("add_child", _player)
+			print("gotten")
 		
 		_player.position = position
 		MapManager.reset_player_start_index()

@@ -1,6 +1,4 @@
-tool
-
-extends Area2D
+extends Node2D
 
 class_name RoomLoader2D
 
@@ -14,6 +12,9 @@ var room_instance : Node
 export var preview := false setget set_preview
 export var size := Vector2(480, 360) setget set_size
 var loaded := false setget set_loaded
+
+signal loaded
+signal unloaded
 
 func set_preview(val) -> void:
 	if Engine.editor_hint:
@@ -45,18 +46,20 @@ func _enter_tree():
 	if room_name.empty():
 		room_name = name
 	if !Engine.editor_hint:
-		MapManager.get_room_manager().register_room(self)
+		MapManager.get_room_manager().register_room_loader(self)
 
 func _ready():
-	$bounds.position = size / 2
-	$bounds.shape.extents = size / 2
+	$area/bounds.position = size / 2
+	$area/bounds.shape.extents = size / 2
 
 # INTERNAL FUNCTIONS
 func _load_room():
 	room_instance = room.instance()
 	add_child(room_instance)
+	emit_signal("loaded")
 
 func _unload_room():
 	if is_instance_valid(room_instance):
 		room_instance.queue_free()
 	room_instance = null
+	emit_signal("unloaded")

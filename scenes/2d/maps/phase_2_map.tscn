@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/2d/rooms/phase 2/phase_2_hubroom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/2d/rooms/phase 2/phase_2_shifting_maze.tscn" type="PackedScene" id=2]
@@ -6,23 +6,36 @@
 [ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=6]
+[ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=7]
 
 [node name="map" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
-target_group = "player"
+target_group = "player_2d"
+target_is_character = true
 
 [node name="hub" parent="." instance=ExtResource( 4 )]
 room_name = "hub"
 room = ExtResource( 1 )
-size = Vector2( 320, 320 )
+size = Vector2( 312, 312 )
 
 [node name="maze" parent="." instance=ExtResource( 4 )]
-position = Vector2( 360, -336 )
+position = Vector2( 312, -336 )
 room_name = "maze"
 room = ExtResource( 2 )
 size = Vector2( 1200, 960 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
-position = Vector2( 60, 60 )
+position = Vector2( 132, 132 )
+room_name = "hub"
+
+[node name="interactable_2d" parent="." instance=ExtResource( 7 )]
+position = Vector2( 324, 168 )
+scale = Vector2( 1, 1.92 )
+room_name = "maze"
+
+[node name="interactable_2d4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 300, 168 )
+scale = Vector2( 1, 1.92 )
+room_name = "hub"

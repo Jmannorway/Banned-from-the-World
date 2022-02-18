@@ -4,3 +4,4 @@
 
 [node name="main_camera_2d" type="Node2D" groups=["camera"]]
 script = ExtResource( 1 )
+target_group = ""

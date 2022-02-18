@@ -7,7 +7,6 @@
 [ext_resource path="res://models/meshlibs/room_assets.meshlib" type="MeshLibrary" id=5]
 [ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=10]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
 params_blend_mode = 1

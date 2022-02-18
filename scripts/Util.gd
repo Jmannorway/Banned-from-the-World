@@ -10,6 +10,21 @@ static func make_array_2d(w : int, h : int, val = 0) -> Array:
 			_arr[x][y] = val
 	return _arr
 
+# checks if the node is queued for deletion by also checking all of its parents
+static func deep_is_queued_for_deletion(node : Node):
+	if node.is_queued_for_deletion():
+		return true
+	else:
+		var _parent = node.get_parent()
+		var _queued = false
+		while (_parent):
+			if _parent.is_queued_for_deletion():
+				return true
+			else:
+				_parent = _parent.get_parent()
+	
+	return false
+
 static func get_filename_from_path(path : String) -> String:
 	var _last_slash = path.find_last("/")
 	var _dot = path.find_last(".")
@@ -30,13 +45,22 @@ static func object_set_alpha(object : Object, color_path : String, val : float):
 	object.set(color_path, Color(_col.r, _col.g, _col.b, val))
 
 static func reparent_to(node : Node, target : Node):
-	if target.is_a_parent_of(node):
+	if target == node.get_parent():
 		return
 	
 	if node.get_parent():
 		node.get_parent().remove_child(node)
 	
 	target.add_child(node)
+
+static func reparent_to_deferred(node : Node, target : Node):
+	if target == node.get_parent():
+		return
+	
+	if node.get_parent():
+		node.get_parent().call_deferred("remove_child", node)
+	
+	target.call_deferred("add_child", node)
 
 static func absolute_to_relative_position(absolute_node : Node, relative_node : Node) -> Vector2:
 	return absolute_node.global_position - relative_node.global_position
@@ -59,9 +83,6 @@ static func min_v2(a : Vector2, b : Vector2) -> Vector2:
 static func max_v2(a : Vector2, b : Vector2) -> Vector2:
 	return Vector2(max(a.x, b.x), max(a.y, b.y))
 
+# fuck you
 static func tern(condition : bool, return_if_true, return_if_false):
 	return return_if_true if condition else return_if_false
-#	if condition:
-#		return return_if_true
-#	else:
-#		return return_if_false

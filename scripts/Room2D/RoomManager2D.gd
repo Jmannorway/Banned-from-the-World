@@ -7,9 +7,9 @@ var current_room_name : String setget set_current_room_name
 var previous_room_name : String
 const ROOM_LOADER_GROUP_NAME = "room_loaders"
 
-signal room_loaded(room_name, room_node)
-signal room_unloaded(room_name, room_node)
-signal room_focused(room_name, room_node)
+signal room_loaded(room_name, room_loader_node)
+signal room_unloaded(room_name, room_loader_node)
+signal room_focused(room_name, room_loader_node)
 
 func _ready():
 	MapManager.connect("changing_map", self, "_on_MapManager_MapChanged")
@@ -23,10 +23,10 @@ func set_current_room_name(room_name : String):
 	previous_room_name = current_room_name
 	current_room_name = room_name
 
-func register_room(room : RoomLoader2D):
+func register_room_loader(room : RoomLoader2D):
 	room_loaders[room.room_name] = room
 
-func get_room_by_name(room_name : String) -> RoomLoader2D:
+func get_room_loader_by_name(room_name : String) -> RoomLoader2D:
 	return room_loaders.get(room_name)
 
 func room_is_loaded(room_name : String) -> bool:
@@ -34,6 +34,9 @@ func room_is_loaded(room_name : String) -> bool:
 
 func room_is_current(room_name : String) -> bool:
 	return room_name == current_room_name
+
+func get_current_room_loader() -> RoomLoader2D:
+	return room_loaders.get(current_room_name)
 
 func load_room(room_name : String) -> void:
 	if room_loaders.has(room_name):
@@ -53,8 +56,10 @@ func focus_room(room_name : String) -> void:
 	if room_loaders.has(room_name):
 		if !room_loaders[room_name].is_loaded():
 			load_room(room_name)
+			room_loaders[room_name].connect("loaded", self, "_on_RoomLoader_loaded", [], CONNECT_ONESHOT)
+		else:
+			emit_signal("room_focused", room_name, room_loaders[room_name])
 		set_current_room_name(room_name)
-		emit_signal("room_focused", room_name, room_loaders[room_name])
 
 func change_room(room_name : String) -> void:
 	unload_room(current_room_name)
@@ -65,6 +70,10 @@ func collect_rooms() -> void:
 	var room_group = get_tree().get_nodes_in_group(ROOM_LOADER_GROUP_NAME)
 	for r in room_group:
 		room_loaders[r.room_name] = r
+
+# CALLBACKS
+func _on_RoomLoader_loaded():
+	emit_signal("room_focused", current_room_name, room_loaders[current_room_name])
 
 # ROOM TRANSITION FUNCTIONS
 func smooth_transition_to_room(room_name : String, duration := 2.0) -> void:

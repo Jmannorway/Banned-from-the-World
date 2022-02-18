@@ -5,17 +5,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 240, 180 )
 
-[node name="room_loader_2d" type="Area2D" groups=["room_loaders"]]
-collision_layer = 0
-collision_mask = 2
+[node name="room_loader_2d" type="YSort" groups=["room_loaders"]]
+position = Vector2( 1, 0 )
 script = ExtResource( 1 )
 room_name = "room_loader_2d"
 
-[node name="bounds" type="CollisionShape2D" parent="."]
+[node name="area" type="Area2D" parent="."]
+
+[node name="bounds" type="CollisionShape2D" parent="area"]
 visible = false
 position = Vector2( 240, 180 )
 shape = SubResource( 1 )
-
-[node name="TileMap" type="TileMap" parent="."]
-cell_size = Vector2( 24, 24 )
-format = 1

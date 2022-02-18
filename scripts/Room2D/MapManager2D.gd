@@ -5,6 +5,7 @@ class_name MapManager2D
 var current_map : PackedScene
 var current_map_name : String
 var current_map_instance : Node
+onready var viewport = $game_viewport
 const MAP_DIRECTORY = "res://scenes/2d/maps/"
 
 const INVALID_PLAYER_START_INDEX := -1
@@ -14,8 +15,13 @@ signal map_changed(map_name)
 signal changing_map()
 
 func _ready():
+	viewport.set_mode(viewport.MODE.TWO_DIMENSIONAL)
+	
 	if !current_map_instance:
 		current_map_instance = get_tree().current_scene
+
+func has_map() -> bool:
+	return is_instance_valid(current_map_instance)
 
 func get_room_manager() -> RoomManager2D:
 	return $room_manager_2d as RoomManager2D
@@ -38,15 +44,15 @@ func warp_to_map_by_path(map_path : String, psi = 0) -> void:
 func reset_player_start_index() -> void:
 	player_start_index = INVALID_PLAYER_START_INDEX
 
-func set_map_instance_child(map_inst : Map2D):
-	call_deferred("add_child", map_inst)
+func set_map_instance_child(map_inst : Map2D) -> void:
+	Util.reparent_to_deferred(map_inst, viewport)
 	current_map_instance = map_inst
 	current_map_name = map_inst.name
 	emit_signal("map_changed", current_map_name)
 
 func change_map(map_scene : PackedScene) -> void:
 	if current_map_instance:
-		current_map_instance.call_deferred("queue_free")
+		current_map_instance.queue_free()
 		current_map_instance = null
 	
 	current_map = map_scene
@@ -63,7 +69,7 @@ func change_map_by_name(map_name : String) -> void:
 		current_map_name = map_name
 		change_map(_map)
 	else:
-		print("MapManager2D: Invlid map name couldn't load ", map_name)
+		print("MapManager2D: Invlid map name couldn't load: ", map_name)
 
 func change_map_by_path(map_path : String) -> void:
 	var _map = load(map_path)

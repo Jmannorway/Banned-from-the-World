@@ -58,7 +58,7 @@ func _process(delta):
 
 func reparent_node_to_self(node : Node):
 	for c in viewport.get_children():
-		c.call_deferred("queue_free")
+		c.queue_free()
 	
 	if node.get_parent():
 		node.get_parent().call_deferred("remove_child", node)

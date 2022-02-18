@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name Character2D
+class_name Character2D 
 
 export var isSolid: bool = true
 

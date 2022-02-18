@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Player2D/Player2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/character & player/animated_character_sprite_2d.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/2d/interactable/interactable_detector_2d.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/2d/interactable/interactable_2d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Interactable2D/Interactable2D.gd" type="Script" id=5]
 
 [node name="player_2d" type="Node2D" groups=["player_2d"]]
 script = ExtResource( 1 )
@@ -11,5 +13,10 @@ script = ExtResource( 1 )
 position = Vector2( 0, -8 )
 
 [node name="interactable_detector_2d" parent="." instance=ExtResource( 3 )]
+collision_mask = 15
+
+[node name="interactable_2d" parent="." instance=ExtResource( 4 )]
+collision_layer = 16
+script = ExtResource( 5 )
 
 [connection signal="move_animation_finished" from="animated_character_sprite_2d" to="." method="_on_animated_character_sprite_2d_move_animation_finished"]
