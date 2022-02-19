@@ -66,7 +66,7 @@ static func absolute_to_relative_position(absolute_node : Node, relative_node : 
 	return absolute_node.global_position - relative_node.global_position
 
 static func snap_v2(v : Vector2, grid) -> Vector2:
-	return Vector2(floor(v.x / grid), floor(v.y / grid))
+	return Vector2(floor(v.x / grid), floor(v.y / grid)) * grid
 
 static func floor_v2(v : Vector2) -> Vector2:
 	return Vector2(floor(v.x), floor(v.y))

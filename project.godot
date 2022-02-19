@@ -29,10 +29,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/CameraController.gd"
 }, {
-"base": "Node2D",
+"base": "Character2DBase",
 "class": "Character2D",
 "language": "GDScript",
 "path": "res://scripts/Player2D/Character2D.gd"
+}, {
+"base": "Node2D",
+"class": "Character2DBase",
+"language": "GDScript",
+"path": "res://scripts/Player2D/Character2DBase.gd"
 }, {
 "base": "Area",
 "class": "CharacterController3D",
@@ -150,6 +155,7 @@ _global_script_class_icons={
 "BlockData": "",
 "CameraController": "",
 "Character2D": "",
+"Character2DBase": "",
 "CharacterController3D": "",
 "GameViewport": "",
 "Interactable": "",

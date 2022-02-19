@@ -1,4 +1,4 @@
-extends Character2D
+extends Character2DBase
 
 var checkpointDetectionThreashold: float = 18.0
 var path: PoolVector2Array

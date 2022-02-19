@@ -1,30 +1,27 @@
-extends Node2D
+extends Character2DBase
 
-class_name Character2D 
+class_name Character2D
 
-export var isSolid: bool = true
+onready var character_sprite = $animated_character_sprite_2d
 
-var move_cooldown_length := 0.5
-var move_cooldown_timer := Timer.new()
+# Override the base move to include a footstep sound and animation
+func _move(dir : Vector2) -> void:
+	._move(dir)
+	var _new_position = position / Game.SNAP
+	WorldGrid.sound_grid.play_cell_sound(_new_position.x, _new_position.y)
+	character_sprite.play_direction(dir, move_cooldown_length)
 
-func set_move_speed(squares_per_second) -> void:
-	move_cooldown_length = 1 / squares_per_second
+# Get the animated position as opposed to the snappy position & global_position directly
+func get_animated_position() -> Vector2:
+	return character_sprite.global_position + character_sprite.offset
 
-func _ready():
-	add_child(move_cooldown_timer)
-	move_cooldown_timer.one_shot = true
-
-func is_movable() -> bool:
-	return move_cooldown_timer.time_left == 0.0
-
-func move(dir : Vector2) -> void:
-	var _move_distance = dir * Game.SNAP
-	
-	if isSolid:
-		WorldGrid.solid_grid.move_solid(position, _move_distance)
-	
-	position += _move_distance
-	move_cooldown_timer.start(move_cooldown_length)
-
-func check_solid_relative(dir : Vector2) -> bool:
-	return WorldGrid.solid_grid.get_cell_at_pixel(global_position + dir * Game.SNAP) == 0
+# Reverses a current move, returns true if effective
+func reverse_move() -> bool:
+	if is_moving():
+		_move(facing * -1)
+		var _new_position = position / Game.SNAP
+		WorldGrid.sound_grid.play_cell_sound(_new_position.x, _new_position.y)
+		character_sprite.reverse_move()
+		return true
+	else:
+		return false
