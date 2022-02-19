@@ -25,3 +25,6 @@ func reverse_move() -> bool:
 		return true
 	else:
 		return false
+
+func _on_move_timer_timeout():
+	pass # Replace with function body.

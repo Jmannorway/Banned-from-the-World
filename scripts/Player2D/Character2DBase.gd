@@ -2,8 +2,6 @@ extends Node2D
 
 class_name Character2DBase
 
-# TODO: Add mobility more modes
-
 # Class that holds data and logic for queueing moves
 class CharacterMove2D:
 	var direction : Vector2
@@ -26,6 +24,14 @@ class CharacterMove2D:
 		priority = PRIORITY_UNSET
 		direction = Vector2.ZERO
 
+enum DIRECTION {RIGHT, UP, LEFT, DOWN, _MAX}
+
+const VDIRECTION = [
+	Vector2.RIGHT,
+	Vector2.UP,
+	Vector2.LEFT,
+	Vector2.DOWN]
+
 enum MOBILITY {
 	NORMAL,		# Can't walk through walls or tiles tagged as void
 	FLYING,		# Can walk through tiles tagged as void,
@@ -46,11 +52,13 @@ func set_move_speed(squares_per_second) -> void:
 	move_cooldown_length = 1 / squares_per_second
 
 func _enter_tree():
+	position = Util.snap_v2(position, Game.SNAP)
 	get_tree().connect("physics_frame", self, "_process_move")
 	add_child(move_cooldown_timer)
 	move_cooldown_timer.one_shot = true
 
 # Queue a move to be processed
+# TODO: Add mobility more modes
 func queue_move(_direction : Vector2, _priority : int) -> void:
 	match mobility:
 		MOBILITY.NORMAL:
@@ -95,3 +103,6 @@ func _process_move() -> void:
 # Override for things you want to have happen after movement has been processed
 func _post_process_move() -> void:
 	pass
+
+static func get_random_move_direction() -> Vector2:
+	return VDIRECTION[randi() % DIRECTION._MAX]

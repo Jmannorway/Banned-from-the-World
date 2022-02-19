@@ -1,5 +1,8 @@
 extends AnimatedSprite
 
+# TODO: Make a system to bind differe or the same animations to
+# the cardinal directions
+
 class_name AnimatedCharacterSprite2D
 
 var sprite_direction : Vector2 setget set_sprite_direction
