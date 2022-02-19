@@ -7,12 +7,13 @@ class_name AnimatedCharacterSprite2D
 
 var sprite_direction : Vector2 setget set_sprite_direction
 var move_direction : Vector2
+export(int) var idle_frame = 1
 
 signal move_animation_finished
 
 func idle():
 	stop()
-	frame = 1
+	frame = idle_frame
 
 func get_animation_from_direction(dir : Vector2) -> String:
 	var _animation = ""

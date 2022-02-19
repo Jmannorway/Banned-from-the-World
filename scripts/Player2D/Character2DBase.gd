@@ -38,39 +38,67 @@ enum MOBILITY {
 	GHOST		# Can walk through any tile
 }
 
-export var solid : bool = true
-export(MOBILITY) var mobility := MOBILITY.NORMAL
-var move_cooldown_length := 0.5
+signal changed_facing_direction(facing)
+
+export var solid := true
+export(MOBILITY) var mobility = MOBILITY.NORMAL
+export(float) var move_speed = 2.0 setget set_move_speed
+var move_cooldown_length : float
 var move_cooldown_timer := Timer.new()
 var queued_move := CharacterMove2D.new()
 var facing := Vector2.DOWN setget set_facing
 
-func set_facing(dir : Vector2) -> void:
-	facing = dir
-
-func set_move_speed(squares_per_second) -> void:
-	move_cooldown_length = 1 / squares_per_second
-
+# INTERNAL FUNCTIONS
 func _enter_tree():
-	position = Util.snap_v2(position, Game.SNAP)
+	snap_to_grid()
 	get_tree().connect("physics_frame", self, "_process_move")
 	add_child(move_cooldown_timer)
 	move_cooldown_timer.one_shot = true
 
-# Queue a move to be processed
-# TODO: Add mobility more modes
-func queue_move(_direction : Vector2, _priority : int) -> void:
-	match mobility:
-		MOBILITY.NORMAL:
-			if !check_solid_relative(_direction):
-				queued_move.set_move(_direction, _priority)
-		MOBILITY.FLYING:
-			queued_move.set_move(_direction, _priority)
-		MOBILITY.GHOST:
-			queued_move.set_move(_direction, _priority)
+# general move function
+func _move(dir : Vector2) -> void:
+	move_position(dir)
+
+# Process the queued move
+func _process_move() -> void:
+	if !is_moving() && queued_move.is_move_set():
+		
+		match mobility:
+			MOBILITY.NORMAL:
+				if !check_solid_relative(queued_move.direction):
+					_move(queued_move.direction)
+				else:
+					set_facing(queued_move.direction)
+			MOBILITY.FLYING:
+				pass
+			MOBILITY.GHOST:
+				pass
+	
+	queued_move.clear()
+	_post_process_move()
+
+# Override for things you want to have happen after movement has been processed
+func _post_process_move() -> void:
+	pass
+
+# SETTERS & GETTERS
+func set_move_speed(val : float) -> void:
+	if val > 0.0:
+		move_speed = val
+		move_cooldown_length = 1 / move_speed
+
+func set_facing(dir : Vector2) -> void:
+	if facing != dir:
+		facing = dir
+		emit_signal("changed_facing_direction", facing)
 
 func is_moving() -> bool:
 	return move_cooldown_timer.time_left != 0.0
+
+# EXTERNALLY CALLABLE
+# Queue a move to be processed
+func queue_move(_direction : Vector2, _priority : int) -> void:
+	queued_move.set_move(_direction, _priority)
 
 # Checks if the relative block in direction is solid
 func check_solid_relative(dir : Vector2) -> bool:
@@ -87,22 +115,9 @@ func move_position(dir : Vector2) -> void:
 	move_cooldown_timer.start(move_cooldown_length)
 	set_facing(dir)
 
-# INTERNAL FUNCTIONS
-# general move function
-func _move(dir : Vector2) -> void:
-	move_position(dir)
-
-# Process the queued move
-func _process_move() -> void:
-	if !is_moving() && queued_move.is_move_set():
-		_move(queued_move.direction)
-	
-	queued_move.clear()
-	_post_process_move()
-
-# Override for things you want to have happen after movement has been processed
-func _post_process_move() -> void:
-	pass
-
+# UTILITY
 static func get_random_move_direction() -> Vector2:
 	return VDIRECTION[randi() % DIRECTION._MAX]
+
+func snap_to_grid():
+	position = Util.snap_v2(position, Game.SNAP) + Vector2.ONE * Game.SNAP / 2
