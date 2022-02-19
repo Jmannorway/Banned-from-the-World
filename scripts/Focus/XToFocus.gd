@@ -41,6 +41,7 @@ func clear_focus_scenes():
 func add_focus_node(node : Node, color_path : String):
 	if node && node.get(color_path) && typeof(node.get(color_path)) == TYPE_COLOR:
 		object_alpha_pairs[node] = ObjectColorPathPair.new(node as Object, color_path)
+# warning-ignore:return_value_discarded
 		node.connect("tree_exiting", self, "_on_FocusNode_tree_exiting", [node])
 		return true
 	
@@ -52,6 +53,7 @@ func add_focus_node(node : Node, color_path : String):
 func add_focus_object(owning_node : Node, object : Object, color_path : String):
 	if owning_node && object && object.get(color_path) != null && typeof(object.get(color_path)) == TYPE_COLOR:
 		object_alpha_pairs[owning_node] = ObjectColorPathPair.new(object, color_path)
+# warning-ignore:return_value_discarded
 		owning_node.connect("tree_exiting", self, "_on_FocusNode_tree_exiting", [owning_node])
 		return true
 	
@@ -90,19 +92,28 @@ func toggle_focus():
 		$alpha_tween.start()
 
 func _ready():
+# warning-ignore:return_value_discarded
 	MapManager.connect("map_changed", self, "_on_MapManager_map_changed")
 
-func _process(delta):
+# warning-ignore:unused_argument
+func _input(event):
 	if Input.is_action_just_pressed("focus"):
 		toggle_focus()
-	
+
+# warning-ignore:unused_argument
+func _process(delta):
 	for _key in object_alpha_pairs:
 		Util.object_set_alpha(object_alpha_pairs[_key].object, object_alpha_pairs[_key].color_path, alpha)
 	
 	$layer/viewport_sprite.modulate.a = alpha
 
+# warning-ignore:unused_argument
 func _on_MapManager_map_changed(map_name):
 	clear_all()
 
 func _on_FocusNode_tree_exiting(node):
+# warning-ignore:return_value_discarded
 	object_alpha_pairs.erase(node)
+
+func enable_input(var status: bool) -> void:
+	set_process_input(status)

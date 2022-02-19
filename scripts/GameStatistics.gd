@@ -34,9 +34,9 @@ func read_meta_file() -> Dictionary:
 func write_meta_file() -> void:
 	var _file: File = File.new()
 	
-	_file.open(DATA_PATH + DATA_FILE, _file.WRITE)
-	_file.store_var(metadata)
-	_file.close()
+	if _file.open(DATA_PATH + DATA_FILE, _file.WRITE) == OK:
+		_file.store_var(metadata)
+		_file.close()
 
 func _exit_tree():
 	write_meta_file()

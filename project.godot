@@ -125,6 +125,16 @@ _global_script_classes=[ {
 "path": "res://scripts/RoomManager.gd"
 }, {
 "base": "ResourceGrid2D",
+"class": "SolidGrid2D",
+"language": "GDScript",
+"path": "res://scripts/SolidGrid2D/SolidGrid2D.gd"
+}, {
+"base": "Resource",
+"class": "SongPattern",
+"language": "GDScript",
+"path": "res://scripts/SongPattern.gd"
+}, {
+"base": "ResourceGrid2D",
 "class": "SoundGrid2D",
 "language": "GDScript",
 "path": "res://scripts/SolidGrid2D/SoundGrid2D.gd"
@@ -158,6 +168,8 @@ _global_script_class_icons={
 "RoomLoader2D": "",
 "RoomManager2D": "",
 "RoomManager3D": "",
+"SolidGrid2D": "",
+"SongPattern": "",
 "SoundGrid2D": "",
 "Util": ""
 }

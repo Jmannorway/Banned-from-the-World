@@ -8,13 +8,9 @@ bpm = 140
 tempo = 4
 editable = false
 passablePoints = 1
-maxWalkDirection = 0
+maxWalkDirection = 1
 pattern = [ {
 "direction": 0,
-"duration": 2.0,
-"note_length": 1.0
-}, {
-"direction": 1,
 "duration": 2.0,
 "note_length": 1.0
 }, {
@@ -22,7 +18,7 @@ pattern = [ {
 "duration": 2.0,
 "note_length": 1.0
 }, {
-"direction": 3,
+"direction": 2,
 "duration": 2.0,
 "note_length": 1.0
 } ]

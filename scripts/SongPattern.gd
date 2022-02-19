@@ -1,11 +1,13 @@
 tool
 extends Resource
 
+class_name SongPattern
+
 export var bpm: int = 140
 export var tempo: int = 4
 export var editable: bool
 export var passablePoints: int = 4
-export (int, "Up", "Down", "Left", "Right")var maxWalkDirection: int
+export (int, "Up", "Left", "Down", "Right", "Random")var maxWalkDirection: int
 export var pattern: Array setget set_pattern
 
 var bps: float = 60.0 / float(bpm)
