@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/SongPattern.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+bpm = 140
+tempo = 4
+editable = false
+passablePoints = 1
+maxWalkDirection = 0
+pattern = [ {
+"direction": 0,
+"duration": 2.0,
+"note_length": 1.0
+}, {
+"direction": 1,
+"duration": 2.0,
+"note_length": 1.0
+}, {
+"direction": 2,
+"duration": 2.0,
+"note_length": 1.0
+}, {
+"direction": 3,
+"duration": 2.0,
+"note_length": 1.0
+} ]

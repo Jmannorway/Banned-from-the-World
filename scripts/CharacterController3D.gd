@@ -19,6 +19,7 @@ const gridOffset: Vector3 = Vector3(0.5, 0.0, -0.5)
 onready var tweenMovement: Tween = $tween_movement
 onready var anim: AnimationNodeStateMachinePlayback = get_node("model/RootNode/AnimationTree").get("parameters/playback")
 
+# warning-ignore:unused_signal
 signal action_event(playerRef)
 
 func _ready():
@@ -81,6 +82,9 @@ func move(var direction: int) -> void:
 	
 	canMove = false
 
+func check_minigame_event() -> bool:
+	return roomManager.currentRoom.get_block(Vector3(position.x - 0.5, translation.y, position.y - 0.5)) == 1
+
 # warning-ignore:unused_argument
 func _input(event):
 	if Input.is_action_just_pressed("interact") and interactiveReference != null:
@@ -139,7 +143,7 @@ func _exit_tree():
 
 enum MoveDirection{
 	UP,
-	DOWN,
 	LEFT,
+	DOWN,
 	RIGHT
 }

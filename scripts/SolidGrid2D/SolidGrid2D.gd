@@ -5,6 +5,8 @@ class_name SolidGrid2D
 func _add_cell_to_world_grid(x : int, y : int, world_x : int, world_y : int):
 	WorldGrid.solid_grid.set_cell(world_x, world_y, get_cell(x, y))
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _clear_cell_in_world_grid(x : int, y : int, world_x : int, world_y : int):
 	WorldGrid.solid_grid.set_cell(world_x, world_y, INVALID_CELL)
 

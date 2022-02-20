@@ -29,15 +29,11 @@ func grab_transition_postion(var transitionName: String) -> Vector3:
 func activate(var status: bool) -> void:
 	visible = status
 
+func get_block(var position: Vector3) -> int:
+	return gridMap.get_cell_item(int(position.x - translation.x), int(position.y - translation.y), int(position.z - translation.z))
+
 func is_block_solid(var position: Vector3) -> bool:
-	var _block: int = gridMap.get_cell_item(int(position.x - translation.x), int(position.y - translation.y), int(position.z - translation.z))
-	
-	if _block == -1:
-		return false
-	
-	var _meshes = gridMap.get_meshes()[_block]
-	
-	return gridMap.get_cell_item(int(position.x - translation.x), int(position.y - translation.y), int(position.z - translation.z)) != -1
+	return get_block(position) == 0
 
 func set_follow_type(var value: int) -> void:
 	pathFollowType = value
