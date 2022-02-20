@@ -20,4 +20,4 @@ func _process(_delta):
 		else:
 			print("no interactable")
 		
-		queue_move(Vector2.DOWN, 0)
+		queue_move(Vector2.DOWN, 10)

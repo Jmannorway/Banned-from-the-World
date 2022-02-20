@@ -28,8 +28,8 @@ room = ExtResource( 2 )
 size = Vector2( 1200, 960 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
-position = Vector2( 132, 132 )
-room_name = "hub"
+position = Vector2( 348, 156 )
+room_name = "maze"
 
 [node name="interactable_2d" parent="." instance=ExtResource( 7 )]
 position = Vector2( 324, 168 )

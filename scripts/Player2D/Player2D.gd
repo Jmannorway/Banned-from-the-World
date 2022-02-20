@@ -5,7 +5,7 @@ class_name Player2D
 var walk_speed := 2.0
 var run_speed := 4.0
 var frozen : bool
-const INPUT_PRIORITY = 10
+const INPUT_PRIORITY = 0
 
 # INTERNAL FUNCTIONS
 func _ready():

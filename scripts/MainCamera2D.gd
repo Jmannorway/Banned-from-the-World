@@ -2,6 +2,8 @@ tool
 
 extends Node2D
 
+# TODO: Spawing in a bigger room does not generate the correct room bounds
+
 var bounds : Rect2
 var target : Node2D
 var camera_position : Vector2
