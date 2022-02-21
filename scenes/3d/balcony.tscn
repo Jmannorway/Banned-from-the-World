@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://scripts/RoomController.gd" type="Script" id=3]
 [ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=4]
-
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -13,6 +12,9 @@ albedo_color = Color( 0.694118, 0.0431373, 0.0431373, 1 )
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.2, 0.5, 0.2 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.2, 0.5, 0.6 )
 
 [node name="balcony" type="ImmediateGeometry"]
 material_override = SubResource( 1 )
@@ -43,7 +45,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
 shape = SubResource( 2 )
 
 [node name="to_hallway" type="Area" parent="room_events"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
 collision_layer = 4
 collision_mask = 0
 monitoring = false
@@ -54,8 +56,8 @@ __meta__ = {
 roomName = "hallway"
 
 [node name="CollisionShape" type="CollisionShape" parent="room_events/to_hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
-shape = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0 )
+shape = SubResource( 3 )
 
 [node name="room_grid" type="GridMap" parent="."]
 mesh_library = ExtResource( 4 )

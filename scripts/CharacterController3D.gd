@@ -71,6 +71,8 @@ func move(var direction: int) -> void:
 	if roomManager.currentRoom.is_block_solid(Vector3(position.x - 0.5, translation.y, position.y - 0.5)): # check gridmap for occupied spaces
 		position = _currentPosition
 		rotation.y = _currentRotation
+		
+		anim.travel("idle")
 		return
 	
 # warning-ignore:return_value_discarded
@@ -78,7 +80,7 @@ func move(var direction: int) -> void:
 # warning-ignore:return_value_discarded
 	tweenMovement.start()
 	
-	anim.travel("Walk")
+	anim.travel("walk")
 	
 	canMove = false
 
@@ -127,8 +129,6 @@ func tween_position_steps(var _object: Object, var _key: NodePath, var _elapsed:
 func tween_position_completed() -> void:
 	canMove = true
 	
-	anim.travel("Idle")
-	
 	if Input.is_action_pressed("move_up"):
 		move(MoveDirection.UP)
 	elif Input.is_action_pressed("move_down"):
@@ -137,6 +137,8 @@ func tween_position_completed() -> void:
 		move(MoveDirection.LEFT)
 	elif Input.is_action_pressed("move_right"):
 		move(MoveDirection.RIGHT)
+	else:
+		anim.travel("idle")
 
 func _exit_tree():
 	Statistics.metadata["position"] = translation - gridOffset

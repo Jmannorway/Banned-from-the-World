@@ -55,7 +55,7 @@ func set_map_instance_child(map_inst : Map2D) -> void:
 	emit_signal("map_changed", current_map_name)
 
 func change_map(map_scene : PackedScene) -> void:
-	if current_map_instance:
+	if is_instance_valid(current_map_instance):
 		current_map_instance.queue_free()
 		current_map_instance = null
 	

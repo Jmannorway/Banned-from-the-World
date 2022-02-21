@@ -28,11 +28,12 @@ script = ExtResource( 1 )
 movementSpeed = 20.0
 
 [node name="camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.539388, 0.842057, 0, -0.842057, 0.539388, 0, 7.62096, 4.45096 )
+transform = Transform( 1, 0, 0, 0, 0.539388, 0.842057, 0, -0.842057, 0.539388, 0, 7.08635, 4.10851 )
 
 [node name="tween_camera" type="Tween" parent="."]
 
 [node name="Particles" type="Particles" parent="."]
+visible = false
 material_override = SubResource( 3 )
 cast_shadow = 0
 amount = 256
