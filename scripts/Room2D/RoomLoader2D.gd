@@ -1,3 +1,5 @@
+tool
+
 extends Node2D
 
 class_name RoomLoader2D
