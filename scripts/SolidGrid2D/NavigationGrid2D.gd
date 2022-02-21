@@ -1,5 +1,7 @@
 extends ResourceGrid2D
 
+# TODO: Set tilemap and cell sizes
+
 class_name NavigationGrid2D
 
 func get_navigation_path(var from: Vector2, var to: Vector2) -> PoolVector2Array:

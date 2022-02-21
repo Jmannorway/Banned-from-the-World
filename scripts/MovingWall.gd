@@ -5,7 +5,7 @@ var direction = Vector2.DOWN
 
 func _process(_delta):
 	if !is_moving():
-		var _facing_interactable = interactable_detector.get_facing_interactable(global_position, Vector2.DOWN)
+		var _facing_interactable = interactable_detector.get_facing_interactable(self, Vector2.DOWN)
 		var _player = null
 		if _facing_interactable:
 			_player = _facing_interactable.owner

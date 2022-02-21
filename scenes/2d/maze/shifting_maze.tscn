@@ -1,23 +1,46 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Maze2D/ShiftingMaze.gd" type="Script" id=1]
-[ext_resource path="res://tiles/shifting maze tiles/ShiftingMazeTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://scripts/SolidGrid2D/NavigationGrid2D.gd" type="Script" id=2]
 [ext_resource path="res://scenes/2d/collision grid/solid_grid_2d.tscn" type="PackedScene" id=3]
-[ext_resource path="res://tiles/shifting maze tiles/ShiftingMazeFloorTileset.tres" type="TileSet" id=4]
+[ext_resource path="res://tiles/blocks/navigation_tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://tiles/shifting maze tiles/ShiftingMazeTileset.tres" type="TileSet" id=5]
+[ext_resource path="res://tiles/shifting maze tiles/ShiftingMazeFloorTileset.tres" type="TileSet" id=6]
 
 [node name="maze_2d" type="Node2D"]
 script = ExtResource( 1 )
 autotile_tile_index = 2
 
-[node name="floor_tiles" type="TileMap" parent="."]
+[node name="navigation" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 24, 24 )
 format = 1
+script = ExtResource( 2 )
+add_on_ready = false
 
-[node name="tiles" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+[node name="solids" parent="." instance=ExtResource( 3 )]
+add_on_ready = false
+
+[node name="floor" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 24, 24 )
 format = 1
 
-[node name="solid_grid_2d" parent="." instance=ExtResource( 3 )]
-add_on_ready = false
+[node name="walls" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 24, 24 )
+format = 1
+
+[node name="moving_floor" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 24, 24 )
+format = 1
+
+[node name="moving_walls" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 24, 24 )
+format = 1
+
+[node name="shifting_wall_tween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="shifting_wall_tween" to="." method="_on_shifting_wall_tween_tween_all_completed"]
