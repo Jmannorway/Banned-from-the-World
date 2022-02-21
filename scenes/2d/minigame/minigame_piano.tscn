@@ -1,0 +1,130 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/Piano Minigame/PianoMinigame.gd" type="Script" id=1]
+[ext_resource path="res://sprites/piano minigame/Blue arrow.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Piano Minigame/PianoKey.gd" type="Script" id=3]
+[ext_resource path="res://sprites/piano minigame/Purple arrow.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Piano Minigame/PianoTilesSpawner.gd" type="Script" id=5]
+[ext_resource path="res://scenes/2d/minigame/PatternTest.tres" type="Resource" id=6]
+[ext_resource path="res://scenes/2d/minigame/SecondPattern.tres" type="Resource" id=7]
+[ext_resource path="res://scripts/Piano Minigame/KeyPad.gd" type="Script" id=10]
+[ext_resource path="res://sprites/piano minigame/Piano circle.png" type="Texture" id=11]
+[ext_resource path="res://sprites/piano minigame/Circle hands.png" type="Texture" id=12]
+[ext_resource path="res://sprites/piano minigame/Black circle.png" type="Texture" id=13]
+[ext_resource path="res://scripts/Piano Minigame/Rotation.gd" type="Script" id=14]
+[ext_resource path="res://sprites/piano minigame/1 back pink circle.png" type="Texture" id=15]
+[ext_resource path="res://sprites/piano minigame/3 back blue circle.png" type="Texture" id=16]
+[ext_resource path="res://sprites/piano minigame/2 back red circle.png" type="Texture" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 30 )
+
+[node name="piano_minigame_manager" type="Node2D"]
+script = ExtResource( 1 )
+scoreByDistance = PoolRealArray( 2.5, 12.2, 29.5, 48 )
+songPatterns = [ ExtResource( 6 ), ExtResource( 7 ) ]
+
+[node name="break_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="directional_sprite" type="Sprite" parent="."]
+position = Vector2( 420, 45 )
+scale = Vector2( 2, 2 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="tween_rotation" type="Tween" parent="."]
+
+[node name="background" type="Node2D" parent="."]
+position = Vector2( 232, 192 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="3BackBlueCircle" type="Sprite" parent="background"]
+texture = ExtResource( 16 )
+
+[node name="2BackRedCircle" type="Sprite" parent="background"]
+texture = ExtResource( 17 )
+
+[node name="1BackPinkCircle" type="Sprite" parent="background"]
+texture = ExtResource( 15 )
+
+[node name="PianoCircle" type="Sprite" parent="."]
+position = Vector2( 234, 186 )
+rotation = -458.057
+scale = Vector2( 1, 1 )
+texture = ExtResource( 11 )
+script = ExtResource( 14 )
+rotation_speed = -15
+
+[node name="CircleHands" type="Sprite" parent="."]
+position = Vector2( 234, 186 )
+rotation = 455.768
+texture = ExtResource( 12 )
+script = ExtResource( 14 )
+
+[node name="BlackCircle" type="Sprite" parent="."]
+position = Vector2( 234, 186 )
+rotation = -452.707
+texture = ExtResource( 13 )
+script = ExtResource( 14 )
+rotation_speed = -15
+
+[node name="key_pad" type="Area2D" parent="."]
+position = Vector2( 232, 184 )
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+script = ExtResource( 10 )
+
+[node name="up" type="CollisionShape2D" parent="key_pad"]
+position = Vector2( 0, -64 )
+shape = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="up_arrow_button" type="Sprite" parent="key_pad/up"]
+texture = ExtResource( 2 )
+
+[node name="left" type="CollisionShape2D" parent="key_pad"]
+position = Vector2( -64, 0 )
+shape = SubResource( 1 )
+script = ExtResource( 3 )
+direction = 1
+
+[node name="left_arrow_button" type="Sprite" parent="key_pad/left"]
+rotation = -1.5708
+texture = ExtResource( 2 )
+
+[node name="down" type="CollisionShape2D" parent="key_pad"]
+position = Vector2( 0, 64 )
+shape = SubResource( 1 )
+script = ExtResource( 3 )
+direction = 2
+
+[node name="down_arrow_button" type="Sprite" parent="key_pad/down"]
+rotation = -3.14159
+texture = ExtResource( 2 )
+
+[node name="right" type="CollisionShape2D" parent="key_pad"]
+position = Vector2( 64, 0 )
+shape = SubResource( 1 )
+script = ExtResource( 3 )
+direction = 3
+
+[node name="right_arrow_button" type="Sprite" parent="key_pad/right"]
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="spawner" type="Area2D" parent="."]
+position = Vector2( 232, 184 )
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+script = ExtResource( 5 )
+upSpawner = Vector2( 0, -300 )
+downSpawner = Vector2( 0, 300 )
+leftSpawner = Vector2( -300, 0 )
+rightSpawner = Vector2( 300, 0 )
+
+[node name="timer" type="Timer" parent="spawner"]

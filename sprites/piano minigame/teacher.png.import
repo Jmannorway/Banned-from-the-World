@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrow_key.png-8670512713570456788c6a38be6c6ddd.stex"
+path="res://.import/teacher.png-4171f783c3521119fbdac09e0e2a8eb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/arrow_key.png"
-dest_files=[ "res://.import/arrow_key.png-8670512713570456788c6a38be6c6ddd.stex" ]
+source_file="res://sprites/piano minigame/teacher.png"
+dest_files=[ "res://.import/teacher.png-4171f783c3521119fbdac09e0e2a8eb0.stex" ]
 
 [params]
 

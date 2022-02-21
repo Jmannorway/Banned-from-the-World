@@ -16,3 +16,7 @@ func move_solid(var fromPosition: Vector2, var moveDirection: Vector2) -> void:
 	
 	set_cellv(_gridFromPos, TileMap.INVALID_CELL)
 	set_cellv(_gridMovePos, 0)
+
+func set_cell_global_position(gpos : Vector2, solid : bool) -> void:
+	var _pos = world_to_map(gpos)
+	set_cellv(_pos, 0 if solid else INVALID_CELL)

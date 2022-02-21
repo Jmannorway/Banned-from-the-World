@@ -32,13 +32,8 @@ room_name = "top"
 room = ExtResource( 7 )
 preview = true
 
-[node name="player_start" parent="." instance=ExtResource( 4 )]
-position = Vector2( 372, 252 )
-room_name = "main"
-
 [node name="player_start2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 372, 180 )
-index = 1
+position = Vector2( 324, 204 )
 room_name = "main"
 
 [node name="goto_side_from_main" parent="." instance=ExtResource( 6 )]
@@ -48,14 +43,6 @@ room_name = "side"
 [node name="goto_main_from_side" parent="." instance=ExtResource( 6 )]
 position = Vector2( 468, 204 )
 room_name = "main"
-
-[node name="teleport_from_main_to_top" parent="." instance=ExtResource( 6 )]
-position = Vector2( 252, 276 )
-room_name = "top"
-on_step = false
-teleport = true
-teleport_relative = true
-teleport_coords = Vector2( 0, -480 )
 
 [node name="teleport_from_top_to_main" parent="." instance=ExtResource( 6 )]
 position = Vector2( 252, -204 )

@@ -18,6 +18,7 @@ target_is_character = true
 [node name="hub" parent="." instance=ExtResource( 4 )]
 room_name = "hub"
 room = ExtResource( 1 )
+preview = true
 size = Vector2( 312, 312 )
 
 [node name="maze" parent="." instance=ExtResource( 4 )]

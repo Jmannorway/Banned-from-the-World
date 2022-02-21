@@ -11,7 +11,7 @@ func _ready():
 	modulate = disabledColor
 
 # warning-ignore:unused_argument
-func _input(event):
+func _process(delta):
 	if Input.is_action_just_pressed("move_" + directionNames[direction]):
 		modulate = activeColor
 		punch_key()

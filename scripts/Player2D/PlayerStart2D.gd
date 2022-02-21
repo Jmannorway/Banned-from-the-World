@@ -12,7 +12,6 @@ func _ready():
 			_player = PlayerAccess.spawn_player_2d()
 		
 		_player.position = Util.snap_v2(position, Game.SNAP) + Vector2.ONE * Game.SNAP / 2
-		print(_player.position)
 		MapManager.reset_player_start_index()
 		
 		if !room_name.empty():

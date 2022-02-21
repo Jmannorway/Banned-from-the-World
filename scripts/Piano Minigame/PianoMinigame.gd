@@ -38,7 +38,7 @@ func start_song() -> void:
 	play_pattern()
 
 # warning-ignore:unused_argument
-func _input(event):
+func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		start_song()
 		set_process_input(false)
@@ -59,16 +59,16 @@ func change_orientation(var direction: int) -> void:
 	match direction:
 		Direction.UP:
 # warning-ignore:return_value_discarded
-			tween.interpolate_property(keyPad, "rotation", null, PI, 1.4)
+			tween.interpolate_property(keyPad, "rotation_degrees", null, 0, 1.4)
 		Direction.LEFT:
 # warning-ignore:return_value_discarded
-			tween.interpolate_property(keyPad, "rotation", null, PI * 0.5, 1.4)
+			tween.interpolate_property(keyPad, "rotation_degrees", null, 270, 1.4)
 		Direction.DOWN:
 # warning-ignore:return_value_discarded
-			tween.interpolate_property(keyPad, "rotation", null, 0.0, 1.4)
+			tween.interpolate_property(keyPad, "rotation_degrees", null, 180, 1.4)
 		Direction.RIGHT:
 # warning-ignore:return_value_discarded
-			tween.interpolate_property(keyPad, "rotation", null, -PI * 0.5, 1.4)
+			tween.interpolate_property(keyPad, "rotation_degrees", null, 90, 1.4)
 	
 # warning-ignore:return_value_discarded
 	tween.start()
@@ -80,6 +80,7 @@ func play_pattern() -> void:
 	if attemtps >= 5:
 		emit_signal("minigame_ended")
 		print("We died")
+		queue_free()
 		return
 	
 	# replace with a collision thing from 3d world
