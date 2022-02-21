@@ -5,6 +5,9 @@ onready var solid_grid = $solid_grid_2d
 onready var sound_grid : SoundGrid2D = $sound_grid_2d
 
 func _on_MapManager_MapChanged() -> void:
+	clear_all()
+
+func clear_all() -> void:
 	solid_grid.clear()
 	navigation_grid.clear()
 	sound_grid.clear()
