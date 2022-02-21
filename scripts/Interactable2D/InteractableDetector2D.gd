@@ -35,6 +35,8 @@ func get_facing_interactable(checking_node : Node2D, facing : Vector2) -> Intera
 			return i as Interactable2D
 	return null
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_interactable_detector_2d_area_shape_entered(area_rid, area : Interactable2D, area_shape_index, local_shape_index):
 	if area:
 		match local_shape_index:
@@ -44,6 +46,8 @@ func _on_interactable_detector_2d_area_shape_entered(area_rid, area : Interactab
 				interactables.push_back(area)
 				print("pushed back")
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_interactable_detector_2d_area_shape_exited(area_rid, area : Interactable2D, area_shape_index, local_shape_index):
 	if area && local_shape_index:
 		var _index = interactables.find(area)

@@ -9,6 +9,7 @@ var sprite_direction : Vector2 setget set_sprite_direction
 var move_direction : Vector2
 export(int) var idle_frame = 1
 
+# warning-ignore:unused_signal
 signal move_animation_finished
 
 func idle():
@@ -55,6 +56,7 @@ func reverse_move() -> void:
 	finish_move()
 	move_direction(move_direction * -1, _duration, _factor)
 
+# warning-ignore:function_conflicts_variable
 func move_direction(dir : Vector2, dur : float, factor : float = 0.0) -> void:
 	# offset and tween to make it look like the sprite moves
 	offset -= Game.SNAP * dir

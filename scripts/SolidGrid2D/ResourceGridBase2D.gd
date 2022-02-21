@@ -30,8 +30,16 @@ func _ready():
 func get_cell_at_pixel(pos : Vector2) -> int:
 	return get_cellv(world_to_map(pos))
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _add_cell_to_world_grid(x : int, y : int, world_x : int, world_y : int):
 	pass # override this and add cell to the correct child of world grid
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _clear_cell_in_world_grid(x : int, y : int, world_x : int, world_y : int):
 	pass # override this and clear cell in the correct child of world grid

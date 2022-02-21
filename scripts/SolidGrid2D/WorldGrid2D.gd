@@ -13,6 +13,7 @@ func clear_all() -> void:
 	sound_grid.clear()
 
 func _ready():
+# warning-ignore:return_value_discarded
 	MapManager.connect("changing_map", self, "_on_MapManager_MapChanged")
 
 # VARIOUS UTILITY

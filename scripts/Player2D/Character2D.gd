@@ -7,6 +7,7 @@ onready var character_sprite = $animated_character_sprite_2d
 # INTERNAL FUNCTIONS
 
 func _ready():
+# warning-ignore:return_value_discarded
 	connect("changed_facing_direction", character_sprite, "set_sprite_direction")
 
 # Override the base move to include a footstep sound and animation
