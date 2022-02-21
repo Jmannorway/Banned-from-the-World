@@ -15,6 +15,7 @@ onready var gridMap: GridMap = $room_grid
 
 func _ready():
 	if !Engine.editor_hint:
+		$room_grid.visible = false
 		clear()
 
 func grab_transition_postion(var transitionName: String) -> Vector3:
