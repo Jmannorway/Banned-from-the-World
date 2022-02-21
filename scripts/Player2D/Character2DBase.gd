@@ -51,6 +51,7 @@ var facing := Vector2.DOWN setget set_facing
 # INTERNAL FUNCTIONS
 func _enter_tree():
 	snap_to_grid()
+# warning-ignore:return_value_discarded
 	get_tree().connect("physics_frame", self, "_process_move")
 	add_child(move_cooldown_timer)
 	move_cooldown_timer.one_shot = true
@@ -98,6 +99,7 @@ func is_moving() -> bool:
 # EXTERNALLY CALLABLE
 # Queue a move to be processed
 func queue_move(_direction : Vector2, _priority : int) -> void:
+# warning-ignore:return_value_discarded
 	queued_move.set_move(_direction, _priority)
 
 # Checks if the relative block in direction is solid
