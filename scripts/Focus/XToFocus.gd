@@ -71,10 +71,10 @@ func add_focus_scene(scene : PackedScene, is_2d : bool):
 	
 	if is_2d:
 		viewport.set_mode(viewport.MODE.TWO_DIMENSIONAL)
-		viewport_sprite.scale = Vector2.ONE * 2
+		viewport_sprite.set_mode(true)
 	else:
 		viewport.set_mode(viewport.MODE.THREE_DIMENSIONAL)
-		viewport_sprite.scale = Vector2.ONE
+		viewport_sprite.set_mode(false)
 
 func diagnose_node_color_path_pair(node : Node, color_path : String):
 	if !node:
