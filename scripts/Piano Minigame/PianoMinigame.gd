@@ -19,6 +19,7 @@ var currentCorrectCombo: PoolIntArray
 signal score_appended(score)
 signal minigame_started
 signal minigame_ended
+signal pattern_ended
 
 func _ready():
 # warning-ignore:return_value_discarded
@@ -113,6 +114,7 @@ func end_pattern() -> void:
 		PlayerAccess.get_player_3d(get_tree()).move(_direction + currentWalkDirection)
 		
 		breakTimer.start(5.0)
+		emit_signal("pattern_ended")
 		return
 	
 	play_pattern()
