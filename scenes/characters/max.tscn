@@ -17,5 +17,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
 shape = SubResource( 2 )
 
 [node name="model" parent="." instance=ExtResource( 2 )]
+transform = Transform( 4.3, 0, 0, 0, 4.3, 0, 0, 0, 4.3, 0, 0, 0 )
 
 [node name="tween_movement" type="Tween" parent="."]

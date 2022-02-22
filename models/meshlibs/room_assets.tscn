@@ -6,6 +6,31 @@ center_offset = Vector3( 0, -0.5, 0 )
 
 [node name="assets" type="Spatial"]
 
+[node name="wall" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
 [node name="floor" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="floor2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="floor3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="floor4" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 1, 1.31134e-07, 0, 1.31134e-07, -1, -1, -4.37114e-08, -5.73206e-15, -2.38419e-07, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="floor5" type="MeshInstance" parent="."]
+transform = Transform( 1.31134e-07, -1, -1.31134e-07, 0, 1.31134e-07, -1, 1, 1.31134e-07, 1.71962e-14, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
