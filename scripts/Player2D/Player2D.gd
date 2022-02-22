@@ -26,7 +26,7 @@ func _process(delta):
 func _post_process_move():
 	._post_process_move()
 	
-	if Input.is_action_just_pressed("interact") && !is_moving():
+	if !frozen && Input.is_action_just_pressed("interact") && !is_moving():
 		$interactable_detector_2d.interact_with_facing(self, facing)
 
 # SIGNAL CALLBACKS

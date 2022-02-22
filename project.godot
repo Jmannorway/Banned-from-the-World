@@ -1271,10 +1271,10 @@ scene={
 "animation/optimizer/remove_unused_tracks": true,
 "animation/storage": false,
 "external_files/store_in_subdir": false,
-"materials/keep_on_reimport": true,
-"materials/location": 1,
+"materials/keep_on_reimport": false,
+"materials/location": 0,
 "materials/storage": 0,
-"meshes/compress": 190,
+"meshes/compress": 4286,
 "meshes/ensure_tangents": true,
 "meshes/light_baking": 0,
 "meshes/lightmap_texel_size": 0.1,
@@ -1285,7 +1285,7 @@ scene={
 "nodes/root_scale": 1.0,
 "nodes/root_type": "Spatial",
 "nodes/storage": 0,
-"nodes/use_legacy_names": false,
+"nodes/use_legacy_names": true,
 "skins/use_named_skins": true
 }
 

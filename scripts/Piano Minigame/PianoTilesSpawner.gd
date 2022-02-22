@@ -10,7 +10,7 @@ var spawnIndex: int
 var pattern: SongPattern
 var finalKey: Node
 
-onready var pianoTile: PackedScene = load("res://scenes/2d/arrow_tile.tscn")
+onready var pianoTile: PackedScene = load("res://scenes/2d/minigame/arrow_tile.tscn")
 onready var timer: Timer = $timer
 
 signal pattern_end

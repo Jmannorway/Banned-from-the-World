@@ -41,6 +41,10 @@ func warp_to_map_by_path(map_path : String, psi = 0) -> void:
 	change_map_by_path(map_path)
 	emit_signal("changing_map")
 
+func clear_map() -> void:
+	if is_instance_valid(current_map_instance):
+		current_map_instance.queue_free()
+
 func reset_player_start_index() -> void:
 	player_start_index = INVALID_PLAYER_START_INDEX
 

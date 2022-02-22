@@ -1,6 +1,4 @@
-[gd_resource type="TileSet" load_steps=4 format=2]
-
-[ext_resource path="res://tiles/blocks/blocking_tileset.png" type="Texture" id=1]
+[gd_resource type="TileSet" load_steps=3 format=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 24, 0, 24, 24, 0, 24 )
@@ -11,7 +9,6 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [resource]
 0/name = "blocking_tileset.png 0"
-0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 24, 24 )
@@ -32,7 +29,6 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 } ]
 0/z_index = 0
 1/name = "blocking_tileset.png 1"
-1/texture = ExtResource( 1 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 24, 0, 24, 24 )
