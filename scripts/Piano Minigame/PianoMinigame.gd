@@ -38,7 +38,7 @@ func start_song() -> void:
 	play_pattern()
 
 # warning-ignore:unused_argument
-func _process(delta):
+func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
 		start_song()
 		set_process_input(false)

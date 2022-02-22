@@ -52,21 +52,20 @@ texture = ExtResource( 15 )
 
 [node name="PianoCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -458.057
-scale = Vector2( 1, 1 )
+rotation = -1183.96
 texture = ExtResource( 11 )
 script = ExtResource( 14 )
 rotation_speed = -15
 
 [node name="CircleHands" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = 455.768
+rotation = 1181.67
 texture = ExtResource( 12 )
 script = ExtResource( 14 )
 
 [node name="BlackCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -452.707
+rotation = -1178.61
 texture = ExtResource( 13 )
 script = ExtResource( 14 )
 rotation_speed = -15
