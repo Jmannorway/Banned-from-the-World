@@ -22,7 +22,7 @@ func prewarp_room(var roomName: String, var position: Vector3) -> void:
 # warning-ignore:return_value_discarded
 	request_room_change(roomName, true)
 	# set Max's position, through the position parameter
-	mainCharacter.teleport_to(position)
+#	mainCharacter.teleport_to(position)
 	
 	check_for_room_availability()
 

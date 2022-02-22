@@ -16,6 +16,8 @@ onready var tween: Tween = $tween_camera
 func _ready():
 # warning-ignore:return_value_discarded
 	tween.connect("tween_all_completed", self, "on_transition_end")
+	
+	set_process(false)
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -25,6 +27,8 @@ func set_follow_target(var target: Spatial) -> void:
 	targetNode = target
 
 func set_control_mode(var mode: int, var fromRoomName: String, var controller) -> void:
+	set_process(true)
+	
 	match mode:
 		FollowPathType.RECT:
 			controlCallbackName = "follow_rect"
