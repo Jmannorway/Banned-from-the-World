@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/max_doorframe_uv.fbx" type="PackedScene" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://models/trashcan_nonuv.fbx" type="PackedScene" id=33]
 [ext_resource path="res://models/warderobe_nonuv.fbx" type="PackedScene" id=34]
 [ext_resource path="res://models/max_lavalamp_nonuv.fbx" type="PackedScene" id=35]
+[ext_resource path="res://scenes/x to focus/focus_scenes/focus_grid.tscn" type="PackedScene" id=36]
 [ext_resource path="res://scenes/2d/maps/phase_2_map.tscn" type="PackedScene" id=37]
 [ext_resource path="res://scenes/empty.tscn" type="PackedScene" id=38]
 
@@ -60,6 +61,14 @@ func _interact(var roomManager) -> void:
 # warning-ignore:return_value_discarded
 	get_tree().change_scene_to(blankScene)
 	MapManager.warp_to_map(changeToScene, 0)
+"
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends MeshInstance
+
+func _process(delta):
+	var shader_material = get_surface_material(0) as ShaderMaterial;
+	shader_material.set_shader_param(\"alpha\", XToFocus.alpha)
 "
 
 [node name="bedroom" type="ImmediateGeometry"]
@@ -280,3 +289,7 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
+
+[node name="focus_grid" parent="." instance=ExtResource( 36 )]
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.532638 )
+script = SubResource( 11 )
