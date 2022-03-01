@@ -59,6 +59,7 @@ preview = true
 size = Vector2( 144, 168 )
 
 [node name="hall" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 48, 0 )
 room_name = "hall"
 room = ExtResource( 9 )

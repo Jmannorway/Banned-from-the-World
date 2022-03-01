@@ -19,7 +19,6 @@ target_is_character = true
 room_name = "hub"
 room = ExtResource( 1 )
 preview = true
-size = Vector2( 312, 312 )
 
 [node name="maze" parent="." instance=ExtResource( 4 )]
 position = Vector2( 312, -336 )
@@ -28,15 +27,15 @@ room = ExtResource( 2 )
 size = Vector2( 1200, 960 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
-position = Vector2( 276, 156 )
+position = Vector2( 180, 144 )
 room_name = "hub"
 
-[node name="interactable_2d" parent="." instance=ExtResource( 7 )]
-position = Vector2( 324, 168 )
+[node name="to_maze" parent="." instance=ExtResource( 7 )]
+position = Vector2( 384, 336 )
 scale = Vector2( 1, 1.92 )
 room_name = "maze"
 
-[node name="interactable_2d4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 300, 168 )
+[node name="to_hub" parent="." instance=ExtResource( 7 )]
+position = Vector2( 360, 336 )
 scale = Vector2( 1, 1.92 )
 room_name = "hub"
