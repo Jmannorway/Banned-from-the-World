@@ -2,7 +2,8 @@ extends TileMap
 
 class_name ResourceGrid2D
 
-export var add_on_ready := true
+export(bool) var add_on_ready = true
+export(bool) var hide_on_ready = true
 
 func update_snap() -> void:
 	cell_size = Vector2(Game.SNAP, Game.SNAP)
@@ -22,7 +23,8 @@ func call_on_used_rect(function_name : String) -> void:
 			call(function_name, x, y, x + offset.x, y + offset.y)
 
 func _ready():
-	visible = false
+	if hide_on_ready:
+		visible = false
 	update_snap()
 	if add_on_ready:
 		paint_to_world_grid()

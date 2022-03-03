@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://sprites/city.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Room2D/Room2D.gd" type="Script" id=3]
 
 [node name="room" type="YSort"]
 script = ExtResource( 3 )
 
 [node name="city" type="Sprite" parent="."]
-texture = ExtResource( 1 )
 centered = false

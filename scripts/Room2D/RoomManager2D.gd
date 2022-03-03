@@ -56,7 +56,7 @@ func focus_room(room_name : String) -> void:
 	if room_loaders.has(room_name):
 		if !room_loaders[room_name].is_loaded():
 			load_room(room_name)
-			room_loaders[room_name].connect("loaded", self, "_on_RoomLoader_loaded", [], CONNECT_ONESHOT)
+			Util.connect_safe(room_loaders[room_name], "loaded", self, "_on_RoomLoader_loaded")
 		else:
 			emit_signal("room_focused", room_name, room_loaders[room_name])
 		set_current_room_name(room_name)

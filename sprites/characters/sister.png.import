@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/max.png-962c7355ee0c7000da5ac621cc3a34de.stex"
+path="res://.import/sister.png-b9c2066f184bfc1079a8aff2d982179f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/max.png"
-dest_files=[ "res://.import/max.png-962c7355ee0c7000da5ac621cc3a34de.stex" ]
+source_file="res://sprites/characters/sister.png"
+dest_files=[ "res://.import/sister.png-b9c2066f184bfc1079a8aff2d982179f.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

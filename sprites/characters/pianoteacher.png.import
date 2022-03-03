@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/city.png-ec5a17df7066b1e2e9ff73f5594c8375.stex"
+path="res://.import/pianoteacher.png-db7bf3180a1d22c01fd817f75fabac6d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/city.png"
-dest_files=[ "res://.import/city.png-ec5a17df7066b1e2e9ff73f5594c8375.stex" ]
+source_file="res://sprites/characters/pianoteacher.png"
+dest_files=[ "res://.import/pianoteacher.png-db7bf3180a1d22c01fd817f75fabac6d.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

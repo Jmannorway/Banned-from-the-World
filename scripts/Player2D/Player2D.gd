@@ -20,8 +20,11 @@ func _process(delta):
 			set_move_speed(walk_speed)
 		
 		var _movement_vector = make_input_vector_4way(get_input_vector())
-		if !Util.compare_v2(_movement_vector, 0):
-			queue_move(_movement_vector, INPUT_PRIORITY)
+		if !Util.compare_v2(_movement_vector, 0) && !is_moving():
+			if check_solid_relative(_movement_vector):
+				set_facing(_movement_vector)
+			else:
+				queue_move(_movement_vector, INPUT_PRIORITY)
 
 func _post_process_move():
 	._post_process_move()

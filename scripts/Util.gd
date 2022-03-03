@@ -10,6 +10,38 @@ static func make_array_2d(w : int, h : int, val = 0) -> Array:
 			_arr[x][y] = val
 	return _arr
 
+# Assumes a rectangular array
+# Array must be passed by reference
+static func resize_array_2d(array2d : Array, new_size : Vector2) -> void:
+	
+	var _old_size = array2d.size()
+	array2d.resize(new_size.x)
+	
+	if _old_size < new_size.x:
+		for x in range(_old_size, new_size.x):
+			array2d[x] = Array()
+	
+	for x in new_size.x:
+		array2d[x].resize(new_size.y)
+
+static func tilemap_get_autotile_coord_dictionary(
+	tilemap : TileMap,
+	tile_index : int = 0,
+	tileset_area := Rect2(Vector2.ZERO, Vector2(12, 4))) -> Dictionary:
+	
+	var autotile_coords : Dictionary
+	for x in tileset_area.size.x:
+		for y in tileset_area.size.y:
+			autotile_coords[tilemap.tile_set.autotile_get_bitmask(tile_index, Vector2(x, y))] = Vector2(x, y);
+	return autotile_coords
+
+static func randi_range(from : int, to : int) -> int:
+	return (randi() % (int(max(to - from, 1)))) + from
+
+static func connect_safe(object : Object, signal_name : String, target : Object, method_name : String, binds : Array = [], flags : int = 0):
+	if !object.is_connected(signal_name, target, method_name):
+		object.connect(signal_name, target, method_name, binds, flags)
+
 # checks if the node is queued for deletion by also checking all of its parents
 static func deep_is_queued_for_deletion(node : Node):
 	if node.is_queued_for_deletion():
