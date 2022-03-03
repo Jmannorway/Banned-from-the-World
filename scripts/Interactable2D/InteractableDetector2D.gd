@@ -2,7 +2,7 @@ extends Area2D
 
 class_name InteractableDetector2D
 
-enum INTERACTABLE_TYPE{GENERAL, CHARACTER, MISC, WARP, PLAYER, __MAX}
+enum LOCAL_SHAPE_TYPE {STEP, INTERACT}
 
 var interactables : Array
 export(NodePath) var owner_path 
@@ -23,15 +23,13 @@ func interact_with_facing(checking_node : Node2D, facing : Vector2) -> void:
 	if _facing_interactable:
 		_facing_interactable.interact()
 	else:
-		print("no facing interactable")
+		printerr("no facing interactable")
 
 func get_facing_interactable(checking_node : Node2D, facing : Vector2) -> Interactable2D:
 	var _pos = checking_node.global_position
 	for i in interactables:
-		print(_pos, ", ", i.global_position)
-		var _rel_pos = (_pos - i.global_position).normalized()
-		print(_rel_pos, facing)
-		if facing.dot(_rel_pos) == -1:
+		var _dir = (_pos - i.global_position).normalized()
+		if facing.dot(_dir) == -1:
 			return i as Interactable2D
 	return null
 
@@ -40,15 +38,14 @@ func get_facing_interactable(checking_node : Node2D, facing : Vector2) -> Intera
 func _on_interactable_detector_2d_area_shape_entered(area_rid, area : Interactable2D, area_shape_index, local_shape_index):
 	if area:
 		match local_shape_index:
-			0:
+			LOCAL_SHAPE_TYPE.STEP:
 				area.step()
-			1:
+			LOCAL_SHAPE_TYPE.INTERACT:
 				interactables.push_back(area)
-				print("pushed back")
 
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
 func _on_interactable_detector_2d_area_shape_exited(area_rid, area : Interactable2D, area_shape_index, local_shape_index):
-	if area && local_shape_index:
+	if area && local_shape_index == LOCAL_SHAPE_TYPE.INTERACT:
 		var _index = interactables.find(area)
 		interactables.remove(_index)

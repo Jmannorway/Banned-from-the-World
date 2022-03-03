@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/thoughts.png-1b0b6c3cdb2ec9e5382243465007c702.stex"
+path="res://.import/Circlehands2.png-8abec1a0aad16e655df4ccd2d7bb8a37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/thoughts.png"
-dest_files=[ "res://.import/thoughts.png-1b0b6c3cdb2ec9e5382243465007c702.stex" ]
+source_file="res://sprites/piano minigame/hands/Circlehands2.png"
+dest_files=[ "res://.import/Circlehands2.png-8abec1a0aad16e655df4ccd2d7bb8a37.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sister.png-ac0a88a5808f82f51e1ccd9310630762.stex"
+path="res://.import/dark_background_clippingmask.png-7ed44e9c1944bdb79cba7f7e9efcc927.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sister.png"
-dest_files=[ "res://.import/sister.png-ac0a88a5808f82f51e1ccd9310630762.stex" ]
+source_file="res://sprites/hub/dark_background_clippingmask.png"
+dest_files=[ "res://.import/dark_background_clippingmask.png-7ed44e9c1944bdb79cba7f7e9efcc927.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

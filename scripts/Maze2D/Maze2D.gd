@@ -1,6 +1,6 @@
-extends Object
+extends Reference
 
-class_name RecursiveBacktrack
+class_name Maze2D
 
 enum DIRECTION {UP, RIGHT, DOWN, LEFT, _MAX}
 const DIRECTIONV = [
@@ -10,30 +10,13 @@ const DIRECTIONV = [
 	Vector2.LEFT
 ]
 
-var size := Vector2(8, 8)
 var data : Array
 
-func make_grid() -> Array:
-	var _grid = Util.make_array_2d(size.x * 2 + 1, size.y * 2 + 1)
-	
-	for x in range(0, size.x - 1):
-		for y in range(0, size.y - 1):
-			var _pos = Vector2(x * 2 + 1, y * 2 + 1)
-			_grid[_pos.x+1][_pos.y+1] = 1
-			_grid[_pos.x+1][_pos.y] = (!has_hole(Vector2(x, y), DIRECTION.RIGHT)) as int
-			_grid[_pos.x][_pos.y+1] = (!has_hole(Vector2(x, y), DIRECTION.DOWN)) as int
-	
-	for x in size.x * 2:
-		_grid[x][0] = 1
-		_grid[x][size.y * 2] = 1
-	
-	for y in size.y * 2:
-		_grid[0][y] = 1
-		_grid[size.x * 2][y] = 1
-	
-	_grid[size.x * 2][size.y * 2] = 1
-	
-	return _grid
+func size() -> Vector2:
+	return Vector2(data.size(), 0 if data.size() == 0 else data[0].size())
+
+func resize(new_size : Vector2) -> void:
+	data = Util.make_array_2d(new_size.x, new_size.y)
 
 func has_visited(pos : Vector2) -> bool:
 	return data[pos.x][pos.y] != 0
@@ -48,7 +31,8 @@ func reverse_direction(dir : int) -> int:
 	return (dir + 2) % DIRECTION._MAX
 
 func is_within_bounds(pos : Vector2) -> bool:
-	return pos.x >= 0 && pos.x < size.x && pos.y >= 0 && pos.y < size.y
+	var _size = size()
+	return pos.x >= 0 && pos.x < _size.x && pos.y >= 0 && pos.y < _size.y
 
 func is_valid_move(pos : Vector2) -> bool:
 	return is_within_bounds(pos) && !has_visited(pos)
@@ -60,11 +44,10 @@ func get_valid_moves(pos : Vector2) -> Array:
 			moves.push_back(i)
 	return moves
 
-func make_maze(maze_size : Vector2) -> void:
-	size = maze_size
-	data = Util.make_array_2d(size.x, size.y)
+func make_maze_recursive_backtrack(maze_size : Vector2) -> void:
+	resize(maze_size)
 	
-	var _location = Vector2(randi() % (size.x as int), randi() % (size.y as int))
+	var _location = Vector2(randi() % (maze_size.x as int), randi() % (maze_size.y as int))
 	var _history : Array
 	_history.push_back(_location)
 	

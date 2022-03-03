@@ -4,9 +4,9 @@ var keysInScope: Array
 
 func _ready():
 # warning-ignore:return_value_discarded
-	connect("area_shape_entered", self, "add_key")
+	Util.connect_safe(self, "area_shape_entered", self, "add_key")
 # warning-ignore:return_value_discarded
-	connect("area_shape_exited", self, "remove_key")
+	Util.connect_safe(self, "area_shape_exited", self, "remove_key")
 
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument

@@ -39,66 +39,83 @@ enum MOBILITY {
 }
 
 signal changed_facing_direction(facing)
+signal move_finished
 
 export var solid := true
-export(MOBILITY) var mobility = MOBILITY.NORMAL
-export(float) var move_speed = 2.0 setget set_move_speed
-var move_cooldown_length : float
+export(MOBILITY) var mobility = MOBILITY.NORMAL # TODO: Implement
+export(float, 0.1, 16.0) var move_speed = 2.0 setget set_move_speed
 var move_cooldown_timer := Timer.new()
 var queued_move := CharacterMove2D.new()
 var facing := Vector2.DOWN setget set_facing
+var last_move : Vector2
 
 # INTERNAL FUNCTIONS
 func _enter_tree():
 	snap_to_grid()
 # warning-ignore:return_value_discarded
-	get_tree().connect("physics_frame", self, "_process_move")
+	Util.connect_safe(get_tree(), "physics_frame", self, "_process_move")
 	add_child(move_cooldown_timer)
 	move_cooldown_timer.one_shot = true
+	
+	if solid:
+		WorldGrid.solid_grid.set_solid(global_position, true)
 
 # general move function
 func _move(dir : Vector2) -> void:
 	move_position(dir)
+	set_facing(dir)
 
 # Process the queued move
 func _process_move() -> void:
 	if !is_moving() && queued_move.is_move_set():
-		
-		match mobility:
-			MOBILITY.NORMAL:
-				if !check_solid_relative(queued_move.direction):
-					_move(queued_move.direction)
-				else:
-					set_facing(queued_move.direction)
-			MOBILITY.FLYING:
-				pass
-			MOBILITY.GHOST:
-				pass
+		_move(queued_move.direction)
 	
 	queued_move.clear()
 	_post_process_move()
 
-# Override for things you want to have happen after movement has been processed
+# Override for post movement behavior
 func _post_process_move() -> void:
-	pass
+	update_solidity()
+
+# Callbacks
+func update_solidity() -> void:
+	if solid:
+		WorldGrid.solid_grid.set_solid_at_pixel(global_position, true)
 
 # SETTERS & GETTERS
 func set_move_speed(val : float) -> void:
 	if val > 0.0:
 		move_speed = val
-		move_cooldown_length = 1 / move_speed
+
+func get_move_duration() -> float:
+	return 1 / move_speed
+
+static func get_move_duration_at_speed(speed : float) -> float:
+	return 1 / speed
 
 func set_facing(dir : Vector2) -> void:
 	if facing != dir:
 		facing = dir
 		emit_signal("changed_facing_direction", facing)
 
+func set_integer_position(ipos : Vector2) -> void:
+	position = ipos * Game.SNAP + Vector2.ONE * Game.SNAP / 2.0
+
+func set_global_integer_position(ipos : Vector2) -> void:
+	global_position = ipos * Game.SNAP + Vector2.ONE * Game.SNAP / 2.0
+
+func get_integer_position() -> Vector2:
+	return Util.floor_v2(position / Game.SNAP)
+
+func get_global_integer_position() -> Vector2:
+	return Util.floor_v2(global_position / Game.SNAP)
+
 func is_moving() -> bool:
 	return move_cooldown_timer.time_left != 0.0
 
 # EXTERNALLY CALLABLE
 # Queue a move to be processed
-func queue_move(_direction : Vector2, _priority : int) -> void:
+func queue_move(_direction : Vector2, _priority : int = 0) -> void:
 # warning-ignore:return_value_discarded
 	queued_move.set_move(_direction, _priority)
 
@@ -108,18 +125,23 @@ func check_solid_relative(dir : Vector2) -> bool:
 
 # Move the character by a square
 func move_position(dir : Vector2) -> void:
+	move_cooldown_timer.stop()
+	
 	var _move_distance = dir * Game.SNAP
 	
 	if solid:
-		WorldGrid.solid_grid.move_solid(position, _move_distance)
+		WorldGrid.solid_grid.move_solid(get_global_integer_position(), dir)
 	
 	position += _move_distance
-	move_cooldown_timer.start(move_cooldown_length)
-	set_facing(dir)
+	last_move = dir
+	move_cooldown_timer.start(get_move_duration())
 
 # UTILITY
 static func get_random_move_direction() -> Vector2:
 	return VDIRECTION[randi() % DIRECTION._MAX]
+
+static func get_travel_duration(distance : float, speed : float) -> float:
+	return distance / speed
 
 func snap_to_grid():
 	position = Util.snap_v2(position, Game.SNAP) + Vector2.ONE * Game.SNAP / 2

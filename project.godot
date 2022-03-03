@@ -14,10 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Player2D/AnimatedCharacterSprite2D.gd"
 }, {
-"base": "Object",
-"class": "BitGridUtil",
+"base": "Sprite",
+"class": "AreaMarker2D",
 "language": "GDScript",
-"path": "res://scripts/Maze2D/BitGridUtil.gd"
+"path": "res://scripts/AreaMarker2D.gd"
+}, {
+"base": "Reference",
+"class": "BitGrid2D",
+"language": "GDScript",
+"path": "res://scripts/Maze2D/BitGrid.gd"
 }, {
 "base": "Spatial",
 "class": "BlockData",
@@ -84,6 +89,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Room2D/MapManager2D.gd"
 }, {
+"base": "Reference",
+"class": "Maze2D",
+"language": "GDScript",
+"path": "res://scripts/Maze2D/Maze2D.gd"
+}, {
 "base": "ResourceGrid2D",
 "class": "NavigationGrid2D",
 "language": "GDScript",
@@ -99,15 +109,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/PlayerAccess.gd"
 }, {
-"base": "Object",
-"class": "RecursiveBacktrack",
-"language": "GDScript",
-"path": "res://scripts/Maze2D/RecursiveBacktrack.gd"
-}, {
 "base": "TileMap",
 "class": "ResourceGrid2D",
 "language": "GDScript",
-"path": "res://scripts/SolidGrid2D/ResourceGridBase2D.gd"
+"path": "res://scripts/SolidGrid2D/ResourceGrid2D.gd"
 }, {
 "base": "Node2D",
 "class": "Room2D",
@@ -156,7 +161,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AnimatedCharacterSprite2D": "",
-"BitGridUtil": "",
+"AreaMarker2D": "",
+"BitGrid2D": "",
 "BlockData": "",
 "CameraController": "",
 "Character2D": "",
@@ -170,10 +176,10 @@ _global_script_class_icons={
 "InteractableWarp": "",
 "Map2D": "",
 "MapManager2D": "",
+"Maze2D": "",
 "NavigationGrid2D": "",
 "Player2D": "",
 "PlayerAccess": "",
-"RecursiveBacktrack": "",
 "ResourceGrid2D": "",
 "Room2D": "",
 "Room3D": "",
@@ -1341,6 +1347,11 @@ run={
 focus={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_test={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777223,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

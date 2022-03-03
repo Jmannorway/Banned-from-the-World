@@ -15,28 +15,28 @@ script = ExtResource( 6 )
 target_group = "player_2d"
 target_is_character = true
 
+[node name="maze" parent="." instance=ExtResource( 4 )]
+position = Vector2( 480, -336 )
+room_name = "maze"
+room = ExtResource( 2 )
+preview = true
+size = Vector2( 1128, 888 )
+
 [node name="hub" parent="." instance=ExtResource( 4 )]
 room_name = "hub"
 room = ExtResource( 1 )
 preview = true
-size = Vector2( 312, 312 )
-
-[node name="maze" parent="." instance=ExtResource( 4 )]
-position = Vector2( 312, -336 )
-room_name = "maze"
-room = ExtResource( 2 )
-size = Vector2( 1200, 960 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
-position = Vector2( 276, 156 )
+position = Vector2( 444, 180 )
 room_name = "hub"
 
-[node name="interactable_2d" parent="." instance=ExtResource( 7 )]
-position = Vector2( 324, 168 )
+[node name="to_maze" parent="." instance=ExtResource( 7 )]
+position = Vector2( 492, 192 )
 scale = Vector2( 1, 1.92 )
 room_name = "maze"
 
-[node name="interactable_2d4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 300, 168 )
+[node name="to_hub" parent="." instance=ExtResource( 7 )]
+position = Vector2( 468, 192 )
 scale = Vector2( 1, 1.92 )
 room_name = "hub"

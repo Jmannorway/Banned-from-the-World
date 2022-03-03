@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/2d/character & player/animated_character_sprite_2d.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/MovingWall.gd" type="Script" id=2]
+[ext_resource path="res://sprites/ghost town/eyes.tres" type="Texture" id=3]
+[ext_resource path="res://scenes/2d/interactable/interactable_detector_2d.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="moving_wall" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="animated_character_sprite_2d" parent="." instance=ExtResource( 1 )]
+frames = SubResource( 1 )
+
+[node name="interactable_detector_2d" parent="." instance=ExtResource( 4 )]
+collision_layer = 2
+collision_mask = 18

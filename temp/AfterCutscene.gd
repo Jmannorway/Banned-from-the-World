@@ -3,7 +3,7 @@ extends VideoPlayer
 export var loadScene: PackedScene
 
 func _ready():
-	connect("finished", self, "load_scene")
+	Util.connect_safe(self, "finished", self, "load_scene")
 
 func load_scene() -> void:
 	get_tree().change_scene_to(loadScene)
