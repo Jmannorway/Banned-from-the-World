@@ -12,7 +12,7 @@ signal room_unloaded(room_name, room_loader_node)
 signal room_focused(room_name, room_loader_node)
 
 func _ready():
-	MapManager.connect("changing_map", self, "_on_MapManager_MapChanged")
+	Util.connect_safe(MapManager, "changing_map", self, "_on_MapManager_MapChanged")
 
 func _on_MapManager_MapChanged():
 	room_loaders.clear()

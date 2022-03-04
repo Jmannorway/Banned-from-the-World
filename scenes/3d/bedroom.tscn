@@ -1,8 +1,8 @@
 [gd_scene load_steps=43 format=2]
 
-[ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/max_doorframe_uv.fbx" type="PackedScene" id=2]
-[ext_resource path="res://scripts/RoomController.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Room3D/RoomController.gd" type="Script" id=3]
 [ext_resource path="res://models/max_door_uv.fbx" type="PackedScene" id=4]
 [ext_resource path="res://models/meshlibs/room_assets.meshlib" type="MeshLibrary" id=5]
 [ext_resource path="res://models/max_window_uv.fbx" type="PackedScene" id=6]

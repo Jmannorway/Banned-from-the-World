@@ -27,6 +27,10 @@ func has_hole(pos : Vector2, dir : int) -> bool:
 func make_hole(pos : Vector2, dir : int) -> void:
 	data[pos.x][pos.y] |= (1 << dir)
 
+func drill_hole(pos : Vector2, dir : int) -> void:
+	make_hole(pos, dir)
+	make_hole(pos + DIRECTIONV[dir], reverse_direction(dir))
+
 func reverse_direction(dir : int) -> int:
 	return (dir + 2) % DIRECTION._MAX
 

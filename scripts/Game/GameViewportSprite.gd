@@ -12,11 +12,9 @@ func update():
 				if viewport.mode == viewport.MODE.TWO_DIMENSIONAL:
 					scale = Vector2.ONE * 2
 					region_rect = Rect2(Vector2.ZERO, Vector2(480, 360))
-					print("one")
 				else:
 					scale = Vector2.ONE
 					region_rect = Rect2(Vector2.ZERO, Vector2(960, 720))
-					print("two")
 			else:
 				print("GameViewportSprite: No GameViewport assigned")
 		else:

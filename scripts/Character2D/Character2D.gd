@@ -19,7 +19,6 @@ func _move(dir : Vector2) -> void:
 
 # Override _post_process_move() to call idle on the newly added sprite node when not moving
 func _post_process_move() -> void:
-	._post_process_move()
 	if !is_moving():
 		character_sprite.idle()
 

@@ -5,14 +5,18 @@ class_name ResourceGrid2D
 export(bool) var add_on_ready = true
 export(bool) var hide_on_ready = true
 
+# These have to be set to a function with the correct signature
+var add_cell_function : String = "_add_cell_to_world_grid"
+var clear_cell_function : String = "_clear_cell_in_world_grid"
+
 func update_snap() -> void:
 	cell_size = Vector2(Game.SNAP, Game.SNAP)
 
 func paint_to_world_grid() -> void:
-	call_on_used_rect("_add_cell_to_world_grid")
+	call_on_used_rect(add_cell_function)
 
 func erase_from_world_grid() -> void:
-	call_on_used_rect("_clear_cell_in_world_grid")
+	call_on_used_rect(clear_cell_function)
 
 func call_on_used_rect(function_name : String) -> void:
 	var area = get_used_rect()

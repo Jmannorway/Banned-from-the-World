@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scripts/Player2D/AnimatedCharacterSprite2D.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Character2D/AnimatedCharacterSprite2D.gd" type="Script" id=2]
 
 [node name="animated_character_sprite_2d" type="AnimatedSprite"]
 position = Vector2( 0, -8 )

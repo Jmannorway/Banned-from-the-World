@@ -15,17 +15,19 @@ script = ExtResource( 6 )
 target_group = "player_2d"
 target_is_character = true
 
-[node name="maze" parent="." instance=ExtResource( 4 )]
-position = Vector2( 480, -336 )
-room_name = "maze"
-room = ExtResource( 2 )
-preview = true
-size = Vector2( 1128, 888 )
-
 [node name="hub" parent="." instance=ExtResource( 4 )]
 room_name = "hub"
 room = ExtResource( 1 )
 preview = true
+
+[node name="maze" parent="." instance=ExtResource( 4 )]
+position = Vector2( 480, -312 )
+z_index = 2
+sort_enabled = false
+room_name = "maze"
+room = ExtResource( 2 )
+preview = true
+size = Vector2( 1152, 912 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
 position = Vector2( 444, 180 )

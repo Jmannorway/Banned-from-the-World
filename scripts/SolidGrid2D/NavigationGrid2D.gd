@@ -5,7 +5,11 @@ extends ResourceGrid2D
 class_name NavigationGrid2D
 
 func get_navigation_path(var from: Vector2, var to: Vector2) -> PoolVector2Array:
-	return get_node("../").get_simple_path(from, to, true)
+	var _path = get_node("../").get_simple_path(from, to, true)
+	var _room_offset = MapManager.get_room_manager().get_current_room_loader().position
+	for i in _path.size():
+		_path[i] -= _room_offset
+	return _path
 
 func _add_cell_to_world_grid(x : int, y : int, world_x : int, world_y : int):
 	WorldGrid.navigation_grid.set_cell(world_x, world_y, get_cell(x, y))

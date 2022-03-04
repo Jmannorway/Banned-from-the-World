@@ -16,16 +16,16 @@ func _ready():
 	move()
 
 func move() -> void:
-	var _player_interactable : Interactable2D = $interactable_detector_2d.get_facing_interactable(self, direction)
+	var _interactable : Interactable2D = $interactable_detector_2d.get_facing_interactable(self, direction)
 	# if player is moving to the tile that this wall is moving to then force the player to move backwards
 	# if the player is currently on the tile then push it
-	if _player_interactable:
-		var _player : Player2D = _player_interactable.get_parent()
-		if _player.is_moving():
-			_player.reverse_move()
+	if _interactable:
+		var _character : Character2D = _interactable.get_parent()
+		if _character.is_moving():
+			_character.reverse_move()
 		else:
-			if _player.move_speed < move_speed + ADDED_PUSH_SPEED:
-				_player.set_move_speed(move_speed + ADDED_PUSH_SPEED)
-			_player.queue_move(direction, 0)
+			if _character.move_speed < move_speed + ADDED_PUSH_SPEED:
+				_character.set_move_speed(move_speed + ADDED_PUSH_SPEED)
+			_character.queue_move(direction, 0)
 	
 	queue_move(direction)

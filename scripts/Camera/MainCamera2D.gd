@@ -1,11 +1,10 @@
-tool
-
 extends Node2D
 
 # TODO: Spawing in a bigger room does not generate the correct room bounds
 
 var bounds : Rect2
 var target : Node2D
+var room_view : Rect2
 var camera_position : Vector2
 
 export(String) var target_group = PlayerAccess.PLAYER_2D_GROUP_NAME
@@ -55,8 +54,16 @@ func _process(delta):
 		if !free && !smooth_bounds:
 			camera_position = Util.clamp_v2(camera_position, bounds.position, bounds.end)
 		
+		var _viewport_size = get_viewport_rect().size
+		
 		if current:
-			get_viewport().canvas_transform.origin = -camera_position + get_viewport_rect().size / 2.0
+			get_viewport().canvas_transform.origin = -camera_position + _viewport_size / 2.0
+		
+		room_view.position = get_room_position() - _viewport_size / 2.0
+		room_view.size = _viewport_size
+
+func get_room_position() -> Vector2:
+	return camera_position - MapManager.get_room_manager().get_current_room_loader().position
 
 func get_room_default_bounds(room_node : RoomLoader2D) -> Rect2:
 	var _b : Rect2
