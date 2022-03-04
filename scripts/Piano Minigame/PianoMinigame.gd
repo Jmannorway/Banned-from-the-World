@@ -42,7 +42,7 @@ func start_song() -> void:
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		start_song()
-		set_process_input(false)
+		set_process(false)
 
 func generate_random_pattern() -> void:
 	pattern = SongPattern.new()
