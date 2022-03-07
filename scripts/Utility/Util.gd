@@ -6,6 +6,7 @@ static func goto_world(tree : SceneTree, world : int) -> void:
 	Game.set_world(world)
 	
 	if world == Game.WORLD.OUTER:
+		Statistics.metadata["inner_world_travel_count"] += 1
 		# Clear 2d world
 		MapManager.clear_map()
 		# Load default 3d world

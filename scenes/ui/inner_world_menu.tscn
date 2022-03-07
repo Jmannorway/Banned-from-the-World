@@ -1,13 +1,21 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/ui/InnerWorldMenu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/PeaberryMono.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
 
 [node name="inner_world_menu" type="ItemList"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 120.0
-margin_bottom = 72.0
+margin_right = 240.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
 items = [ "Close", null, false, "Photo Album", null, false, "Wake Up", null, false ]
+max_text_lines = 2
 script = ExtResource( 1 )
 
 [connection signal="item_activated" from="." to="." method="_on_inner_world_menu_item_activated"]
+[connection signal="visibility_changed" from="." to="." method="_on_inner_world_menu_visibility_changed"]

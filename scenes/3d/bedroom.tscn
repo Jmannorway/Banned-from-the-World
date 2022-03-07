@@ -56,10 +56,16 @@ export var blankScene: PackedScene
 
 # warning-ignore:unused_argument
 func _interact(var roomManager) -> void:
+	if Statistics.metadata[\"inner_world_travel_count\"] == 0:
+		Ui.action_hint.show_action_hint(Ui.action_hint.HINT.C)
 	Util.goto_world(get_tree(), Game.WORLD.INNER)
 #	get_tree().change_scene_to(blankScene)
 #	MapManager.warp_to_map(changeToScene, 0)
 #	Game.set_world(Game.WORLD.INNER)
+
+func _on_photo_album_area_entered(area):
+	print(\"entered\")
+	Ui.action_hint.show_action_hint(ActionHint.HINT.Z)
 "
 
 [sub_resource type="GDScript" id=11]
@@ -141,8 +147,7 @@ shape = SubResource( 9 )
 [node name="photo_album" type="Area" parent="room_events"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 collision_layer = 4
-collision_mask = 0
-monitoring = false
+collision_mask = 2
 script = SubResource( 10 )
 changeToScene = ExtResource( 37 )
 blankScene = ExtResource( 38 )
@@ -302,3 +307,5 @@ __meta__ = {
 [node name="focus_grid" parent="." instance=ExtResource( 36 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.532638 )
 script = SubResource( 11 )
+
+[connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]

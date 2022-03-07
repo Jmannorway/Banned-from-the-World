@@ -9,7 +9,6 @@ extents = Vector3( 0.2, 0.6, 0.2 )
 [node name="max" type="Area" groups=["player_3d"]]
 collision_layer = 2
 collision_mask = 4
-monitorable = false
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
