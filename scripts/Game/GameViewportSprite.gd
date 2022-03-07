@@ -28,8 +28,6 @@ func set_mode(two_dimensional : bool) -> void:
 	if two_dimensional:
 		scale = Vector2.ONE * 2
 		region_rect = Rect2(Vector2.ZERO, Vector2(480, 360))
-		print("one")
 	else:
 		scale = Vector2.ONE
 		region_rect = Rect2(Vector2.ZERO, Vector2(960, 720))
-		print("two")

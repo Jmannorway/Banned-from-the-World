@@ -11,9 +11,44 @@ export(float) var fade_duration = 1.0
 var state : int = STATE.INVISIBLE setget set_state
 var hint : int = HINT.SHIFT setget set_hint
 var check_held := false
+var timed := false
 
 onready var alpha_tween = $action_hint_visibility_tween
 onready var visibility_timer = $action_hint_visibility_timer
+
+# The usable functions
+func show_action_hint(action : int, duration := 0.0, held := false):
+	if duration != 0.0:
+		visibility_timer.wait_time = duration
+		timed = true
+	else:
+		timed = false
+	
+	check_held = held
+	
+	if !hint_button_pressed():
+		set_hint(action)
+		set_state(STATE.FADE_IN)
+
+func hide_action_hint():
+	if state == STATE.FADE_IN || state == STATE.VISIBLE:
+		set_state(STATE.FADE_OUT)
+
+# How it works
+func _ready():
+	set_state(state)
+
+func _process(delta):
+	$border.modulate.a = modulate.a
+	if hint_button_pressed() && state != STATE.INVISIBLE:
+		set_state(STATE.FADE_OUT)
+
+# Internal utility
+func hint_button_pressed() -> bool:
+	if check_held:
+		return Input.is_action_just_pressed(BUTTON[hint])
+	else:
+		return Input.is_action_pressed(BUTTON[hint])
 
 func set_hint(new_hint : int):
 	match new_hint:
@@ -38,8 +73,6 @@ func fade(fade_in : bool, tween_progress := 1.0) -> void:
 	if (state == STATE.FADE_IN && !fade_in) || (state == STATE.FADE_OUT && fade_in):
 		_fade_duration *= tween_progress
 	
-	print("time left: ", fade_duration)
-	
 	alpha_tween.interpolate_property(self, "modulate:a", null, int(fade_in), _fade_duration)
 	alpha_tween.start()
 
@@ -51,13 +84,10 @@ func set_state(new_state : int) -> void:
 	
 	# Stop any running tweening and calculate the amount of time left
 	if alpha_tween.is_active():
-		print(alpha_tween.get_runtime())
-		print(alpha_tween.tell())
 		_tween_progress = alpha_tween.tell() / alpha_tween.get_runtime()
 		alpha_tween.stop_all()
 	
 	if !visibility_timer.is_stopped():
-		print("timer time left: ", visibility_timer.time_left)
 		visibility_timer.stop()
 	
 	match new_state:
@@ -72,7 +102,7 @@ func set_state(new_state : int) -> void:
 				fade(true, _tween_progress)
 		STATE.VISIBLE:
 			modulate.a = 1.0
-			if visibility_timer.wait_time == 0.0:
+			if timed:
 				visibility_timer.start()
 		STATE.FADE_OUT:
 			if modulate.a == 0.0:
@@ -84,30 +114,10 @@ func set_state(new_state : int) -> void:
 	
 	state = new_state
 
-func _ready():
-	set_state(state)
-
-func _process(delta):
-	$border.modulate.a = modulate.a
-
-func _input(event):
-	if ((!check_held && Input.is_action_just_pressed(BUTTON[hint]) || (check_held && Input.is_action_pressed(BUTTON[hint]))) &&
-		state != STATE.INVISIBLE):
-		set_state(STATE.FADE_OUT)
-
-func show_action_hint(action : int, duration := 0.0, held := false):
-	visibility_timer.wait_time = duration
-	check_held = held
-	set_hint(action)
-	set_state(STATE.FADE_IN)
-
-func hide_action_hint():
-	if state == STATE.FADE_IN || state == STATE.VISIBLE:
-		set_state(STATE.FADE_OUT)
-
 func is_timer_set() -> bool:
 	return visibility_timer.wait_time != 0.0
 
+# Callbacks
 func _on_action_hint_visibility_tween_tween_all_completed():
 	if state == STATE.FADE_IN || state == STATE.FADE_OUT:
 		next_state()

@@ -14,7 +14,7 @@ script/source = "extends Interactable2D
 
 func step():
 	if (Statistics.metadata[\"inner_world_travel_count\"] <= 1):
-		Ui.action_hint.show_action_hint(Ui.action_hint.HINT.SHIFT, true)
+		Ui.action_hint.show_action_hint(Ui.action_hint.HINT.SHIFT, 0.0, true)
 		queue_free()
 
 func interact():
@@ -43,7 +43,7 @@ preview = true
 size = Vector2( 1152, 912 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
-position = Vector2( 444, 180 )
+position = Vector2( 300, 156 )
 room_name = "hub"
 
 [node name="to_maze" parent="." instance=ExtResource( 7 )]
