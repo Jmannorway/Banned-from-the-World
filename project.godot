@@ -159,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/SolidGrid2D/SoundGrid2D.gd"
 }, {
+"base": "Area2D",
+"class": "Stairs",
+"language": "GDScript",
+"path": "res://scripts/Interactable2D/WalkStairs.gd"
+}, {
 "base": "Reference",
 "class": "Util",
 "language": "GDScript",
@@ -195,6 +200,7 @@ _global_script_class_icons={
 "SolidGrid2D": "",
 "SongPattern": "",
 "SoundGrid2D": "",
+"Stairs": "",
 "Util": ""
 }
 
@@ -202,6 +208,7 @@ _global_script_class_icons={
 
 config/name="Banned from the World"
 run/main_scene="res://scenes/2d/maps/phase_2_map.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [audio]
@@ -210,13 +217,12 @@ default_bus_layout="res://audio_bus_layout.tres"
 
 [autoload]
 
-Game="*res://scripts/Game/Game.gd"
-Statistics="*res://scripts/Game/GameStatistics.gd"
+Game="*res://scripts/Game.gd"
+Statistics="*res://scripts/GameStatistics.gd"
 MapManager="*res://scenes/2d/map_manager_2d.tscn"
 WorldGrid="*res://scenes/2d/collision grid/world_grid_2d.tscn"
 XToFocus="*res://scenes/x to focus/x_to_focus.tscn"
 MusicManager="*res://scenes/music_manager.tscn"
-Ui="*res://scenes/ui/ui.tscn"
 
 [display]
 
@@ -1359,16 +1365,6 @@ run={
 focus={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
-debug_test={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777223,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
-menu={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
