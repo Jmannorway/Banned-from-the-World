@@ -3,11 +3,11 @@ extends Node
 onready var testTrack1: AudioStream = preload("res://audio/Neko To Sanpo.mp3")
 onready var fadeTween: Tween = $fadeout
 
-func _input(event):
-	if Input.is_action_just_pressed("ui_up"):
-		play_music(testTrack1)
-	elif Input.is_action_just_pressed("move_down"):
-		pause_music(0, true)
+#func _input(event):
+#	if Input.is_action_just_pressed("ui_up"):
+#		play_music(testTrack1)
+#	elif Input.is_action_just_pressed("move_down"):
+#		pause_music(0, true)
 
 func _ready():
 	fadeTween.connect("tween_completed", self, "on_fadeout_finished")
