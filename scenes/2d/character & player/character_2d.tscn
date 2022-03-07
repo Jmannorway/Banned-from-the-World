@@ -9,4 +9,5 @@ script = ExtResource( 1 )
 
 [node name="animated_character_sprite_2d" parent="." instance=ExtResource( 2 )]
 frames = ExtResource( 4 )
+frame = 1
 playing = true

@@ -63,7 +63,11 @@ func _process(delta):
 		room_view.size = _viewport_size
 
 func get_room_position() -> Vector2:
-	return camera_position - MapManager.get_room_manager().get_current_room_loader().position
+	var _room = MapManager.get_room_manager().get_current_room_loader()
+	if is_instance_valid(_room):
+		return camera_position - _room.position
+	else:
+		return Vector2.ZERO
 
 func get_room_default_bounds(room_node : RoomLoader2D) -> Rect2:
 	var _b : Rect2

@@ -32,6 +32,7 @@ target_is_character = true
 room_name = "hub"
 room = ExtResource( 1 )
 preview = true
+size = Vector2( 480, 384 )
 
 [node name="maze" parent="." instance=ExtResource( 4 )]
 position = Vector2( 480, -312 )
@@ -40,7 +41,7 @@ sort_enabled = false
 room_name = "maze"
 room = ExtResource( 2 )
 preview = true
-size = Vector2( 1152, 912 )
+size = Vector2( 1224, 984 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
 position = Vector2( 300, 156 )

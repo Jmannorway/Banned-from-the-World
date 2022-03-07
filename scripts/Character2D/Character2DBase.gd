@@ -32,6 +32,8 @@ const VDIRECTION = [
 	Vector2.LEFT,
 	Vector2.DOWN]
 
+const GROUP_NAME := "characters"
+
 enum MOBILITY {
 	NORMAL,		# Can't walk through walls or tiles tagged as void
 	FLYING,		# Can walk through tiles tagged as void,
@@ -39,11 +41,13 @@ enum MOBILITY {
 }
 
 signal changed_facing_direction(facing)
+signal move_started
 signal move_finished
 
 export var solid := true
 export(MOBILITY) var mobility = MOBILITY.NORMAL # TODO: Implement
 export(float, 0.1, 16.0) var move_speed = 2.0 setget set_move_speed
+
 var move_cooldown_timer := Timer.new()
 var queued_move := CharacterMove2D.new()
 var facing := Vector2.DOWN setget set_facing
@@ -53,20 +57,25 @@ var last_move : Vector2
 func _enter_tree():
 	snap_to_grid()
 # warning-ignore:return_value_discarded
+	add_to_group(GROUP_NAME)
+	
 	Util.connect_safe(get_tree(), "physics_frame", self, "_process_move")
 	Util.connect_safe(get_tree(), "idle_frame", self, "update_solidity")
 	
-	add_child(move_cooldown_timer)
-	move_cooldown_timer.one_shot = true
-	Util.connect_safe(move_cooldown_timer, "timeout", self, "_on_move_cooldown_timer_timeout")
+	var _room = MapManager.get_room_manager().get_current_room_loader()
+	if _room.looping:
+		_room.make_character_looping(self)
 	
-	if solid:
-		WorldGrid.solid_grid.set_solid(global_position, true)
+	if !move_cooldown_timer.is_inside_tree():
+		add_child(move_cooldown_timer)
+		move_cooldown_timer.one_shot = true
+		Util.connect_safe(move_cooldown_timer, "timeout", self, "_on_move_cooldown_timer_timeout")
 
 # general move function
 func _move(dir : Vector2) -> void:
 	move_position(dir)
 	set_facing(dir)
+	emit_signal("move_started")
 
 # Process the queued move
 func _process_move() -> void:
@@ -133,7 +142,8 @@ func move_position(dir : Vector2) -> void:
 	var _move_distance = dir * Game.SNAP
 	
 	if solid:
-		WorldGrid.solid_grid.move_solid(get_global_integer_position(), dir)
+		WorldGrid.solid_grid.set_solid_at_pixel(global_position, false)
+#		WorldGrid.solid_grid.move_solid(get_global_integer_position(), dir)
 	
 	position += _move_distance
 	last_move = dir
@@ -149,5 +159,6 @@ static func get_travel_duration(distance : float, speed : float) -> float:
 func snap_to_grid():
 	position = Util.snap_v2(position, Game.SNAP) + Vector2.ONE * Game.SNAP / 2
 
+# Callbacks
 func _on_move_cooldown_timer_timeout():
 	emit_signal("move_finished")

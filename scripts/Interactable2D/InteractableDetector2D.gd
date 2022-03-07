@@ -7,9 +7,6 @@ enum LOCAL_SHAPE_TYPE {STEP, INTERACT}
 var interactables : Array
 export(NodePath) var owner_path 
 
-signal stepped_on
-signal detected
-
 func _enter_tree():
 	if owner_path.is_empty():
 		set_owner(get_parent())

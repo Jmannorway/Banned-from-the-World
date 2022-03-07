@@ -115,9 +115,9 @@ func generate_maze():
 	bitgrid_looping.create_from_maze(maze)
 
 	# Make looping
-	bitgrid_looping.resize(bitgrid_looping.size() - Vector2(2, 2))
-	generate_maze_loop_holes(bitgrid_looping)
-	bitgrid_looping.resize(bitgrid_looping.size() - Vector2.ONE)
+#	bitgrid_looping.resize(bitgrid_looping.size() - Vector2(2, 2))
+#	generate_maze_loop_holes(bitgrid_looping)
+#	bitgrid_looping.resize(bitgrid_looping.size() - Vector2.ONE)
 	
 	# Make non-looping (only vertically looping)
 	bitgrid_non_looping.data = bitgrid_looping.data.duplicate(true)
@@ -259,7 +259,8 @@ func reset_navigation_and_solids():
 	add_to_world_grid()
 
 func reset_visuals():
-	bitgrid.autotile_47(wall_tiles, autotile_tile_index, looping)
+	bitgrid.autotile_47(wall_tiles, autotile_tile_index, false)
+#	bitgrid.autotile_47(wall_tiles, autotile_tile_index, looping)
 	var _bitgrid_size = bitgrid.size()
 	for x in _bitgrid_size.x:
 		for y in _bitgrid_size.y:
