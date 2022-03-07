@@ -46,10 +46,10 @@ __meta__ = {
 }
 
 [node name="animated_character_sprite_2d" parent="warp" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0.47451 )
+modulate = Color( 1, 1, 1, 0.768627 )
 frames = ExtResource( 7 )
 animation = "down"
-frame = 1
+frame = 3
 playing = true
 
 [node name="interactable_2d" parent="warp" instance=ExtResource( 5 )]
@@ -62,10 +62,6 @@ autostart = true
 [node name="entrance_hole" parent="." groups=["maze_entrance"] instance=ExtResource( 4 )]
 position = Vector2( 0, 480 )
 scale = Vector2( 2, 2 )
-
-[node name="entrance_wrapped_hole" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1128, 480 )
-scale = Vector2( 1, 2 )
 
 [node name="warp_hole" parent="." instance=ExtResource( 4 )]
 position = Vector2( 888, 480 )
