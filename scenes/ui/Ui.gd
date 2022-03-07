@@ -11,7 +11,7 @@ var allow_menu := true setget set_allow_menu
 
 onready var action_hint := $action_hint
 
-func _init():
+func _ready():
 	Util.connect_safe(Game, "world_changed", self, "_on_Game_world_changed")
 
 func _enter_tree():
