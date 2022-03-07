@@ -80,14 +80,12 @@ func play_pattern() -> void:
 	
 	if attemtps >= 5:
 		emit_signal("minigame_ended")
-		print("We died")
 		queue_free()
 		return
 	
 	# replace with a collision thing from 3d world
 	if PlayerAccess.get_player_3d(get_tree()).check_minigame_event():
 		emit_signal("minigame_ended")
-		print("minigame done")
 		return
 	
 	XToFocus.enable_input(false)

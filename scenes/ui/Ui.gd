@@ -21,10 +21,7 @@ func _enter_tree():
 func _input(event):
 	if Input.is_action_just_pressed("menu"):
 		if menu && allow_menu && !XToFocus.focus:
-			print("in menu happened")
 			set_in_menu(!in_menu)
-		else:
-			print("nothing")
 
 func set_menu(new_menu : CanvasItem):
 	var _in_menu = in_menu
