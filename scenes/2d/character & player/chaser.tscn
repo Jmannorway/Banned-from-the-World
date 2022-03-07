@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/2d/character & player/character_2d.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Character2D/Chaser.gd" type="Script" id=2]
+[ext_resource path="res://animations/animated_character_piano_teacher.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://scenes/2d/interactable/interactable_2d.tscn" type="PackedScene" id=4]
+
+[node name="chaser_2d" groups=["chaser"] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="animated_character_sprite_2d" parent="." index="0"]
+frames = ExtResource( 3 )
+animation = "down"
+frame = 1
+
+[node name="path_update_interval" type="Timer" parent="." index="1"]
+wait_time = 2.0
+autostart = true
+
+[node name="interactable_2d" parent="." index="2" instance=ExtResource( 4 )]
+collision_layer = 2
+
+[connection signal="timeout" from="path_update_interval" to="." method="_on_path_update_interval_timeout"]

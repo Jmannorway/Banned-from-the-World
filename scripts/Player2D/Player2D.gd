@@ -5,11 +5,9 @@ class_name Player2D
 var walk_speed := 2.0
 var run_speed := 4.0
 var frozen : bool
-const INPUT_PRIORITY = 0
 
 # INTERNAL FUNCTIONS
 func _ready():
-	._ready()
 	XToFocus.connect("focus_changed", self, "_on_XToFocus_focus_changed")
 
 func _process(delta):
@@ -24,7 +22,7 @@ func _process(delta):
 			if check_solid_relative(_movement_vector):
 				set_facing(_movement_vector)
 			else:
-				queue_move(_movement_vector, INPUT_PRIORITY)
+				queue_move(_movement_vector)
 
 func _post_process_move():
 	._post_process_move()

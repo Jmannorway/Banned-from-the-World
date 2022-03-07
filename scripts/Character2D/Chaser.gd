@@ -1,24 +1,20 @@
-extends Character2DBase
+extends Character2D
 
-var checkpointDetectionThreashold: float = 18.0
+var checkpointDetectionThreshold: float = 18.0
 var path: PoolVector2Array
 var checkpointIndex: int
 
-onready var tween: Tween = $move_animation_tween
-onready var selfSprite: AnimatedSprite = $move_animation_tween.get_parent()
-
 func _ready():
-# warning-ignore:return_value_discarded
-	tween.connect("tween_all_completed", self, "follow_path")
+	Util.connect_safe(self, "move_finished", self, "follow_path")
+	chase_player()
 
-func _input(event):
-	if Input.is_mouse_button_pressed(1) and event is InputEventMouseButton:
-		new_follow_path(event.position)
+func chase_player():
+	new_follow_path(PlayerAccess.get_player_2d(get_tree()).global_position)
 
 func new_follow_path(var toPoint: Vector2) -> void:
 	checkpointIndex = 0
 	
-	path = WorldGrid.navigation_grid.get_navigation_path(position, toPoint)
+	path = WorldGrid.navigation_grid.get_navigation_path(global_position, toPoint)
 	
 	if path.empty():
 		printerr("The Enemy Path is empty. Make sure that you have selected a valid position.")
@@ -53,34 +49,19 @@ func desired_move_direction() -> Vector2:
 		_retDirection = Vector2.DOWN
 		_shortestDistance = _compareDistance
 	
-	selfSprite.offset = -_retDirection * Game.SNAP
-# warning-ignore:return_value_discarded
-	tween.interpolate_property(self, "offset", null, Vector2.ZERO, move_cooldown_length, Tween.TRANS_LINEAR)
-	
 	return _retDirection
 
 func follow_path() -> void:
 	if checkpointIndex >= path.size():
-# warning-ignore:return_value_discarded
-		tween.remove_all()
-# warning-ignore:return_value_discarded
-		tween.stop_all()
 		return
 	
-	move(desired_move_direction())
-	
-# warning-ignore:return_value_discarded
-	tween.start()
+	queue_move(desired_move_direction())
 	
 	if has_reached_checkpoint():
 		checkpointIndex += 1
 
 func has_reached_checkpoint() -> bool:
-	return position.distance_to(path[checkpointIndex]) <= checkpointDetectionThreashold
+	return position.distance_to(path[checkpointIndex]) <= checkpointDetectionThreshold
 
-#########################
-# OVERWRITTEN FUNCTIONS #
-#########################
-
-func move(var dir: Vector2) -> void:
-	position += dir * Game.SNAP
+func _on_path_update_interval_timeout():
+	chase_player()

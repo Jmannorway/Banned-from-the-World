@@ -10,7 +10,13 @@ func size() -> Vector2:
 func resize(new_size : Vector2) -> void:
 	Util.resize_array_2d(data, new_size)
 
-func create_from_maze(maze : Maze2D) -> void:
+func copy_area(src : BitGrid2D, src_rect : Rect2, dest_pos : Vector2) -> void:
+	for x in src_rect.size.x:
+		for y in src_rect.size.y:
+			data[dest_pos.x + x][dest_pos.y + y] = src.data[src_rect.position.x + x][src_rect.position.y + y]
+
+# No static typing here to avoid cyclic dependency
+func create_from_maze(maze) -> void:
 	var _size = maze.size()
 	data = Util.make_array_2d(_size.x * 2 + 1, _size.y * 2 + 1)
 	
@@ -31,10 +37,11 @@ func create_from_maze(maze : Maze2D) -> void:
 	
 	data[_size.x * 2][_size.y * 2] = 1
 
-func make_hole(hole : Rect2) -> void:
-	for x in range(hole.position.x, hole.position.x + hole.size.x):
-		for y in range(hole.position.y, hole.position.y + hole.size.y):
-			data[x][y] = 0
+func set_area(area : Rect2, val : bool):
+	var _val = int(val)
+	for x in range(area.position.x, area.position.x + area.size.x):
+		for y in range(area.position.y, area.position.y + area.size.y):
+			data[x][y] = _val
 
 func autotile_1(tilemap : TileMap, tile_index : int):
 	var _size = size()
@@ -43,7 +50,7 @@ func autotile_1(tilemap : TileMap, tile_index : int):
 			if data[x][y]:
 				tilemap.set_cell(x, y, tile_index)
 
-func autotile_47(tilemap : TileMap, tile_index : int = 0, wrap := true):
+func autotile_47(tilemap : TileMap, tile_index : int, wrap : bool):
 	# gather all available autotile coordinate positions in a dictionary
 	# using a each tile's bitmask as a key (only one tile variation is supported)
 	var _autotile_coords = Util.tilemap_get_autotile_coord_dictionary(tilemap, tile_index)
@@ -72,11 +79,11 @@ func autotile_47(tilemap : TileMap, tile_index : int = 0, wrap := true):
 	
 	for x in _size.x:
 		# currently clamping the check (wrap could be better for looping purposes)
-		xl = call(_pos_func, x-1, 0, _size.x - 1)
-		xr = call(_pos_func, x+1, 0, _size.x - 1)
+		xl = call(_pos_func, x-1, 0, _size.x)
+		xr = call(_pos_func, x+1, 0, _size.x)
 		for y in _size.y:
-			yt = call(_pos_func, y-1, 0, _size.y - 1)
-			yb = call(_pos_func, y+1, 0, _size.y - 1)
+			yt = call(_pos_func, y-1, 0, _size.y)
+			yb = call(_pos_func, y+1, 0, _size.y)
 			
 			# center nulls out all other tiles
 			c = data[x][y]
@@ -110,4 +117,4 @@ func _wrap_position(val : int, mn : int, mx : int) -> int:
 	return wrapi(val, mn, mx)
 
 func _clamp_position(val : int, mn : int, mx : int) -> int:
-	return int(clamp(val, mn, mx))
+	return int(clamp(val, mn, mx - 1))

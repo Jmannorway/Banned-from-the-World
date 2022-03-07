@@ -7,7 +7,7 @@ export var moveOffset: float = 1.0
 export var moveTime: float = 0.4
 
 var interactiveReference: Interactable = null
-var canMove: bool = true
+var canMove: bool = false
 var rotationDelta: float
 var velocity: Vector3
 var position: Vector2
@@ -24,7 +24,7 @@ signal action_event(playerRef)
 
 func _ready():
 	$model/RootNode/AnimationTree.active = true
-	
+	Util.connect_safe(XToFocus, "focus_changed", self, "on_focus_changed")
 	# warning-ignore:return_value_discarded
 	connect("area_entered", self, "on_enter_area")
 # warning-ignore:return_value_discarded
@@ -44,6 +44,9 @@ func on_enter_area(var otherArea: Area) -> void:
 # warning-ignore:unused_argument
 func on_exit_area(var otherArea: Area) -> void:
 	interactiveReference = null
+
+func on_focus_changed(var focus: bool) -> void:
+	canMove = !focus
 
 func teleport_to(var newPosition: Vector3) -> void:
 	translation = newPosition + gridOffset

@@ -54,8 +54,11 @@ func _enter_tree():
 	snap_to_grid()
 # warning-ignore:return_value_discarded
 	Util.connect_safe(get_tree(), "physics_frame", self, "_process_move")
+	Util.connect_safe(get_tree(), "idle_frame", self, "update_solidity")
+	
 	add_child(move_cooldown_timer)
 	move_cooldown_timer.one_shot = true
+	Util.connect_safe(move_cooldown_timer, "timeout", self, "_on_move_cooldown_timer_timeout")
 	
 	if solid:
 		WorldGrid.solid_grid.set_solid(global_position, true)
@@ -75,7 +78,7 @@ func _process_move() -> void:
 
 # Override for post movement behavior
 func _post_process_move() -> void:
-	update_solidity()
+	pass
 
 # Callbacks
 func update_solidity() -> void:
@@ -145,3 +148,6 @@ static func get_travel_duration(distance : float, speed : float) -> float:
 
 func snap_to_grid():
 	position = Util.snap_v2(position, Game.SNAP) + Vector2.ONE * Game.SNAP / 2
+
+func _on_move_cooldown_timer_timeout():
+	emit_signal("move_finished")

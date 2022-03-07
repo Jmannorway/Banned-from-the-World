@@ -31,7 +31,11 @@ static func get_player_2d(tree : SceneTree) -> Player2D:
 		return null
 
 static func get_player_3d(tree : SceneTree) -> CharacterController3D:
-	return Util.get_first_node_in_group(tree, PLAYER_3D_GROUP_NAME)
+	var _player = Util.get_first_node_in_group(tree, PLAYER_3D_GROUP_NAME)
+	if _player && !Util.deep_is_queued_for_deletion(_player):
+		return _player
+	else:
+		return null
 
 static func instance_player_2d() -> Player2D:
 	return PLAYER_2D_SCENE.instance() as Player2D

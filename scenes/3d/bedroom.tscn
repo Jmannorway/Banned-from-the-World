@@ -1,8 +1,8 @@
 [gd_scene load_steps=43 format=2]
 
-[ext_resource path="res://scripts/InteractableRoom.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/max_doorframe_uv.fbx" type="PackedScene" id=2]
-[ext_resource path="res://scripts/RoomController.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Room3D/RoomController.gd" type="Script" id=3]
 [ext_resource path="res://models/max_door_uv.fbx" type="PackedScene" id=4]
 [ext_resource path="res://models/meshlibs/room_assets.meshlib" type="MeshLibrary" id=5]
 [ext_resource path="res://models/max_window_uv.fbx" type="PackedScene" id=6]
@@ -51,16 +51,21 @@ extents = Vector3( 0.2, 0.5, 0.2 )
 [sub_resource type="GDScript" id=10]
 script/source = "extends Interactable
 
-class_name InteractableWarp
-
 export var changeToScene: PackedScene
 export var blankScene: PackedScene
 
 # warning-ignore:unused_argument
 func _interact(var roomManager) -> void:
-# warning-ignore:return_value_discarded
-	get_tree().change_scene_to(blankScene)
-	MapManager.warp_to_map(changeToScene, 0)
+	if Statistics.metadata[\"inner_world_travel_count\"] == 0:
+		Ui.action_hint.show_action_hint(Ui.action_hint.HINT.C)
+	Util.goto_world(get_tree(), Game.WORLD.INNER)
+#	get_tree().change_scene_to(blankScene)
+#	MapManager.warp_to_map(changeToScene, 0)
+#	Game.set_world(Game.WORLD.INNER)
+
+func _on_photo_album_area_entered(area):
+	print(\"entered\")
+	Ui.action_hint.show_action_hint(ActionHint.HINT.Z)
 "
 
 [sub_resource type="GDScript" id=11]
@@ -142,8 +147,7 @@ shape = SubResource( 9 )
 [node name="photo_album" type="Area" parent="room_events"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 collision_layer = 4
-collision_mask = 0
-monitoring = false
+collision_mask = 2
 script = SubResource( 10 )
 changeToScene = ExtResource( 37 )
 blankScene = ExtResource( 38 )
@@ -175,11 +179,11 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 1, 0 )
 }
 
-[node name="max_desk_uv" parent="visual_room" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995604, 0.854906, -2.52696 )
-
 [node name="max_album_uv" parent="visual_room" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.418656, 0.94475, -2.32161 )
+
+[node name="max_desk_uv" parent="visual_room" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995604, 0.854906, -2.52696 )
 
 [node name="max_doorframe_uv" parent="visual_room" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49981, 1.06134, -3.00827 )
@@ -303,3 +307,5 @@ __meta__ = {
 [node name="focus_grid" parent="." instance=ExtResource( 36 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.532638 )
 script = SubResource( 11 )
+
+[connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]
