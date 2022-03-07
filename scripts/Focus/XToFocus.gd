@@ -102,7 +102,7 @@ func _ready():
 
 # warning-ignore:unused_argument
 func _input(event):
-	if Input.is_action_just_pressed("focus"):
+	if Input.is_action_just_pressed("focus") && !Ui.in_menu:
 		toggle_focus()
 
 # warning-ignore:unused_argument

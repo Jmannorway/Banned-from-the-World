@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ui/InnerWorldMenu.gd" type="Script" id=1]
+
+[node name="inner_world_menu" type="ItemList"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 120.0
+margin_bottom = 72.0
+items = [ "Close", null, false, "Photo Album", null, false, "Wake Up", null, false ]
+script = ExtResource( 1 )
+
+[connection signal="item_activated" from="." to="." method="_on_inner_world_menu_item_activated"]

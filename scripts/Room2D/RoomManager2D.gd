@@ -76,14 +76,18 @@ func _on_RoomLoader_loaded():
 	emit_signal("room_focused", current_room_name, room_loaders[current_room_name])
 
 # ROOM TRANSITION FUNCTIONS
-func smooth_transition_to_room(room_name : String, duration := 2.0) -> void:
+func smooth_transition_to_room(room_name : String, keep := false, duration := 2.0) -> void:
 	if is_transitioning() && previous_room_name != room_name:
 		finish_transition()
 	var _camera = Util.get_first_node_in_group(get_tree(), "camera")
 	_camera.smooth_bounds = true
 	_camera.smoothing_enabled = true
 	focus_room(room_name)
-	$room_unload_timer.start(duration)
+	
+	if keep:
+		$room_unload_timer.start(duration)
+	else:
+		unload_room(previous_room_name)
 
 func is_transitioning() -> bool:
 	return !$room_unload_timer.is_stopped()

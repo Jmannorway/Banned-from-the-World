@@ -1,5 +1,26 @@
 class_name Util
 
+# TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+
+static func goto_world(tree : SceneTree, world : int) -> void:
+	Game.set_world(world)
+	
+	if world == Game.WORLD.OUTER:
+		# Clear 2d world
+		MapManager.clear_map()
+		# Load default 3d world
+		tree.change_scene("res://scenes/3d/real_world.tscn")
+	else:
+		# Clear 3d world
+		tree.change_scene("res://scenes/empty.tscn")
+		# Load 2d scene
+		if Statistics.metadata["checkpoint"] == 0:
+			MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
+		else:
+			print("warps to quickwarp screen")
+
+# TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+
 static func make_array_2d(w : int, h : int, val = 0) -> Array:
 	var _arr : Array
 	_arr.resize(w)

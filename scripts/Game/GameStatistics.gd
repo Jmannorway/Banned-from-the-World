@@ -8,7 +8,31 @@ extends Node
 
 #class_name Statistics
 
-var metadata: Dictionary
+const DEFAULT_METADATA := {
+	"fog_stage" : 0,
+	"checkpoint" : 0,
+	"minigame_clears" : 0,
+	"world" : "dream_world", # doesn't do anything, only a proof of concept
+	"room" : "bedroom",
+	"position" : Vector3.ZERO 
+}
+var metadata := DEFAULT_METADATA
+
+enum CHECKPOINT {
+	NORTH = 1,
+	WEST = 2,
+	EAST = 4,
+	SOUTH = 8,
+	_ALL = 15
+}
+
+enum MINIGAME {
+	PIANO = 1,
+	DOORS = 2,
+	INTROSPECTION = 4,
+	_QUESTIONMARK_ = 8,
+	_ALL = 15
+}
 
 # In the future we can store this file externally
 # instead of res:// we use user:// (%appdata%, local directory)
@@ -24,7 +48,7 @@ func read_meta_file() -> Dictionary:
 	if _file.open(DATA_PATH + DATA_FILE, _file.READ) != OK:
 		_file.close()
 		
-		return get_default_meta()
+		return DEFAULT_METADATA
 	
 	var _meta: Dictionary = _file.get_var()
 	_file.close()
@@ -40,11 +64,3 @@ func write_meta_file() -> void:
 
 func _exit_tree():
 	write_meta_file()
-
-static func get_default_meta() -> Dictionary:
-	return {
-		"fog_stage":0,
-		"world":"dream_world", # doesn't do anything, only a proof of concept
-		"room":"bedroom",
-		"position":Vector3.ZERO 
-	}

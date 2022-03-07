@@ -10,9 +10,6 @@ margin_bottom = 720.0
 stream = ExtResource( 1 )
 autoplay = true
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 bedroom_scene = ExtResource( 3 )
 
 [connection signal="finished" from="." to="." method="_on_cutscene_finished"]
