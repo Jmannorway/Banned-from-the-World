@@ -56,8 +56,6 @@ export var blankScene: PackedScene
 
 # warning-ignore:unused_argument
 func _interact(var roomManager) -> void:
-	if Statistics.metadata[\"inner_world_travel_count\"] == 0:
-		Ui.action_hint.show_action_hint(Ui.action_hint.HINT.C)
 	Util.goto_world(get_tree(), Game.WORLD.INNER)
 #	get_tree().change_scene_to(blankScene)
 #	MapManager.warp_to_map(changeToScene, 0)
@@ -65,7 +63,12 @@ func _interact(var roomManager) -> void:
 
 func _on_photo_album_area_entered(area):
 	print(\"entered\")
-	Ui.action_hint.show_action_hint(ActionHint.HINT.Z)
+	var _player = PlayerAccess.get_player_3d(get_tree())
+	if _player && _player.rotation_degrees.y == 180:
+		Ui.action_hint.show_action_hint(Ui.action_hint.HINT.Z)
+
+func _on_photo_album_area_exited(area):
+	Ui.action_hint.hide_action_hint()
 "
 
 [sub_resource type="GDScript" id=11]
@@ -309,3 +312,4 @@ transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.5326
 script = SubResource( 11 )
 
 [connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]
+[connection signal="area_exited" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_exited"]

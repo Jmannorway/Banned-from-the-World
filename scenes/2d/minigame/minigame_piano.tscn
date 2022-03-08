@@ -141,7 +141,6 @@ texture = ExtResource( 15 )
 [node name="Teacher" type="AnimatedSprite" parent="."]
 position = Vector2( 396, 180 )
 frames = SubResource( 9 )
-frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -156,22 +155,23 @@ slide_duration = 3
 
 [node name="PianoCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -829.903
+rotation = -2116.24
 texture = ExtResource( 11 )
 script = ExtResource( 14 )
 rotation_speed = -15
 
 [node name="CircleHands" type="AnimatedSprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = 795.267
+rotation = 2081.55
 frames = ExtResource( 12 )
 animation = "hands"
+frame = 1
 playing = true
 script = SubResource( 12 )
 
 [node name="BlackCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -824.553
+rotation = -2110.88
 texture = ExtResource( 13 )
 script = ExtResource( 14 )
 rotation_speed = -15
@@ -182,7 +182,6 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="key_pad" type="Area2D" parent="."]
-visible = false
 position = Vector2( 232, 184 )
 collision_layer = 0
 collision_mask = 256

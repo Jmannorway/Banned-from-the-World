@@ -48,6 +48,7 @@ export var solid := true
 export(MOBILITY) var mobility = MOBILITY.NORMAL # TODO: Implement
 export(float, 0.1, 16.0) var move_speed = 2.0 setget set_move_speed
 
+var move_offset : Vector2
 var move_cooldown_timer := Timer.new()
 var queued_move := CharacterMove2D.new()
 var facing := Vector2.DOWN setget set_facing
@@ -70,6 +71,9 @@ func _enter_tree():
 		add_child(move_cooldown_timer)
 		move_cooldown_timer.one_shot = true
 		Util.connect_safe(move_cooldown_timer, "timeout", self, "_on_move_cooldown_timer_timeout")
+
+func calculate_move_offset(dir : Vector2) -> Vector2:
+	return dir + Vector2(move_offset.x * dir.y, move_offset.y * dir.x)
 
 # general move function
 func _move(dir : Vector2) -> void:
@@ -128,7 +132,6 @@ func is_moving() -> bool:
 # EXTERNALLY CALLABLE
 # Queue a move to be processed
 func queue_move(_direction : Vector2, _priority : int = 0) -> void:
-# warning-ignore:return_value_discarded
 	queued_move.set_move(_direction, _priority)
 
 # Checks if the relative block in direction is solid

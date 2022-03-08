@@ -10,11 +10,6 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "AnimatedSprite",
-"class": "ActionHint",
-"language": "GDScript",
-"path": "res://scenes/ui/action_hint/ActionHint.gd"
-}, {
-"base": "AnimatedSprite",
 "class": "AnimatedCharacterSprite2D",
 "language": "GDScript",
 "path": "res://scripts/Character2D/AnimatedCharacterSprite2D.gd"
@@ -170,7 +165,6 @@ _global_script_classes=[ {
 "path": "res://scripts/Utility/Util.gd"
 } ]
 _global_script_class_icons={
-"ActionHint": "",
 "AnimatedCharacterSprite2D": "",
 "AreaMarker2D": "",
 "BitGrid2D": "",

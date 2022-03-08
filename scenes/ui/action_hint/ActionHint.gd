@@ -1,7 +1,5 @@
 extends AnimatedSprite
 
-class_name ActionHint
-
 enum HINT{SHIFT, Z, X, C}
 enum STATE {INVISIBLE, FADE_IN, VISIBLE, FADE_OUT, _MAX}
 

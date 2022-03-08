@@ -7,7 +7,7 @@ export var moveOffset: float = 1.0
 export var moveTime: float = 0.4
 
 var interactiveReference: Interactable = null
-var canMove: bool = false
+var canMove: bool = true
 var rotationDelta: float
 var velocity: Vector3
 var position: Vector2
