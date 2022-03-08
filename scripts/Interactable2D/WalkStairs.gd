@@ -31,6 +31,8 @@ func on_stairs_exiting(var areaRID: RID, var area, var shapeID: int, var localSh
 		objectRef = null
 		emit_signal("change_floors", addElevation * int(enteredFromShapeIndex != localShapeID) * (1.0 if enteredFromShapeIndex == 0 else -1.0))
 		enteredFromShapeIndex = -1
+	else:
+		objectRef.move_offset.y = moveBlockOffsetAmount
 
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
@@ -40,7 +42,6 @@ func on_stairs_walking(var areaRID: RID, var area: Area2D, var shapeID: int, var
 		# enter stair
 		enteredFromShapeIndex = localShapeID
 		objectRef = area.get_parent()
-		objectRef.move_offset.y = moveBlockOffsetAmount
 
 func is_in_stairs() -> bool:
 	if objectRef == null:

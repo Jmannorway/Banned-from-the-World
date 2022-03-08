@@ -19,7 +19,7 @@ func _ready():
 func set_floor(var index: int) -> void:
 	currentFloor = index
 	
-	print(currentFloor)
+#	print(currentFloor)
 	
 	floors[currentFloor].get_node("solid_grid_2d").paint_to_world_grid()
 	
