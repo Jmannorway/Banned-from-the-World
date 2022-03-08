@@ -19,12 +19,10 @@ func _process(delta):
 		
 		var _input_vector = make_input_vector_4way(get_input_vector())
 		if !Util.compare_v2(_input_vector, 0) && !is_moving():
-			var _movement_vector = calculate_move_offset(_input_vector)
-			if check_solid_relative(_movement_vector):
+			if check_solid_relative(_input_vector):
 				set_facing(_input_vector)
 			else:
-				print()
-				queue_move(_movement_vector)
+				queue_move(_input_vector)
 
 func _post_process_move():
 	._post_process_move()

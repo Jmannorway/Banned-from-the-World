@@ -39,24 +39,17 @@ func look_in_direction(dir : Vector2) -> void:
 	idle()
 	set_sprite_direction(dir)
 
-func play_direction(dir : Vector2, dur : float) -> void:
-	var _dir = Vector2(abs(dir.x), abs(dir.y))
-	if _dir.x > _dir.y:
-		_dir.y = 0
-	else:
-		_dir.x = 0
-	
-	_dir = Vector2(sign(_dir.x), sign(_dir.y))
-	
-	var _animation = get_animation_from_direction(_dir)
+func play_direction(steps : Vector2, direction : Vector2, duration : float) -> void:
+	var _animation = get_animation_from_direction(direction)
 	
 	if _animation.empty():
 		idle()
 	elif _animation != animation || !is_playing():
-		set_sprite_direction(dir)
+		# TODO: Huh? Is this even necessary
+		set_sprite_direction(direction)
 		play(_animation)
 	
-	move_direction(dir, dur)
+	move_direction(steps, duration)
 
 func reverse_move() -> void:
 	var _duration = $move_animation_tween.get_runtime()

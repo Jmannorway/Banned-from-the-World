@@ -11,11 +11,11 @@ func _ready():
 	Util.connect_safe(self, "changed_facing_direction", character_sprite, "set_sprite_direction")
 
 # Override the base move to include a footstep sound and animation
-func _move(dir : Vector2) -> void:
-	._move(dir)
+func _move(steps : Vector2, direction : Vector2) -> void:
+	._move(steps, direction)
 	var _new_position = position / Game.SNAP
 	WorldGrid.sound_grid.play_cell_sound(_new_position.x, _new_position.y)
-	character_sprite.play_direction(dir, get_move_duration())
+	character_sprite.play_direction(steps, direction, get_move_duration())
 
 # Override _post_process_move() to call idle on the newly added sprite node when not moving
 func _post_process_move() -> void:
