@@ -4,6 +4,7 @@ class_name Character2DBase
 
 # Class that holds data and logic for queueing moves
 class CharacterMove2D:
+	var steps : Vector2
 	var direction : Vector2
 	var priority : int
 	const PRIORITY_MIN = -9999999
@@ -11,10 +12,11 @@ class CharacterMove2D:
 	
 	func _init() -> void:
 		clear()
-	func set_move(_direction : Vector2, _priority : int) -> bool:
+	func set_move(_steps : Vector2, _direction : Vector2, _priority : int) -> bool:
 		if priority < _priority:
 			priority = _priority
-			direction = Util.clamp_v2(_direction, -Vector2.ONE, Vector2.ONE)
+			steps = _steps
+			direction = _direction
 			return true
 		else:
 			return false
@@ -22,7 +24,7 @@ class CharacterMove2D:
 		return priority != PRIORITY_UNSET
 	func clear() -> void:
 		priority = PRIORITY_UNSET
-		direction = Vector2.ZERO
+		steps = Vector2.ZERO
 
 enum DIRECTION {RIGHT, UP, LEFT, DOWN, _MAX}
 
@@ -72,19 +74,19 @@ func _enter_tree():
 		move_cooldown_timer.one_shot = true
 		Util.connect_safe(move_cooldown_timer, "timeout", self, "_on_move_cooldown_timer_timeout")
 
-func calculate_move_offset(dir : Vector2) -> Vector2:
-	return dir + Vector2(move_offset.x * dir.y, move_offset.y * dir.x)
+func calculate_move_offset(steps : Vector2) -> Vector2:
+	return steps + Vector2(move_offset.x * steps.y, move_offset.y * steps.x)
 
 # general move function
-func _move(dir : Vector2) -> void:
-	move_position(dir)
-	set_facing(dir)
+func _move(steps : Vector2, direction : Vector2) -> void:
+	move_position(steps)
+	set_facing(direction)
 	emit_signal("move_started")
 
 # Process the queued move
 func _process_move() -> void:
 	if !is_moving() && queued_move.is_move_set():
-		_move(queued_move.direction)
+		_move(queued_move.steps, queued_move.direction)
 	
 	queued_move.clear()
 	_post_process_move()
@@ -132,24 +134,25 @@ func is_moving() -> bool:
 # EXTERNALLY CALLABLE
 # Queue a move to be processed
 func queue_move(_direction : Vector2, _priority : int = 0) -> void:
-	queued_move.set_move(_direction, _priority)
+	queued_move.set_move(calculate_move_offset(_direction), _direction, _priority)
 
 # Checks if the relative block in direction is solid
-func check_solid_relative(dir : Vector2) -> bool:
-	return WorldGrid.solid_grid.get_cell_at_pixel(global_position + dir * Game.SNAP) == 0
+func check_solid_relative(steps : Vector2) -> bool:
+	return WorldGrid.solid_grid.get_cell_at_pixel(
+		global_position + calculate_move_offset(steps) * Game.SNAP) == 0
 
 # Move the character by a square
-func move_position(dir : Vector2) -> void:
+func move_position(steps : Vector2) -> void:
 	move_cooldown_timer.stop()
 	
-	var _move_distance = dir * Game.SNAP
+	var _move_distance = steps * Game.SNAP
 	
 	if solid:
 		WorldGrid.solid_grid.set_solid_at_pixel(global_position, false)
-#		WorldGrid.solid_grid.move_solid(get_global_integer_position(), dir)
+#		WorldGrid.solid_grid.move_solid(get_global_integer_position(), steps)
 	
 	position += _move_distance
-	last_move = dir
+	last_move = steps
 	move_cooldown_timer.start(get_move_duration())
 
 # UTILITY
