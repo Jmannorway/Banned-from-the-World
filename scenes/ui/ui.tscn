@@ -14,3 +14,4 @@ items = [ "Close", null, false, "Photo Album", null, false, "Wake Up", null, fal
 [node name="action_hint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 4, 604 )
 scale = Vector2( 2, 2 )
+frame = 1

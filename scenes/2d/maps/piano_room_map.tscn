@@ -59,7 +59,6 @@ preview = true
 size = Vector2( 144, 168 )
 
 [node name="hall" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 48, 0 )
 room_name = "hall"
 room = ExtResource( 9 )
@@ -68,6 +67,8 @@ size = Vector2( 312, 192 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( -24, 12 )
+target_group = "player_2d"
+target_is_character = true
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
 position = Vector2( 276, 108 )

@@ -3,13 +3,22 @@ extends Character2D
 var checkpointDetectionThreshold: float = 18.0
 var path: PoolVector2Array
 var checkpointIndex: int
+export(PackedScene) var penaltyMap
 
 func _ready():
 	Util.connect_safe(self, "move_finished", self, "follow_path")
+	Util.connect_safe(self, "move_finished", self, "check_for_player")
 	chase_player()
 
 func chase_player():
 	new_follow_path(PlayerAccess.get_player_2d(get_tree()).global_position)
+
+func check_for_player():
+	if ($interactable_detector_2d.get_facing_interactable(self, Vector2.LEFT) ||
+		$interactable_detector_2d.get_facing_interactable(self, Vector2.RIGHT) ||
+		$interactable_detector_2d.get_facing_interactable(self, Vector2.DOWN) ||
+		$interactable_detector_2d.get_facing_interactable(self, Vector2.UP)):
+		MapManager.warp_to_map(penaltyMap)
 
 func new_follow_path(var toPoint: Vector2) -> void:
 	checkpointIndex = 0

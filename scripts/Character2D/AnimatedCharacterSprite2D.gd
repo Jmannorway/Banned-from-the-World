@@ -40,7 +40,15 @@ func look_in_direction(dir : Vector2) -> void:
 	set_sprite_direction(dir)
 
 func play_direction(dir : Vector2, dur : float) -> void:
-	var _animation = get_animation_from_direction(dir)
+	var _dir = Vector2(abs(dir.x), abs(dir.y))
+	if _dir.x > _dir.y:
+		_dir.y = 0
+	else:
+		_dir.x = 0
+	
+	_dir = Vector2(sign(_dir.x), sign(_dir.y))
+	
+	var _animation = get_animation_from_direction(_dir)
 	
 	if _animation.empty():
 		idle()

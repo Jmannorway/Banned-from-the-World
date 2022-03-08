@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/2d/rooms/phase 2/phase_2_hubroom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/2d/rooms/phase 2/phase_2_shifting_maze.tscn" type="PackedScene" id=2]
@@ -21,6 +21,17 @@ func interact():
 	pass
 "
 
+[sub_resource type="GDScript" id=2]
+script/source = "extends Interactable2D
+
+func step():
+	Ui.action_hint.show_action_hint(Ui.action_hint.HINT.C)
+	queue_free()
+
+func interact():
+	pass
+"
+
 [node name="map" type="YSort"]
 script = ExtResource( 6 )
 
@@ -32,6 +43,7 @@ target_is_character = true
 room_name = "hub"
 room = ExtResource( 1 )
 preview = true
+size = Vector2( 480, 384 )
 
 [node name="maze" parent="." instance=ExtResource( 4 )]
 position = Vector2( 480, -312 )
@@ -40,7 +52,7 @@ sort_enabled = false
 room_name = "maze"
 room = ExtResource( 2 )
 preview = true
-size = Vector2( 1152, 912 )
+size = Vector2( 1224, 984 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
 position = Vector2( 300, 156 )
@@ -61,3 +73,9 @@ position = Vector2( 516, 192 )
 scale = Vector2( 1, 1.88 )
 collision_layer = 8
 script = SubResource( 1 )
+
+[node name="menu_hint" parent="." instance=ExtResource( 8 )]
+position = Vector2( 300, 156 )
+scale = Vector2( 1, 1.88 )
+collision_layer = 8
+script = SubResource( 2 )

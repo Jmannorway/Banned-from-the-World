@@ -64,6 +64,10 @@ static func connect_safe(object : Object, signal_name : String, target : Object,
 	if !object.is_connected(signal_name, target, method_name):
 		object.connect(signal_name, target, method_name, binds, flags)
 
+static func disconnect_safe(object : Object, signal_name : String, target : Object, method_name : String) -> void:
+	if object.is_connected(signal_name, target, method_name):
+		object.disconnect(signal_name, target, method_name)
+
 # checks if the node is queued for deletion by also checking all of its parents
 static func deep_is_queued_for_deletion(node : Node):
 	if node.is_queued_for_deletion():

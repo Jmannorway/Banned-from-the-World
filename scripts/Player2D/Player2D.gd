@@ -17,11 +17,13 @@ func _process(delta):
 		else:
 			set_move_speed(walk_speed)
 		
-		var _movement_vector = make_input_vector_4way(get_input_vector())
-		if !Util.compare_v2(_movement_vector, 0) && !is_moving():
+		var _input_vector = make_input_vector_4way(get_input_vector())
+		if !Util.compare_v2(_input_vector, 0) && !is_moving():
+			var _movement_vector = calculate_move_offset(_input_vector)
 			if check_solid_relative(_movement_vector):
-				set_facing(_movement_vector)
+				set_facing(_input_vector)
 			else:
+				print()
 				queue_move(_movement_vector)
 
 func _post_process_move():

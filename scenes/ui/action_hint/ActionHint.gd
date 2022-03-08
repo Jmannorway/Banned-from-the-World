@@ -1,7 +1,5 @@
 extends AnimatedSprite
 
-class_name ActionHint
-
 enum HINT{SHIFT, Z, X, C}
 enum STATE {INVISIBLE, FADE_IN, VISIBLE, FADE_OUT, _MAX}
 
@@ -46,9 +44,9 @@ func _process(delta):
 # Internal utility
 func hint_button_pressed() -> bool:
 	if check_held:
-		return Input.is_action_just_pressed(BUTTON[hint])
-	else:
 		return Input.is_action_pressed(BUTTON[hint])
+	else:
+		return Input.is_action_just_pressed(BUTTON[hint])
 
 func set_hint(new_hint : int):
 	match new_hint:

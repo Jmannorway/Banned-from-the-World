@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=3]
+[ext_resource path="res://scenes/2d/rooms/penalty_room.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=5]
+
+[node name="penalty_map" type="YSort"]
+script = ExtResource( 3 )
+
+[node name="shifting_maze_penalty" parent="." instance=ExtResource( 2 )]
+room_name = "shifting_maze_penalty"
+room = ExtResource( 4 )
+preview = true
+
+[node name="player_start" parent="." instance=ExtResource( 1 )]
+position = Vector2( 252, 180 )
+room_name = "shifting_maze_penalty"
+
+[node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
+target_group = "player_2d"
+target_is_character = true
