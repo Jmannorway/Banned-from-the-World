@@ -12,7 +12,7 @@ extents = Vector2( 23, 23 )
 collision_layer = 0
 script = ExtResource( 1 )
 
-[node name="interactable_detector_area_2d" type="CollisionShape2D" parent="."]
+[node name="step_area" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="interaction_area" type="CollisionShape2D" parent="."]

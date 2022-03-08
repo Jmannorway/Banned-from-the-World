@@ -3,13 +3,15 @@
 [ext_resource path="res://scripts/Room2D/RoomLoader2D.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 156, 96 )
+extents = Vector2( 612, 492 )
 
 [node name="room_loader_2d" type="YSort" groups=["room_loaders"]]
 script = ExtResource( 1 )
 room_name = "room_loader_2d"
 
 [node name="area" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
 
 [node name="bounds" type="CollisionShape2D" parent="area"]
 visible = false

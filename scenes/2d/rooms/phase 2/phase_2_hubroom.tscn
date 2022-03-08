@@ -98,7 +98,7 @@ script = ExtResource( 2 )
 position = Vector2( 180, 132 )
 
 [node name="animated_character_sprite_2d" parent="npc" index="0"]
-frame = 1
+frame = 3
 
 [node name="warp" parent="npc" instance=ExtResource( 5 )]
 map_path = "res://scenes/2d/maps/ghost_town_map.tscn"

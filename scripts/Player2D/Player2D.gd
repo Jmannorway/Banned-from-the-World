@@ -28,7 +28,7 @@ func _post_process_move():
 	._post_process_move()
 	
 	if !frozen && Input.is_action_just_pressed("interact") && !is_moving():
-		$interactable_detector_2d.interact_with_facing(self, facing)
+		$interactable_detector_2d.interact_with_facing(self, calculate_move_offset(facing))
 
 # SIGNAL CALLBACKS
 func _on_XToFocus_focus_changed(val):
