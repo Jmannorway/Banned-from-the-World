@@ -50,21 +50,11 @@ export var solid := true
 export(MOBILITY) var mobility = MOBILITY.NORMAL # TODO: Implement
 export(float, 0.1, 16.0) var move_speed = 2.0 setget set_move_speed
 
-var move_offset : Vector2 setget set_move_offset
+var move_offset : Vector2
 var move_cooldown_timer := Timer.new()
 var queued_move := CharacterMove2D.new()
 var facing := Vector2.DOWN setget set_facing
 var last_move : Vector2
-
-func set_move_offset(val : Vector2):
-	move_offset = val
-	if is_moving():
-		move_position(last_move * -1.0)
-		move_position(calculate_move_offset(facing))
-
-func reverse_move():
-	if is_moving():
-		move_position(last_move * -1.0)
 
 # INTERNAL FUNCTIONS
 func _enter_tree():
@@ -120,9 +110,6 @@ func get_move_duration() -> float:
 
 static func get_move_duration_at_speed(speed : float) -> float:
 	return 1 / speed
-
-func get_last_position():
-	return position - last_move * Game.SNAP
 
 func set_facing(dir : Vector2) -> void:
 	if facing != dir:

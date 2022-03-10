@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "AnimatedSprite",
+"class": "ActionHint",
+"language": "GDScript",
+"path": "res://scenes/ui/action_hint/ActionHint.gd"
+}, {
+"base": "AnimatedSprite",
 "class": "AnimatedCharacterSprite2D",
 "language": "GDScript",
 "path": "res://scripts/Character2D/AnimatedCharacterSprite2D.gd"
@@ -48,11 +53,6 @@ _global_script_classes=[ {
 "class": "CharacterController3D",
 "language": "GDScript",
 "path": "res://scripts/Camera/CharacterController3D.gd"
-}, {
-"base": "Reference",
-"class": "FSMState",
-"language": "GDScript",
-"path": "res://scripts/FiniteStateMachine/FSMState.gd"
 }, {
 "base": "Viewport",
 "class": "GameViewport",
@@ -170,6 +170,7 @@ _global_script_classes=[ {
 "path": "res://scripts/Utility/Util.gd"
 } ]
 _global_script_class_icons={
+"ActionHint": "",
 "AnimatedCharacterSprite2D": "",
 "AreaMarker2D": "",
 "BitGrid2D": "",
@@ -178,7 +179,6 @@ _global_script_class_icons={
 "Character2D": "",
 "Character2DBase": "",
 "CharacterController3D": "",
-"FSMState": "",
 "GameViewport": "",
 "Interactable": "",
 "Interactable2D": "",
@@ -207,7 +207,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Banned from the World"
-run/main_scene="res://scenes/3d/bedroom.tscn"
+run/main_scene="res://scenes/2d/maps/phase_2_map.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
@@ -218,12 +218,12 @@ default_bus_layout="res://audio_bus_layout.tres"
 [autoload]
 
 Game="*res://scripts/Game/Game.gd"
+Ui="*res://scenes/ui/ui.tscn"
+Statistics="*res://scripts/Game/GameStatistics.gd"
 MapManager="*res://scenes/2d/map_manager_2d.tscn"
 WorldGrid="*res://scenes/2d/collision grid/world_grid_2d.tscn"
 XToFocus="*res://scenes/x to focus/x_to_focus.tscn"
 MusicManager="*res://scenes/music_manager.tscn"
-Ui="*res://scenes/ui/ui.tscn"
-Statistics="*res://scripts/Game/GameStatistics.gd"
 
 [display]
 
@@ -1368,14 +1368,14 @@ focus={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-debug_test={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777223,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
 menu={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_test={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777223,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

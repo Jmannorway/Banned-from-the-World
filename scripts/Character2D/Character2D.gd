@@ -2,7 +2,7 @@ extends Character2DBase
 
 class_name Character2D
 
-onready var character_sprite : AnimatedCharacterSprite2D = $animated_character_sprite_2d
+onready var character_sprite = $animated_character_sprite_2d
 
 # INTERNAL FUNCTIONS
 
@@ -21,12 +21,6 @@ func _move(steps : Vector2, direction : Vector2) -> void:
 func _post_process_move() -> void:
 	if !is_moving():
 		character_sprite.idle()
-
-func set_move_offset(val : Vector2):
-	move_offset = val
-	if is_moving():
-		move_position(last_move * -1)
-		_move(calculate_move_offset(facing), facing)
 
 # UTILITY
 # Get the animated position as opposed to the snappy position & global_position directly

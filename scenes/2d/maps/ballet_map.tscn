@@ -25,7 +25,7 @@ room = ExtResource( 6 )
 preview = true
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
-position = Vector2( 444, 252 )
+position = Vector2( 216, 504 )
 room_name = "ballet_main"
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
@@ -36,12 +36,10 @@ free = true
 [node name="interactable_2d" parent="." instance=ExtResource( 7 )]
 position = Vector2( 95.984, -24 )
 scale = Vector2( 7.848, 1 )
-can_be_peered = null
 room_name = "ballet_stage"
 
 [node name="to_house_of_culture" parent="." instance=ExtResource( 8 )]
 position = Vector2( 95, -2052 )
 scale = Vector2( 6.48, 1 )
-can_be_peered = null
 map_path = "res://scenes/2d/maps/piano_room_map.tscn"
 on_step = true

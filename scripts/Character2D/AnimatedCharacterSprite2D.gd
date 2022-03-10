@@ -60,7 +60,7 @@ func reverse_move() -> void:
 # warning-ignore:function_conflicts_variable
 func move_direction(dir : Vector2, dur : float, factor : float = 0.0) -> void:
 	# offset and tween to make it look like the sprite moves
-	offset = -Game.SNAP * dir
+	offset -= Game.SNAP * dir
 	$move_animation_tween.interpolate_property(self, "offset", null, Vector2.ZERO, dur)
 	$move_animation_tween.start()
 	
