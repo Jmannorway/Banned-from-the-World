@@ -27,6 +27,12 @@ func _post_process_move() -> void:
 func get_animated_position() -> Vector2:
 	return character_sprite.global_position + character_sprite.offset
 
+func set_move_offset(val : Vector2):
+	move_offset = val
+	if is_moving():
+		_move(-last_move, facing)
+		_move(calculate_move_offset(facing), facing)
+
 # Reverses a current move, returns true if effective
 func reverse_move() -> void:
 	if is_moving():

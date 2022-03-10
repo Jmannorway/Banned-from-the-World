@@ -2,6 +2,8 @@ extends Area2D
 
 class_name Interactable2D
 
+export(bool) var can_be_peered
+
 func _enter_tree():
 	if get_child_count() <= 0:
 		var _defaultShape: CollisionShape2D = CollisionShape2D.new()
@@ -10,6 +12,10 @@ func _enter_tree():
 		_rectShape.extents = Vector2(Game.SNAP / 2 - 1, Game.SNAP / 2 - 1)
 		_defaultShape.shape = _rectShape
 		add_child(_defaultShape)
+
+func get_rect() -> Rect2:
+	var _extents = $interactable_hitbox_2d.shape.extents * scale
+	return Rect2($interactable_hitbox_2d.global_position - _extents, _extents * 2.0)
 
 func step():
 	print("Default step function called")
