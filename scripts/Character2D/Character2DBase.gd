@@ -50,7 +50,7 @@ export var solid := true
 export(MOBILITY) var mobility = MOBILITY.NORMAL # TODO: Implement
 export(float, 0.1, 16.0) var move_speed = 2.0 setget set_move_speed
 
-var move_offset : Vector2
+var move_offset : Vector2 setget set_move_offset
 var move_cooldown_timer := Timer.new()
 var queued_move := CharacterMove2D.new()
 var facing := Vector2.DOWN setget set_facing
@@ -105,6 +105,12 @@ func set_move_speed(val : float) -> void:
 	if val > 0.0:
 		move_speed = val
 
+func set_move_offset(val : Vector2) -> void:
+	move_offset = val
+	if is_moving():
+		move_position(-last_move)
+		move_position(calculate_move_offset(facing))
+
 func get_move_duration() -> float:
 	return 1 / move_speed
 
@@ -143,16 +149,15 @@ func check_solid_relative(steps : Vector2) -> bool:
 
 # Move the character by a square
 func move_position(steps : Vector2) -> void:
-	move_cooldown_timer.stop()
 	
 	var _move_distance = steps * Game.SNAP
 	
 	if solid:
-		WorldGrid.solid_grid.set_solid_at_pixel(global_position, false)
-#		WorldGrid.solid_grid.move_solid(get_global_integer_position(), steps)
+		WorldGrid.solid_grid.move_solid_to_pixel(global_position, _move_distance)
 	
 	position += _move_distance
 	last_move = steps
+	move_cooldown_timer.stop()
 	move_cooldown_timer.start(get_move_duration())
 
 # UTILITY
