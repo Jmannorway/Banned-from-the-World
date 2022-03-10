@@ -17,6 +17,9 @@ func _ready():
 	set_floor(0)
 
 func set_floor(var index: int) -> void:
+	if index < 0:
+		return
+	
 	currentFloor = index
 	
 #	print(currentFloor)
