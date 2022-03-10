@@ -19,6 +19,8 @@ func _process(delta):
 		
 		var _input_vector = make_input_vector_4way(get_input_vector())
 		if !Util.compare_v2(_input_vector, 0) && !is_moving():
+			
+			
 			if check_solid_relative(_input_vector):
 				set_facing(_input_vector)
 			else:

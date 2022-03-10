@@ -50,11 +50,13 @@ room_name = "hub"
 [node name="to_maze" parent="." instance=ExtResource( 7 )]
 position = Vector2( 492, 192 )
 scale = Vector2( 1, 1.92 )
+can_be_peered = null
 room_name = "maze"
 
 [node name="to_hub" parent="." instance=ExtResource( 7 )]
 position = Vector2( 468, 192 )
 scale = Vector2( 1, 1.92 )
+can_be_peered = null
 room_name = "hub"
 
 [node name="run_hint" parent="." instance=ExtResource( 8 )]
@@ -62,3 +64,4 @@ position = Vector2( 516, 192 )
 scale = Vector2( 1, 1.88 )
 collision_layer = 8
 script = SubResource( 1 )
+can_be_peered = null
