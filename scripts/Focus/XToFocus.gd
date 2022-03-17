@@ -26,6 +26,16 @@ var fade_duration := 1.0
 onready var viewport := $game_viewport
 onready var viewport_sprite := $canvas_layer/game_viewport_sprite
 
+func set_focus_shader(material : ShaderMaterial):
+	viewport_sprite.material = material
+
+func set_focus_shader_params(params : Dictionary):
+	for key in params.keys():
+		viewport_sprite.material.set_shader_param(key, params[key])
+
+func pass_player_position(val : bool):
+	viewport_sprite.pass_player_position = val
+
 # Removes all-focus affected nodes and scenes
 func clear_all():
 	clear_focus_nodes_and_objects()
@@ -39,7 +49,7 @@ func clear_focus_scenes():
 		_node.queue_free()
 
 func is_in_focus(node : Node) -> bool:
-	return node.is_a_parent_of(self)
+	return is_a_parent_of(node)
 
 # Adds a node to have its alpha value changed along with focus
 func add_focus_node(node : Node, color_path : String):

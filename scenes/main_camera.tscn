@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scripts/Camera/CameraController.gd" type="Script" id=1]
 
-
 [sub_resource type="Environment" id=4]
 background_mode = 1
 ambient_light_color = Color( 0.0784314, 0.027451, 0.145098, 1 )
@@ -32,7 +31,7 @@ size = Vector2( 4, 4 )
 script = ExtResource( 1 )
 movementSpeed = 20.0
 
-[node name="camera" type="Camera" parent="."]
+[node name="camera" type="Camera" parent="." groups=["3d_camera"]]
 transform = Transform( 1, 0, 0, 0, 0.539388, 0.842057, 0, -0.842057, 0.539388, 0, 7.08635, 4.10851 )
 environment = SubResource( 4 )
 

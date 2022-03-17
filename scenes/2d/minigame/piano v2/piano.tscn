@@ -1,0 +1,148 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://sprites/piano minigame/Piano circle.png" type="Texture" id=1]
+[ext_resource path="res://scenes/2d/minigame/piano v2/max.gd" type="Script" id=2]
+[ext_resource path="res://sprites/piano minigame/1 back pink circle.png" type="Texture" id=3]
+[ext_resource path="res://sprites/piano minigame/teacher.png" type="Texture" id=4]
+[ext_resource path="res://sprites/piano minigame/2 back red circle.png" type="Texture" id=5]
+[ext_resource path="res://sprites/piano minigame/Circle hands.png" type="Texture" id=6]
+[ext_resource path="res://sprites/piano minigame/Black circle.png" type="Texture" id=7]
+[ext_resource path="res://sprites/piano minigame/3 back blue circle.png" type="Texture" id=8]
+[ext_resource path="res://scenes/2d/minigame/piano v2/piano_detection.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/2d/minigame/piano v2/spawner.gd" type="Script" id=10]
+[ext_resource path="res://scenes/2d/minigame/piano v2/timing.gd" type="Script" id=11]
+[ext_resource path="res://scenes/2d/minigame/piano v2/piano.gd" type="Script" id=12]
+[ext_resource path="res://scenes/2d/minigame/piano v2/note.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sprites/piano minigame/max_heheh.png" type="Texture" id=14]
+[ext_resource path="res://sprites/piano minigame/note.png" type="Texture" id=15]
+[ext_resource path="res://scenes/2d/minigame/piano v2/minigame.gd" type="Script" id=16]
+[ext_resource path="res://scenes/2d/minigame/piano v2/girl.mp3" type="AudioStream" id=17]
+[ext_resource path="res://scenes/2d/minigame/piano v2/direction.gd" type="Script" id=18]
+[ext_resource path="res://sprites/piano minigame/Purple arrow.png" type="Texture" id=19]
+[ext_resource path="res://scenes/2d/minigame/piano v2/metronome.wav" type="AudioStream" id=20]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 160, 360 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 160, 0, 160, 360 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 320, 0, 160, 360 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 480, 0, 160, 360 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 640, 0, 160, 360 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 800, 0, 160, 360 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 960, 0, 160, 360 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="controller" type="Node2D"]
+script = ExtResource( 12 )
+
+[node name="minigame" type="Node2D" parent="."]
+script = ExtResource( 16 )
+arrow_visibility_window = 1.5
+offset = -0.55
+bpm = 115.0
+
+[node name="decoration" type="Node2D" parent="minigame"]
+position = Vector2( 240, 180 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="blue" type="Sprite" parent="minigame/decoration"]
+texture = ExtResource( 8 )
+
+[node name="red" type="Sprite" parent="minigame/decoration"]
+texture = ExtResource( 5 )
+
+[node name="pink_light" type="Sprite" parent="minigame/decoration"]
+texture = ExtResource( 3 )
+
+[node name="piano" type="Sprite" parent="minigame/decoration"]
+texture = ExtResource( 1 )
+
+[node name="hands" type="Sprite" parent="minigame/decoration"]
+texture = ExtResource( 6 )
+
+[node name="middle" type="Sprite" parent="minigame/decoration"]
+texture = ExtResource( 7 )
+
+[node name="max" type="Sprite" parent="minigame/decoration"]
+position = Vector2( -160, 0 )
+texture = ExtResource( 14 )
+script = ExtResource( 2 )
+
+[node name="movement_tween" type="Tween" parent="minigame/decoration/max"]
+
+[node name="teacher" type="AnimatedSprite" parent="minigame/decoration"]
+position = Vector2( 160, 0 )
+frames = SubResource( 8 )
+
+[node name="movement_direction" type="Sprite" parent="minigame"]
+position = Vector2( 348, 44.75 )
+scale = Vector2( 1, 1.47297 )
+texture = ExtResource( 19 )
+script = ExtResource( 18 )
+
+[node name="rotation_tween" type="Tween" parent="minigame/movement_direction"]
+
+[node name="detection" parent="minigame" instance=ExtResource( 9 )]
+position = Vector2( 240, 180 )
+key_distance = 48.0
+
+[node name="spawner" type="Node2D" parent="minigame"]
+position = Vector2( 240, 180 )
+script = ExtResource( 10 )
+spawner_texture = ExtResource( 15 )
+note = ExtResource( 13 )
+
+[node name="timing" type="Node" parent="minigame"]
+script = ExtResource( 11 )
+
+[node name="bar" type="Timer" parent="minigame/timing"]
+
+[node name="spawn_bar" type="Timer" parent="minigame/timing"]
+
+[node name="rhythm" type="Timer" parent="minigame/timing"]
+
+[node name="spawn_rhythm" type="Timer" parent="minigame/timing"]
+
+[node name="metronome" type="AudioStreamPlayer" parent="minigame/timing"]
+stream = ExtResource( 20 )
+
+[node name="music" type="AudioStreamPlayer" parent="minigame"]
+stream = ExtResource( 17 )
+
+[connection signal="changed_state" from="minigame/spawner" to="minigame" method="_on_spawner_changed_state"]
+[connection signal="bar" from="minigame/timing" to="minigame" method="_on_timing_bar"]
+[connection signal="rhythm" from="minigame/timing" to="minigame" method="_on_timing_rhythm"]
+[connection signal="spawn_bar" from="minigame/timing" to="minigame" method="_on_timing_spawn_bar"]
+[connection signal="spawn_bar" from="minigame/timing" to="minigame/spawner" method="_on_timing_spawn_bar"]
+[connection signal="spawn_rhythm" from="minigame/timing" to="minigame/spawner" method="_on_timing_spawn_rhythm"]
+[connection signal="timeout" from="minigame/timing/bar" to="minigame/timing" method="_on_bar_timeout"]
+[connection signal="timeout" from="minigame/timing/spawn_bar" to="minigame/timing" method="_on_spawn_bar_timeout"]
+[connection signal="timeout" from="minigame/timing/rhythm" to="minigame/timing" method="_on_rhythm_timeout"]
+[connection signal="timeout" from="minigame/timing/spawn_rhythm" to="minigame/timing" method="_on_spawn_rhythm_timeout"]

@@ -1,5 +1,7 @@
 class_name Util
 
+enum DIRECTION {UP, LEFT, RIGHT, DOWN}
+
 # TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 
 static func goto_world(tree : SceneTree, world : int) -> void:

@@ -2,8 +2,6 @@ extends Area2D
 
 class_name Interactable2D
 
-export(bool) var can_be_peered
-
 func _enter_tree():
 # warning-ignore:integer_division
 # warning-ignore:integer_division

@@ -13,10 +13,11 @@
 script/source = "extends Spatial
 
 func _ready():
-	if Statistics.metadata[\"inner_world_travel_count\"] == 0:
+	if Statistics.metadata[\"inner_world_travel_count\"] == 0 && !XToFocus.is_in_focus(self):
 		var _player := PlayerAccess.get_player_3d(get_tree())
-		_player.canMove = false
-		Ui.action_hint.show_action_hint(Ui.action_hint.HINT.X)
+		if _player:
+			_player.canMove = false
+			Ui.action_hint.show_action_hint(Ui.action_hint.HINT.X)
 "
 
 [node name="real_world" type="Spatial"]

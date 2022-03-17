@@ -1,0 +1,42 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float speed : hint_range(0.1, 16.0) = 2.0;
+uniform float strength : hint_range(0.0, 0.5) = 0.1;
+uniform vec2 position;
+uniform vec2 size = vec2(48.0, 64.0);
+uniform float distance_threshold : hint_range(0.0, 1.0) = 0.1;
+uniform float uv_split = 32.0;
+
+float random(vec2 st)
+{
+	return fract(sin(dot(mod(st, 10.0), vec2(53.4582, 17.3845))) * 45348.2847);
+}
+
+void fragment()
+{
+	float t = TIME * speed;
+	float ftime = fract(t);
+	float itime = floor(t);
+	
+	vec2 ruv = vec2(floor(UV.y * uv_split) / uv_split, 0.0);
+	float r = mix(random(ruv + itime), random(ruv + itime + 1.0), ftime);
+	r = (r * 2.0 - 1.0) * strength;
+	
+	vec2 uv = UV;
+	float dist = max(0.0, distance(position / size, UV) - distance_threshold);
+	uv.x += r * dist;
+	
+	COLOR = texture(TEXTURE, uv);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/speed = 16.0
+shader_param/strength = 0.2
+shader_param/position = Vector2( 480, 580 )
+shader_param/size = Vector2( 960, 720 )
+shader_param/distance_threshold = 0.1
+shader_param/uv_split = 512.0

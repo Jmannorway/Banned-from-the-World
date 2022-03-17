@@ -1,5 +1,7 @@
 extends Sprite
 
+class_name GameViewportSprite
+
 var viewport : GameViewport
 
 func update():
