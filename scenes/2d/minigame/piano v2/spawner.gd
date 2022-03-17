@@ -85,11 +85,11 @@ func _on_timing_spawn_bar(bar):
 		match state:
 			STATE.SPAWNING:
 				bar_count -= 1
-				if bar_count <= 0:
+				if bar_count <= 0 && spawn_bars != -1:
 					_set_state(STATE.PAUSED)
 			STATE.PAUSED:
 				bar_count -= 1
-				if bar_count <= 0:
+				if bar_count <= 0 && pause_bars != -1:
 					_set_state(STATE.SPAWNING)
 
 func _on_timing_spawn_rhythm(beat, bar):

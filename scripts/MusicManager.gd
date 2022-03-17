@@ -42,7 +42,7 @@ func play_ambience(var track: AudioStream, var trackIndex: int = -1) -> void:
 		_streamPlayer.play()
 
 func play_sound(var track: AudioStream) -> void:
-	add_audio_player("sound", track).play()
+	add_audio_player("sounds", track).play()
 
 func pause_music(var trackIndex: int, var paused: bool) -> void:
 	$music.get_child(trackIndex).stream_paused = paused

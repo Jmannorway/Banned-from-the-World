@@ -5,8 +5,10 @@ export(bool) var play_metronome
 var bpm : float
 var denominator : float
 var counting : bool
+var offset : float
+var spawn_offset : float
 
-# Don't
+# TODO: Make counter an object
 var beat : int
 var bar : int
 var spawn_beat : int
@@ -17,15 +19,10 @@ signal bar(bar)
 signal spawn_rhythm(beat, bar)
 signal spawn_bar(bar)
 
-func stop_all():
+func stop():
 	for i in get_children():
 		if i as Timer:
 			i.stop()
-
-func set_paused(val : bool):
-	for i in get_children():
-		if i as Timer:
-			i.set_paused(val)
 
 func set_timer(timer : Timer, wait_time : float, position : float):
 	timer.start(fposmod(wait_time - position - 0.0001, wait_time) + 0.0001)
@@ -48,26 +45,29 @@ func print_timers():
 		"Rhythm:", $rhythm.time_left,
 		"Spawn rhythm:", $spawn_rhythm.time_left, "}")
 
-func restart(_spawn_to_hit_duration : float = 0.0, _offset : float = 0.0):
-	bar = seconds_to_bars(_offset)
-	spawn_bar = seconds_to_bars(_offset + _spawn_to_hit_duration)
-	beat = seconds_to_beats(_offset)
-	spawn_beat = seconds_to_beats(_offset + _spawn_to_hit_duration)
-	
-	set_timer($bar, get_bar_rate(), _offset)
-	set_timer($spawn_bar, get_bar_rate(), _offset + _spawn_to_hit_duration)
-	set_timer($rhythm, get_rhythm_rate(), _offset)
-	set_timer($spawn_rhythm, get_rhythm_rate(), _offset + _spawn_to_hit_duration)
+func set_counters():
+	bar = seconds_to_bars(offset)
+	spawn_bar = seconds_to_bars(offset + spawn_offset)
+	beat = seconds_to_beats(offset)
+	spawn_beat = seconds_to_beats(offset + spawn_offset)
 
-func start(_bpm : float, _denominator : float, _spawn_to_hit_duration : float, _offset : float = 0.0):
+func set_timers():
+	set_timer($bar, get_bar_rate(), offset)
+	set_timer($spawn_bar, get_bar_rate(), offset + spawn_offset)
+	set_timer($rhythm, get_rhythm_rate(), offset)
+	set_timer($spawn_rhythm, get_rhythm_rate(), offset + spawn_offset)
+
+func start(_offset : float = -1.0):
+	if _offset != -1.0:
+		offset = _offset
+	set_counters()
+	set_timers()
+
+func initialize(_bpm : float, _denominator : float, _spawn_to_hit_duration : float):
 	bpm = _bpm
 	denominator = _denominator
 	counting = true
-	restart(_spawn_to_hit_duration, _offset)
-#	$rhythm.start(_rhythm_rate)
-#	$bar.start(_bar_rate)
-#	$spawn_rhythm.start(wrapf(_rhythm_rate - _spawn_to_hit_duration, 0.0, _rhythm_rate))
-#	$spawn_bar.start(wrapf(_bar_rate - _spawn_to_hit_duration, 0.0, _bar_rate))
+	spawn_offset = _spawn_to_hit_duration
 
 # Gets the time between one rhythm and the next
 func get_rhythm_rate() -> float:
@@ -107,4 +107,3 @@ func _on_spawn_rhythm_timeout():
 	emit_signal("spawn_rhythm", beat, bar)
 	if counting:
 		spawn_beat = _increment_beat_count(spawn_beat)
-	print_counter()

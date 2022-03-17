@@ -159,14 +159,14 @@ slide_duration = 3
 
 [node name="PianoCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -2630.81
+rotation = -2636.32
 texture = ExtResource( 11 )
 script = ExtResource( 14 )
 rotation_speed = -15
 
 [node name="CircleHands" type="AnimatedSprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = 2596.35
+rotation = 2601.86
 frames = ExtResource( 12 )
 animation = "hands"
 frame = 1
@@ -175,7 +175,7 @@ script = SubResource( 12 )
 
 [node name="BlackCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -2625.48
+rotation = -2630.99
 texture = ExtResource( 13 )
 script = ExtResource( 14 )
 rotation_speed = -15
