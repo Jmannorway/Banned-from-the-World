@@ -50,7 +50,7 @@ export var solid := true
 export(MOBILITY) var mobility = MOBILITY.NORMAL # TODO: Implement
 export(float, 0.1, 16.0) var move_speed = 2.0 setget set_move_speed
 
-var move_offset : Vector2 setget set_move_offset
+var move_offset : Vector2
 var move_cooldown_timer := Timer.new()
 var queued_move := CharacterMove2D.new()
 var facing := Vector2.DOWN setget set_facing

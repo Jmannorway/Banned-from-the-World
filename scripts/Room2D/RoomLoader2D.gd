@@ -98,8 +98,16 @@ func _unload_room():
 	if looping:
 		disconnect_looping_character_nodes()
 	
-	emit_signal("unloaded")
+	clear_unwanted_children()
 	
+	emit_signal("unloaded")
+
+func clear_unwanted_children() -> void:
+	var _childrenRooms: Array = get_children()
+	
+	for node in _childrenRooms:
+		node.queue_free()
+
 # Callbacks
 func _on_Character_move_started(character_node):
 	wrap_node(character_node)

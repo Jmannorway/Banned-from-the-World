@@ -43,12 +43,17 @@ func _on_interactable_detector_2d_area_shape_entered(area_rid, area : Interactab
 		match local_shape_index:
 			LOCAL_SHAPE_TYPE.STEP:
 				area.step()
+				area.on_character_enter(get_parent().facing)
 			LOCAL_SHAPE_TYPE.INTERACT:
 				interactables.push_back(area)
 
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
 func _on_interactable_detector_2d_area_shape_exited(area_rid, area : Interactable2D, area_shape_index, local_shape_index):
-	if area && local_shape_index == LOCAL_SHAPE_TYPE.INTERACT:
-		var _index = interactables.find(area)
-		interactables.remove(_index)
+	if area:
+		match local_shape_index:
+			LOCAL_SHAPE_TYPE.STEP:
+				area.on_character_exit(get_parent().facing)
+			LOCAL_SHAPE_TYPE.INTERACT:
+				var _index = interactables.find(area)
+				interactables.remove(_index)

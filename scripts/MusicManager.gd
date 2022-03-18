@@ -1,6 +1,5 @@
 extends Node
 
-onready var testTrack1: AudioStream = preload("res://audio/Neko To Sanpo.mp3")
 onready var fadeTween: Tween = $fadeout
 
 #func _input(event):
