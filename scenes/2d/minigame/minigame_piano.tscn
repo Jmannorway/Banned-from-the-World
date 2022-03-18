@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/Piano Minigame/PianoMinigame.gd" type="Script" id=1]
 [ext_resource path="res://sprites/piano minigame/Blue arrow.png" type="Texture" id=2]
@@ -56,6 +56,8 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="CanvasItemMaterial" id=13]
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
@@ -141,11 +143,13 @@ texture = ExtResource( 15 )
 [node name="Teacher" type="AnimatedSprite" parent="."]
 position = Vector2( 396, 180 )
 frames = SubResource( 9 )
+frame = 1
 speed_scale = 2.0
 playing = true
 
 [node name="Max" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 13 )
 position = Vector2( 77, 180 )
 frames = SubResource( 10 )
 script = SubResource( 11 )
@@ -155,14 +159,14 @@ slide_duration = 3
 
 [node name="PianoCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -2116.24
+rotation = -2636.32
 texture = ExtResource( 11 )
 script = ExtResource( 14 )
 rotation_speed = -15
 
 [node name="CircleHands" type="AnimatedSprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = 2081.55
+rotation = 2601.86
 frames = ExtResource( 12 )
 animation = "hands"
 frame = 1
@@ -171,7 +175,7 @@ script = SubResource( 12 )
 
 [node name="BlackCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -2110.88
+rotation = -2630.99
 texture = ExtResource( 13 )
 script = ExtResource( 14 )
 rotation_speed = -15

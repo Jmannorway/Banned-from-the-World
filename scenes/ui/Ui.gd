@@ -7,8 +7,6 @@ var menu : CanvasItem setget set_menu
 var in_menu := false setget set_in_menu
 var allow_menu := true setget set_allow_menu
 
-
-
 onready var action_hint := $action_hint
 
 func _ready():

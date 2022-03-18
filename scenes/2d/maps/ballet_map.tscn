@@ -52,7 +52,7 @@ room_name = "ballet_stage"
 [node name="to_house_of_culture" parent="." instance=ExtResource( 8 )]
 position = Vector2( 95, -2052 )
 scale = Vector2( 6.48, 1 )
-map_path = "res://scenes/2d/maps/piano_room_map.tscn"
+map_path = "res://scenes/2d/maps/house_of_culture.tscn"
 on_step = true
 
 [node name="direct_sound" type="Node2D" parent="."]

@@ -2,8 +2,6 @@ extends Area2D
 
 class_name Interactable2D
 
-export(bool) var can_be_peered
-
 func _enter_tree():
 	if get_child_count() <= 0:
 		var _defaultShape: CollisionShape2D = CollisionShape2D.new()

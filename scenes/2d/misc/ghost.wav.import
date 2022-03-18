@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ghost.wav-e80720c414e2ec25d3981c94607d042d.sample"
+
+[deps]
+
+source_file="res://scenes/2d/misc/ghost.wav"
+dest_files=[ "res://.import/ghost.wav-e80720c414e2ec25d3981c94607d042d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

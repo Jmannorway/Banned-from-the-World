@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/girl.mp3-b28190b165673a8395a0342a351172cb.mp3str"
+
+[deps]
+
+source_file="res://scenes/2d/minigame/piano v2/sounds/girl.mp3"
+dest_files=[ "res://.import/girl.mp3-b28190b165673a8395a0342a351172cb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
