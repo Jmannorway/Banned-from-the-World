@@ -54,11 +54,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Game/GameViewport.gd"
 }, {
-"base": "Sprite",
-"class": "GameViewportSprite",
-"language": "GDScript",
-"path": "res://scripts/Game/GameViewportSprite.gd"
-}, {
 "base": "Area",
 "class": "Interactable",
 "language": "GDScript",
@@ -189,7 +184,6 @@ _global_script_class_icons={
 "Character2DBase": "",
 "CharacterController3D": "",
 "GameViewport": "",
-"GameViewportSprite": "",
 "Interactable": "",
 "Interactable2D": "",
 "InteractableDetector2D": "",
@@ -219,7 +213,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Banned from the World"
-run/main_scene="res://scenes/3d/real_world.tscn"
+run/main_scene="res://scenes/3d/bedroom.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
