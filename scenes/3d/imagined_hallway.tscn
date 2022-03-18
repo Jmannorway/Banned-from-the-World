@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/characters/max.tscn" type="PackedScene" id=1]
 [ext_resource path="res://models/doorframe_nonuv.fbx" type="PackedScene" id=2]
@@ -6,7 +6,12 @@
 [ext_resource path="res://models/max_door_uv.fbx" type="PackedScene" id=4]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=6]
+[ext_resource path="res://scenes/x to focus/focus_scenes/focus_grid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://shaders/spatial/noise.tres" type="Texture" id=8]
+[ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=10]
+[ext_resource path="res://scenes/3d/real_world.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/cutscenes/sister_in_bathroom.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -15,6 +20,93 @@ params_cull_mode = 2
 albedo_color = Color( 0.694118, 0.0431373, 0.0431373, 1 )
 
 [sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="Shader" id=12]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.2.stable's SpatialMaterial.
+
+shader_type spatial;
+
+const float PI = 3.14159;
+
+uniform sampler2D noise;
+uniform float speed = 1.0;
+uniform float line_thickness = 0.1;
+uniform float line_smoothing = 0.1;
+uniform vec2 squares = vec2(5.0, 5.0);
+uniform vec3 color = vec3(1.0, 0.0, 0.0);
+uniform float color_strength = 3.0;
+uniform float alpha = 1.0;
+
+float make_wave(float x, float amp, float freq)
+{
+	return sin(x * freq * PI) * amp;
+}
+
+void vertex()
+{
+	float t = TIME * speed;
+	
+	float n = texture(noise, VERTEX.xz + t).r;
+	
+	VERTEX.y += n;
+}
+
+float make_line(float x, float y, float thickness, float falloff)
+{
+	return smoothstep(x - thickness - falloff, x - thickness, y) -
+		smoothstep(x + thickness, x + thickness + falloff, y);
+}
+
+void fragment()
+{
+	vec2 pos = UV * squares;
+	vec2 fpos = fract(pos);
+	
+	// make lines
+	
+	
+	
+//	float lines = 1.0 - step(line_thickness, fpos.x) * step(line_thickness, fpos.y);
+	float line_position = 1.0 - line_thickness - line_smoothing;
+	float lines =
+		make_line(fpos.x, line_position, line_thickness, line_smoothing) +
+		make_line(fpos.y, line_position, line_thickness, line_smoothing);
+	lines = clamp(lines, 0.0, 1.0);
+//	lines += make_line(fpos.x, fpos.y, 0.1, 0.1);
+	
+	lines *=
+		step(pos.x, squares.x - (line_thickness + line_smoothing) * 2.0) *
+		step(pos.y, squares.y - (line_thickness + line_smoothing) * 2.0);
+	
+	// cut edges
+//	lines *= step(line_thickness + line_smoothing, pos.x) * step(line_thickness + line_smoothing, pos.y);
+	
+	ALBEDO = color * lines * color_strength;
+	ALPHA = lines * alpha;
+}"
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 12 )
+shader_param/speed = 0.1
+shader_param/line_thickness = 0.012
+shader_param/line_smoothing = 0.01
+shader_param/squares = Vector2( 1, 8 )
+shader_param/color = Vector3( 0.5, 0, 1 )
+shader_param/color_strength = 10.0
+shader_param/alpha = 1.0
+shader_param/noise = ExtResource( 8 )
+
+[sub_resource type="GDScript" id=14]
+script/source = "extends Interactable
+
+export(PackedScene) var win_scene
+
+func _on_Area_area_entered(area):
+	get_tree().change_scene_to(win_scene)
+#	$focus_scene.update()
+"
+
+[sub_resource type="BoxShape" id=15]
 
 [node name="room_manager" type="Spatial"]
 script = ExtResource( 6 )
@@ -30,7 +122,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 pathFollowType = 1
-offset = Vector2( 0.5, -1 )
+offset = Vector2( 0.5, 0.5 )
 size = Vector2( 0.5, 2 )
 rectHeight = 0.107
 
@@ -38,7 +130,7 @@ rectHeight = 0.107
 mesh_library = ExtResource( 10 )
 cell_size = Vector3( 1, 1, 1 )
 data = {
-"cells": PoolIntArray( 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65532, 0, 1, 65532, 0, 65535, 65532, 0, 0, 65533, 1376257, 1, 65533, 0, 65535, 65533, 0, 1, 65534, 0, 65535, 65534, 0, 1, 65535, 0, 65535, 65535, 0 )
+"cells": PoolIntArray( 1, 0, 0, 65535, 0, 0, 1, 1, 0, 65535, 1, 0, 1, 2, 0, 65535, 2, 0, 1, 3, 0, 65535, 3, 0, 0, 4, 0, 1, 4, 0, 65535, 4, 0, 0, 65531, 917504, 1, 65531, 917504, 65535, 65531, 917504, 1, 65532, 917504, 65535, 65532, 917504, 1, 65533, 0, 65535, 65533, 0, 1, 65534, 0, 65535, 65534, 0, 1, 65535, 0, 65535, 65535, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -48,41 +140,48 @@ __meta__ = {
 [node name="models" type="Spatial" parent="rooms/bedroom"]
 
 [node name="doorframe_nonuv" parent="rooms/bedroom/models" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.487382, 1.21487, -3.14236 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.487382, 1.21487, -3.95872 )
 
 [node name="max_door_uv" parent="rooms/bedroom/models/doorframe_nonuv" instance=ExtResource( 4 )]
 
 [node name="light" type="OmniLight" parent="rooms/bedroom"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -2.79177 )
 light_color = Color( 0.690196, 0.984314, 0.564706, 1 )
-light_energy = 3.0
+light_energy = 5.0
 omni_range = 3.449
 omni_attenuation = 2.54912
 
 [node name="light2" type="OmniLight" parent="rooms/bedroom"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.39356, 1.05016 )
 light_color = Color( 0.231373, 0.231373, 0.588235, 1 )
-light_energy = 3.0
+light_energy = 4.0
+omni_range = 3.449
+omni_attenuation = 2.54912
+
+[node name="light3" type="OmniLight" parent="rooms/bedroom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.54472, 4.4829 )
+light_color = Color( 0.231373, 0.231373, 0.588235, 1 )
+light_energy = 4.0
 omni_range = 3.449
 omni_attenuation = 2.54912
 
 [node name="MeshInstance" type="MeshInstance" parent="rooms/bedroom"]
-transform = Transform( -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0, 4, 1.5, 0.5, -3 )
+transform = Transform( -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0, 4.96158, 1.5, 0.5, -0.457884 )
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="MeshInstance3" type="MeshInstance" parent="rooms/bedroom"]
-transform = Transform( 3.82137e-15, 4.37114e-08, 4, 2, -4.37114e-08, -8.49795e-22, 8.74228e-08, 1, -1.74846e-07, 0.462858, 0.5, -3.57647 )
+transform = Transform( 1.00111e-15, 1.14514e-08, 1.04791, 2, -4.37114e-08, -8.49795e-22, 8.74228e-08, 1, -1.74846e-07, 0.462858, 0.5, -4.0163 )
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="rooms/bedroom"]
-transform = Transform( 8.74228e-08, 1, -6.03983e-07, 2, -4.37114e-08, 0, -1.32005e-14, -1.50996e-07, -4, -0.5, 0.5, -3 )
+transform = Transform( 8.74228e-08, 1, -6.03983e-07, 2, -4.37114e-08, 0, -1.5354e-14, -1.75629e-07, -4.65255, -0.5, 0.5, -0.163785 )
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="floor" type="MeshInstance" parent="rooms/bedroom"]
-transform = Transform( -2, 0, 3.49691e-07, 0, 1, 0, -1.74846e-07, 0, -4, 0.572, 0, -3 )
+transform = Transform( -1, 0, 7.54979e-07, 0, 1, 0, -1.50996e-07, 0, -5, 0.5, 0, -0.5 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -92,4 +191,25 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.36865 )
 
 [node name="max" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 3.5 )
+
+[node name="focus_grid" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, 0.5, -0.198271, 0 )
+material/0 = SubResource( 13 )
+
+[node name="win" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.435964, 0, -3.7452 )
+collision_layer = 0
+collision_mask = 2
+script = SubResource( 14 )
+win_scene = ExtResource( 12 )
+
+[node name="winbox" type="CollisionShape" parent="win"]
+shape = SubResource( 15 )
+
+[node name="focus_scene" parent="win" instance=ExtResource( 9 )]
+update_on_ready = false
+scene = ExtResource( 11 )
+is_2d = false
+
+[connection signal="area_entered" from="win" to="win" method="_on_Area_area_entered"]

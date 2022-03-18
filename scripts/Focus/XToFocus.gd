@@ -103,6 +103,7 @@ func toggle_focus():
 	if $alpha_tween.is_active():
 		$alpha_tween.playback_speed *= -1.0
 	else:
+		$alpha_tween.remove_all()
 		$alpha_tween.interpolate_property(self, "alpha", null, _new_alpha, fade_duration)
 		$alpha_tween.start()
 

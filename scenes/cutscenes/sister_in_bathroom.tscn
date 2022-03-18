@@ -2,7 +2,7 @@
 
 [ext_resource path="res://videos/sister in bathroom.webm" type="VideoStream" id=1]
 [ext_resource path="res://scenes/cutscenes/sister_in_bathroom.gd" type="Script" id=2]
-[ext_resource path="res://scenes/3d/real_world.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/2d/minigame/piano v2/Win.tscn" type="PackedScene" id=3]
 
 [node name="cutscene" type="VideoPlayer"]
 margin_right = 960.0

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/2d/minigame/piano v2/win.png" type="Texture" id=1]
+
+[node name="Win" type="Sprite"]
+position = Vector2( 240, 180 )
+texture = ExtResource( 1 )
