@@ -212,12 +212,12 @@ default_bus_layout="res://audio_bus_layout.tres"
 [autoload]
 
 Game="*res://scripts/Game/Game.gd"
+Ui="*res://scenes/ui/ui.tscn"
+Statistics="*res://scripts/Game/GameStatistics.gd"
 MapManager="*res://scenes/2d/map_manager_2d.tscn"
 WorldGrid="*res://scenes/2d/collision grid/world_grid_2d.tscn"
 XToFocus="*res://scenes/x to focus/x_to_focus.tscn"
 MusicManager="*res://scenes/music_manager.tscn"
-Ui="*res://scenes/ui/ui.tscn"
-Statistics="*res://scripts/Game/GameStatistics.gd"
 
 [display]
 
@@ -1362,14 +1362,14 @@ focus={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-debug_test={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777223,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
-}
 menu={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+debug_test={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777223,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

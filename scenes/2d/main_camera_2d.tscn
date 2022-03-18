@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/Camera/MainCamera2D.gd" type="Script" id=1]
+[ext_resource path="res://sprites/balle hall/vignette.png" type="Texture" id=2]
 
 [node name="main_camera_2d" type="Node2D" groups=["camera"]]
 script = ExtResource( 1 )
 target_group = ""
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Vignette" type="Sprite" parent="CanvasLayer"]
+texture = ExtResource( 2 )
+centered = false

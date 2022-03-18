@@ -14,15 +14,17 @@ func _ready():
 	for stair in staircases:
 		stair.connect("change_floors", self, "set_relative_floor")
 	
+	Util.get_first_node_in_group(get_tree(), "camera").set_vignette_visible(true)
+	
 	set_floor(0)
 
 func set_floor(var index: int) -> void:
-	if index < 0:
+	if index < 0 or index >= floors.size():
+		print(currentFloor)
 		return
 	
 	currentFloor = index
-	
-#	print(currentFloor)
+	print(currentFloor)
 	
 	floors[currentFloor].get_node("solid_grid_2d").paint_to_world_grid()
 	
