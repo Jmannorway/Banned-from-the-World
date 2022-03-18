@@ -37,7 +37,12 @@ size = Vector2( 10, 10 )
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1584, 240 )
+index = 1
 room_name = "mirror_test"
+
+[node name="player_start2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 228, 500 )
+room_name = "ballet_main"
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
 target_group = "player_2d"

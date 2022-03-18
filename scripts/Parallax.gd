@@ -35,7 +35,11 @@ func _ready():
 
 # warning-ignore:unused_argument
 func _process(delta):
-	position = -Vector2(target.global_position.x * speed.x, target.global_position.y * speed.y)
+	# TODO: Temporary crash fix
+	target = Util.get_first_node_in_group(get_tree(), "camera")
+	
+	if target:
+		position = -Vector2(target.global_position.x * speed.x, target.global_position.y * speed.y)
 
 func _draw():
 	return

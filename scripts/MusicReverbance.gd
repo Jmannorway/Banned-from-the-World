@@ -3,10 +3,19 @@ extends Node2D
 export var musicToPlay: AudioStream
 export var maxDistance: float = 20.0
 
+# TODO: TODO TODO TODO TODO TODO TODO TODO
+var superStupidWorkaroundToFixMusic := 2
+
 onready var reverbEffectRef: AudioEffectReverb = AudioServer.get_bus_effect(1, 0)
 
 func _ready():
 	play_music()
+	Util.connect_safe(MapManager, "map_changed", self, "_on_MapManager_map_changed")
+
+func _on_MapManager_map_changed(n):
+	superStupidWorkaroundToFixMusic -= 1
+	if superStupidWorkaroundToFixMusic <= 0:
+		MusicManager.clear_music()
 
 # warning-ignore:unused_argument
 func _process(delta):

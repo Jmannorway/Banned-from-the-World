@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/2d/rooms/house of culture/piano_room.tscn" type="PackedScene" id=2]
@@ -7,14 +7,8 @@
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=5]
 [ext_resource path="res://scenes/3d/imagined_hallway.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/2d/interactable/interactable_2d.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/2d/rooms/house of culture/house_of_culture_hall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/2d/minigame/piano v2/piano.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/cutscenes/sister_in_bathroom.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/2d/misc/friend.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/2d/maps/piano_game_cutscene.gd" type="Script" id=15]
-[ext_resource path="res://scenes/2d/misc/ghost.wav" type="AudioStream" id=16]
 [ext_resource path="res://scenes/2d/misc/birds.ogg" type="AudioStream" id=17]
 
 [sub_resource type="Shader" id=1]
@@ -58,107 +52,6 @@ shader_param/size = Vector2( 960, 720 )
 shader_param/distance_threshold = 0.0
 shader_param/uv_split = 512.0
 
-[sub_resource type="GDScript" id=5]
-script/source = "extends Interactable2D
-
-export(PackedScene) var minigame
-export(PackedScene) var cutscene_scene
-var is_started := false
-export(Vector2) var offset = Vector2(-160.0, -100.0)
-
-func freeze_player():
-	PlayerAccess.get_player_2d(get_tree()).set_frozen(true)
-
-func step():
-	if !is_started:
-		freeze_player()
-		start_piano_cutscene()
-
-func interact():
-	if !is_started:
-		freeze_player()
-		var _player = PlayerAccess.get_player_2d(get_tree())
-		var _relative_distance = global_position - _player.global_position
-		_player.queue_move(_relative_distance.normalized(), 100)
-		start_piano_cutscene()
-
-func start_piano_cutscene() -> void:
-	$piano_game_cutscene.play(\"cutscene\")
-
-func start_piano_minigame() -> void:
-	var _minigame = minigame.instance()
-	_minigame.position = offset
-	MapManager.viewport.call_deferred(\"add_child\", _minigame)
-	is_started = true
-	_minigame.connect(\"minigame_ended\", self, \"_on_PianoMinigame_minigame_ended\")
-	Util.get_first_node_in_group(get_tree(), \"new_focus_params\").update_shader_params()
-
-func _on_PianoMinigame_minigame_ended() -> void:
-	MapManager.clear_map()
-	get_tree().change_scene_to(cutscene_scene)
-"
-
-[sub_resource type="Animation" id=2]
-resource_name = "cutscene"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("piano_game_cutscene/friend:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, 1.0 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("piano_game_cutscene/friend/sound")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("piano_game_cutscene")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "tutorial_hint"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "cutscene part 2"
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "start_piano_minigame"
-} ]
-}
-
 [node name="piano_room_map" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -171,6 +64,7 @@ size = Vector2( 144, 168 )
 [node name="hall" parent="." instance=ExtResource( 1 )]
 room_name = "hall"
 room = ExtResource( 9 )
+preview = true
 size = Vector2( 360, 192 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
@@ -179,8 +73,8 @@ target_group = "player_2d"
 target_is_character = true
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
-position = Vector2( 84, 108 )
-room_name = "piano"
+position = Vector2( 276, 108 )
+room_name = "hall"
 
 [node name="focus_scene_imagined_corridor" parent="." instance=ExtResource( 7 )]
 scene = ExtResource( 6 )
@@ -199,25 +93,6 @@ room_name = "piano"
 [node name="hall_to_piano2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 108, 156 )
 room_name = "hall"
-
-[node name="piano_minigame_started" parent="." instance=ExtResource( 8 )]
-position = Vector2( 60, 108 )
-script = SubResource( 5 )
-minigame = ExtResource( 11 )
-cutscene_scene = ExtResource( 12 )
-
-[node name="piano_game_cutscene" type="AnimationPlayer" parent="piano_minigame_started"]
-anims/cutscene = SubResource( 2 )
-"anims/cutscene part 2" = SubResource( 3 )
-script = ExtResource( 15 )
-
-[node name="friend" parent="piano_minigame_started/piano_game_cutscene" instance=ExtResource( 14 )]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 48, 72 )
-scale = Vector2( 0.4, 0.4 )
-
-[node name="sound" type="AudioStreamPlayer" parent="piano_minigame_started/piano_game_cutscene/friend"]
-stream = ExtResource( 16 )
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
