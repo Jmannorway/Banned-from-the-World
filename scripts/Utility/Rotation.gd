@@ -1,6 +1,6 @@
 tool
 
-extends Sprite
+extends Node2D
 
 export var rotation_speed := 15
 

@@ -5,7 +5,7 @@
 [ext_resource path="res://sprites/piano minigame/1 back pink circle.png" type="Texture" id=3]
 [ext_resource path="res://sprites/piano minigame/teacher.png" type="Texture" id=4]
 [ext_resource path="res://sprites/piano minigame/2 back red circle.png" type="Texture" id=5]
-[ext_resource path="res://sprites/piano minigame/Circle hands.png" type="Texture" id=6]
+[ext_resource path="res://scenes/2d/minigame/Hands.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://sprites/piano minigame/Black circle.png" type="Texture" id=7]
 [ext_resource path="res://sprites/piano minigame/3 back blue circle.png" type="Texture" id=8]
 [ext_resource path="res://scenes/2d/minigame/piano v2/piano_detection.tscn" type="PackedScene" id=9]
@@ -80,8 +80,8 @@ script = ExtResource( 12 )
 
 [node name="minigame" type="Node2D" parent="."]
 script = ExtResource( 16 )
-arrow_visibility_window = 1.5
-offset = -0.55
+arrow_visibility_window = 1.1
+offset = -0.65
 key_sounds = [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ]
 bpm = 115.0
 
@@ -93,27 +93,35 @@ __meta__ = {
 }
 
 [node name="blue" type="Sprite" parent="minigame/decoration"]
+visible = false
+position = Vector2( 0, 3 )
 texture = ExtResource( 8 )
 
 [node name="red" type="Sprite" parent="minigame/decoration"]
+modulate = Color( 1, 1, 1, 0.666667 )
+position = Vector2( 0, 2 )
 texture = ExtResource( 5 )
 
 [node name="pink_light" type="Sprite" parent="minigame/decoration"]
+position = Vector2( 0, 2 )
 texture = ExtResource( 3 )
 
 [node name="piano" type="Sprite" parent="minigame/decoration"]
-rotation = 2138.04
+position = Vector2( 0, 2 )
+rotation = 1907.51
 texture = ExtResource( 1 )
-script = ExtResource( 26 )
-
-[node name="hands" type="Sprite" parent="minigame/decoration"]
-rotation = -2138.04
-texture = ExtResource( 6 )
 script = ExtResource( 26 )
 rotation_speed = -15
 
+[node name="hands" type="AnimatedSprite" parent="minigame/decoration"]
+rotation = -1893.76
+frames = ExtResource( 6 )
+animation = "hands"
+playing = true
+script = ExtResource( 26 )
+
 [node name="middle" type="Sprite" parent="minigame/decoration"]
-rotation = 2138.04
+rotation = 2894.06
 texture = ExtResource( 7 )
 script = ExtResource( 26 )
 

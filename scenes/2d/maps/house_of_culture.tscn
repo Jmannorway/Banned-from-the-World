@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=5]
-[ext_resource path="res://scenes/3d/imagined_hallway.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/3d/minigame tutorial scenes/forward_hallway.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/2d/rooms/house of culture/house_of_culture_hall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=10]
@@ -73,7 +73,7 @@ target_group = "player_2d"
 target_is_character = true
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
-position = Vector2( 276, 108 )
+position = Vector2( 300, 108 )
 room_name = "hall"
 
 [node name="focus_scene_imagined_corridor" parent="." instance=ExtResource( 7 )]
