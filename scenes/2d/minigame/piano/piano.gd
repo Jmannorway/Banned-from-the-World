@@ -17,9 +17,6 @@ func _ready():
 	inputs.push_back(InputCombo.new("move_left", Game.DIR4.LEFT))
 	inputs.push_back(InputCombo.new("move_right", Game.DIR4.RIGHT))
 	inputs.push_back(InputCombo.new("move_down", Game.DIR4.DOWN))
-	
-	yield(get_tree().create_timer(2.0), "timeout")
-	minigame.start()
 
 func _process(delta):
 	for i in inputs:

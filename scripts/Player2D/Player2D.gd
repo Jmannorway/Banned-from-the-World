@@ -4,14 +4,13 @@ class_name Player2D
 
 var walk_speed := 2.0
 var run_speed := 4.0
-var frozen : bool
 
 # INTERNAL FUNCTIONS
 func _ready():
 	XToFocus.connect("focus_changed", self, "_on_XToFocus_focus_changed")
 
 func _process(delta):
-	if !frozen:
+	if !is_frozen():
 		if Input.is_action_pressed("run"):
 			set_move_speed(run_speed)
 		else:
@@ -32,12 +31,7 @@ func _post_process_move():
 
 # SIGNAL CALLBACKS
 func _on_XToFocus_focus_changed(val):
-	set_frozen(val)
-
-# EXTERNALLY CALLABLE
-# Allows / prevents the player from reacting to inputs
-func set_frozen(val : bool) -> void:
-	frozen = val
+	set_frozen("x_to_focus", val)
 
 # UTILTIY
 static func get_input_vector() -> Vector2:

@@ -8,7 +8,7 @@
 [ext_resource path="res://tiles/house_of_culture_tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://scenes/2d/misc/friend.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/2d/misc/ghost.wav" type="AudioStream" id=8]
-[ext_resource path="res://scenes/2d/minigame/piano v2/piano.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/2d/minigame/piano/piano.tscn" type="PackedScene" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Interactable2D

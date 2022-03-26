@@ -35,7 +35,7 @@ func set_in_menu(val : bool):
 	
 	var _player = PlayerAccess.get_player(get_tree())
 	if _player as Player2D:
-		_player.set_frozen(in_menu)
+		_player.set_frozen("menu", in_menu)
 	elif _player as CharacterController3D:
 		_player.canMove = in_menu
 

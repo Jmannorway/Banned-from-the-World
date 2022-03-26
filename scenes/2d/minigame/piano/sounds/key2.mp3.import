@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/key2.mp3-3e24b7b052f9b9d8e591ec281c4f86f5.mp3str"
+
+[deps]
+
+source_file="res://scenes/2d/minigame/piano/sounds/key2.mp3"
+dest_files=[ "res://.import/key2.mp3-3e24b7b052f9b9d8e591ec281c4f86f5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -3,6 +3,7 @@ extends Character2DBase
 class_name Character2D
 
 onready var character_sprite = $animated_character_sprite_2d
+var frozen : Dictionary
 
 # INTERNAL FUNCTIONS
 
@@ -38,3 +39,12 @@ func reverse_move() -> void:
 	if is_moving():
 		move_position(last_move * -1.0)
 		character_sprite.reverse_move()
+
+func set_frozen(identifier : String, val : bool) -> void:
+	frozen[identifier] = val
+
+func is_frozen() -> bool:
+	var _frozen = 0
+	for i in frozen:
+		_frozen |= int(i)
+	return _frozen

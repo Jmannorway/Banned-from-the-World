@@ -5,13 +5,13 @@
 [ext_resource path="res://scripts/Piano Minigame/PianoKey.gd" type="Script" id=3]
 [ext_resource path="res://sprites/piano minigame/Purple arrow.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Piano Minigame/PianoTilesSpawner.gd" type="Script" id=5]
-[ext_resource path="res://scenes/2d/minigame/PatternTest.tres" type="Resource" id=6]
-[ext_resource path="res://scenes/2d/minigame/SecondPattern.tres" type="Resource" id=7]
+[ext_resource path="res://scenes/2d/minigame/piano old/PatternTest.tres" type="Resource" id=6]
+[ext_resource path="res://scenes/2d/minigame/piano old/SecondPattern.tres" type="Resource" id=7]
 [ext_resource path="res://sprites/piano minigame/max_distress.png" type="Texture" id=8]
 [ext_resource path="res://sprites/piano minigame/max_bad.png" type="Texture" id=9]
 [ext_resource path="res://scripts/Piano Minigame/KeyPad.gd" type="Script" id=10]
 [ext_resource path="res://sprites/piano minigame/Piano circle.png" type="Texture" id=11]
-[ext_resource path="res://scenes/2d/minigame/Hands.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://scenes/2d/minigame/piano old/Hands.tres" type="SpriteFrames" id=12]
 [ext_resource path="res://sprites/piano minigame/Black circle.png" type="Texture" id=13]
 [ext_resource path="res://scripts/Utility/Rotation.gd" type="Script" id=14]
 [ext_resource path="res://sprites/piano minigame/1 back pink circle.png" type="Texture" id=15]
@@ -20,6 +20,7 @@
 [ext_resource path="res://sprites/piano minigame/max_heheh.png" type="Texture" id=18]
 [ext_resource path="res://sprites/piano minigame/teacher.png" type="Texture" id=19]
 [ext_resource path="res://sprites/piano minigame/max_question.png" type="Texture" id=20]
+
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 19 )

@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprites/piano minigame/Arrow yellow.png" type="Texture" id=1]
-[ext_resource path="res://scenes/2d/minigame/piano v2/diffuse_sprite_2d.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/2d/minigame/piano/diffuse_sprite_2d.tscn" type="PackedScene" id=2]
+
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1

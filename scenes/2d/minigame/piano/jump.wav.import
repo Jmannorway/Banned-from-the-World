@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/jump.wav-b4696561ebbede3402558c7a7ef72832.sample"
+path="res://.import/jump.wav-44207fc015e9dcafab0c46c2b4cafb0f.sample"
 
 [deps]
 
-source_file="res://scenes/2d/minigame/piano v2/jump.wav"
-dest_files=[ "res://.import/jump.wav-b4696561ebbede3402558c7a7ef72832.sample" ]
+source_file="res://scenes/2d/minigame/piano/jump.wav"
+dest_files=[ "res://.import/jump.wav-44207fc015e9dcafab0c46c2b4cafb0f.sample" ]
 
 [params]
 

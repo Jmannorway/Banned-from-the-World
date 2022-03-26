@@ -24,7 +24,7 @@ func update():
 	update_shader_params()
 
 func update_scene():
-	XToFocus.clear_all()
+	XToFocus.reset()
 	XToFocus.add_focus_scene(scene, is_2d)
 	XToFocus.pass_player_position(pass_player_position)
 

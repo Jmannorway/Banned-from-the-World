@@ -39,12 +39,15 @@ func set_state(state_name : String):
 	state.added()
 
 func press(dir : int):
-	for i in Game.DIR4.MAX:
-		if detection.is_overlapping(i):
-			detection.remove_first(i)
-	detection.arrow_feedback(dir)
-	input_sequence.push_back(dir)
-	MusicManager.play_sound(key_sounds[dir])
+	if !started:
+		for i in Game.DIR4.MAX:
+			if detection.is_overlapping(i):
+				detection.remove_first(i)
+		detection.arrow_feedback(dir)
+		input_sequence.push_back(dir)
+		MusicManager.play_sound(key_sounds[dir])
+	else:
+		print("PianoMinigame: Minigame is not started, not accepting inputs")
 
 func start() -> bool:
 	if started:
