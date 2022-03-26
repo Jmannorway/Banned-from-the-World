@@ -24,6 +24,7 @@ var object_alpha_pairs : Dictionary
 var alpha := 0.0
 var focus := false
 var fade_duration := 1.0
+var can_focus := WeightedBool.new()
 onready var viewport := $game_viewport
 onready var viewport_sprite := $canvas_layer/game_viewport_sprite
 
@@ -122,11 +123,12 @@ func toggle_focus():
 
 func _ready():
 # warning-ignore:return_value_discarded
-	MapManager.connect("map_changed", self, "_on_MapManager_map_changed")
+	Util.connect_safe(Ui.get_menu(), "visibility_changed", self, "_on_menu_visibility_changed", [Ui.get_menu()])
+	Util.connect_safe(MapManager, "map_changed", self, "_on_MapManager_map_changed")
 
 # warning-ignore:unused_argument
 func _input(event):
-	if Input.is_action_just_pressed("focus") && !Ui.in_menu:
+	if Input.is_action_just_pressed("focus") && !can_focus.is_weighted():
 		toggle_focus()
 
 # warning-ignore:unused_argument
@@ -135,6 +137,9 @@ func _process(delta):
 		Util.object_set_alpha(object_alpha_pairs[_key].object, object_alpha_pairs[_key].color_path, alpha)
 	
 	viewport_sprite.modulate.a = alpha
+
+func _on_menu_visibility_changed(menu):
+	can_focus.set_weight(menu.name, menu.visible)
 
 # warning-ignore:unused_argument
 func _on_MapManager_map_changed(map_name):

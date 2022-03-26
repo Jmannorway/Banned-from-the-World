@@ -7,7 +7,7 @@
 size = 32
 font_data = ExtResource( 2 )
 
-[node name="inner_world_menu" type="ItemList"]
+[node name="menu" type="ItemList"]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 240.0
@@ -18,4 +18,3 @@ max_text_lines = 2
 script = ExtResource( 1 )
 
 [connection signal="item_activated" from="." to="." method="_on_inner_world_menu_item_activated"]
-[connection signal="visibility_changed" from="." to="." method="_on_inner_world_menu_visibility_changed"]

@@ -1,24 +1,20 @@
 extends Reference
 
-class_name PushdownBool
+class_name WeightedBool
 
 var stack : Dictionary
 
-func weighted() -> bool:
-	var _weighted = 0
-	for i in stack:
-		_weighted |= int(i)
-	return bool(_weighted)
+func set_weight(name : String, val : bool):
+	stack[name] = val
 
-func push(node : Node, name := ""):
-	if name.empty():
-		name = node.name
-	
-	if stack.has(node.name):
-		stack[name] = true
-	
-	Util.connect_safe(node, "tree_exited", self, "_on_pushed_node_tree_exited", [name])
+func is_weighted() -> bool:
+	var _is := 0
+	for key in stack:
+		_is |= int(stack[key])
+	return bool(_is)
 
-func _on_pushed_node_tree_exited(binds : Array):
-	if stack.has(binds[0]):
-		stack[binds[0]] = false
+func bind(name : String, node : Node):
+	Util.connect_safe(node, "tree_exited", self, "_on_node_tree_exited", [name], CONNECT_ONESHOT)
+
+func _on_node_tree_exited(binds : Array):
+	set(binds[0], false)

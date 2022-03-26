@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/ui/inner_world_menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ui/in_game_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ui/Ui.gd" type="Script" id=2]
 [ext_resource path="res://scenes/ui/action_hint/action_hint.tscn" type="PackedScene" id=3]
 
@@ -8,10 +8,10 @@
 layer = 10
 script = ExtResource( 2 )
 
-[node name="inner_world_menu" parent="." instance=ExtResource( 1 )]
-items = [ "Close", null, false, "Photo Album", null, false, "Wake Up", null, false ]
-
 [node name="action_hint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 4, 604 )
 scale = Vector2( 2, 2 )
 frame = 1
+
+[node name="menu" parent="." instance=ExtResource( 1 )]
+items = [ "Close", null, false, "Photo Album", null, false, "Wake Up", null, false ]

@@ -1,9 +1,22 @@
 extends ItemList
 
-# TODO: Find a good place to store important scenes
+var toggleable := WeightedBool.new()
+
+func set_visible(val : bool):
+	.set_visible(val)
+	if visible:
+		grab_focus()
 
 func _ready():
-	visible = false
+	set_visible(false)
+	Util.connect_safe(XToFocus, "focus_changed", self, "_on_XToFocus_focus_changed")
+
+func _input(event):
+	if event.is_action_pressed("menu") && !toggleable.is_weighted():
+		set_visible(!visible)
+
+func _on_XToFocus_focus_changed(focus):
+	toggleable.set_weight(XToFocus.name, focus)
 
 func _on_inner_world_menu_item_activated(index):
 	match index:
@@ -13,7 +26,3 @@ func _on_inner_world_menu_item_activated(index):
 			Util.goto_world(get_tree(), Game.WORLD.INNER)
 		2:
 			Util.goto_world(get_tree(), Game.WORLD.OUTER)
-
-func _on_inner_world_menu_visibility_changed():
-	if visible:
-		grab_focus()

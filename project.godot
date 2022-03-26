@@ -124,11 +124,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Player2D/PlayerAccess.gd"
 }, {
-"base": "Reference",
-"class": "PushdownBool",
-"language": "GDScript",
-"path": "res://scripts/Utility/PushdownBool.gd"
-}, {
 "base": "TileMap",
 "class": "ResourceGrid2D",
 "language": "GDScript",
@@ -183,6 +178,11 @@ _global_script_classes=[ {
 "class": "Util",
 "language": "GDScript",
 "path": "res://scripts/Utility/Util.gd"
+}, {
+"base": "Reference",
+"class": "WeightedBool",
+"language": "GDScript",
+"path": "res://scripts/Utility/PushdownBool.gd"
 } ]
 _global_script_class_icons={
 "AnimatedCharacterSprite2D": "",
@@ -208,7 +208,6 @@ _global_script_class_icons={
 "PianoMinigameSpawner": "",
 "Player2D": "",
 "PlayerAccess": "",
-"PushdownBool": "",
 "ResourceGrid2D": "",
 "Room2D": "",
 "Room3D": "",
@@ -219,7 +218,8 @@ _global_script_class_icons={
 "SongPattern": "",
 "SoundGrid2D": "",
 "Stairs": "",
-"Util": ""
+"Util": "",
+"WeightedBool": ""
 }
 
 [application]
