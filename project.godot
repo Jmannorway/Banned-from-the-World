@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Game/GameViewport.gd"
 }, {
+"base": "Sprite",
+"class": "GameViewportSprite",
+"language": "GDScript",
+"path": "res://scripts/Game/GameViewportSprite.gd"
+}, {
 "base": "Area",
 "class": "Interactable",
 "language": "GDScript",
@@ -184,6 +189,7 @@ _global_script_class_icons={
 "Character2DBase": "",
 "CharacterController3D": "",
 "GameViewport": "",
+"GameViewportSprite": "",
 "Interactable": "",
 "Interactable2D": "",
 "InteractableDetector2D": "",

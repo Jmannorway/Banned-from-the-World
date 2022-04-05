@@ -6,7 +6,8 @@ export var maxDistance: float = 20.0
 onready var reverbEffectRef: AudioEffectReverb = AudioServer.get_bus_effect(1, 0)
 
 func _ready():
-	play_music()
+	set_process(false)
+#	play_music()
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -14,6 +15,7 @@ func _process(delta):
 
 func play_music() -> void:
 	MusicManager.play_music(musicToPlay)
+	set_process(true)
 
 func update_reverb() -> void:
 	var _value: float = PlayerAccess.get_player_2d(get_tree()).global_position.distance_to(global_position) / maxDistance
