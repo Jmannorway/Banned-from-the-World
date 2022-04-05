@@ -2,6 +2,8 @@
 
 [ext_resource path="res://scripts/Game/GameViewportSprite.gd" type="Script" id=1]
 
+[sub_resource type="ViewportTexture" id=1]
+
 [node name="game_viewport_sprite" type="Sprite"]
 centered = false
 script = ExtResource( 1 )

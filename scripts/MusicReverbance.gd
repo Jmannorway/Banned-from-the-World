@@ -23,6 +23,7 @@ func _process(delta):
 
 func play_music() -> void:
 	MusicManager.play_music(musicToPlay)
+	set_process(true)
 
 func update_reverb() -> void:
 	var _value: float = PlayerAccess.get_player_2d(get_tree()).global_position.distance_to(global_position) / maxDistance

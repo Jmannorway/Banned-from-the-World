@@ -1,0 +1,208 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://sprites/city/elevator_door_inner.png" type="Texture" id=1]
+[ext_resource path="res://sprites/city/elevator_door_outer.png" type="Texture" id=2]
+[ext_resource path="res://sprites/city/elevator_car.png" type="Texture" id=3]
+[ext_resource path="res://sprites/city/elevator_numbers.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Elevator.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Doors"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/ElevatorDoorOuter_right:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 35.5, 39.5 ), Vector2( 60.5, 39.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("doors/ElevatorDoorOuter_left:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -35.5, 39.5 ), Vector2( -60.5, 39.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doors/ElevatorDoorOuter_right/ElevatorDoorInner:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -23, 0 ), Vector2( -1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("doors/ElevatorDoorOuter_left/ElevatorDoorInner:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 23, 0 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/ElevatorDoorOuter_right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 35.5, 39.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("doors/ElevatorDoorOuter_left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -35.5, 39.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doors/ElevatorDoorOuter_right/ElevatorDoorInner:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -23, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("doors/ElevatorDoorOuter_left/ElevatorDoorInner:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 23, 0 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 3, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 6, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 9, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 12, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 4 )
+region = Rect2( 15, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 4 )
+region = Rect2( 18, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 4 )
+region = Rect2( 21, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 4 )
+region = Rect2( 24, 0, 3, 5 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 27, 0, 3, 5 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "increment",
+"speed": 5.0
+} ]
+
+[node name="elevator" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="elevator_car" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Doors = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="elevation_numbers" type="Node2D" parent="."]
+position = Vector2( -11.5, -51 )
+
+[node name="number" type="AnimatedSprite" parent="elevation_numbers"]
+position = Vector2( 4, 0 )
+frames = SubResource( 13 )
+animation = "increment"
+
+[node name="number2" type="AnimatedSprite" parent="elevation_numbers"]
+frames = SubResource( 13 )
+animation = "increment"
+
+[node name="number3" type="AnimatedSprite" parent="elevation_numbers"]
+position = Vector2( -4, 0 )
+frames = SubResource( 13 )
+animation = "increment"
+
+[node name="doors" type="Node2D" parent="."]
+z_index = 2
+
+[node name="ElevatorDoorOuter_right" type="Sprite" parent="doors"]
+position = Vector2( 35.5, 39.5 )
+texture = ExtResource( 2 )
+
+[node name="ElevatorDoorInner" type="Sprite" parent="doors/ElevatorDoorOuter_right"]
+position = Vector2( -23, 0 )
+z_index = -1
+texture = ExtResource( 1 )
+
+[node name="ElevatorDoorOuter_left" type="Sprite" parent="doors"]
+position = Vector2( -35.5, 39.5 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="ElevatorDoorInner" type="Sprite" parent="doors/ElevatorDoorOuter_left"]
+position = Vector2( 23, 0 )
+z_index = -1
+texture = ExtResource( 1 )
+flip_h = true

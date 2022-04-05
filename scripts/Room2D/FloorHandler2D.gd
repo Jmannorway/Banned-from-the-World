@@ -20,13 +20,14 @@ func _ready():
 
 func set_floor(var index: int) -> void:
 	if index < 0 or index >= floors.size():
-		print(currentFloor)
 		return
 	
 	currentFloor = index
-	print(currentFloor)
 	
 	floors[currentFloor].get_node("solid_grid_2d").paint_to_world_grid()
+	
+	for i in floors.size():
+		floors[i].z_index = i - currentFloor
 	
 	emit_signal("changed_floor", currentFloor)
 

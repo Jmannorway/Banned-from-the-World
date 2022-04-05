@@ -9,7 +9,7 @@ class CharacterMove2D:
 	var priority : int
 	const PRIORITY_MIN = -9999999
 	const PRIORITY_UNSET = PRIORITY_MIN - 1
-	
+
 	func _init() -> void:
 		clear()
 	func set_move(_steps : Vector2, _direction : Vector2, _priority : int) -> bool:
@@ -61,14 +61,14 @@ func _enter_tree():
 	snap_to_grid()
 # warning-ignore:return_value_discarded
 	add_to_group(GROUP_NAME)
-	
+
 	Util.connect_safe(get_tree(), "physics_frame", self, "_process_move")
 	Util.connect_safe(get_tree(), "idle_frame", self, "update_solidity")
-	
+
 	var _room = MapManager.get_room_manager().get_current_room_loader()
 	if _room && _room.looping:
 		_room.make_character_looping(self)
-	
+
 	if !move_cooldown_timer.is_inside_tree():
 		add_child(move_cooldown_timer)
 		move_cooldown_timer.one_shot = true
@@ -87,7 +87,7 @@ func _move(steps : Vector2, direction : Vector2) -> void:
 func _process_move() -> void:
 	if !is_moving() && queued_move.is_move_set():
 		_move(queued_move.steps, queued_move.direction)
-	
+
 	queued_move.clear()
 	_post_process_move()
 
@@ -149,12 +149,12 @@ func check_solid_relative(steps : Vector2) -> bool:
 
 # Move the character by a square
 func move_position(steps : Vector2) -> void:
-	
+
 	var _move_distance = steps * Game.SNAP
-	
+
 	if solid:
 		WorldGrid.solid_grid.move_solid_to_pixel(global_position, _move_distance)
-	
+
 	position += _move_distance
 	last_move = steps
 	move_cooldown_timer.stop()
