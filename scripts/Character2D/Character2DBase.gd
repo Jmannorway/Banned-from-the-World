@@ -66,7 +66,7 @@ func _enter_tree():
 	Util.connect_safe(get_tree(), "idle_frame", self, "update_solidity")
 	
 	var _room = MapManager.get_room_manager().get_current_room_loader()
-	if _room.looping:
+	if _room && _room.looping:
 		_room.make_character_looping(self)
 	
 	if !move_cooldown_timer.is_inside_tree():

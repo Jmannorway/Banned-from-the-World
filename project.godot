@@ -243,6 +243,11 @@ MusicManager="*res://scenes/music_manager.tscn"
 Ui="*res://scenes/ui/ui.tscn"
 Statistics="*res://scripts/Game/GameStatistics.gd"
 
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=960
@@ -1408,6 +1413,7 @@ menu={
 2d_physics/layer_4="Interactable_Warp"
 2d_physics/layer_5="Interactable_Player"
 2d_physics/layer_9="Room"
+2d_physics/layer_10="Piano"
 
 [physics]
 

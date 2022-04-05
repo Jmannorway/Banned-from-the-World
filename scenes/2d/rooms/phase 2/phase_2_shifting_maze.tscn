@@ -8,25 +8,7 @@
 [ext_resource path="res://scenes/2d/character & player/animated_character_sprite_2d.tscn" type="PackedScene" id=6]
 [ext_resource path="res://animations/animated_character_victoria.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://scenes/2d/character & player/chaser.tscn" type="PackedScene" id=8]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Node2D
-
-func _process(delta):
-	WorldGrid.solid_grid.set_solid_at_pixel(global_position, true)
-
-func _on_spin_timer_timeout():
-	var _sprite = $animated_character_sprite_2d as AnimatedCharacterSprite2D
-	match _sprite.animation:
-		\"up\":
-			_sprite.set_sprite_direction(Vector2.LEFT)
-		\"right\":
-			_sprite.set_sprite_direction(Vector2.UP)
-		\"left\":
-			_sprite.set_sprite_direction(Vector2.DOWN)
-		\"down\":
-			_sprite.set_sprite_direction(Vector2.RIGHT)
-"
+[ext_resource path="res://scripts/single instance scripts/ShiftingMazeWarp.gd" type="Script" id=9]
 
 [node name="room" type="Node2D"]
 script = ExtResource( 1 )
@@ -40,7 +22,7 @@ separation_max = 12
 
 [node name="warp" type="Node2D" parent="."]
 position = Vector2( 900, 492 )
-script = SubResource( 1 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -49,7 +31,7 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.768627 )
 frames = ExtResource( 7 )
 animation = "down"
-frame = 3
+frame = 1
 playing = true
 
 [node name="interactable_2d" parent="warp" instance=ExtResource( 5 )]

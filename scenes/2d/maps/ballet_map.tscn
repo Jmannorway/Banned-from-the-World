@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://scripts/MusicReverbance.gd" type="Script" id=9]
 [ext_resource path="res://audio/music/Unfortunate.ogg" type="AudioStream" id=10]
 [ext_resource path="res://scenes/2d/rooms/ballet hall/mirror_test.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 237, 10 )
 
 [node name="ballet_map" type="YSort"]
 script = ExtResource( 1 )
@@ -37,17 +40,22 @@ size = Vector2( 10, 10 )
 
 [node name="player_start_mirror" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1584, 240 )
-index = 2
 room_name = "mirror_test"
+index = 2
 
 [node name="player_start_main" parent="." instance=ExtResource( 4 )]
 position = Vector2( 228, 500 )
-index = 1
 room_name = "ballet_main"
+index = 3
+
+[node name="player_start_stage_stairs" parent="." instance=ExtResource( 4 )]
+position = Vector2( 84, -156 )
+room_name = "ballet_stage"
 
 [node name="player_start_stage" parent="." instance=ExtResource( 4 )]
 position = Vector2( 84, -1644 )
 room_name = "ballet_stage"
+index = 1
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
 target_group = "player_2d"
@@ -61,9 +69,11 @@ room_name = "ballet_stage"
 
 [node name="to_house_of_culture" parent="." instance=ExtResource( 8 )]
 position = Vector2( 95, -2052 )
-scale = Vector2( 6.48, 1 )
 map_path = "res://scenes/2d/maps/house_of_culture.tscn"
 on_step = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_house_of_culture"]
+shape = SubResource( 1 )
 
 [node name="direct_sound" type="Node2D" parent="."]
 position = Vector2( 96, -1656 )

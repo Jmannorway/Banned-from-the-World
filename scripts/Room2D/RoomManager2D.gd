@@ -60,6 +60,8 @@ func focus_room(room_name : String) -> void:
 		else:
 			emit_signal("room_focused", room_name, room_loaders[room_name])
 		set_current_room_name(room_name)
+	else:
+		print("MapManager2D: Can't focus on non-existant room ", room_name);
 
 func change_room(room_name : String) -> void:
 	unload_room(current_room_name)

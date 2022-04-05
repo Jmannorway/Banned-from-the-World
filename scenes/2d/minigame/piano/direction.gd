@@ -8,6 +8,7 @@ func set_direction(val : int):
 	previous_direction = direction
 	if val != direction:
 		direction = val % Game.DIR4.MAX
+		$rotation_tween.remove_all()
 		$rotation_tween.interpolate_property(
 			self, "rotation_degrees", null, 90.0 * direction, rotation_duration, Tween.TRANS_BOUNCE, Tween.EASE_IN)
 		$rotation_tween.start()

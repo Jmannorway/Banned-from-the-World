@@ -39,7 +39,7 @@ func set_state(state_name : String):
 	state.added()
 
 func press(dir : int):
-	if !started:
+	if started:
 		for i in Game.DIR4.MAX:
 			if detection.is_overlapping(i):
 				detection.remove_first(i)
@@ -54,9 +54,9 @@ func start() -> bool:
 		print("PianoMinigame: Minigame is already started")
 		return false
 	
-	if XToFocus.focus:
-		print("PianoMinigame: Currently focused can't start")
-		return false
+#	if XToFocus.focus:
+#		print("PianoMinigame: Currently focused can't start")
+#		return false
 	
 	if !state:
 		print("PianoMinigame: No state was set. Defaulting to tutorial")
@@ -67,6 +67,7 @@ func start() -> bool:
 
 func _start():
 	started = true
+	visible = true
 	$timing.start(offset)
 	get_tree().create_timer($timing.get_bar_rate()).connect("timeout", $music, "play")
 	$spawner.speed = get_spawner_detector_distance() / arrow_visibility_window
@@ -113,14 +114,11 @@ func _on_spawner_changed_state(state):
 	match state:
 		PianoMinigameSpawner.STATE.SPAWNING:
 			input_sequence.clear()
-			XToFocus.set_process_input(false)
-			Ui.action_hint.hide_action_hint()
+			Ui.get_action_hint().hide_action_hint()
 		PianoMinigameSpawner.STATE.PAUSED:
 			# Waiting for the current bar to finish ensures that all rhythm
 			# game hit objects have been either pressed or missed
 			yield($timing, "bar")
-			XToFocus.set_process_input(true)
-			Ui.action_hint.show_action_hint(Ui.action_hint.HINT.X)
 			get_tree().create_timer($timing.get_rhythm_rate()).connect("timeout", self, "_on_sequence_finish")
 
 func _on_sequence_finish():

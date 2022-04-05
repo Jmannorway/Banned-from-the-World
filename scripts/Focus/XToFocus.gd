@@ -143,7 +143,8 @@ func _on_menu_visibility_changed(menu):
 
 # warning-ignore:unused_argument
 func _on_MapManager_map_changed(map_name):
-	set_default_focus_scene()
+	clear_focus_nodes_and_objects()
+	clear_focus_scenes()
 
 func _on_FocusNode_tree_exiting(node):
 # warning-ignore:return_value_discarded

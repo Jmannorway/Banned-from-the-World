@@ -1,4 +1,5 @@
 tool
+
 extends Interactable2D
 
 class_name Stairs
