@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/max_doorframe_uv.fbx" type="PackedScene" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://scenes/2d/maps/phase_2_map.tscn" type="PackedScene" id=37]
 [ext_resource path="res://scenes/empty.tscn" type="PackedScene" id=38]
 [ext_resource path="res://scripts/Focus/ShowIfInFocus.gd" type="Script" id=39]
+[ext_resource path="res://shaders/spatial/noise.tres" type="Texture" id=40]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -71,6 +72,81 @@ func _on_photo_album_area_entered(area):
 func _on_photo_album_area_exited(area):
 	Ui.action_hint.hide_action_hint()
 "
+
+[sub_resource type="Shader" id=12]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.2.stable's SpatialMaterial.
+
+shader_type spatial;
+
+const float PI = 3.14159;
+
+uniform sampler2D noise;
+uniform float speed = 1.0;
+uniform float line_thickness = 0.1;
+uniform float line_smoothing = 0.1;
+uniform vec2 squares = vec2(5.0, 5.0);
+uniform vec3 color = vec3(1.0, 0.0, 0.0);
+uniform float color_strength = 3.0;
+uniform float alpha = 1.0;
+
+float make_wave(float x, float amp, float freq)
+{
+	return sin(x * freq * PI) * amp;
+}
+
+void vertex()
+{
+	float t = TIME * speed;
+	
+	float n = texture(noise, VERTEX.xz + t).r;
+	
+	VERTEX.y += n;
+}
+
+float make_line(float x, float y, float thickness, float falloff)
+{
+	return smoothstep(x - thickness - falloff, x - thickness, y) -
+		smoothstep(x + thickness, x + thickness + falloff, y);
+}
+
+void fragment()
+{
+	vec2 pos = UV * squares;
+	vec2 fpos = fract(pos);
+	
+	// make lines
+	
+	
+	
+//	float lines = 1.0 - step(line_thickness, fpos.x) * step(line_thickness, fpos.y);
+	float line_position = 1.0 - line_thickness - line_smoothing;
+	float lines =
+		make_line(fpos.x, line_position, line_thickness, line_smoothing) +
+		make_line(fpos.y, line_position, line_thickness, line_smoothing);
+	lines = clamp(lines, 0.0, 1.0);
+//	lines += make_line(fpos.x, fpos.y, 0.1, 0.1);
+	
+	lines *=
+		step(pos.x, squares.x - (line_thickness + line_smoothing) * 2.0) *
+		step(pos.y, squares.y - (line_thickness + line_smoothing) * 2.0);
+	
+	// cut edges
+//	lines *= step(line_thickness + line_smoothing, pos.x) * step(line_thickness + line_smoothing, pos.y);
+	
+	ALBEDO = color * lines * color_strength;
+	ALPHA = lines * alpha;
+}"
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 12 )
+shader_param/speed = 0.1
+shader_param/line_thickness = 0.012
+shader_param/line_smoothing = 0.01
+shader_param/squares = Vector2( 6, 5 )
+shader_param/color = Vector3( 0.5, 0, 1 )
+shader_param/color_strength = 10.0
+shader_param/alpha = 1.0
+shader_param/noise = ExtResource( 40 )
 
 [sub_resource type="GDScript" id=11]
 script/source = "extends MeshInstance
@@ -318,6 +394,7 @@ __meta__ = {
 
 [node name="focus_grid" parent="." instance=ExtResource( 36 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.532638 )
+material/0 = SubResource( 13 )
 script = SubResource( 11 )
 
 [connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]

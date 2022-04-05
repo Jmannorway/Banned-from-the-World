@@ -22,6 +22,3 @@ func _process(delta):
 	for i in inputs:
 		if Input.is_action_just_pressed(i.bind):
 			minigame.press(i.direction)
-	
-	if Input.is_action_just_pressed("debug_test"):
-		minigame.start()

@@ -1,9 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/2d/minigame/piano v2/detection.gd" type="Script" id=1]
-[ext_resource path="res://scenes/2d/minigame/piano v2/arrow.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/2d/minigame/piano v2/key_collision_shape.tres" type="Shape2D" id=4]
+[ext_resource path="res://scenes/2d/minigame/piano/detection.gd" type="Script" id=1]
+[ext_resource path="res://scenes/2d/minigame/piano/arrow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/2d/minigame/piano/key_collision_shape.tres" type="Shape2D" id=4]
 [ext_resource path="res://shaders/canvas item/add_value.gdshader" type="Shader" id=5]
+
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 5 )

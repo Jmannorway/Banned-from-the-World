@@ -19,10 +19,12 @@ class ObjectColorPathPair:
 
 signal focus_changed(new_focus)
 
+const DEFAULT_LAYER_INDEX = 5
 var object_alpha_pairs : Dictionary
 var alpha := 0.0
 var focus := false
 var fade_duration := 1.0
+var can_focus := WeightedBool.new()
 onready var viewport := $game_viewport
 onready var viewport_sprite := $canvas_layer/game_viewport_sprite
 
@@ -33,11 +35,23 @@ func set_focus_shader_params(params : Dictionary):
 	for key in params.keys():
 		viewport_sprite.material.set_shader_param(key, params[key])
 
+func set_focus_scene_position(position : Vector2):
+	viewport_sprite.position = position
+
+func set_focus_scene_layer(layer : int):
+	$canvas_layer.layer = layer
+
+func set_default_focus_scene():
+	reset()
+	$default_focus_scene.update()
+
 func pass_player_position(val : bool):
 	viewport_sprite.pass_player_position = val
 
 # Removes all-focus affected nodes and scenes
-func clear_all():
+func reset():
+	set_focus_scene_layer(DEFAULT_LAYER_INDEX)
+	set_focus_scene_position(Vector2.ZERO)
 	clear_focus_nodes_and_objects()
 	clear_focus_scenes()
 
@@ -103,16 +117,18 @@ func toggle_focus():
 	if $alpha_tween.is_active():
 		$alpha_tween.playback_speed *= -1.0
 	else:
+		$alpha_tween.remove_all()
 		$alpha_tween.interpolate_property(self, "alpha", null, _new_alpha, fade_duration)
 		$alpha_tween.start()
 
 func _ready():
 # warning-ignore:return_value_discarded
-	MapManager.connect("map_changed", self, "_on_MapManager_map_changed")
+	Util.connect_safe(Ui.get_menu(), "visibility_changed", self, "_on_menu_visibility_changed", [Ui.get_menu()])
+	Util.connect_safe(MapManager, "map_changed", self, "_on_MapManager_map_changed")
 
 # warning-ignore:unused_argument
 func _input(event):
-	if Input.is_action_just_pressed("focus") && !Ui.in_menu:
+	if Input.is_action_just_pressed("focus") && !can_focus.is_weighted():
 		toggle_focus()
 
 # warning-ignore:unused_argument
@@ -122,9 +138,12 @@ func _process(delta):
 	
 	viewport_sprite.modulate.a = alpha
 
+func _on_menu_visibility_changed(menu):
+	can_focus.set_weight(menu.name, menu.visible)
+
 # warning-ignore:unused_argument
 func _on_MapManager_map_changed(map_name):
-	clear_all()
+	set_default_focus_scene()
 
 func _on_FocusNode_tree_exiting(node):
 # warning-ignore:return_value_discarded

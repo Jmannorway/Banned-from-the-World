@@ -61,4 +61,5 @@ func set_world(val) -> void:
 	emit_signal("world_changed")
 
 func _ready():
+	randomize()
 	VisualServer.set_default_clear_color(Color.black)

@@ -12,8 +12,8 @@ func _enter_tree():
 		add_child(_defaultShape)
 
 func get_rect() -> Rect2:
-	var _extents = $interactable_hitbox_2d.shape.extents * scale
-	return Rect2($interactable_hitbox_2d.global_position - _extents, _extents * 2.0)
+	var _extents = get_child(0).shape.extents * scale
+	return Rect2(get_child(0).global_position - _extents, _extents * 2.0)
 
 func step():
 	print("Default step function called")

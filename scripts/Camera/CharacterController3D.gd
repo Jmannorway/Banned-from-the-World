@@ -53,6 +53,9 @@ func teleport_to(var newPosition: Vector3) -> void:
 	position.x = translation.x
 	position.y = translation.z
 
+func get_integer_position():
+	return Vector3(floor(translation.x), floor(translation.y), floor(translation.z))
+
 func move(var direction: int) -> void:
 	var _currentPosition: Vector2 = position
 	var _currentRotation: float = rotation.y

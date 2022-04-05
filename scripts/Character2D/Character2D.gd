@@ -3,6 +3,7 @@ extends Character2DBase
 class_name Character2D
 
 onready var character_sprite = $animated_character_sprite_2d
+var frozen := WeightedBool.new()
 
 # INTERNAL FUNCTIONS
 

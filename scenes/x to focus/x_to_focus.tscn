@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Focus/XToFocus.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/game_viewport_sprite.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/2d/game_viewport.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/2d/FocusViewportSprite.gd" type="Script" id=5]
+[ext_resource path="res://scenes/x to focus/focus_scenes/focus_scene_3d_placeholder.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ShaderMaterial" id=3]
 
@@ -23,3 +25,8 @@ texture = SubResource( 1 )
 script = ExtResource( 5 )
 
 [node name="game_viewport" parent="." instance=ExtResource( 3 )]
+
+[node name="default_focus_scene" parent="." instance=ExtResource( 4 )]
+update_on_ready = false
+scene = ExtResource( 6 )
+is_2d = false

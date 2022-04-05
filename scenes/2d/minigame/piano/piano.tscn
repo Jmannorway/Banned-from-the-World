@@ -1,33 +1,37 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://sprites/piano minigame/Piano circle.png" type="Texture" id=1]
-[ext_resource path="res://scenes/2d/minigame/piano v2/max.gd" type="Script" id=2]
+[ext_resource path="res://scenes/2d/minigame/piano/max.gd" type="Script" id=2]
 [ext_resource path="res://sprites/piano minigame/1 back pink circle.png" type="Texture" id=3]
 [ext_resource path="res://sprites/piano minigame/teacher.png" type="Texture" id=4]
 [ext_resource path="res://sprites/piano minigame/2 back red circle.png" type="Texture" id=5]
-[ext_resource path="res://sprites/piano minigame/Circle hands.png" type="Texture" id=6]
+[ext_resource path="res://scenes/2d/minigame/piano old/Hands.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://sprites/piano minigame/Black circle.png" type="Texture" id=7]
 [ext_resource path="res://sprites/piano minigame/3 back blue circle.png" type="Texture" id=8]
-[ext_resource path="res://scenes/2d/minigame/piano v2/piano_detection.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/2d/minigame/piano v2/spawner.gd" type="Script" id=10]
-[ext_resource path="res://scenes/2d/minigame/piano v2/timing.gd" type="Script" id=11]
-[ext_resource path="res://scenes/2d/minigame/piano v2/piano.gd" type="Script" id=12]
-[ext_resource path="res://scenes/2d/minigame/piano v2/note.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/2d/minigame/piano/piano_detection.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/2d/minigame/piano/spawner.gd" type="Script" id=10]
+[ext_resource path="res://scenes/2d/minigame/piano/timing.gd" type="Script" id=11]
+[ext_resource path="res://scenes/2d/minigame/piano/piano.gd" type="Script" id=12]
+[ext_resource path="res://scenes/2d/minigame/piano/note.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sprites/piano minigame/max_heheh.png" type="Texture" id=14]
 [ext_resource path="res://sprites/piano minigame/note.png" type="Texture" id=15]
-[ext_resource path="res://scenes/2d/minigame/piano v2/minigame.gd" type="Script" id=16]
-[ext_resource path="res://scenes/2d/minigame/piano v2/sounds/girl.mp3" type="AudioStream" id=17]
-[ext_resource path="res://scenes/2d/minigame/piano v2/direction.gd" type="Script" id=18]
+[ext_resource path="res://scenes/2d/minigame/piano/minigame.gd" type="Script" id=16]
+[ext_resource path="res://scenes/2d/minigame/piano/sounds/girl.mp3" type="AudioStream" id=17]
+[ext_resource path="res://scenes/2d/minigame/piano/direction.gd" type="Script" id=18]
 [ext_resource path="res://sprites/piano minigame/Arrow yellow.png" type="Texture" id=19]
-[ext_resource path="res://scenes/2d/minigame/piano v2/sounds/metronome.wav" type="AudioStream" id=20]
-[ext_resource path="res://scenes/2d/minigame/piano v2/sounds/key1.mp3" type="AudioStream" id=21]
-[ext_resource path="res://scenes/2d/minigame/piano v2/sounds/key2.mp3" type="AudioStream" id=22]
-[ext_resource path="res://scenes/2d/minigame/piano v2/sounds/key3.mp3" type="AudioStream" id=23]
-[ext_resource path="res://scenes/2d/minigame/piano v2/sounds/key4.mp3" type="AudioStream" id=24]
-[ext_resource path="res://scenes/2d/minigame/piano v2/decoration.gd" type="Script" id=25]
+[ext_resource path="res://scenes/2d/minigame/piano/sounds/metronome.wav" type="AudioStream" id=20]
+[ext_resource path="res://scenes/2d/minigame/piano/sounds/key1.mp3" type="AudioStream" id=21]
+[ext_resource path="res://scenes/2d/minigame/piano/sounds/key2.mp3" type="AudioStream" id=22]
+[ext_resource path="res://scenes/2d/minigame/piano/sounds/key3.mp3" type="AudioStream" id=23]
+[ext_resource path="res://scenes/2d/minigame/piano/sounds/key4.mp3" type="AudioStream" id=24]
+[ext_resource path="res://scenes/2d/minigame/piano/decoration.gd" type="Script" id=25]
 [ext_resource path="res://scripts/Utility/Rotation.gd" type="Script" id=26]
-[ext_resource path="res://scenes/2d/minigame/piano v2/PianoGameStateTutorial.gd" type="Script" id=27]
-[ext_resource path="res://scenes/2d/minigame/piano v2/PianoGameStateGame.gd" type="Script" id=28]
+[ext_resource path="res://scenes/2d/minigame/piano/PianoGameStateTutorial.gd" type="Script" id=27]
+[ext_resource path="res://scenes/2d/minigame/piano/PianoGameStateGame.gd" type="Script" id=28]
+[ext_resource path="res://scenes/2d/minigame/piano/typewriter.wav" type="AudioStream" id=29]
+[ext_resource path="res://scenes/2d/minigame/piano/jump.wav" type="AudioStream" id=30]
+[ext_resource path="res://scenes/2d/minigame/piano/diffuse_sprite_2d.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenes/2d/minigame/piano/fail_area.gd" type="Script" id=32]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -65,29 +69,19 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Shader" id=9]
-code = "shader_type canvas_item;
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
 
-uniform float distortion : hint_range(0.01, 0.2) = 0.02;
-uniform float waviness : hint_range(0.5, 16.0) = 4.0;
-
-void fragment()
-{
-	COLOR = texture(TEXTURE, UV + vec2(sin(UV.x * waviness + TIME), sin(UV.y * waviness + TIME)) * distortion);
-}"
-
-[sub_resource type="ShaderMaterial" id=10]
-shader = SubResource( 9 )
-shader_param/distortion = 0.02
-shader_param/waviness = 16.0
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8, 8 )
 
 [node name="controller" type="Node2D"]
 script = ExtResource( 12 )
 
 [node name="minigame" type="Node2D" parent="."]
 script = ExtResource( 16 )
-arrow_visibility_window = 1.5
-offset = -0.55
+arrow_visibility_window = 1.1
+offset = -0.65
 key_sounds = [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ]
 bpm = 115.0
 
@@ -99,27 +93,36 @@ __meta__ = {
 }
 
 [node name="blue" type="Sprite" parent="minigame/decoration"]
+visible = false
+position = Vector2( 0, 3 )
 texture = ExtResource( 8 )
 
 [node name="red" type="Sprite" parent="minigame/decoration"]
+modulate = Color( 1, 1, 1, 0.666667 )
+position = Vector2( 0, 2 )
 texture = ExtResource( 5 )
 
 [node name="pink_light" type="Sprite" parent="minigame/decoration"]
+position = Vector2( 0, 2 )
 texture = ExtResource( 3 )
 
 [node name="piano" type="Sprite" parent="minigame/decoration"]
-rotation = 450.284
+position = Vector2( 0, 2 )
+rotation = 1894.32
 texture = ExtResource( 1 )
-script = ExtResource( 26 )
-
-[node name="hands" type="Sprite" parent="minigame/decoration"]
-rotation = -450.284
-texture = ExtResource( 6 )
 script = ExtResource( 26 )
 rotation_speed = -15
 
+[node name="hands" type="AnimatedSprite" parent="minigame/decoration"]
+rotation = -1880.57
+frames = ExtResource( 6 )
+animation = "hands"
+frame = 2
+playing = true
+script = ExtResource( 26 )
+
 [node name="middle" type="Sprite" parent="minigame/decoration"]
-rotation = 450.284
+rotation = 2907.25
 texture = ExtResource( 7 )
 script = ExtResource( 26 )
 
@@ -135,13 +138,25 @@ position = Vector2( 160, 0 )
 frames = SubResource( 8 )
 
 [node name="movement_direction" type="Sprite" parent="minigame"]
-material = SubResource( 10 )
 position = Vector2( 348, 48 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 19 )
 script = ExtResource( 18 )
+rotation_finish_sound = ExtResource( 29 )
+rotation_sound = ExtResource( 30 )
 
 [node name="rotation_tween" type="Tween" parent="minigame/movement_direction"]
+
+[node name="diffuse_sprite" parent="minigame/movement_direction" instance=ExtResource( 31 )]
+material = SubResource( 9 )
+texture = ExtResource( 19 )
+
+[node name="fail_area" type="Area2D" parent="minigame"]
+script = ExtResource( 32 )
+
+[node name="hitbox" type="CollisionShape2D" parent="minigame/fail_area"]
+position = Vector2( 240, 180 )
+shape = SubResource( 10 )
 
 [node name="detection" parent="minigame" instance=ExtResource( 9 )]
 position = Vector2( 240, 180 )
@@ -152,6 +167,7 @@ position = Vector2( 240, 180 )
 script = ExtResource( 10 )
 spawner_texture = ExtResource( 15 )
 note = ExtResource( 13 )
+ghost_color = Color( 0.839216, 0.556863, 1, 0.341176 )
 
 [node name="timing" type="Node" parent="minigame"]
 script = ExtResource( 11 )
@@ -178,6 +194,8 @@ script = ExtResource( 27 )
 [node name="game" type="Node" parent="minigame/states"]
 script = ExtResource( 28 )
 
+[connection signal="tween_all_completed" from="minigame/movement_direction/rotation_tween" to="minigame/movement_direction" method="_on_rotation_tween_tween_all_completed"]
+[connection signal="area_entered" from="minigame/fail_area" to="minigame/fail_area" method="_on_fail_area_area_entered"]
 [connection signal="changed_state" from="minigame/spawner" to="minigame" method="_on_spawner_changed_state"]
 [connection signal="bar" from="minigame/timing" to="minigame" method="_on_timing_bar"]
 [connection signal="rhythm" from="minigame/timing" to="minigame" method="_on_timing_rhythm"]
