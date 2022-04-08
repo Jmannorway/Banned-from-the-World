@@ -20,4 +20,3 @@ shape = SubResource( 2 )
 
 [connection signal="area_shape_entered" from="." to="." method="_on_interactable_detector_2d_area_shape_entered"]
 [connection signal="area_shape_exited" from="." to="." method="_on_interactable_detector_2d_area_shape_exited"]
-[connection signal="tree_exiting" from="." to="." method="_on_interactable_detector_2d_tree_exiting"]

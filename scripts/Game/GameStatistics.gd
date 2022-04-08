@@ -9,6 +9,7 @@ extends Node
 #class_name Statistics
 
 const DEFAULT_METADATA := {
+	"intro_finished" : false,
 	"inner_world_travel_count" : 0,
 	"fog_stage" : 0,
 	"checkpoint" : 0,

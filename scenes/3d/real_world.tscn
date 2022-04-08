@@ -1,16 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=1]
-[ext_resource path="res://scenes/3d/bedroom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/3d/bedroom_test.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/3d/balcony.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/characters/max.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/3d/hallway.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/3d/victoria_bedroom.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/3d/bathroom.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scripts/single instance scripts/BedroomPlaceholderTutorial.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Game/GameControl.gd" type="Script" id=9]
+[ext_resource path="res://scenes/3d/effects/scrolling_distortion.tscn" type="PackedScene" id=10]
 
-[node name="real_world" type="Spatial"]
+[sub_resource type="Animation" id=1]
+resource_name = "opening_cutscene"
+length = 10.0
+
+[node name="real_world" type="Spatial" groups=["room_manager"]]
 script = ExtResource( 1 )
 
 [node name="max" parent="." instance=ExtResource( 5 )]
@@ -18,12 +23,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5 )
 movementSpeed = 140.0
 moveTime = 0.8
 
-[node name="main_camera" parent="." instance=ExtResource( 4 )]
-
 [node name="rooms" type="Spatial" parent="."]
 
 [node name="bedroom" parent="rooms" instance=ExtResource( 2 )]
-size = Vector2( 3.179, 1.346 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, 0, 0.003 )
 
 [node name="balcony" parent="rooms" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3 )
@@ -41,5 +44,31 @@ unlockStage = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4 )
 unlockStage = 2
 
-[node name="placeholder_tutorial" type="Spatial" parent="."]
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.403518, -0.171539, -0.898748, 0.780574, 0.577015, 0.240329, 0.477365, -0.798516, 0.366735, -8.06322, 4.16677, 0.134902 )
+light_energy = 0.2
+
+[node name="background_fog" parent="." instance=ExtResource( 10 )]
+transform = Transform( 100, 0, 0, 0, 4, 0, 0, 0, 100, -0.632861, -21.0327, -28.3958 )
+albedo_far = Color( 0.00784314, 0.0156863, 0.172549, 1 )
+
+[node name="gi_probe" type="GIProbe" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38073, -0.527921 )
+visible = false
+extents = Vector3( 3.24551, 2.31145, 2.66488 )
+
+[node name="cutscene_player" type="AnimationPlayer" parent="."]
+anims/opening_cutscene = SubResource( 1 )
 script = ExtResource( 9 )
+
+[node name="main_camera" parent="." instance=ExtResource( 4 )]
+
+[node name="cutscene_cameras" type="Spatial" parent="."]
+
+[node name="camera_bed" type="Camera" parent="cutscene_cameras"]
+transform = Transform( -0.79335, 0.343017, -0.502926, 0, 0.826141, 0.563464, 0.608765, 0.447024, -0.655419, 1.18276, 1.80625, 0.0803223 )
+
+[node name="camera_stand" type="Camera" parent="cutscene_cameras"]
+transform = Transform( -0.81411, 0.294334, -0.500591, 0, 0.862033, 0.506852, 0.58071, 0.412634, -0.70179, 0.398288, 2.1763, -0.880583 )
+
+[node name="camera_door" type="Camera" parent="cutscene_cameras"]

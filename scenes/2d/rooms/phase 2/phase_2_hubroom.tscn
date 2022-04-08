@@ -149,14 +149,17 @@ position = Vector2( -12, 12 )
 z_index = 1
 
 [node name="ConstructionSign" type="Sprite" parent="above"]
+visible = false
 position = Vector2( 84, 168 )
 texture = ExtResource( 3 )
 
 [node name="ConstructionSign2" type="Sprite" parent="above"]
+visible = false
 position = Vector2( 252, 336 )
 texture = ExtResource( 3 )
 
 [node name="ConstructionSign3" type="Sprite" parent="above"]
+visible = false
 position = Vector2( 252, 0 )
 texture = ExtResource( 3 )
 

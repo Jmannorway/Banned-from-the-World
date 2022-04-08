@@ -5,8 +5,9 @@ class_name RoomManager3D
 var rooms: Dictionary
 
 onready var mainCharacter: CharacterController3D = $max
-onready var mainCamera: CameraController = $main_camera
+onready var cameraController: CameraController = $main_camera
 
+var controllingCamera: bool
 var currentRoom
 var currentRoomName: String
 
@@ -14,7 +15,7 @@ func _ready():
 	get_rooms()
 # warning-ignore:return_value_discarded
 	prewarp_room(Statistics.metadata["room"], Statistics.metadata["position"])
-	mainCamera.set_follow_target(mainCharacter)
+	cameraController.set_follow_target(mainCharacter)
 	
 	mainCharacter.roomManager = self
 
@@ -35,8 +36,9 @@ func request_room_change(var roomName: String, var instant: bool = false) -> Roo
 		return null
 	
 	currentRoom = rooms[roomName]
-	mainCamera.set_control_mode(currentRoom.pathFollowType, currentRoomName, currentRoom)
-	mainCamera.transition_to_room(instant)
+	if controllingCamera:
+		cameraController.set_control_mode(currentRoom.pathFollowType, currentRoomName, currentRoom)
+		cameraController.transition_to_room(instant)
 	currentRoomName = roomName
 	
 	return currentRoom
