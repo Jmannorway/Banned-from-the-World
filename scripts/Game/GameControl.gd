@@ -7,3 +7,6 @@ func _ready():
 	else:
 		_room_manager.controllingCamera = false
 		play("opening_cutscene")
+
+func _on_door_interactable_interacted() -> void:
+	play("opening_cutscene_2")

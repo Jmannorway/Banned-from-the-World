@@ -7,7 +7,7 @@ var rooms: Dictionary
 onready var mainCharacter: CharacterController3D = $max
 onready var cameraController: CameraController = $main_camera
 
-var controllingCamera: bool
+export(bool) var controllingCamera
 var currentRoom
 var currentRoomName: String
 
@@ -24,7 +24,6 @@ func prewarp_room(var roomName: String, var position: Vector3) -> void:
 	request_room_change(roomName, true)
 	# set Max's position, through the position parameter
 #	mainCharacter.teleport_to(position)
-	
 	check_for_room_availability()
 
 func check_for_room_availability() -> void:

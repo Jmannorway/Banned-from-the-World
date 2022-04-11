@@ -197,18 +197,6 @@ roomName = "balcony"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
 shape = SubResource( 9 )
 
-[node name="to_hallway" type="Area" parent="room_events"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
-collision_layer = 4
-collision_mask = 0
-monitoring = false
-script = ExtResource( 1 )
-roomName = "hallway"
-
-[node name="CollisionShape" type="CollisionShape" parent="room_events/to_hallway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
-shape = SubResource( 9 )
-
 [node name="photo_album" type="Area" parent="room_events"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 collision_layer = 4
