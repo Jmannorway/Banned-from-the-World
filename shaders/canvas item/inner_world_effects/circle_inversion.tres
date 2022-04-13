@@ -1,0 +1,17 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float radius : hint_range(0.0, 1.0) = 0.4;
+uniform float smoothing : hint_range(0.0, 1.0) = 0.3;
+uniform float pulse : hint_range(0.0, 1.0) = 0.1;
+
+void fragment()
+{
+	vec4 col = texture(TEXTURE, UV);
+	vec4 inv = vec4(1.0 - col.rgb, col.a);
+	float wave = sin(TIME) * pulse;
+	float circle = smoothstep(radius + wave, radius + wave + smoothing, distance(vec2(0.5), UV));
+	COLOR = mix(col, inv, circle);
+}"

@@ -7,4 +7,4 @@ func _on_move_timer_timeout():
 	if !check_solid_relative(_move):
 		queue_move(get_random_move_direction(), 0)
 	else:
-		character_sprite.set_sprite_direction(_move)
+		sprite.set_sprite_direction(_move)

@@ -6,6 +6,7 @@ var current_map : PackedScene
 var current_map_name : String
 var current_map_instance : Node
 onready var viewport = $game_viewport
+onready var viewport_sprite = $game_viewport_sprite
 const MAP_DIRECTORY = "res://scenes/2d/maps/"
 
 const INVALID_PLAYER_START_INDEX := -1

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scenes/2d/character & player/effects/Effect.gd" type="Script" id=1]
+[ext_resource path="res://animations/max/dealer_max.tres" type="SpriteFrames" id=2]
+
+[resource]
+script = ExtResource( 1 )
+frames = ExtResource( 2 )
