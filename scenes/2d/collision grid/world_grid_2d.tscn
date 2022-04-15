@@ -17,6 +17,9 @@ blend_mode = 1
 [node name="world_grid_2d" type="Node2D"]
 z_index = 10
 script = ExtResource( 1 )
+solid_grid_scene = ExtResource( 4 )
+navigation_grid_scene = ExtResource( 3 )
+sound_grid_scene = ExtResource( 2 )
 
 [node name="solid_grid_2d" parent="." instance=ExtResource( 4 )]
 material = SubResource( 1 )
@@ -31,3 +34,9 @@ add_on_ready = false
 [node name="sound_grid_2d" parent="." instance=ExtResource( 2 )]
 material = SubResource( 3 )
 add_on_ready = false
+
+[node name="solid_grids" type="Node" parent="."]
+
+[node name="sound_grids" type="Node" parent="."]
+
+[node name="navigation_grids" type="Node" parent="."]

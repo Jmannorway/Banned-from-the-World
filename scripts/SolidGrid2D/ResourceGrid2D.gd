@@ -4,6 +4,12 @@ class_name ResourceGrid2D
 
 export(bool) var add_on_ready = true
 export(bool) var hide_on_ready = true
+export(int) var layer = 0 setget set_layer
+func set_layer(val : int) -> void:
+	if val < 0 || val >= WorldGrid.LAYER_COUNT:
+		print("ResourceGrid2D: Invalid layer")
+	else:
+		layer = val
 
 # These have to be set to a function with the correct signature
 var add_cell_function : String = "_add_cell_to_world_grid"

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/2d/transition manager/transition_manager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/2d/transition manager/gradient4.png" type="Texture" id=2]
+[ext_resource path="res://scenes/2d/transition manager/transition_shader.tres" type="Shader" id=3]
+[ext_resource path="res://sprites/transition_texture.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/animation = 0.0
+shader_param/transition_color = Color( 0.352941, 0.352941, 0.352941, 1 )
+shader_param/smoothing = 0.1
+shader_param/scroll_speed = Vector2( 0, 0.6 )
+shader_param/uv_scale = Vector2( 32, 16 )
+shader_param/transition_texture = ExtResource( 4 )
+
+[node name="transition_manager" type="TextureRect"]
+material = SubResource( 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 1 )
+transition_type = 0
+transition_duration = 1.5
+wait_time = 0.0
+
+[node name="animation_tween" type="Tween" parent="."]

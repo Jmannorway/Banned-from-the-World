@@ -242,8 +242,8 @@ default_bus_layout="res://audio_bus_layout.tres"
 [autoload]
 
 Game="*res://scripts/Game/Game.gd"
-MapManager="*res://scenes/2d/map_manager_2d.tscn"
 WorldGrid="*res://scenes/2d/collision grid/world_grid_2d.tscn"
+MapManager="*res://scenes/2d/map_manager_2d.tscn"
 XToFocus="*res://scenes/x to focus/x_to_focus.tscn"
 MusicManager="*res://scenes/music_manager.tscn"
 Ui="*res://scenes/ui/ui.tscn"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Player2D/Player2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/character & player/animated_character_sprite_2d.tscn" type="PackedScene" id=2]
@@ -13,6 +13,11 @@
 [ext_resource path="res://scenes/2d/character & player/effects/Ballerina.tres" type="Resource" id=11]
 [ext_resource path="res://scenes/2d/character & player/effects/Normal.tres" type="Resource" id=12]
 [ext_resource path="res://scenes/2d/character & player/effects/Dealer.tres" type="Resource" id=13]
+[ext_resource path="res://shaders/canvas item/outline.tres" type="Shader" id=14]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 14 )
+shader_param/outline_color = Color( 0.705882, 0.705882, 0.705882, 1 )
 
 [node name="player_2d" type="Node2D" groups=["player_2d"]]
 script = ExtResource( 1 )
@@ -27,13 +32,16 @@ effects = {
 }
 
 [node name="animated_character_sprite_2d" parent="." instance=ExtResource( 2 )]
+material = SubResource( 1 )
 frames = ExtResource( 6 )
 animation = "down"
 
 [node name="interactable_detector_2d" parent="." instance=ExtResource( 3 )]
+visible = false
 collision_mask = 15
 
 [node name="interactable_2d" parent="." instance=ExtResource( 4 )]
+visible = false
 collision_layer = 16
 script = ExtResource( 5 )
 

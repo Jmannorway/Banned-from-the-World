@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/door.png-23a463a5b80e32e058fe2265bc3cb38e.stex"
+path="res://.import/gradient4.png-af21d4bf4d98601b4c8e64466dcd8bba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/piano room/door.png"
-dest_files=[ "res://.import/door.png-23a463a5b80e32e058fe2265bc3cb38e.stex" ]
+source_file="res://scenes/2d/transition manager/gradient4.png"
+dest_files=[ "res://.import/gradient4.png-af21d4bf4d98601b4c8e64466dcd8bba.stex" ]
 
 [params]
 

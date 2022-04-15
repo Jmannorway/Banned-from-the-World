@@ -46,6 +46,7 @@ func set_effect(val : String) -> void:
 
 func _ready():
 	# TODO: Connect to menu element that sets the effect
+	Util.connect_safe(MapManager, "changing_map", self, "_on_MapManager_changing_map")
 	Util.connect_safe(XToFocus, "focus_changed", self, "_on_XToFocus_focus_changed")
 	Util.connect_safe(Ui.get_menu(), "visibility_changed", self, "_on_menu_visibility_changed", [Ui.get_menu()])
 
@@ -99,6 +100,9 @@ func _on_XToFocus_focus_changed(val):
 
 func _on_menu_visibility_changed(menu):
 	frozen.set_weight(menu.name, menu.visible)
+
+func _on_MapManager_changing_map():
+	frozen.set_weight(MapManager.name, true)
 
 # UTILITY
 static func get_input_vector() -> Vector2:
