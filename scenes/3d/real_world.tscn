@@ -8,18 +8,7 @@
 [ext_resource path="res://scenes/3d/hallway.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/3d/victoria_bedroom.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/3d/bathroom.tscn" type="PackedScene" id=8]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Spatial
-
-func _ready():
-	if Statistics.metadata[\"inner_world_travel_count\"] == 0 && !XToFocus.is_in_focus(self):
-		var _player := PlayerAccess.get_player_3d(get_tree())
-		if _player:
-#			_player.canMove = false
-#			Ui.action_hint.show_action_hint(Ui.action_hint.HINT.X)
-			pass # Why the fuck is this here?
-"
+[ext_resource path="res://scripts/single instance scripts/BedroomPlaceholderTutorial.gd" type="Script" id=9]
 
 [node name="real_world" type="Spatial"]
 script = ExtResource( 1 )
@@ -53,4 +42,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -4 )
 unlockStage = 2
 
 [node name="placeholder_tutorial" type="Spatial" parent="."]
-script = SubResource( 1 )
+script = ExtResource( 9 )

@@ -32,12 +32,17 @@ room_name = "ballet_main"
 
 [node name="player_start_main" parent="." instance=ExtResource( 4 )]
 position = Vector2( 228, 500 )
-index = 1
 room_name = "ballet_main"
+index = 3
+
+[node name="player_start_stage_stairs" parent="." instance=ExtResource( 4 )]
+position = Vector2( 84, -156 )
+room_name = "ballet_stage"
 
 [node name="player_start_stage" parent="." instance=ExtResource( 4 )]
 position = Vector2( 84, -1644 )
 room_name = "ballet_stage"
+index = 1
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
 target_group = "player_2d"
@@ -45,7 +50,7 @@ target_is_character = true
 free = true
 
 [node name="to_house_of_culture" parent="." instance=ExtResource( 8 )]
-position = Vector2( 96, -2736 )
+position = Vector2( 383, -4332 )
 scale = Vector2( 6.48, 1 )
 map_path = "res://scenes/2d/maps/house_of_culture.tscn"
 on_step = true

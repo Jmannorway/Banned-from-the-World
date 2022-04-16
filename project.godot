@@ -243,6 +243,11 @@ WorldGrid="*res://scenes/2d/collision grid/world_grid_2d.tscn"
 XToFocus="*res://scenes/x to focus/x_to_focus.tscn"
 MusicManager="*res://scenes/music_manager.tscn"
 
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=960
@@ -1408,6 +1413,7 @@ debug_test={
 2d_physics/layer_4="Interactable_Warp"
 2d_physics/layer_5="Interactable_Player"
 2d_physics/layer_9="Room"
+2d_physics/layer_10="Piano"
 
 [physics]
 

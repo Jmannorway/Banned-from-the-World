@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/Piano Minigame/PianoMinigame.gd" type="Script" id=1]
 [ext_resource path="res://sprites/piano minigame/Blue arrow.png" type="Texture" id=2]
@@ -20,7 +20,7 @@
 [ext_resource path="res://sprites/piano minigame/max_heheh.png" type="Texture" id=18]
 [ext_resource path="res://sprites/piano minigame/teacher.png" type="Texture" id=19]
 [ext_resource path="res://sprites/piano minigame/max_question.png" type="Texture" id=20]
-
+[ext_resource path="res://scripts/Piano Minigame/MaxReaction.gd" type="Script" id=21]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 19 )
@@ -68,51 +68,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="GDScript" id=11]
-script/source = "extends AnimatedSprite
-
-onready var origin : Vector2 = position
-export var slide_length = 30
-export var slide_duration = 1
-
-func _on_piano_minigame_manager_pattern_ended():
-	frame = randi() % frames.get_frame_count(\"default\")
-	position.y = origin.y - slide_length
-	$Tween.interpolate_property(
-		self,
-		\"position:y\",
-		origin.y - slide_length / 2,
-		origin.y + slide_length / 2,
-		slide_duration)
-	$Tween.interpolate_property(
-		self,
-		\"modulate:a\",
-		0.0,
-		1.0,
-		slide_duration * 0.25)
-	$Tween.interpolate_property(
-		self,
-		\"modulate:a\",
-		1.0,
-		0.0,
-		slide_duration * 0.25,
-		0,
-		2,
-		slide_duration * 0.75)
-	$Tween.start()
-"
-
-[sub_resource type="GDScript" id=12]
-script/source = "tool
-
-extends AnimatedSprite
-
-export var rotation_speed := 15
-
-func _process(delta):
-	rotation_degrees += rotation_speed * delta
-"
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
 
@@ -144,7 +99,7 @@ texture = ExtResource( 15 )
 [node name="Teacher" type="AnimatedSprite" parent="."]
 position = Vector2( 396, 180 )
 frames = SubResource( 9 )
-frame = 6
+frame = 5
 speed_scale = 2.0
 playing = true
 
@@ -153,29 +108,29 @@ modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 13 )
 position = Vector2( 77, 180 )
 frames = SubResource( 10 )
-script = SubResource( 11 )
-slide_duration = 3
+script = ExtResource( 21 )
 
 [node name="Tween" type="Tween" parent="Max"]
 
 [node name="PianoCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -2673.85
+rotation = -2787.1
 texture = ExtResource( 11 )
 script = ExtResource( 14 )
 rotation_speed = -15
 
 [node name="CircleHands" type="AnimatedSprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = 2639.39
+rotation = 2750.73
 frames = ExtResource( 12 )
 animation = "hands"
+frame = 2
 playing = true
-script = SubResource( 12 )
+script = ExtResource( 14 )
 
 [node name="BlackCircle" type="Sprite" parent="."]
 position = Vector2( 234, 186 )
-rotation = -2668.52
+rotation = -2781.77
 texture = ExtResource( 13 )
 script = ExtResource( 14 )
 rotation_speed = -15

@@ -9,7 +9,7 @@ func _ready():
 	Util.connect_safe(XToFocus, "focus_changed", self, "_on_XToFocus_focus_changed")
 	Util.connect_safe(Ui.get_menu(), "visibility_changed", self, "_on_menu_visibility_changed", [Ui.get_menu()])
 
-func _process(delta):
+func _process(_delta):
 	if !frozen.is_weighted():
 		if Input.is_action_pressed("run"):
 			set_move_speed(run_speed)
@@ -26,7 +26,7 @@ func _process(delta):
 func _post_process_move():
 	._post_process_move()
 	
-	if !frozen && Input.is_action_just_pressed("interact") && !is_moving():
+	if !frozen.is_weighted() && Input.is_action_just_pressed("interact") && !is_moving():
 		$interactable_detector_2d.interact_with_facing(self, calculate_move_offset(facing))
 
 # SIGNAL CALLBACKS

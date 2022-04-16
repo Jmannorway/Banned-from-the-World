@@ -1,0 +1,18 @@
+extends Node2D
+
+export(Rect2) var hole
+
+func _ready():
+	WorldGrid.solid_grid.set_solid_at_pixel(global_position, true)
+
+func _on_spin_timer_timeout():
+	var _sprite = $animated_character_sprite_2d as AnimatedCharacterSprite2D
+	match _sprite.animation:
+		"up":
+			_sprite.set_sprite_direction(Vector2.LEFT)
+		"right":
+			_sprite.set_sprite_direction(Vector2.UP)
+		"left":
+			_sprite.set_sprite_direction(Vector2.DOWN)
+		"down":
+			_sprite.set_sprite_direction(Vector2.RIGHT)

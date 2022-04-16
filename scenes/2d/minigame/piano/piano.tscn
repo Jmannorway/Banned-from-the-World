@@ -78,7 +78,7 @@ extents = Vector2( 8, 8 )
 [node name="controller" type="Node2D"]
 script = ExtResource( 12 )
 
-[node name="minigame" type="Node2D" parent="."]
+[node name="minigame" type="Node2D" parent="." groups=["minigame"]]
 script = ExtResource( 16 )
 arrow_visibility_window = 1.1
 offset = -0.65
@@ -108,21 +108,21 @@ texture = ExtResource( 3 )
 
 [node name="piano" type="Sprite" parent="minigame/decoration"]
 position = Vector2( 0, 2 )
-rotation = 1894.32
+rotation = 1765.7
 texture = ExtResource( 1 )
 script = ExtResource( 26 )
 rotation_speed = -15
 
 [node name="hands" type="AnimatedSprite" parent="minigame/decoration"]
-rotation = -1880.57
+rotation = -1751.95
 frames = ExtResource( 6 )
 animation = "hands"
-frame = 2
+frame = 1
 playing = true
 script = ExtResource( 26 )
 
 [node name="middle" type="Sprite" parent="minigame/decoration"]
-rotation = 2907.25
+rotation = 3035.86
 texture = ExtResource( 7 )
 script = ExtResource( 26 )
 
@@ -152,6 +152,8 @@ material = SubResource( 9 )
 texture = ExtResource( 19 )
 
 [node name="fail_area" type="Area2D" parent="minigame"]
+collision_layer = 512
+collision_mask = 512
 script = ExtResource( 32 )
 
 [node name="hitbox" type="CollisionShape2D" parent="minigame/fail_area"]
@@ -160,6 +162,8 @@ shape = SubResource( 10 )
 
 [node name="detection" parent="minigame" instance=ExtResource( 9 )]
 position = Vector2( 240, 180 )
+collision_layer = 512
+collision_mask = 512
 key_distance = 48.0
 
 [node name="spawner" type="Node2D" parent="minigame"]

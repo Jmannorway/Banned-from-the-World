@@ -57,3 +57,7 @@ func _on_interactable_detector_2d_area_shape_exited(area_rid, area : Interactabl
 			LOCAL_SHAPE_TYPE.INTERACT:
 				var _index = interactables.find(area)
 				interactables.remove(_index)
+
+
+func _on_interactable_detector_2d_tree_exiting():
+	prints("exiting for some reason", name, get_parent().name)

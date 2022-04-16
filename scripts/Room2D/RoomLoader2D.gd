@@ -65,6 +65,7 @@ func get_global_middle() -> Vector2:
 func is_loaded() -> bool:
 	return loaded
 
+# INTERNAL FUNCTIONS
 func _enter_tree():
 	if room_name.empty():
 		room_name = name
@@ -80,7 +81,6 @@ func _draw():
 	if Engine.editor_hint:
 		draw_rect(Rect2(Vector2.ZERO, size), Color.white, false, 2.0)
 
-# INTERNAL FUNCTIONS
 func _load_room():
 	room_instance = room.instance()
 	add_child(room_instance)

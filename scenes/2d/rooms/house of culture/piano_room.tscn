@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://animations/animated_character_piano_teacher.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/Room2D/Room2D.gd" type="Script" id=2]
@@ -8,49 +8,7 @@
 [ext_resource path="res://tiles/house_of_culture_tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://scenes/2d/misc/friend.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/2d/misc/ghost.wav" type="AudioStream" id=8]
-[ext_resource path="res://scenes/2d/minigame/piano/piano.tscn" type="PackedScene" id=9]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Interactable2D
-
-export(PackedScene) var minigame
-var is_started := false
-var is_cutscene_started := false
-export(Vector2) var offset = Vector2(-160.0, -100.0)
-
-func freeze_player():
-	PlayerAccess.get_player_2d(get_tree()).set_frozen(true)
-	Util.connect_safe(XToFocus, \"focus_changed\", self, \"_on_XToFocus_focus_changed\")
-
-func _on_XToFocus_focus_changed(focus):
-	if !focus && is_cutscene_started:
-		$piano_game_cutscene.play(\"cutscene part 2\")
-
-func step():
-	if !is_started:
-		freeze_player()
-		start_piano_cutscene()
-
-func interact():
-	if !is_started:
-		freeze_player()
-		var _player = PlayerAccess.get_player_2d(get_tree())
-		var _relative_distance = global_position - _player.global_position
-		_player.queue_move(_relative_distance.normalized(), 100)
-		start_piano_cutscene()
-
-func start_piano_cutscene() -> void:
-	$piano_game_cutscene.play(\"cutscene\")
-	is_cutscene_started = true
-
-func start_piano_minigame() -> void:
-	var _minigame = minigame.instance()
-	_minigame.position = offset
-	MapManager.viewport.call_deferred(\"add_child\", _minigame)
-	is_started = true
-	_minigame.connect(\"minigame_ended\", self, \"_on_PianoMinigame_minigame_ended\")
-	Util.get_first_node_in_group(get_tree(), \"new_focus_params\").update_shader_params()
-"
+[ext_resource path="res://scripts/single instance scripts/PianoRoomMinigameStartInteractable.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=4]
 
@@ -101,17 +59,20 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "cutscene part 2"
 tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("piano_game_cutscene")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [ 1.0 ],
+"method": "fade_in_minigame"
+}, {
 "args": [  ],
-"method": "start_piano_minigame"
+"method": "start_minigame"
 } ]
 }
 
@@ -158,23 +119,24 @@ frames = ExtResource( 1 )
 animation = "down"
 frame = 1
 
-[node name="piano_minigame_started" parent="." instance=ExtResource( 5 )]
+[node name="piano_minigame_starter" parent="." instance=ExtResource( 5 )]
 position = Vector2( 60, 108 )
-script = SubResource( 1 )
-minigame = ExtResource( 9 )
+script = ExtResource( 9 )
 
-[node name="shape" type="CollisionShape2D" parent="piano_minigame_started"]
+[node name="shape" type="CollisionShape2D" parent="piano_minigame_starter"]
 shape = SubResource( 4 )
 
-[node name="piano_game_cutscene" type="AnimationPlayer" parent="piano_minigame_started"]
+[node name="piano_game_cutscene" type="AnimationPlayer" parent="piano_minigame_starter"]
 anims/cutscene = SubResource( 2 )
 "anims/cutscene part 2" = SubResource( 3 )
 script = ExtResource( 3 )
 
-[node name="friend" parent="piano_minigame_started/piano_game_cutscene" instance=ExtResource( 7 )]
+[node name="friend" parent="piano_minigame_starter/piano_game_cutscene" instance=ExtResource( 7 )]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 48, 72 )
 scale = Vector2( 0.4, 0.4 )
 
-[node name="sound" type="AudioStreamPlayer" parent="piano_minigame_started/piano_game_cutscene/friend"]
+[node name="sound" type="AudioStreamPlayer" parent="piano_minigame_starter/piano_game_cutscene/friend"]
 stream = ExtResource( 8 )
+
+[node name="tween" type="Tween" parent="piano_minigame_starter/piano_game_cutscene"]

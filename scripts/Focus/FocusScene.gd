@@ -1,11 +1,5 @@
 extends Node
 
-class FocusSceneInformation:
-	var focus_scene : PackedScene
-	var is_2d : bool = true
-	var material : ShaderMaterial
-	var params : Dictionary
-
 export(bool) var update_on_ready = true
 
 export(PackedScene) var scene
@@ -13,6 +7,8 @@ export(bool) var pass_player_position = false
 export(bool) var is_2d = true
 export(ShaderMaterial) var material
 export(Dictionary) var params
+export(Vector2) var offset
+export(int) var layer = XToFocus.DEFAULT_LAYER_INDEX
 
 func _ready():
 	if update_on_ready:
@@ -27,6 +23,8 @@ func update_scene():
 	XToFocus.reset()
 	XToFocus.add_focus_scene(scene, is_2d)
 	XToFocus.pass_player_position(pass_player_position)
+	XToFocus.set_focus_scene_position(offset);
+	XToFocus.set_focus_scene_layer(layer);
 
 func update_material():
 	XToFocus.set_focus_shader(material)

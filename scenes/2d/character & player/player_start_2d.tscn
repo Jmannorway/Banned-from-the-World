@@ -3,7 +3,8 @@
 [ext_resource path="res://sprites/characters/max.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player2D/PlayerStart2D.gd" type="Script" id=2]
 
-[node name="player_start" type="Sprite"]
+[node name="player_start" type="Sprite" groups=["player_start"]]
+visible = false
 modulate = Color( 0, 1, 0.392157, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -10 )

@@ -1,4 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11, 11 )
 
 [node name="interactable_2d" type="Area2D"]
 collision_mask = 0
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

@@ -18,7 +18,7 @@ func idle():
 
 func get_animation_from_direction(dir : Vector2) -> String:
 	var _animation = ""
-	
+
 	if dir.x == 1:
 		_animation = "right"
 	elif dir.x == -1:

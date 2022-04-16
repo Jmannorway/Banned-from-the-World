@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/max_doorframe_uv.fbx" type="PackedScene" id=2]
@@ -36,10 +36,10 @@
 [ext_resource path="res://models/warderobe_nonuv.fbx" type="PackedScene" id=34]
 [ext_resource path="res://models/max_lavalamp_nonuv.fbx" type="PackedScene" id=35]
 [ext_resource path="res://scenes/x to focus/focus_scenes/focus_grid.tscn" type="PackedScene" id=36]
-[ext_resource path="res://scenes/2d/maps/phase_2_map.tscn" type="PackedScene" id=37]
-[ext_resource path="res://scenes/empty.tscn" type="PackedScene" id=38]
+[ext_resource path="res://scripts/single instance scripts/BedroomPhotoAlbumInteractable.gd" type="Script" id=37]
 [ext_resource path="res://scripts/Focus/ShowIfInFocus.gd" type="Script" id=39]
 [ext_resource path="res://shaders/spatial/noise.tres" type="Texture" id=40]
+[ext_resource path="res://scripts/single instance scripts/BedroomFocusGridPassAlpha.gd" type="Script" id=41]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -49,29 +49,6 @@ albedo_color = Color( 0.694118, 0.0431373, 0.0431373, 1 )
 
 [sub_resource type="BoxShape" id=9]
 extents = Vector3( 0.2, 0.5, 0.2 )
-
-[sub_resource type="GDScript" id=10]
-script/source = "extends Interactable
-
-export var changeToScene: PackedScene
-export var blankScene: PackedScene
-
-# warning-ignore:unused_argument
-func _interact(var roomManager) -> void:
-	Util.goto_world(get_tree(), Game.WORLD.INNER)
-#	get_tree().change_scene_to(blankScene)
-#	MapManager.warp_to_map(changeToScene, 0)
-#	Game.set_world(Game.WORLD.INNER)
-
-func _on_photo_album_area_entered(area):
-	print(\"entered\")
-	var _player = PlayerAccess.get_player_3d(get_tree())
-	if _player && _player.rotation_degrees.y == 180:
-		Ui.action_hint.show_action_hint(Ui.action_hint.HINT.Z)
-
-func _on_photo_album_area_exited(area):
-	Ui.action_hint.hide_action_hint()
-"
 
 [sub_resource type="Shader" id=12]
 code = "// NOTE: Shader automatically converted from Godot Engine 3.4.2.stable's SpatialMaterial.
@@ -147,14 +124,6 @@ shader_param/color = Vector3( 0.5, 0, 1 )
 shader_param/color_strength = 10.0
 shader_param/alpha = 1.0
 shader_param/noise = ExtResource( 40 )
-
-[sub_resource type="GDScript" id=11]
-script/source = "extends MeshInstance
-
-func _process(delta):
-	var shader_material = get_surface_material(0) as ShaderMaterial;
-	shader_material.set_shader_param(\"alpha\", XToFocus.alpha)
-"
 
 [node name="bedroom" type="ImmediateGeometry"]
 material_override = SubResource( 1 )
@@ -236,9 +205,7 @@ shape = SubResource( 9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 collision_layer = 4
 collision_mask = 2
-script = SubResource( 10 )
-changeToScene = ExtResource( 37 )
-blankScene = ExtResource( 38 )
+script = ExtResource( 37 )
 
 [node name="CollisionShape" type="CollisionShape" parent="room_events/photo_album"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
@@ -395,7 +362,7 @@ __meta__ = {
 [node name="focus_grid" parent="." instance=ExtResource( 36 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.532638 )
 material/0 = SubResource( 13 )
-script = SubResource( 11 )
+script = ExtResource( 41 )
 
 [connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]
 [connection signal="area_exited" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_exited"]
