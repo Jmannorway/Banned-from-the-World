@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/3d/bedroom_test.tscn" type="PackedScene" id=2]
@@ -11,10 +11,12 @@
 [ext_resource path="res://scripts/Game/GameControl.gd" type="Script" id=9]
 [ext_resource path="res://scenes/3d/effects/scrolling_distortion.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/Interactable3D/InteractableBedroomDoor.gd" type="Script" id=11]
+[ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=12]
+[ext_resource path="res://scripts/SolidGrid3D.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "opening_cutscene"
-length = 10.0
+length = 6.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("main_camera")
 tracks/0/interp = 1
@@ -80,10 +82,24 @@ tracks/3/keys = {
 "transitions": PoolRealArray(  ),
 "values": [  ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("cutscene_nodes/room_grid_fog_cutscene")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "add_to_room_grid"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "opening_cutscene_2"
-length = 6.0
+length = 5.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("max")
 tracks/0/interp = 1
@@ -91,7 +107,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 6 ),
+"times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ "cutscene", true ],
@@ -139,7 +155,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ 6.0 ],
+"args": [ 5.0 ],
 "method": "tween_to_gameplay_position"
 } ]
 }
@@ -167,6 +183,20 @@ tracks/5/keys = {
 "values": [ {
 "args": [ "bedroom", false ],
 "method": "request_room_change"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("cutscene_nodes/room_grid_normal")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "add_to_room_grid"
 } ]
 }
 
@@ -246,6 +276,35 @@ script = ExtResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
 shape = SubResource( 2 )
 
+[node name="room_grid_normal" type="GridMap" parent="cutscene_nodes"]
+visible = false
+mesh_library = ExtResource( 12 )
+cell_size = Vector3( 1, 1, 1 )
+data = {
+"cells": PoolIntArray( 2, 0, 1376256, 65532, 0, 0, 0, 1, 1376256, 1, 1, 1376256, 65532, 1, 0, 65534, 1, 1376256, 65535, 1, 1376256, 65533, 2, 0, 1, 65532, 0, 65533, 65532, 0, 0, 65533, 1376256, 1, 65533, 1, 2, 65533, 1376256, 65532, 65533, 0, 65534, 65533, 1376256, 65535, 65533, 1376256, 2, 65534, 1376256, 65532, 65534, 0, 65534, 65534, 1376256, 3, 65535, 0, 65532, 65535, 0 )
+}
+script = ExtResource( 13 )
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+room_path = NodePath("../../rooms/bedroom")
+
+[node name="room_grid_fog_cutscene" type="GridMap" parent="cutscene_nodes"]
+visible = false
+mesh_library = ExtResource( 12 )
+cell_size = Vector3( 1, 1, 1 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 2, 0, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 0, 65533, 0, 2, 65533, 0, 0, 65534, 0, 2, 65534, 0, 0, 65535, 0, 2, 65535, 0 )
+}
+script = ExtResource( 13 )
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+room_path = NodePath("../../rooms/bedroom")
+
 [node name="main_camera" parent="." instance=ExtResource( 4 )]
 
+[connection signal="animation_finished" from="cutscene_player" to="cutscene_player" method="_on_cutscene_player_animation_finished"]
 [connection signal="interacted" from="cutscene_nodes/door_interactable" to="cutscene_player" method="_on_door_interactable_interacted"]

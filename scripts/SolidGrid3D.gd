@@ -1,6 +1,6 @@
 extends GridMap
 
-export(NodePath) var room_grid_node_path
+export(NodePath) var room_path
 export(bool) var add_on_ready
 
 func _ready():
@@ -8,8 +8,8 @@ func _ready():
 		add_to_room_grid()
 
 func add_to_room_grid():
-	if !room_grid_node_path.is_empty():
-		add(get_node(room_grid_node_path))
+	if !room_path.is_empty():
+		add(get_node(room_path).gridMap)
 	else:
 		add(Util.get_first_node_in_group(get_tree(), "room_grid"))
 

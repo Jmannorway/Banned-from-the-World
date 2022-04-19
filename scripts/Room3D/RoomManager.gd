@@ -36,7 +36,7 @@ func request_room_change(var roomName: String, var instant: bool = false) -> Roo
 	
 	currentRoom = rooms[roomName]
 	if controllingCamera:
-		cameraController.set_control_mode(currentRoom.pathFollowType, currentRoomName, currentRoom)
+		cameraController.set_control_mode(currentRoom.pathFollowType, currentRoomName, currentRoom, instant)
 		cameraController.transition_to_room(instant)
 	currentRoomName = roomName
 	

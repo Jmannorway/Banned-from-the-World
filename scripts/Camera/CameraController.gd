@@ -29,14 +29,17 @@ func _process(delta):
 func set_follow_target(var target: Spatial) -> void:
 	targetNode = target
 
-func set_control_mode(var mode: int, var fromRoomName: String, var controller) -> void:
+func set_control_mode(var mode: int, var fromRoomName: String, var controller, var instant := false) -> void:
 	set_process(true)
 
+	
+
 	controlCallbackName = FollowPathCallbackNames[mode]
+	var _transDur = transitionDuration * int(!instant)
 
 	match mode:
 		FollowPathType.RECT:
-			camera.set_gameplay_position(transitionDuration)
+			camera.tween_to_gameplay_position(_transDur)
 			controlZone = Rect2(controller.offset + Vector2(controller.translation.x, controller.translation.z), controller.size)
 			toPoint = controller.grab_transition_postion(fromRoomName)
 
@@ -44,7 +47,7 @@ func set_control_mode(var mode: int, var fromRoomName: String, var controller) -
 			toPoint.x = clamp(toPoint.x, -_rect.size.x + _rect.position.x, _rect.size.x + _rect.position.x)
 			toPoint.z = clamp(toPoint.z, -_rect.size.y + _rect.position.y, _rect.size.y + _rect.position.y)
 		FollowPathType.POINT:
-			camera.tween_to_gameplay_position(transitionDuration)
+			camera.tween_to_gameplay_position(_transDur)
 			toPoint = Vector3(controller.offset.x + controller.translation.x, 0.0, controller.offset.y + controller.translation.z)
 		_:
 			camera.tween_to_position(Vector3.ZERO, Vector3.ZERO)

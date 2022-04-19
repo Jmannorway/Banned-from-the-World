@@ -61,7 +61,9 @@ func tween_to_node(node : Spatial, transition_type : int = TRANSITION_TYPE.MOVE,
 func tween_to_gameplay_position(duration : float = -1.0):
 	tween_to_position(
 		gameplay_translation,
-		Vector3(deg2rad(gameplay_rotation_degrees.x), deg2rad(gameplay_rotation_degrees.y), deg2rad(gameplay_rotation_degrees.z)))
+		Vector3(deg2rad(gameplay_rotation_degrees.x), deg2rad(gameplay_rotation_degrees.y), deg2rad(gameplay_rotation_degrees.z)),
+		TRANSITION_TYPE.MOVE,
+		duration)
 
 func tween_to_position(trans : Vector3, rot : Vector3, transition_type : int = TRANSITION_TYPE.MOVE, duration : float = -1.0):
 	duration = default_transition_duration if duration == -1.0 else duration

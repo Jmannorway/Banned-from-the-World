@@ -47,12 +47,12 @@ func _enter_tree():
 func read_meta_file() -> Dictionary:
 	var _file: File = File.new()
 	
-	if _file.open(DATA_PATH + DATA_FILE, _file.READ) != OK:
+	if _file.open(DATA_FILE, _file.READ) != OK:
 		_file.close()
 		
 		return DEFAULT_METADATA
 	
-	var _meta: Dictionary = _file.get_var()
+	var _meta: Dictionary = str2var(_file.get_as_text())
 	_file.close()
 	
 	return _meta
@@ -60,8 +60,8 @@ func read_meta_file() -> Dictionary:
 func write_meta_file() -> void:
 	var _file: File = File.new()
 	
-	if _file.open(DATA_PATH + DATA_FILE, _file.WRITE) == OK:
-		_file.store_var(metadata)
+	if _file.open(DATA_FILE, _file.WRITE) == OK:
+		_file.store_string(var2str(metadata))
 		_file.close()
 
 func _exit_tree():
