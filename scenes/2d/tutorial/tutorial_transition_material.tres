@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://scenes/2d/transition manager/transition_manager.gd" type="Script" id=1]
-[ext_resource path="res://scenes/2d/transition manager/gradient3.png" type="Texture" id=2]
-[ext_resource path="res://sprites/transition_texture.png" type="Texture" id=4]
+[ext_resource path="res://scenes/2d/tutorial/tutorlal.png" type="Texture" id=1]
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -32,23 +30,11 @@ void fragment()
 //	COLOR = transition_color * smoothstep(0.4, 0.6, UV.x);
 }"
 
-[sub_resource type="ShaderMaterial" id=1]
+[resource]
 shader = SubResource( 2 )
 shader_param/animation = 0.0
-shader_param/transition_color = Color( 0.447059, 0.447059, 0.447059, 1 )
+shader_param/transition_color = Color( 1, 1, 1, 1 )
 shader_param/smoothing = 0.1
-shader_param/scroll_speed = Vector2( 0, 0.6 )
-shader_param/uv_scale = Vector2( 48, 48 )
-shader_param/transition_texture = ExtResource( 4 )
-
-[node name="transition_manager" type="TextureRect"]
-material = SubResource( 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 2 )
-expand = true
-script = ExtResource( 1 )
-transition_duration = 1.5
-wait_time = 0.0
-
-[node name="animation_tween" type="Tween" parent="."]
+shader_param/scroll_speed = Vector2( 0, 0 )
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/transition_texture = ExtResource( 1 )

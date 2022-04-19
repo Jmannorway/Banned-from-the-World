@@ -3,12 +3,15 @@ extends TextureRect
 enum TransitionState {NONE, IN, WAIT, OUT, _MAX}
 var state = TransitionState.NONE setget set_state
 func set_state(val) -> void:
-	pass
+	printerr("TransitionManager: Cannot set state directly")
 func _set_state(val) -> void:
 	if val != state:
+		var _prev = state
 		state = val
 		match val:
 			TransitionState.NONE:
+				if _prev == TransitionState.OUT:
+					emit_signal("transition_finished")
 				animation = 0.0
 			TransitionState.IN:
 				$animation_tween.interpolate_property(self, "animation", 0.0, 1.0, transition_duration, tween_type)
@@ -16,8 +19,10 @@ func _set_state(val) -> void:
 			TransitionState.WAIT:
 				if wait_time > 0.0:
 					get_tree().create_timer(wait_time).connect("timeout", self, "_on_TransitionWaitTimer_timeout")
+				elif wait_time == 0.0:
+					next_state()
 				else:
-					_next_state()
+					pass # Do nothing
 			TransitionState.OUT:
 				match transition_type:
 					TransitionType.FORWARD:
@@ -26,11 +31,11 @@ func _set_state(val) -> void:
 						$animation_tween.interpolate_property(self, "animation", null, 0.0, transition_duration, tween_type)
 				$animation_tween.start()
 				emit_signal("transition_middle")
-func _next_state() -> void:
+func next_state() -> void:
 	_set_state((state + 1) % TransitionState._MAX)
 
 enum TransitionType {FORWARD, FORWARD_BACK}
-export(TransitionType) var transition_type = TransitionType.FORWARD_BACK
+export(TransitionType) var transition_type = TransitionType.FORWARD
 
 var animation := 0.0
 
@@ -42,6 +47,7 @@ export(float, 0.0, 2.0) var transition_duration = 1.0
 export(float, 0.0, 1.0) var wait_time = 0.1
 
 signal transition_middle
+signal transition_finished
 
 func play_transition() -> void:
 	_set_state(TransitionState.IN)
@@ -54,7 +60,7 @@ func _process(delta: float) -> void:
 	material.set_shader_param("animation", animation)
 
 func _on_animation_tween_tween_all_completed():
-	_next_state()
+	next_state()
 
 func _on_TransitionWaitTimer_timeout():
-	_next_state()
+	next_state()

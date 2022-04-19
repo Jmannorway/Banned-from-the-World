@@ -22,10 +22,6 @@ func _ready():
 	if !current_map_instance:
 		current_map_instance = get_tree().current_scene
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		transition_to_map_by_path("res://scenes/2d/maps/ballet_map.tscn")
-
 func has_map() -> bool:
 	return is_instance_valid(current_map_instance)
 

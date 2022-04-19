@@ -2,9 +2,9 @@
 "checkpoint": 0,
 "fog_stage": 0,
 "inner_world_travel_count": 0,
-"intro_finished": true,
+"intro_finished": false,
 "minigame_clears": 0,
-"position": Vector3( -3, 0, 0 ),
+"position": Vector3( 1, 0, -1 ),
 "room": "bedroom",
 "world": "dream_world"
 }
