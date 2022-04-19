@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/3d/particles/fog particles/fog_particle_big.tres" type="Material" id=1]
+[ext_resource path="res://scenes/3d/particles/fog particles/fog_particles_material.tres" type="Material" id=2]
+[ext_resource path="res://sprites/douh_small.png" type="Texture" id=3]
+[ext_resource path="res://scenes/3d/particles/fog particles/fog_particles.gd" type="Script" id=4]
+
+[sub_resource type="QuadMesh" id=3]
+material = ExtResource( 1 )
+size = Vector2( 0.5, 1 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 5
+emission_ring_radius = 4.501
+emission_ring_inner_radius = 0.0
+emission_ring_height = 0.0
+emission_ring_axis = Vector3( 0, 1, 0 )
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 4, 0 )
+initial_velocity = 1.0
+scale = 0.15
+scale_random = 0.05
+anim_speed = 1.0
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 12
+particles_anim_v_frames = 1
+particles_anim_loop = true
+albedo_color = Color( 0.898039, 0.0156863, 0.615686, 1 )
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 6 )
+
+[node name="Manager" type="Spatial"]
+script = ExtResource( 4 )
+emission_ring_radius = 4.501
+emission_ring_axis = Vector3( 0, 1, 0 )
+
+[node name="Big" type="Particles" parent="."]
+amount = 120
+process_material = ExtResource( 2 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="Medium" type="Particles" parent="."]
+amount = 100
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )

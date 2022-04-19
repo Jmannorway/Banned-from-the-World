@@ -24,6 +24,21 @@ static func goto_world(tree : SceneTree, world : int) -> void:
 
 # TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 
+"""
+Set an object property. You can set nested object's properties by supplying
+an array with the nested object's names
+"""
+static func set_in_children_ext(parent : Node, objects : Array, property : String, value) -> void:
+	for node in parent.get_children():
+		var _object = node as Object
+		for obj in objects:
+			_object = _object.get(obj)
+		_object.set(property, value)
+
+static func set_in_children(parent : Node, property : String, value) -> void:
+	for node in parent.get_children():
+		node.set(property, value)
+
 static func make_array_2d(w : int, h : int, val = 0) -> Array:
 	var _arr : Array
 	_arr.resize(w)

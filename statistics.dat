@@ -4,7 +4,7 @@
 "inner_world_travel_count": 0,
 "intro_finished": false,
 "minigame_clears": 0,
-"position": Vector3( 1, 0, -1 ),
+"position": Vector3( 1, 0, 1 ),
 "room": "bedroom",
 "world": "dream_world"
 }

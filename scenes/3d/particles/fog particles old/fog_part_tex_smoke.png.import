@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fog_part_tex_smoke.png-d73157a22fe0156d95c26ced20692b6a.stex"
+path="res://.import/fog_part_tex_smoke.png-a5b7f19f0d5c8f7971362f33beaa4840.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/3d/particles/fog_part_tex_smoke.png"
-dest_files=[ "res://.import/fog_part_tex_smoke.png-d73157a22fe0156d95c26ced20692b6a.stex" ]
+source_file="res://scenes/3d/particles/fog particles old/fog_part_tex_smoke.png"
+dest_files=[ "res://.import/fog_part_tex_smoke.png-a5b7f19f0d5c8f7971362f33beaa4840.stex" ]
 
 [params]
 

@@ -1,0 +1,15 @@
+[gd_resource type="ParticlesMaterial" format=2]
+
+[resource]
+emission_shape = 5
+emission_ring_radius = 4.501
+emission_ring_inner_radius = 0.0
+emission_ring_height = 0.0
+emission_ring_axis = Vector3( 0, 1, 0 )
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 4, 0 )
+initial_velocity = 1.0
+scale = 0.5
+scale_random = 0.1
+anim_speed = 1.0
