@@ -2,7 +2,7 @@
 "checkpoint": 0,
 "fog_stage": 0,
 "inner_world_travel_count": 0,
-"intro_finished": false,
+"intro_finished": true,
 "minigame_clears": 0,
 "position": Vector3( 1, 0, 1 ),
 "room": "bedroom",

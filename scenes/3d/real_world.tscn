@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/3d/bedroom_test.tscn" type="PackedScene" id=2]
@@ -14,6 +14,49 @@
 [ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=12]
 [ext_resource path="res://scripts/SolidGrid3D.gd" type="Script" id=13]
 [ext_resource path="res://scenes/2d/tutorial/tutorial.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/3d/particles/fog particles/fog_particles_points.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/3d/particles/fog particles/cutscene_emission_point_texture.tres" type="Texture" id=16]
+[ext_resource path="res://scenes/3d/particles/fog particles/normal_emission_point_texture.tres" type="Texture" id=17]
+[ext_resource path="res://models/bed_ver1.fbx" type="PackedScene" id=18]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ParticleManager:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ParticleManager:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.1, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ParticleManager:point_texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 16 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "opening_cutscene"
@@ -110,6 +153,42 @@ tracks/5/keys = {
 "args": [ true ],
 "method": "set_active"
 } ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ParticleManager:point_texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ParticleManager:translation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.1, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ParticleManager:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -214,6 +293,42 @@ tracks/6/keys = {
 "method": "add_to_room_grid"
 } ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("ParticleManager:point_texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ), ExtResource( 17 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ParticleManager:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.1, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ParticleManager:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 2, 5.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.2, 0.5, 0.2 )
@@ -262,6 +377,7 @@ visible = false
 extents = Vector3( 3.24551, 2.31145, 2.66488 )
 
 [node name="cutscene_player" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
 anims/opening_cutscene = SubResource( 1 )
 anims/opening_cutscene_2 = SubResource( 3 )
 script = ExtResource( 9 )
@@ -323,5 +439,20 @@ room_path = NodePath("../../rooms/bedroom")
 
 [node name="main_camera" parent="." instance=ExtResource( 4 )]
 
+[node name="bed_ver1" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1.1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76671, -34.4515, -8.18245 )
+
+[node name="bed1" parent="bed_ver1/RootNode/bed" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="ParticleManager" parent="." instance=ExtResource( 15 )]
+transform = Transform( -4.80825e-08, 0, 1, 0, 1, 0, -1.1, 0, -4.37114e-08, 1.1, 0, 0 )
+visible = false
+big_amount = 960
+medium_amount = 820
+point_texture = ExtResource( 16 )
+
 [connection signal="animation_finished" from="cutscene_player" to="cutscene_player" method="_on_cutscene_player_animation_finished"]
 [connection signal="interacted" from="cutscene_nodes/door_interactable" to="cutscene_player" method="_on_door_interactable_interacted"]
+
+[editable path="bed_ver1"]
