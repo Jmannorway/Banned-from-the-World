@@ -7,7 +7,7 @@ const RUN_SPEED := 4.0
 var walk_speed := 2.0
 var run_speed := 4.0
 
-enum EFFECT {NORMAL, KATANA, DEALER, BALLERINA, SKATER, GHOST}
+enum EFFECT {NORMAL, KATANA, DEALER, BALLERINA, SKATER, GHOST, _MAX}
 const EFFECT_NAMES := [
 	"normal",
 	"katana",
@@ -18,6 +18,11 @@ const EFFECT_NAMES := [
 export(Dictionary) var effects
 var effect_index := 0
 const EFFECT_ACTION_FUNC_PRESET = "action_"
+static func create_effects_dictionary(default = null) -> Dictionary:
+	var _eff := {}
+	for n in EFFECT_NAMES:
+		_eff[n] = default
+	return _eff
 
 var effect : String = EFFECT_NAMES[0] setget set_effect
 func set_effect(val : String) -> void:
@@ -42,7 +47,8 @@ func set_effect(val : String) -> void:
 		
 		sprite.frames = effects[effect].frames
 		print("Player2D: ", effect)
-
+	else:
+		print("Player2D: Tried setting the same effect or invalid effect")
 
 func _ready():
 	# TODO: Connect to menu element that sets the effect
@@ -50,11 +56,18 @@ func _ready():
 	Util.connect_safe(XToFocus, "focus_changed", self, "_on_XToFocus_focus_changed")
 	Util.connect_safe(Ui.get_menu(), "visibility_changed", self, "_on_menu_visibility_changed", [Ui.get_menu()])
 
+func next_effect() -> void:
+	var i : int = (effect_index + 1) % EFFECT._MAX
+	while !Statistics.metadata.unlocked_effects[EFFECT_NAMES[i]]:
+		print("Player2D: Skipped effect '", EFFECT_NAMES[i], "' because it was not unlocked")
+		i = (i + 1) % EFFECT._MAX
+	set_effect(EFFECT_NAMES[i])
+	effect_index = i
+
 func _process(_delta):
 	if !frozen.is_weighted():
 		if Input.is_action_just_pressed("ui_page_up"):
-			effect_index = wrapi(effect_index + 1, 0, EFFECT_NAMES.size())
-			set_effect(EFFECT_NAMES[effect_index])
+			next_effect()
 		elif Input.is_action_just_pressed("ui_page_down"):
 			effect_index = wrapi(effect_index - 1, 0, EFFECT_NAMES.size())
 			set_effect(EFFECT_NAMES[effect_index])

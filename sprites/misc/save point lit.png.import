@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex"
+path="res://.import/save point lit.png-1857310e0fdce9f74591daa59536ffd1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/piano room/Door.png"
-dest_files=[ "res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex" ]
+source_file="res://sprites/misc/save point lit.png"
+dest_files=[ "res://.import/save point lit.png-1857310e0fdce9f74591daa59536ffd1.stex" ]
 
 [params]
 

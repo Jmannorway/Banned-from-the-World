@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex"
+path="res://.import/Ballerina.png-a6b03a1986378bb7f55138bf9f1110d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/piano room/Door.png"
-dest_files=[ "res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex" ]
+source_file="res://sprites/effects/Ballerina.png"
+dest_files=[ "res://.import/Ballerina.png-a6b03a1986378bb7f55138bf9f1110d9.stex" ]
 
 [params]
 

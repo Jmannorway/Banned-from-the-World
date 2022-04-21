@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex"
+path="res://.import/gh1.png-e2d5c23791b2e717619e7e302494e9c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/piano room/Door.png"
-dest_files=[ "res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex" ]
+source_file="res://sprites/effects/gh1.png"
+dest_files=[ "res://.import/gh1.png-e2d5c23791b2e717619e7e302494e9c6.stex" ]
 
 [params]
 

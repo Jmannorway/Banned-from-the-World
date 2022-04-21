@@ -52,7 +52,6 @@ static func make_array_2d(w : int, h : int, val = 0) -> Array:
 # Assumes a rectangular array
 # Array must be passed by reference
 static func resize_array_2d(array2d : Array, new_size : Vector2) -> void:
-	
 	var _old_size = array2d.size()
 	array2d.resize(new_size.x)
 	
@@ -157,6 +156,13 @@ static func min_v2(a : Vector2, b : Vector2) -> Vector2:
 
 static func max_v2(a : Vector2, b : Vector2) -> Vector2:
 	return Vector2(max(a.x, b.x), max(a.y, b.y))
+
+static func int_set_bit(i : int, bit : int, val : bool) -> int:
+	print(bit)
+	if val:
+		return i | (1 << bit)
+	else:
+		return i & (~(1 << bit))
 
 # fuck you
 static func tern(condition : bool, return_if_true, return_if_false):
