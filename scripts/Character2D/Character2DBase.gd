@@ -96,7 +96,7 @@ func _post_process_move() -> void:
 # Callbacks
 func update_solidity() -> void:
 	if solid:
-		WorldGrid.get_solid_grid(layer).set_solid_at_pixel(global_position, true)
+		WorldGrid.get_solid_grid(layer).set_solid_at_pixel(global_position, true, SolidGrid2D.SolidBit.DYNAMIC)
 
 # SETTERS & GETTERS
 func set_move_speed(val : float) -> void:
@@ -154,7 +154,8 @@ func move_position(steps : Vector2) -> void:
 	var _move_distance = steps * Game.SNAP
 
 	if solid:
-		WorldGrid.get_solid_grid(layer).move_solid_to_pixel(global_position, _move_distance)
+		var _solid_grid = WorldGrid.get_solid_grid(layer)
+		_solid_grid.move_solid_to_pixel(global_position, _move_distance)
 
 	position += _move_distance
 	last_move = steps

@@ -31,7 +31,7 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.768627 )
 frames = ExtResource( 7 )
 animation = "down"
-frame = 1
+frame = 2
 playing = true
 
 [node name="interactable_2d" parent="warp" instance=ExtResource( 5 )]

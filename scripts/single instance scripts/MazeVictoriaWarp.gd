@@ -3,7 +3,7 @@ extends Node2D
 export(Rect2) var hole
 
 func _ready():
-	WorldGrid.get_solid_grid(0).set_solid_at_pixel(global_position, true)
+	WorldGrid.get_solid_grid(0).set_solid_at_pixel(global_position, true, SolidGrid2D.SolidBit.DYNAMIC)
 
 func _on_spin_timer_timeout():
 	var _sprite = $animated_character_sprite_2d as AnimatedCharacterSprite2D

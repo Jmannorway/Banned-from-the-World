@@ -12,12 +12,11 @@ const DEFAULT_METADATA := {
 	"intro_finished" : false,
 	"inner_world_travel_count" : 0,
 	"unlocked_effects" : {},
-	"fog_stage" : 0,
 	"checkpoint" : 0,
 	"minigame_clears" : 0,
-	"world" : "dream_world", # doesn't do anything, only a proof of concept
 	"room" : "bedroom",
-	"position" : Vector3.ZERO 
+	"position" : Vector3.ZERO,
+	"fog_stage" : 0
 }
 static func create_new_game_metadata() -> Dictionary:
 	var _new = DEFAULT_METADATA.duplicate(true)
@@ -26,21 +25,8 @@ static func create_new_game_metadata() -> Dictionary:
 	return _new
 var metadata : Dictionary
 
-enum CHECKPOINT {
-	NORTH,
-	WEST,
-	EAST,
-	SOUTH,
-	_MAX
-}
-
-enum MINIGAME {
-	PIANO = 1,
-	DOORS = 2,
-	INTROSPECTION = 4,
-	_QUESTIONMARK_ = 8,
-	_ALL = 15
-}
+enum CHECKPOINT {NORTH, WEST, EAST, SOUTH, _MAX}
+enum MINIGAME {DOORS, PIANO, INTROSPECTION, QUESTIONMARK, _MAX}
 
 # In the future we can store this file externally
 # instead of res:// we use user:// (%appdata%, local directory)
