@@ -29,7 +29,6 @@ func set_loaded(val : bool) -> void:
 		_load_room()
 	elif !val && loaded:
 		_unload_room()
-	loaded = val
 
 #If true will automatically loop entities
 #that move outside of the room bounds
@@ -39,8 +38,8 @@ func set_looping(val : bool) -> void:
 		disconnect_looping_character_nodes()
 	looping = val
 
-signal loaded
-signal unloaded
+signal loaded(room_loader)
+signal unloaded(room_loader)
 
 func connect_looping_character_nodes() -> void:
 	for n in get_tree().get_nodes_in_group("characters"):
@@ -88,7 +87,8 @@ func _load_room():
 	if looping:
 		connect_looping_character_nodes()
 	
-	emit_signal("loaded")
+	loaded = true
+	emit_signal("loaded", self)
 
 func _unload_room():
 	if is_instance_valid(room_instance):
@@ -100,7 +100,8 @@ func _unload_room():
 	
 	clear_unwanted_children()
 	
-	emit_signal("unloaded")
+	loaded = false
+	emit_signal("unloaded", self)
 
 func clear_unwanted_children() -> void:
 	var _childrenRooms: Array = get_children()

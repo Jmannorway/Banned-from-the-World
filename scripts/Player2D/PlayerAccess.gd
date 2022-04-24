@@ -50,3 +50,25 @@ static func spawn_player_2d() -> Player2D:
 	else:
 		Util.reparent_to_deferred(_player, MapManager)
 	return _player
+
+static func spawn_player_in_room_2d(room_name : String, room_layer : int) -> Player2D:
+	var _player = instance_player_2d()
+	if MapManager.has_map():
+		var _room_manager = MapManager.get_room_manager()
+		if _room_manager.room_loaders.has(room_name):
+			if _room_manager.room_layers[room_layer]:
+				print("PlayerAccess: Spawned player on layer '", room_layer, "'")
+				_room_manager.room_layers[room_layer].add_child(_player)
+			elif _room_manager.room_loaders[room_name].is_loaded():
+				print("PlayerAccess: Room didn't have layer '", room_layer, "'. Added player to room itself")
+				_room_manager.room_loaders[room_name].room_instance.add_child(_player)
+			else:
+				print("PlayerAccess: Room '", room_name, "' wasn't loaded. Added player to room loader itself")
+				_room_manager.room_loaders[room_name].add_child(_player)
+		else:
+			printerr("PlayerAccess: RoomManager didn't have RoomLoader '", room_name, "'")
+			MapManager.current_map_instance.add_child(_player)
+	else:
+		printerr("PlayerAccess: MapManager didn't have a map to load the player into")
+		MapManager.add_child(_player)
+	return _player

@@ -52,6 +52,7 @@ func set_effect(val : String) -> void:
 
 func _ready():
 	# TODO: Connect to menu element that sets the effect
+	Util.connect_safe(MapManager.get_room_manager(), "room_focused", self, "_on_RoomManager_room_focused")
 	Util.connect_safe(MapManager, "changing_map", self, "_on_MapManager_changing_map")
 	Util.connect_safe(XToFocus, "focus_changed", self, "_on_XToFocus_focus_changed")
 	Util.connect_safe(Ui.get_menu(), "visibility_changed", self, "_on_menu_visibility_changed", [Ui.get_menu()])
@@ -77,10 +78,10 @@ func _process(_delta):
 		
 		var _input_vector = make_input_vector_4way(get_input_vector())
 		if !Util.compare_v2(_input_vector, 0) && !is_moving():
-			if check_solid_relative(_input_vector):
-				set_facing(_input_vector)
-			else:
+			set_facing(_input_vector)
+			if !check_solid_relative(_input_vector):
 				queue_move(_input_vector)
+			$interactable_detector_2d.peer_facing(self, calculate_move_offset(facing))
 
 func _post_process_move():
 	._post_process_move()
@@ -108,6 +109,10 @@ func action_katana() -> void:
 	pass
 
 # SIGNAL CALLBACKS
+func _on_RoomManager_room_focused(room_name : String, room_loader_node : RoomLoader2D):
+	var _parent = MapManager.get_deepest_spawn_point(room_name, layer)
+	Util.reparent_to(self, _parent)
+
 func _on_XToFocus_focus_changed(val):
 	frozen.set_weight(XToFocus.name, val)
 
@@ -122,6 +127,11 @@ static func get_input_vector() -> Vector2:
 	return Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
+
+static func get_pressed_input_vector() -> Vector2:
+	return Vector2(
+		Input.is_action_just_pressed("move_right") as int - Input.is_action_just_pressed("move_left") as int,
+		Input.is_action_just_pressed("move_down") as int - Input.is_action_just_pressed("move_up") as int)
 
 static func make_input_vector_4way(iv : Vector2) -> Vector2:
 	return Vector2(

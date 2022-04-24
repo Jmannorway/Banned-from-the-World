@@ -435,6 +435,8 @@ __meta__ = {
 room_path = NodePath("../../rooms/bedroom")
 
 [node name="tutorial" parent="cutscene_nodes" instance=ExtResource( 14 )]
+transition_type = 0
+tween_type = 1
 
 [node name="main_camera" parent="." instance=ExtResource( 4 )]
 

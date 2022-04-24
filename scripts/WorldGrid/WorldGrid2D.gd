@@ -3,6 +3,7 @@ extends Node
 export(PackedScene) var solid_grid_scene
 export(PackedScene) var navigation_grid_scene
 export(PackedScene) var sound_grid_scene
+export(PackedScene) var interactable_grid_scene
 const LAYER_COUNT := 8
 
 func _enter_tree() -> void:
@@ -29,6 +30,10 @@ func _create_grids() -> void:
 		_inst = sound_grid_scene.instance() as SoundGrid2D
 		_inst.add_on_ready = false
 		$sound_grids.add_child(_inst)
+		
+		_inst = interactable_grid_scene.instance() as InteractableGrid2D
+		_inst.add_on_ready = false
+		$interactable_grids.add_child(_inst)
 
 func _clear_grids() -> void:
 	for i in LAYER_COUNT:
@@ -47,3 +52,6 @@ func get_navigation_grid(layer : int) -> NavigationGrid2D:
 
 func get_sound_grid(layer : int) -> SoundGrid2D:
 	return $sound_grids.get_child(layer) as SoundGrid2D
+
+func get_interactable_grid(layer : int) -> InteractableGrid2D:
+	return $interactable_grids.get_child(layer) as InteractableGrid2D

@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Interactable2D/InteractableDetector2D.gd"
 }, {
+"base": "ResourceGrid2D",
+"class": "InteractableGrid2D",
+"language": "GDScript",
+"path": "res://scripts/WorldGrid/InteractableGrid2D.gd"
+}, {
 "base": "Interactable",
 "class": "InteractableRoom",
 "language": "GDScript",
@@ -107,7 +112,7 @@ _global_script_classes=[ {
 "base": "ResourceGrid2D",
 "class": "NavigationGrid2D",
 "language": "GDScript",
-"path": "res://scripts/SolidGrid2D/NavigationGrid2D.gd"
+"path": "res://scripts/WorldGrid/NavigationGrid2D.gd"
 }, {
 "base": "Node",
 "class": "PianoGameState",
@@ -137,7 +142,7 @@ _global_script_classes=[ {
 "base": "TileMap",
 "class": "ResourceGrid2D",
 "language": "GDScript",
-"path": "res://scripts/SolidGrid2D/ResourceGrid2D.gd"
+"path": "res://scripts/WorldGrid/ResourceGrid2D.gd"
 }, {
 "base": "Node2D",
 "class": "Room2D",
@@ -167,7 +172,7 @@ _global_script_classes=[ {
 "base": "ResourceGrid2D",
 "class": "SolidGrid2D",
 "language": "GDScript",
-"path": "res://scripts/SolidGrid2D/SolidGrid2D.gd"
+"path": "res://scripts/WorldGrid/SolidGrid2D.gd"
 }, {
 "base": "Resource",
 "class": "SongPattern",
@@ -177,7 +182,7 @@ _global_script_classes=[ {
 "base": "ResourceGrid2D",
 "class": "SoundGrid2D",
 "language": "GDScript",
-"path": "res://scripts/SolidGrid2D/SoundGrid2D.gd"
+"path": "res://scripts/WorldGrid/SoundGrid2D.gd"
 }, {
 "base": "Interactable2D",
 "class": "Stairs",
@@ -209,6 +214,7 @@ _global_script_class_icons={
 "Interactable": "",
 "Interactable2D": "",
 "InteractableDetector2D": "",
+"InteractableGrid2D": "",
 "InteractableRoom": "",
 "InteractableWarp": "",
 "Map2D": "",

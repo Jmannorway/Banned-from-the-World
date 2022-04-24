@@ -28,12 +28,12 @@ z_index = 2
 sort_enabled = false
 room_name = "maze"
 room = ExtResource( 2 )
-preview = true
 size = Vector2( 1224, 984 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
 position = Vector2( 300, 156 )
 room_name = "hub"
+room_layer = 1
 
 [node name="to_maze" parent="." instance=ExtResource( 7 )]
 position = Vector2( 492, 192 )

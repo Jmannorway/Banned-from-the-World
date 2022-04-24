@@ -4,7 +4,7 @@ class_name ResourceGrid2D
 
 export(bool) var add_on_ready = true
 export(bool) var hide_on_ready = true
-export(int) var layer = 0 setget set_layer
+export(int) var layer : int = 0 setget set_layer
 func set_layer(val : int) -> void:
 	if val < 0 || val >= WorldGrid.LAYER_COUNT:
 		print("ResourceGrid2D: Invalid layer")

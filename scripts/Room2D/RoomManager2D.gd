@@ -3,7 +3,11 @@ extends Node2D
 class_name RoomManager2D
 
 var room_loaders : Dictionary
+var room_layers : Array
 var current_room_name : String setget set_current_room_name
+func set_current_room_name(room_name : String):
+	previous_room_name = current_room_name
+	current_room_name = room_name
 var previous_room_name : String
 const ROOM_LOADER_GROUP_NAME = "room_loaders"
 
@@ -12,19 +16,21 @@ signal room_unloaded(room_name, room_loader_node)
 signal room_focused(room_name, room_loader_node)
 
 func _ready():
+	room_layers.resize(WorldGrid.LAYER_COUNT)
 	Util.connect_safe(MapManager, "changing_map", self, "_on_MapManager_MapChanged")
 
 func _on_MapManager_MapChanged():
 	room_loaders.clear()
+	for i in room_layers.size():
+		room_layers[i] = null
 	if is_transitioning():
 		stop_transition()
 
-func set_current_room_name(room_name : String):
-	previous_room_name = current_room_name
-	current_room_name = room_name
-
 func register_room_loader(room : RoomLoader2D):
 	room_loaders[room.room_name] = room
+
+func register_room_layer(room_layer):
+	room_layers[room_layer.layer] = room_layer
 
 func get_room_loader_by_name(room_name : String) -> RoomLoader2D:
 	return room_loaders.get(room_name)
@@ -61,24 +67,21 @@ func focus_room(room_name : String) -> void:
 			emit_signal("room_focused", room_name, room_loaders[room_name])
 		set_current_room_name(room_name)
 	else:
-		print("MapManager2D: Can't focus on non-existant room ", room_name);
+		print("MapManager2D: Can't focus on non-existent room ", room_name);
 
 func change_room(room_name : String) -> void:
 	unload_room(current_room_name)
 	focus_room(room_name)
 
-func collect_rooms() -> void:
-	room_loaders.clear()
-	var room_group = get_tree().get_nodes_in_group(ROOM_LOADER_GROUP_NAME)
-	for r in room_group:
-		room_loaders[r.room_name] = r
-
 # CALLBACKS
-func _on_RoomLoader_loaded():
+func _on_RoomLoader_loaded(room_loader):
 	emit_signal("room_focused", current_room_name, room_loaders[current_room_name])
+	var _player = PlayerAccess.get_player_2d(get_tree())
+	if _player:
+		Util.reparent_to(_player, MapManager.get_deepest_spawn_point(room_loader.room_name, _player.layer))
 
 # ROOM TRANSITION FUNCTIONS
-func smooth_transition_to_room(room_name : String, keep := false, duration := 2.0) -> void:
+func smooth_transition_to_room(room_name : String, room_layer : int, keep := false, duration := 2.0) -> void:
 	if is_transitioning() && previous_room_name != room_name:
 		finish_transition()
 	var _camera = Util.get_first_node_in_group(get_tree(), "camera")

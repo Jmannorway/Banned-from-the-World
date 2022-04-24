@@ -21,6 +21,9 @@ func step():
 func interact():
 	print("Default interact function called")
 
+func peer():
+	print("Default peer function called")
+
 func on_character_enter(var directionFrom: Vector2) -> void:
 	print("Default on enter from: ", directionFrom)
 

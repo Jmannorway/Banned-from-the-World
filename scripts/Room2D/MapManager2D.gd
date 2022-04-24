@@ -90,6 +90,26 @@ func change_map_by_path(map_path : String) -> void:
 	else:
 		print("MapManager2D: Invalid map path, couldn't load from: ", map_path)
 
+static func get_deepest_spawn_point(room_name : String, room_layer : int) -> Node:
+	if MapManager.has_map():
+		var _room_manager = MapManager.get_room_manager()
+		if _room_manager.room_loaders.has(room_name):
+			if _room_manager.room_layers[room_layer]:
+				print("RoomManager2D: Found room layer ", room_layer)
+				return _room_manager.room_layers[room_layer]
+			elif _room_manager.room_loaders[room_name].is_loaded():
+				print("RoomManager2D: Room didn't have layer ", room_layer, ". Returning room")
+				return _room_manager.room_loaders[room_name].room_instance
+			else:
+				print("RoomManager2D: Room '", room_name, "' wasn't loaded. Returning room loader")
+				return _room_manager.room_loaders[room_name]
+		else:
+			printerr("RoomManager2D: RoomLoader '", room_name, "' not found. Returning current map")
+			return MapManager.current_map_instance
+	else:
+		printerr("RoomManager2D: Map not found. Returning self")
+		return MapManager
+
 # CALLBACKS
 
 func _on_transition_manager_transition_middle() -> void:

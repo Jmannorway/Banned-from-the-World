@@ -1,18 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scripts/SolidGrid2D/WorldGrid2D.gd" type="Script" id=1]
+[ext_resource path="res://scripts/WorldGrid/WorldGrid2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/collision grid/sound_grid_2d.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/2d/collision grid/navigation_grid_2d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/2d/collision grid/solid_grid_2d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/2d/collision grid/interactable_grid_2d.tscn" type="PackedScene" id=5]
 
 [node name="world_grid_2d" type="Node"]
 script = ExtResource( 1 )
 solid_grid_scene = ExtResource( 4 )
 navigation_grid_scene = ExtResource( 3 )
 sound_grid_scene = ExtResource( 2 )
+interactable_grid_scene = ExtResource( 5 )
 
 [node name="solid_grids" type="Node" parent="."]
 
 [node name="sound_grids" type="Node" parent="."]
 
 [node name="navigation_grids" type="Node" parent="."]
+
+[node name="interactable_grids" type="Node" parent="."]

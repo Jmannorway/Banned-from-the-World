@@ -15,8 +15,8 @@ func _enter_tree():
 
 func peer_facing(checking_node : Node2D, steps : Vector2) -> void:
 	var _facing_interactable = get_facing_interactable(checking_node, steps)
-	if _facing_interactable && _facing_interactable.can_be_peered:
-		_facing_interactable.interact()
+	if _facing_interactable:
+		_facing_interactable.peer()
 	else:
 		print("InteractableDetector2D: No facing interactable or facing interactable couldn't be peered")
 
