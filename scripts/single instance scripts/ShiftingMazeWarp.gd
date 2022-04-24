@@ -1,7 +1,7 @@
 extends Node2D
 
 func _process(delta):
-	WorldGrid.get_solid_grid(0).set_solid_at_pixel(global_position, true, SolidGrid2D.SolidBit.DYNAMIC)
+	WorldGrid.get_solid_grid(0).set_solid_at_pixel(global_position, true)
 
 func _on_spin_timer_timeout():
 	var _sprite = $animated_character_sprite_2d as AnimatedCharacterSprite2D

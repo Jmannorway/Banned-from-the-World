@@ -45,6 +45,7 @@ room_name = "ballet_stage"
 index = 1
 
 [node name="player_start_stage2" parent="." instance=ExtResource( 4 )]
+visible = true
 position = Vector2( 180, 444 )
 room_name = "ballet_stage"
 index = 1
