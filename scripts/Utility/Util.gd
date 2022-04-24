@@ -146,3 +146,7 @@ static func max_v2(a : Vector2, b : Vector2) -> Vector2:
 # fuck you
 static func tern(condition : bool, return_if_true, return_if_false):
 	return return_if_true if condition else return_if_false
+
+# it does what the function name says...
+static func loop_clamp(var value: int, var minVal: int, var maxVal: int) -> int:
+	return (value % (maxVal - minVal + int((maxVal - minVal) == 0))) + maxVal * int(value < minVal)
