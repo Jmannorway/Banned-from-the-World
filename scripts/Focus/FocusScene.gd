@@ -20,11 +20,14 @@ func update():
 	update_shader_params()
 
 func update_scene():
-	XToFocus.reset()
-	XToFocus.add_focus_scene(scene, is_2d)
-	XToFocus.pass_player_position(pass_player_position)
-	XToFocus.set_focus_scene_position(offset);
-	XToFocus.set_focus_scene_layer(layer);
+	if scene:
+		XToFocus.reset()
+		XToFocus.add_focus_scene(scene, is_2d)
+		XToFocus.pass_player_position(pass_player_position)
+		XToFocus.set_focus_scene_position(offset);
+		XToFocus.set_focus_scene_layer(layer);
+	else:
+		print("FocusScene: No focus scene")
 
 func update_material():
 	XToFocus.set_focus_shader(material)

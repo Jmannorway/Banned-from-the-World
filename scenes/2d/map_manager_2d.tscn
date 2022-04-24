@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Room2D/MapManager2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/room_manager_2d.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/2d/game_viewport.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/2d/game_viewport_sprite.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/2d/InnerWorldViewportSprite.gd" type="Script" id=5]
+[ext_resource path="res://shaders/canvas item/inner_world_effects/default.tres" type="Material" id=6]
+[ext_resource path="res://shaders/canvas item/inner_world_effects/inversion_range.tres" type="Material" id=7]
+[ext_resource path="res://scenes/2d/transition manager/transition_manager.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("game_viewport")
@@ -16,4 +20,14 @@ script = ExtResource( 1 )
 [node name="game_viewport" parent="." instance=ExtResource( 3 )]
 
 [node name="game_viewport_sprite" parent="." instance=ExtResource( 4 )]
+material = ExtResource( 7 )
 texture = SubResource( 1 )
+script = ExtResource( 5 )
+effects = [ ExtResource( 6 ), ExtResource( 7 ) ]
+
+[node name="transition_layer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="transition_manager" parent="transition_layer" instance=ExtResource( 8 )]
+
+[connection signal="transition_middle" from="transition_layer/transition_manager" to="." method="_on_transition_manager_transition_middle"]

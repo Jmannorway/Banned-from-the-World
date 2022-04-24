@@ -31,7 +31,7 @@ func activate(var status: bool) -> void:
 	visible = status
 
 func get_block(var position: Vector3) -> int:
-	return gridMap.get_cell_item(int(position.x - translation.x), int(position.y - translation.y), int(position.z - translation.z))
+	return gridMap.get_cell_item(int(position.x - round(translation.x)), int(position.y - round(translation.y)), int(position.z - round(translation.z)))
 
 func is_block_solid(var position: Vector3) -> bool:
 	return get_block(position) == 0

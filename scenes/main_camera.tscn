@@ -1,49 +1,45 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Camera/CameraController.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Camera/MainCamera.gd" type="Script" id=2]
+[ext_resource path="res://scenes/CameraTargetOffset3D.gd" type="Script" id=3]
 
 [sub_resource type="Environment" id=4]
 background_mode = 1
 ambient_light_color = Color( 0.0784314, 0.027451, 0.145098, 1 )
 
-[sub_resource type="SpatialMaterial" id=3]
-flags_unshaded = true
+[sub_resource type="PlaneMesh" id=5]
+size = Vector2( 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_vertex_lighting = true
 flags_do_not_receive_shadows = true
-params_billboard_mode = 1
+albedo_color = Color( 0, 0, 0, 0 )
 
-[sub_resource type="ParticlesMaterial" id=1]
-emission_shape = 5
-emission_ring_radius = 32.0
-emission_ring_inner_radius = 10.0
-emission_ring_height = 2.0
-emission_ring_axis = Vector3( 0, 1, 0 )
-direction = Vector3( 1, 1, 1 )
-spread = 180.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 0.1
-angular_velocity = -216.99
-angular_velocity_random = 0.44
-
-[sub_resource type="QuadMesh" id=2]
-size = Vector2( 4, 4 )
-
-[node name="main_camera" type="Spatial"]
+[node name="main_camera" type="Spatial" groups=["3d_camera"]]
 script = ExtResource( 1 )
 movementSpeed = 20.0
 
-[node name="camera" type="Camera" parent="." groups=["3d_camera"]]
-transform = Transform( 1, 0, 0, 0, 0.539388, 0.842057, 0, -0.842057, 0.539388, 0, 7.08635, 4.10851 )
-environment = SubResource( 4 )
-
 [node name="tween_camera" type="Tween" parent="."]
 
-[node name="Particles" type="Particles" parent="."]
-visible = false
-material_override = SubResource( 3 )
-cast_shadow = 0
-amount = 256
-lifetime = 8.05
-preprocess = 5.1
-visibility_aabb = AABB( -12.8515, -1.38444, -8.94972, 25.703, 2.76889, 17.8994 )
-process_material = SubResource( 1 )
-draw_pass_1 = SubResource( 2 )
+[node name="target_offset" type="Spatial" parent="."]
+script = ExtResource( 3 )
+
+[node name="camera" type="Camera" parent="target_offset"]
+transform = Transform( 1, 0, 0, 0, 0.539138, 0.842217, 0, -0.842217, 0.539138, 0, 7.086, 4.109 )
+environment = SubResource( 4 )
+current = true
+script = ExtResource( 2 )
+dim_alpha = 0.0
+gameplay_translation = Vector3( 0, 7.086, 4.109 )
+gameplay_rotation_degrees = Vector3( -57.375, 0, 0 )
+
+[node name="blocking_mesh" type="MeshInstance" parent="target_offset/camera"]
+transform = Transform( 1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, -0.0316136, -0.209651 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="transition_tween" type="Tween" parent="target_offset/camera"]
+
+[node name="alpha_tween" type="Tween" parent="target_offset/camera"]

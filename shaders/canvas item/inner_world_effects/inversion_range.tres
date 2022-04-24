@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://shaders/canvas item/inner_world_effects/circle_inversion.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/radius = 0.4
+shader_param/smoothing = 0.3
+shader_param/pulse = 0.04

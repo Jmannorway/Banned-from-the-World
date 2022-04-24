@@ -239,7 +239,8 @@ func create_shifting_walls(offset : int, separation : int, horizontal : bool, di
 
 func add_to_world_grid() -> void:
 	if !Engine.editor_hint:
-		WorldGrid.clear_all()
+		WorldGrid.get_solid_grid($solids.layer).clear()
+		WorldGrid.get_navigation_grid($navigation.layer).clear()
 	$navigation.paint_to_world_grid()
 	$solids.paint_to_world_grid()
 

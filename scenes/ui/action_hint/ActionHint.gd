@@ -3,7 +3,7 @@ extends AnimatedSprite
 enum HINT{SHIFT, Z, X, C}
 enum STATE {INVISIBLE, FADE_IN, VISIBLE, FADE_OUT, _MAX}
 
-const BUTTON = ["run", "interact", "focus", "menu"]
+const BUTTON = ["action", "interact", "focus", "menu"]
 
 export(float) var fade_duration = 1.0
 var state : int = STATE.INVISIBLE setget set_state
@@ -21,6 +21,8 @@ func show_action_hint(action : int, duration := 0.0, held := false):
 		timed = true
 	else:
 		timed = false
+	
+	Util
 	
 	check_held = held
 	

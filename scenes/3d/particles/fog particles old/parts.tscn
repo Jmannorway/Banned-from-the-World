@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/3d/particles/fog particles old/smoke_fog_part_material.tres" type="Material" id=1]
+[ext_resource path="res://scenes/3d/particles/fog particles old/big_fog_part_material.tres" type="Material" id=2]
+[ext_resource path="res://scenes/3d/particles/fog particles old/small_fog_part_mesh.tres" type="QuadMesh" id=3]
+[ext_resource path="res://scenes/3d/particles/fog particles old/small_fog_part_material.tres" type="Material" id=4]
+[ext_resource path="res://scenes/3d/particles/fog particles old/big_fog_part_mesh.tres" type="QuadMesh" id=5]
+[ext_resource path="res://scenes/3d/particles/fog particles old/smoke_fog_part_mesh.tres" type="QuadMesh" id=6]
+
+[node name="Particles" type="Spatial"]
+
+[node name="Fog" type="Particles" parent="."]
+amount = 20
+lifetime = 2.0
+preprocess = 2.0
+visibility_aabb = AABB( -4.99109, -4.99963, -4.94153, 9.96716, 9.98621, 9.93848 )
+process_material = ExtResource( 1 )
+draw_pass_1 = ExtResource( 6 )
+
+[node name="Big" type="Particles" parent="."]
+amount = 20
+preprocess = 1.0
+speed_scale = 0.9
+visibility_aabb = AABB( -4.90735, -4.89709, -4.99304, 9.90661, 11.3407, 9.89673 )
+process_material = ExtResource( 2 )
+draw_pass_1 = ExtResource( 5 )
+
+[node name="Small" type="Particles" parent="."]
+amount = 20
+preprocess = 1.0
+process_material = ExtResource( 4 )
+draw_pass_1 = ExtResource( 3 )

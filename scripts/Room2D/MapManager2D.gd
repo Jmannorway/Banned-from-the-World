@@ -6,6 +6,8 @@ var current_map : PackedScene
 var current_map_name : String
 var current_map_instance : Node
 onready var viewport = $game_viewport
+onready var viewport_sprite = $game_viewport_sprite
+onready var transition_manager = $transition_layer/transition_manager
 const MAP_DIRECTORY = "res://scenes/2d/maps/"
 
 const INVALID_PLAYER_START_INDEX := -1
@@ -25,6 +27,11 @@ func has_map() -> bool:
 
 func get_room_manager() -> RoomManager2D:
 	return $room_manager_2d as RoomManager2D
+
+func transition_to_map_by_path(map_path : String, psi = 0) -> void:
+	transition_manager.play_transition()
+	yield(transition_manager, "transition_middle")
+	warp_to_map_by_path(map_path, psi)
 
 func warp_to_map(map_scene : PackedScene, psi = 0) -> void:
 	player_start_index = psi
@@ -82,3 +89,8 @@ func change_map_by_path(map_path : String) -> void:
 		change_map(_map)
 	else:
 		print("MapManager2D: Invalid map path, couldn't load from: ", map_path)
+
+# CALLBACKS
+
+func _on_transition_manager_transition_middle() -> void:
+	pass # Replace with function body.

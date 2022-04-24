@@ -7,7 +7,7 @@ export var moveOffset: float = 1.0
 export var moveTime: float = 0.4
 
 var interactiveReference: Interactable = null
-var canMove: bool = true
+var frozen := WeightedBool.new()
 var rotationDelta: float
 var velocity: Vector3
 var position: Vector2
@@ -46,7 +46,7 @@ func on_exit_area(var otherArea: Area) -> void:
 	interactiveReference = null
 
 func on_focus_changed(var focus: bool) -> void:
-	canMove = !focus
+	frozen.set_weight(XToFocus.name, focus)
 
 func teleport_to(var newPosition: Vector3) -> void:
 	translation = newPosition + gridOffset
@@ -87,10 +87,13 @@ func move(var direction: int) -> void:
 	
 	anim.travel("walk")
 	
-	canMove = false
+	frozen.set_weight("move", true)
 
 func check_minigame_event() -> bool:
 	return roomManager.currentRoom.get_block(Vector3(position.x - 0.5, translation.y, position.y - 0.5)) == 1
+
+func set_frozen(identifier : String, val : bool):
+	frozen.set_weight(identifier, val)
 
 # warning-ignore:unused_argument
 func _input(event):
@@ -98,7 +101,7 @@ func _input(event):
 		interactiveReference._interact(roomManager)
 		return
 	
-	if canMove:
+	if !frozen.is_weighted():
 		if Input.is_action_pressed("move_up"):
 			move(MoveDirection.UP)
 		elif Input.is_action_pressed("move_down"):
@@ -132,7 +135,7 @@ func tween_position_steps(var _object: Object, var _key: NodePath, var _elapsed:
 	translation.z = value.y
 
 func tween_position_completed() -> void:
-	canMove = true
+	frozen.set_weight("move", false)
 	
 	if Input.is_action_pressed("move_up"):
 		move(MoveDirection.UP)

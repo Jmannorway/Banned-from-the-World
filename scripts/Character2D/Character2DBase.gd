@@ -55,6 +55,7 @@ var move_cooldown_timer := Timer.new()
 var queued_move := CharacterMove2D.new()
 var facing := Vector2.DOWN setget set_facing
 var last_move : Vector2
+var layer : int = 0
 
 # INTERNAL FUNCTIONS
 func _enter_tree():
@@ -73,9 +74,6 @@ func _enter_tree():
 		add_child(move_cooldown_timer)
 		move_cooldown_timer.one_shot = true
 		Util.connect_safe(move_cooldown_timer, "timeout", self, "_on_move_cooldown_timer_timeout")
-
-func calculate_move_offset(steps : Vector2) -> Vector2:
-	return steps + Vector2(move_offset.x * steps.y, move_offset.y * steps.x)
 
 # general move function
 func _move(steps : Vector2, direction : Vector2) -> void:
@@ -98,7 +96,7 @@ func _post_process_move() -> void:
 # Callbacks
 func update_solidity() -> void:
 	if solid:
-		WorldGrid.solid_grid.set_solid_at_pixel(global_position, true)
+		WorldGrid.get_solid_grid(layer).set_solid_at_pixel(global_position, true)
 
 # SETTERS & GETTERS
 func set_move_speed(val : float) -> void:
@@ -137,6 +135,9 @@ func get_global_integer_position() -> Vector2:
 func is_moving() -> bool:
 	return move_cooldown_timer.time_left != 0.0
 
+func calculate_move_offset(steps : Vector2) -> Vector2:
+	return steps + Vector2(move_offset.x * steps.y, move_offset.y * steps.x)
+
 # EXTERNALLY CALLABLE
 # Queue a move to be processed
 func queue_move(_direction : Vector2, _priority : int = 0) -> void:
@@ -144,7 +145,7 @@ func queue_move(_direction : Vector2, _priority : int = 0) -> void:
 
 # Checks if the relative block in direction is solid
 func check_solid_relative(steps : Vector2) -> bool:
-	return WorldGrid.solid_grid.get_cell_at_pixel(
+	return WorldGrid.get_solid_grid(layer).get_cell_at_pixel(
 		global_position + calculate_move_offset(steps) * Game.SNAP) == 0
 
 # Move the character by a square
@@ -153,7 +154,7 @@ func move_position(steps : Vector2) -> void:
 	var _move_distance = steps * Game.SNAP
 
 	if solid:
-		WorldGrid.solid_grid.move_solid_to_pixel(global_position, _move_distance)
+		WorldGrid.get_solid_grid(layer).move_solid_to_pixel(global_position, _move_distance)
 
 	position += _move_distance
 	last_move = steps

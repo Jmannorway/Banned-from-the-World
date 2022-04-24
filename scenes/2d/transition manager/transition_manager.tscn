@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/2d/transition manager/transition_manager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/2d/transition manager/gradient3.png" type="Texture" id=2]
+[ext_resource path="res://sprites/transition_texture.png" type="Texture" id=4]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform float animation : hint_range(0.0, 2.0) = 0.0;
+uniform vec4 transition_color : hint_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform float smoothing : hint_range(0.0, 1.0) = 0.1;
+
+uniform sampler2D transition_texture;
+uniform vec2 scroll_speed;
+uniform vec2 uv_scale = vec2(1.0);
+
+void fragment()
+{
+	float ani_mult = 1.0 + smoothing;
+	float ani = ani_mult * animation - smoothing;
+	float ani_out = max(ani - ani_mult, -smoothing);
+	
+	float a = texture(TEXTURE, UV).a;
+	a = (1.0 - smoothstep(ani, ani + smoothing, a)) -
+		(1.0 - smoothstep(ani_out, ani_out + smoothing, a));
+	
+	vec4 tex = texture(transition_texture, (UV * uv_scale) + scroll_speed * TIME);
+	
+	COLOR = transition_color * a * tex;
+//	COLOR = transition_color * smoothstep(0.4, 0.6, UV.x);
+}"
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = SubResource( 2 )
+shader_param/animation = 0.0
+shader_param/transition_color = Color( 0.447059, 0.447059, 0.447059, 1 )
+shader_param/smoothing = 0.1
+shader_param/scroll_speed = Vector2( 0, 0.6 )
+shader_param/uv_scale = Vector2( 48, 48 )
+shader_param/transition_texture = ExtResource( 4 )
+
+[node name="transition_manager" type="TextureRect"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 1 )
+transition_duration = 1.5
+wait_time = 0.0
+
+[node name="animation_tween" type="Tween" parent="."]

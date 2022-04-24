@@ -17,12 +17,27 @@ static func goto_world(tree : SceneTree, world : int) -> void:
 		# Clear 3d world
 		tree.change_scene("res://scenes/empty.tscn")
 		# Load 2d scene
-		if Statistics.metadata["checkpoint"] == 0:
-			MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
-		else:
-			print("warps to quickwarp screen")
+		MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
+#		if Statistics.metadata["checkpoint"] == 0:
+#		else:
+#			print("warps to quickwarp screen")
 
 # TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+
+"""
+Set an object property. You can set nested object's properties by supplying
+an array with the nested object's names
+"""
+static func set_in_children_ext(parent : Node, objects : Array, property : String, value) -> void:
+	for node in parent.get_children():
+		var _object = node as Object
+		for obj in objects:
+			_object = _object.get(obj)
+		_object.set(property, value)
+
+static func set_in_children(parent : Node, property : String, value) -> void:
+	for node in parent.get_children():
+		node.set(property, value)
 
 static func make_array_2d(w : int, h : int, val = 0) -> Array:
 	var _arr : Array
@@ -37,7 +52,6 @@ static func make_array_2d(w : int, h : int, val = 0) -> Array:
 # Assumes a rectangular array
 # Array must be passed by reference
 static func resize_array_2d(array2d : Array, new_size : Vector2) -> void:
-	
 	var _old_size = array2d.size()
 	array2d.resize(new_size.x)
 	
@@ -142,6 +156,13 @@ static func min_v2(a : Vector2, b : Vector2) -> Vector2:
 
 static func max_v2(a : Vector2, b : Vector2) -> Vector2:
 	return Vector2(max(a.x, b.x), max(a.y, b.y))
+
+static func int_set_bit(i : int, bit : int, val : bool) -> int:
+	print(bit)
+	if val:
+		return i | (1 << bit)
+	else:
+		return i & (~(1 << bit))
 
 # fuck you
 static func tern(condition : bool, return_if_true, return_if_false):

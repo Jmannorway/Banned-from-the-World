@@ -2,7 +2,10 @@ tool
 
 extends Sprite
 
+class_name PlayerStart2D
+
 export(String) var room_name
+const CHECKPOINT_INDEX := 9999
 export var index := 0
 
 # Makes this instance's index unique by setting the other indices
