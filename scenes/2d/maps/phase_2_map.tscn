@@ -32,7 +32,8 @@ preview = true
 size = Vector2( 1224, 984 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
-position = Vector2( 300, 156 )
+visible = true
+position = Vector2( 372, 180 )
 room_name = "hub"
 
 [node name="to_maze" parent="." instance=ExtResource( 7 )]

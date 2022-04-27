@@ -11,6 +11,7 @@ func set_lookat_target(target : Spatial):
 
 onready var blocking_material = $blocking_mesh.get_surface_material(0)
 
+export(bool) var start_in_game_position = false
 export(int) var tween_move_transition := Tween.TRANS_SINE
 export(bool) var fade_out_on_ready = true
 export(float) var dim_alpha = 1.0
@@ -30,7 +31,10 @@ func set_gameplay_rotation_degrees(val):
 
 func _ready():
 	if !Engine.editor_hint:
-		tween_to_position(Vector3.ZERO, Vector3.ZERO, TRANSITION_TYPE.NONE, 0.0)
+		if start_in_game_position:
+			tween_to_gameplay_position()
+		else:
+			tween_to_position(Vector3.ZERO, Vector3.ZERO, TRANSITION_TYPE.NONE, 0.0)
 	if fade_out_on_ready:
 		dim_alpha = 1.0
 		fade(true)

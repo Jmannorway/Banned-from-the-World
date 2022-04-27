@@ -27,22 +27,26 @@ preview = true
 size = Vector2( 10, 10 )
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
+visible = true
 position = Vector2( 216, 456 )
 room_name = "ballet_main"
 
 [node name="player_start_main" parent="." instance=ExtResource( 4 )]
+visible = true
 position = Vector2( 228, 500 )
 room_name = "ballet_main"
 index = 3
 
 [node name="player_start_stage_stairs" parent="." instance=ExtResource( 4 )]
+visible = true
 position = Vector2( 84, -156 )
 room_name = "ballet_stage"
 
 [node name="player_start_stage" parent="." instance=ExtResource( 4 )]
+visible = true
 position = Vector2( 84, -1644 )
 room_name = "ballet_stage"
-index = 1
+index = 2
 
 [node name="player_start_stage2" parent="." instance=ExtResource( 4 )]
 visible = true

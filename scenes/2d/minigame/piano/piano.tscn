@@ -108,21 +108,21 @@ texture = ExtResource( 3 )
 
 [node name="piano" type="Sprite" parent="minigame/decoration"]
 position = Vector2( 0, 2 )
-rotation = 1765.7
+rotation = 1757.32
 texture = ExtResource( 1 )
 script = ExtResource( 26 )
 rotation_speed = -15
 
 [node name="hands" type="AnimatedSprite" parent="minigame/decoration"]
-rotation = -1751.95
+rotation = -1743.57
 frames = ExtResource( 6 )
 animation = "hands"
-frame = 1
+frame = 2
 playing = true
 script = ExtResource( 26 )
 
 [node name="middle" type="Sprite" parent="minigame/decoration"]
-rotation = 3035.86
+rotation = 3044.24
 texture = ExtResource( 7 )
 script = ExtResource( 26 )
 
