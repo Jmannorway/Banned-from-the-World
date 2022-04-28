@@ -2,9 +2,13 @@
 "checkpoint": 0,
 "fog_stage": 0,
 "inner_world_travel_count": 0,
-"intro_finished": false,
+"intro_finished": true,
 "minigame_clears": 0,
-"position": Vector3( 1, 0, 1 ),
+<<<<<<< HEAD
+"position": Vector3( -1, 0, -1 ),
+=======
+"position": Vector3( -1, 0, -0.78125 ),
+>>>>>>> 027534fedd94525c127d93d19e2107eba164c3c5
 "room": "bedroom",
 "unlocked_effects": {
 "ballerina": false,

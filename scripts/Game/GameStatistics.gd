@@ -59,7 +59,7 @@ func read_meta_file() -> Dictionary:
 		return create_new_game_metadata()
 	
 	print("GameStatistics: Read meta file")
-	var _meta : Dictionary = str2var(_file.get_as_text()) 	
+	var _meta: Dictionary = str2var(_file.get_as_text())
 	_file.close()
 	
 	return _meta

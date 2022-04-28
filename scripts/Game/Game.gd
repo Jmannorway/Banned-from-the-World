@@ -54,17 +54,11 @@ const RESOLUTION_3D := RESOLUTION_2D * 2
 # For now we just call 
 enum WORLD {OUTER, INNER}
 var world = WORLD.OUTER setget set_world
+signal world_changed
+
 func set_world(val) -> void:
 	world = val
-	emit_signal("world_changed", world)
-signal world_changed(state)
-
-enum STATE {PLAYING, CUTSCENE}
-var state = STATE.PLAYING setget set_state
-func set_state(val : int) -> void:
-	state = val
-	emit_signal("state_changed", state)
-signal state_changed(state)
+	emit_signal("world_changed")
 
 func _ready():
 	randomize()
