@@ -22,8 +22,6 @@ func show_action_hint(action : int, duration := 0.0, held := false):
 	else:
 		timed = false
 	
-	Util
-	
 	check_held = held
 	
 	if !hint_button_pressed():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/2d/rooms/ballet hall/stage.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/2d/interactable/interactable_warp_2d.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/MusicReverbance.gd" type="Script" id=9]
 [ext_resource path="res://audio/music/Unfortunate.ogg" type="AudioStream" id=10]
@@ -18,22 +17,18 @@ script = ExtResource( 1 )
 room_name = "ballet_main"
 room = ExtResource( 3 )
 preview = true
-size = Vector2( 100, 100 )
+size = Vector2( 1000, 1000 )
 
 [node name="room_loader_2d2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 408, -1728 )
+position = Vector2( 384, -2496 )
 room_name = "ballet_stage"
 room = ExtResource( 6 )
 preview = true
 size = Vector2( 10, 10 )
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
-<<<<<<< HEAD
 visible = true
 position = Vector2( 216, 456 )
-=======
-position = Vector2( 216, 432 )
->>>>>>> 027534fedd94525c127d93d19e2107eba164c3c5
 room_name = "ballet_main"
 
 [node name="player_start_main" parent="." instance=ExtResource( 4 )]
@@ -54,6 +49,7 @@ room_name = "ballet_stage"
 index = 2
 
 [node name="player_start_stage2" parent="." instance=ExtResource( 4 )]
+visible = true
 position = Vector2( 180, 444 )
 room_name = "ballet_stage"
 index = 1
@@ -64,18 +60,13 @@ target_is_character = true
 free = true
 
 [node name="to_house_of_culture" parent="." instance=ExtResource( 8 )]
-position = Vector2( 408, -3576 )
+position = Vector2( 383, -4332 )
 scale = Vector2( 6.48, 1 )
 map_path = "res://scenes/2d/maps/house_of_culture.tscn"
 on_step = true
 
 [node name="direct_sound" type="Node2D" parent="."]
-position = Vector2( 408, -3360 )
+position = Vector2( 96, -1656 )
 script = ExtResource( 9 )
 musicToPlay = ExtResource( 10 )
 maxDistance = 4000.0
-
-[node name="interactable_2d" parent="." instance=ExtResource( 7 )]
-position = Vector2( 408, -1752 )
-scale = Vector2( 8, 1 )
-room_name = "ballet_stage"

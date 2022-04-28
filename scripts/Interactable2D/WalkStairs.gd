@@ -7,7 +7,6 @@ class_name Stairs
 export var width: int = 3 setget set_width
 export var offsetPerBlock: int = 4 setget set_move_offset
 export var addElevation: int = 1 setget set_elevation
-export var length: int = 1 setget set_length
 export (int, "Up", "Down", "Left", "Right") var walkUpDirection: int setget set_walk_up_direction
 
 var moveBlockOffsetAmount: float
@@ -21,10 +20,6 @@ signal change_floors(floorToAdd)
 
 func set_walk_up_direction(var value: int) -> void:
 	walkUpDirection = value
-	update_stairs_area()
-
-func set_length(var value: int) -> void:
-	length = value
 	update_stairs_area()
 
 func set_width(var value: int) -> void:
@@ -78,13 +73,13 @@ func update_stairs_area() -> void:
 	if _vertical > 0.5:
 #		$stairs_field.polygon[0].y *= -_mirror
 #		$stairs_field.polygon[1].y *= -_mirror
-		$stairs_field.polygon[2] = Vector2($stairs_field.polygon[1].x, -_mirror * length * Game.SNAP + _offset.y)
-		$stairs_field.polygon[3] = Vector2($stairs_field.polygon[0].x, -_mirror * length * Game.SNAP + _offset.y)
+		$stairs_field.polygon[2] = Vector2($stairs_field.polygon[1].x, -_mirror * offsetPerBlock * Game.SNAP + _offset.y)
+		$stairs_field.polygon[3] = Vector2($stairs_field.polygon[0].x, -_mirror * offsetPerBlock * Game.SNAP + _offset.y)
 		return
 	
-	var _extension: float = (length * offsetPerBlock - 1.0) * -_mirror
-	var _tail: float = _halfWidth - length + moveBlockOffsetAmount
-	var _tail2: float = -_halfWidth - length + moveBlockOffsetAmount
+	var _extension: float = (addElevation * offsetPerBlock - 1.0) * -_mirror
+	var _tail: float = _halfWidth - addElevation + moveBlockOffsetAmount
+	var _tail2: float = -_halfWidth - addElevation + moveBlockOffsetAmount
 	
 	_offset *= -1.0
 	
@@ -106,10 +101,6 @@ func on_character_enter(var directionFrom: Vector2) -> void:
 
 # warning-ignore:unused_argument
 func on_character_exit(var directionTo: Vector2) -> void:
-	if objectRef == null:
-		printerr("[ERROR] : No reference set for the stairs to control")
-		return
-	
 	objectRef.move_offset.y = 0.0
 	
 	if directionTo != enteredFrom:
@@ -117,6 +108,7 @@ func on_character_exit(var directionTo: Vector2) -> void:
 	
 	match walkUpDirection:
 		0: # UP
+			
 			if objectRef.global_position.y < global_position.y:
 				get_parent().get_parent().set_relative_floor(addElevation)
 			else:
