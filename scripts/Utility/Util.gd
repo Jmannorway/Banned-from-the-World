@@ -158,11 +158,7 @@ static func max_v2(a : Vector2, b : Vector2) -> Vector2:
 	return Vector2(max(a.x, b.x), max(a.y, b.y))
 
 static func int_set_bit(i : int, bit : int, val : bool) -> int:
-	print(bit)
-	if val:
-		return i | (1 << bit)
-	else:
-		return i & (~(1 << bit))
+	return (i | (1 << bit)) & ~(int(!val) << bit)
 
 # fuck you
 static func tern(condition : bool, return_if_true, return_if_false):
