@@ -14,7 +14,7 @@ var toPoint: Vector3
 var targetNode: Spatial = null
 
 onready var tween: Tween = $tween_camera
-onready var camera : Camera = $target_offset/camera
+onready var camera := $target_offset/camera
 
 func _ready():
 # warning-ignore:return_value_discarded

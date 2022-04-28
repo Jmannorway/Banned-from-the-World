@@ -67,5 +67,3 @@ func make_maze_recursive_backtrack(maze_size : Vector2) -> void:
 			_location += DIRECTIONV[_direction]
 			make_hole(_location, reverse_direction(_direction))
 			_history.push_back(_location)
-
-

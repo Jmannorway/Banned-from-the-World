@@ -179,14 +179,7 @@ material/0 = null
 [node name="room_events" type="Spatial" parent="rooms/bedroom"]
 
 [node name="main_camera" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.663433 )
-
-[node name="camera" parent="main_camera/target_offset" index="0"]
-start_in_game_position = true
-dim_alpha = 0.465124
-
-[node name="alpha_tween" parent="main_camera/target_offset/camera" index="2"]
-playback/active = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.36865 )
 
 [node name="max" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 3.5 )
@@ -211,5 +204,3 @@ scene = ExtResource( 11 )
 is_2d = false
 
 [connection signal="area_entered" from="win" to="win" method="_on_Area_area_entered"]
-
-[editable path="main_camera"]

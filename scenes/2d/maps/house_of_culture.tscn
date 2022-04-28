@@ -73,7 +73,6 @@ target_group = "player_2d"
 target_is_character = true
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
-visible = true
 position = Vector2( 252, 108 )
 room_name = "hall"
 

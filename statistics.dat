@@ -1,18 +1,18 @@
 {
-"checkpoint": 0,
+"checkpoint": 15,
 "fog_stage": 0,
 "inner_world_travel_count": 0,
-"intro_finished": true,
+"intro_finished": false,
 "minigame_clears": 0,
-"position": Vector3( -1, 0, -1 ),
+"position": Vector3( 0, 0, 0 ),
 "room": "bedroom",
 "unlocked_effects": {
 "ballerina": false,
-"dealer": false,
+"dealer": true,
 "ghost": false,
 "katana": false,
 "normal": true,
-"skater": false
+"skater": true
 },
 "world": "dream_world"
 }

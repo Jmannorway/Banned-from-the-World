@@ -179,7 +179,7 @@ material/0 = null
 [node name="room_events" type="Spatial" parent="rooms/bedroom"]
 
 [node name="main_camera" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.473024, 0.0176706, -2.38299 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.36865 )
 
 [node name="max" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5 )
