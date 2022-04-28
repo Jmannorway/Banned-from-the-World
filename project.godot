@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/BlockData.gd"
 }, {
+"base": "Control",
+"class": "ButtonAction",
+"language": "GDScript",
+"path": "res://scripts/menu/ButtonAction.gd"
+}, {
 "base": "Spatial",
 "class": "CameraController",
 "language": "GDScript",
@@ -103,6 +108,11 @@ _global_script_classes=[ {
 "class": "Maze2D",
 "language": "GDScript",
 "path": "res://scripts/Maze2D/Maze2D.gd"
+}, {
+"base": "Control",
+"class": "MenuController",
+"language": "GDScript",
+"path": "res://scripts/menu/MenuController.gd"
 }, {
 "base": "ResourceGrid2D",
 "class": "NavigationGrid2D",
@@ -199,6 +209,7 @@ _global_script_class_icons={
 "AreaMarker2D": "",
 "BitGrid2D": "",
 "BlockData": "",
+"ButtonAction": "",
 "CameraController": "",
 "Character2D": "",
 "Character2DBase": "",
@@ -214,6 +225,7 @@ _global_script_class_icons={
 "Map2D": "",
 "MapManager2D": "",
 "Maze2D": "",
+"MenuController": "",
 "NavigationGrid2D": "",
 "PianoGameState": "",
 "PianoMinigameSpawner": "",
