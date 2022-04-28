@@ -79,7 +79,7 @@ func _ready():
 
 func _draw():
 	if Engine.editor_hint:
-		draw_rect(Rect2(Vector2.ZERO, size), Color.white, false, 2.0)
+		draw_rect(Rect2(Vector2.ZERO, size), Color.red, false, 2.0)
 
 func _load_room():
 	room_instance = room.instance()
