@@ -8,6 +8,7 @@ var fade_duration : float = 2.0
 var lookat_target : Spatial setget set_lookat_target
 func set_lookat_target(target : Spatial):
 	lookat_target = target
+export(bool) var start_in_game_position
 
 onready var blocking_material = $blocking_mesh.get_surface_material(0)
 
@@ -29,7 +30,9 @@ func set_gameplay_rotation_degrees(val):
 		rotation_degrees = val
 
 func _ready():
-	if !Engine.editor_hint:
+	if start_in_game_position:
+		tween_to_gameplay_position()
+	else:
 		tween_to_position(Vector3.ZERO, Vector3.ZERO, TRANSITION_TYPE.NONE, 0.0)
 	if fade_out_on_ready:
 		dim_alpha = 1.0
