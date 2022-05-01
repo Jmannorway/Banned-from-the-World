@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/textures/door/door_Metallic.png" type="Texture" id=2]
@@ -59,6 +59,7 @@
 [ext_resource path="res://scenes/3d/ASSETS/doorframe_1.fbx" type="PackedScene" id=57]
 [ext_resource path="res://scenes/3d/ASSETS/door_pivot.fbx" type="PackedScene" id=58]
 [ext_resource path="res://models/textures/pillow_Base_color.png" type="Texture" id=59]
+[ext_resource path="res://scenes/3d/ASSETS/wall_material.tres" type="Material" id=60]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -211,9 +212,6 @@ shader_param/texture_albedo = ExtResource( 42 )
 [sub_resource type="SpatialMaterial" id=15]
 albedo_color = Color( 0.501961, 0.317647, 0.317647, 1 )
 
-[sub_resource type="SpatialMaterial" id=16]
-albedo_texture = ExtResource( 24 )
-
 [sub_resource type="SpatialMaterial" id=17]
 albedo_texture = ExtResource( 24 )
 
@@ -317,6 +315,12 @@ shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 17 )
 shader_param/texture_metallic = ExtResource( 54 )
 shader_param/texture_roughness = ExtResource( 55 )
+
+[sub_resource type="QuadMesh" id=29]
+size = Vector2( 6, 3.5 )
+
+[sub_resource type="QuadMesh" id=30]
+size = Vector2( 6, 5 )
 
 [node name="bedroom" type="ImmediateGeometry"]
 material_override = SubResource( 1 )
@@ -453,7 +457,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30617, 0 )
 material/0 = SubResource( 28 )
 
 [node name="Bed_v2" parent="max_bedroom" instance=ExtResource( 43 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.667, 0.3, 1.474 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.667, 0.351248, 1.474 )
 
 [node name="bed_vpolySurface4" parent="max_bedroom/Bed_v2/RootNode" index="0"]
 material/0 = SubResource( 20 )
@@ -513,7 +517,7 @@ material/0 = SubResource( 19 )
 material/0 = SubResource( 15 )
 
 [node name="max_wall_east" parent="max_bedroom/walls_floor/RootNode/max_constructioin" index="1"]
-material/0 = SubResource( 16 )
+material/0 = ExtResource( 60 )
 
 [node name="max_wall_west" parent="max_bedroom/walls_floor/RootNode/max_constructioin" index="2"]
 material/0 = SubResource( 17 )
@@ -573,6 +577,16 @@ material/0 = SubResource( 26 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.99999, -0.00331627, 0.00283693, 0, 0.650053, 0.759889, -0.00436415, -0.759882, 0.650047, 0.282203, 4.30064, 1.81071 )
 current = true
+
+[node name="southern_wall" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.75, 2 )
+mesh = SubResource( 29 )
+material/0 = ExtResource( 60 )
+
+[node name="southern_ceiling" type="MeshInstance" parent="."]
+transform = Transform( -1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.5, -0.5 )
+mesh = SubResource( 30 )
+material/0 = null
 
 [connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]
 [connection signal="area_exited" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_exited"]
