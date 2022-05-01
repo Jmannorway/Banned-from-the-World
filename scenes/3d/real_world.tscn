@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/3d/bedroom_klaudia.tscn" type="PackedScene" id=2]
@@ -18,8 +18,8 @@
 [ext_resource path="res://cutscenes/opening_animation_2.tres" type="Animation" id=17]
 [ext_resource path="res://models/max/temp/Animations.glb" type="PackedScene" id=18]
 [ext_resource path="res://cutscenes/door.tres" type="Animation" id=20]
-[ext_resource path="res://cutscenes/deprecated/opening_cutscene_2.tres" type="Animation" id=21]
-[ext_resource path="res://cutscenes/deprecated/opening_cutscene_1.tres" type="Animation" id=22]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("max_animations:visible")
+tracks/1/path = NodePath("max:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -48,7 +48,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("max:visible")
+tracks/2/path = NodePath("max:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -57,10 +57,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ Vector3( 1.5, 0.088, 0.5 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("max:translation")
+tracks/3/path = NodePath("max:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -69,10 +69,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 1.5, 0, -2.5 ) ]
+"values": [ Vector3( 0, -180, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("max:rotation_degrees")
+tracks/4/path = NodePath("max:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -81,10 +81,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, -180, 0 ) ]
+"values": [ Vector2( 1.5, 0.5 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("max_animations:translation")
+tracks/5/path = NodePath("main_camera/target_offset/camera:fov")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -93,10 +93,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 1.79138, 0.0287004, -2.60353 ) ]
+"values": [ 40.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("max:position")
+tracks/6/path = NodePath("main_camera/target_offset/camera:translation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -105,39 +105,15 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1.5, 0.5 ) ]
+"values": [ Vector3( 2.122, 1.229, 0.1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("main_camera/target_offset/camera:fov")
+tracks/7/path = NodePath("main_camera/target_offset/camera:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 35.0 ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("main_camera/target_offset/camera:translation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 2.122, 1.229, 0.1 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("main_camera/target_offset/camera:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -152,10 +128,13 @@ script = ExtResource( 1 )
 controllingCamera = true
 
 [node name="max" parent="." instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0.5 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.5, 0.088, 0.5 )
 movementSpeed = 200.0
 moveTime = 0.8
 position = Vector2( 1.5, 0.5 )
+
+[node name="AnimationTree" parent="max/new_max" index="2"]
+parameters/playback = SubResource( 5 )
 
 [node name="rooms" type="Spatial" parent="."]
 
@@ -197,8 +176,6 @@ anims/RESET = SubResource( 4 )
 anims/door = ExtResource( 20 )
 anims/opening_animation_1 = ExtResource( 16 )
 anims/opening_animation_2 = ExtResource( 17 )
-anims/opening_cutscene_1 = ExtResource( 22 )
-anims/opening_cutscene_2 = ExtResource( 21 )
 script = ExtResource( 9 )
 debug = true
 debug_animation_name = "opening_animation_1"
@@ -206,7 +183,6 @@ opening_animation_name = "opening_animation_1"
 door_animation_name = "door"
 
 [node name="cutscene_nodes" type="Spatial" parent="."]
-visible = false
 
 [node name="doorhandle_position" type="Position3D" parent="cutscene_nodes" groups=["cutscene_doorhandle_position"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17548, 1.07499, -3.01986 )
@@ -223,11 +199,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
 shape = SubResource( 2 )
 
 [node name="room_grid_normal" type="GridMap" parent="cutscene_nodes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0897036, 0.0189757, -0.0212331 )
 visible = false
 mesh_library = ExtResource( 12 )
 cell_size = Vector3( 1, 1, 1 )
 data = {
-"cells": PoolIntArray( 2, 0, 1376256, 65532, 0, 0, 0, 1, 1376256, 1, 1, 1376256, 65532, 1, 0, 65534, 1, 1376256, 65535, 1, 1376256, 65533, 2, 0, 1, 65532, 0, 65533, 65532, 0, 0, 65533, 1376256, 1, 65533, 1, 2, 65533, 1376256, 65532, 65533, 0, 65534, 65533, 1376256, 65535, 65533, 1376256, 2, 65534, 1376256, 65532, 65534, 0, 65534, 65534, 1376256, 3, 65535, 0, 65532, 65535, 0 )
+"cells": PoolIntArray( 2, 0, 1376256, 65532, 0, 0, 0, 1, 1376256, 1, 1, 1376256, 65532, 1, 0, 65534, 1, 1376256, 65535, 1, 1376256, 65533, 2, 0, 1, 65532, 0, 65533, 65532, 0, 0, 65533, 1376256, 1, 65533, 1, 2, 65533, 1376256, 65532, 65533, 0, 65534, 65533, 1376256, 65535, 65533, 1376256, 2, 65534, 1376256, 65532, 65534, 0, 65534, 65534, 1376256, 2, 65535, 0, 3, 65535, 0, 65532, 65535, 0 )
 }
 script = ExtResource( 13 )
 __meta__ = {
@@ -256,7 +233,7 @@ room_path = NodePath("../../rooms/bedroom")
 
 [node name="camera" parent="main_camera/target_offset" index="0"]
 transform = Transform( -0.977268, 0.0473306, -0.206656, 0, 0.974761, 0.22325, 0.212007, 0.218175, -0.952603, 2.122, 1.229, 0.1 )
-fov = 35.0
+fov = 40.0
 gameplay_translation = Vector3( 0, 10, 4 )
 gameplay_rotation_degrees = Vector3( -63, 0, 0 )
 
@@ -264,10 +241,13 @@ gameplay_rotation_degrees = Vector3( -63, 0, 0 )
 transform = Transform( 1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, -0.06 )
 
 [node name="max_animations" parent="." instance=ExtResource( 18 )]
-transform = Transform( -1.3, 0, 1.1365e-07, 0, 1.3, 0, -1.1365e-07, 0, -1.3, 1.79138, 0.0287004, -2.60353 )
+transform = Transform( -1.3, 0, 1.1365e-07, 0, 1.3, 0, -1.1365e-07, 0, -1.3, 1.70764, 0.0287004, -2.20692 )
+visible = false
 
 [connection signal="animation_finished" from="cutscene_player" to="cutscene_player" method="_on_cutscene_player_animation_finished"]
 [connection signal="interacted" from="cutscene_nodes/door_interactable" to="cutscene_player" method="_on_door_interactable_interacted"]
 
+[editable path="max"]
+[editable path="max/new_max"]
 [editable path="main_camera"]
 [editable path="max_animations"]
