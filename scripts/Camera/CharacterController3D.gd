@@ -10,7 +10,9 @@ var interactiveReference: Interactable = null
 var frozen := WeightedBool.new()
 var rotationDelta: float
 var velocity: Vector3
-var position: Vector2
+
+# Exported for animation purposes
+export(Vector2) var position: Vector2
 
 var roomManager = null
 
