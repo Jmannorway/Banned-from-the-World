@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex"
+path="res://.import/dywan_textured_2.png-5a29ddab27f9221add7054d3c6a850da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/piano room/Door.png"
-dest_files=[ "res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex" ]
+source_file="res://models/textures/dywan_textured_2.png"
+dest_files=[ "res://.import/dywan_textured_2.png-5a29ddab27f9221add7054d3c6a850da.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

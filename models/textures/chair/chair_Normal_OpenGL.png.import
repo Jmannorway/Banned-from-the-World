@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex"
+path="res://.import/chair_Normal_OpenGL.png-72d0a14890a16c4c1f72b0507008f4f4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/piano room/Door.png"
-dest_files=[ "res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex" ]
+source_file="res://models/textures/chair/chair_Normal_OpenGL.png"
+dest_files=[ "res://.import/chair_Normal_OpenGL.png-72d0a14890a16c4c1f72b0507008f4f4.stex" ]
 
 [params]
 
@@ -18,7 +18,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=0
 flags/filter=false
 flags/mipmaps=false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex"
+path="res://.import/door_Metallic.png-f58229fce3acbee924d3d11961d2c993.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/piano room/Door.png"
-dest_files=[ "res://.import/Door.png-a95d57ba2847b994adaa01bf3e89ed43.stex" ]
+source_file="res://models/textures/door/door_Metallic.png"
+dest_files=[ "res://.import/door_Metallic.png-f58229fce3acbee924d3d11961d2c993.stex" ]
 
 [params]
 
