@@ -4,13 +4,13 @@
 [ext_resource path="res://scripts/Room3D/RoomController.gd" type="Script" id=2]
 [ext_resource path="res://scenes/characters/max.tscn" type="PackedScene" id=3]
 [ext_resource path="res://shaders/spatial/noise.tres" type="Texture" id=4]
-[ext_resource path="res://models/max_door_uv.fbx" type="PackedScene" id=5]
+[ext_resource path="res://scenes/3d/ASSETS/max_door_uv.fbx" type="PackedScene" id=5]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/x to focus/focus_scenes/focus_grid.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/3d/real_world.tscn" type="PackedScene" id=9]
-[ext_resource path="res://cutscenes/sister_in_bathroom.tscn" type="PackedScene" id=10]
-[ext_resource path="res://models/doorframe_nonuv.fbx" type="PackedScene" id=11]
+[ext_resource path="res://scenes/cutscenes/sister_in_bathroom.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/3d/ASSETS/doorframe_nonuv.fbx" type="PackedScene" id=11]
 [ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=12]
 [ext_resource path="res://scripts/single instance scripts/PianoMinigameCorridorWin.gd" type="Script" id=13]
 
@@ -47,9 +47,9 @@ float make_wave(float x, float amp, float freq)
 void vertex()
 {
 	float t = TIME * speed;
-	
+
 	float n = texture(noise, VERTEX.xz + t).r;
-	
+
 	VERTEX.y += n;
 }
 
@@ -63,11 +63,11 @@ void fragment()
 {
 	vec2 pos = UV * squares;
 	vec2 fpos = fract(pos);
-	
+
 	// make lines
-	
-	
-	
+
+
+
 //	float lines = 1.0 - step(line_thickness, fpos.x) * step(line_thickness, fpos.y);
 	float line_position = 1.0 - line_thickness - line_smoothing;
 	float lines =
@@ -75,14 +75,14 @@ void fragment()
 		make_line(fpos.y, line_position, line_thickness, line_smoothing);
 	lines = clamp(lines, 0.0, 1.0);
 //	lines += make_line(fpos.x, fpos.y, 0.1, 0.1);
-	
+
 	lines *=
 		step(pos.x, squares.x - (line_thickness + line_smoothing) * 2.0) *
 		step(pos.y, squares.y - (line_thickness + line_smoothing) * 2.0);
-	
+
 	// cut edges
 //	lines *= step(line_thickness + line_smoothing, pos.x) * step(line_thickness + line_smoothing, pos.y);
-	
+
 	ALBEDO = color * lines * color_strength;
 	ALPHA = lines * alpha;
 }"
