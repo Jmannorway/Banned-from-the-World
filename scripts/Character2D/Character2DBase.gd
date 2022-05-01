@@ -57,6 +57,8 @@ var facing := Vector2.DOWN setget set_facing
 var last_move : Vector2
 var layer : int = 0
 
+var lastSolidIndex: int = TileMap.INVALID_CELL
+
 # INTERNAL FUNCTIONS
 func _enter_tree():
 	snap_to_grid()
@@ -95,8 +97,9 @@ func _post_process_move() -> void:
 
 # Callbacks
 func update_solidity() -> void:
-	if solid:
-		WorldGrid.get_solid_grid(layer).set_solid_at_pixel(global_position, true)
+	pass
+#	if solid:
+#		WorldGrid.get_solid_grid(layer).set_solid_at_pixel(global_position, true)
 
 # SETTERS & GETTERS
 func set_move_speed(val : float) -> void:
@@ -146,16 +149,27 @@ func queue_move(_direction : Vector2, _priority : int = 0) -> void:
 # Checks if the relative block in direction is solid
 func check_solid_relative(steps : Vector2) -> bool:
 	return WorldGrid.get_solid_grid(layer).get_cell_at_pixel(
-		global_position + calculate_move_offset(steps) * Game.SNAP) == 0
+		global_position + calculate_move_offset(steps) * Game.SNAP) != -1
+
+# UP = 1
+# RIGHT = 2
+# DOWN = 4
+# LEFT = 8
+
+func check_solid_direction(var steps: Vector2, var stepIndex: int) -> bool:
+#	var _selfTile: int = WorldGrid.get_solid_grid(layer).get_cell_at_pixel(global_position)
+	var _stepTile: int = WorldGrid.get_solid_grid(layer).get_cell_at_pixel(global_position + calculate_move_offset(steps) * Game.SNAP)
+	var _stepValue: int = stepIndex + 3 * (2 if stepIndex >= 8 else 1) * (-1 if stepIndex >= 4 else 1)
+	
+	return (_stepTile & stepIndex) as bool and _stepTile >= 0 # or (_selfTile & (stepIndex)) as bool
 
 # Move the character by a square
 func move_position(steps : Vector2) -> void:
-
 	var _move_distance = steps * Game.SNAP
-
+	
 	if solid:
-		WorldGrid.get_solid_grid(layer).move_solid_to_pixel(global_position, _move_distance)
-
+		lastSolidIndex = WorldGrid.get_solid_grid(layer).move_solid_to_pixel(global_position, _move_distance, lastSolidIndex)
+	
 	position += _move_distance
 	last_move = steps
 	move_cooldown_timer.stop()

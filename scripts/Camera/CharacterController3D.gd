@@ -6,6 +6,8 @@ export var movementSpeed: float = 4.0
 export var moveOffset: float = 1.0
 export var moveTime: float = 0.4
 
+export var animationPlayerPath: NodePath
+
 var interactiveReference: Interactable = null
 var frozen := WeightedBool.new()
 var rotationDelta: float
@@ -19,13 +21,13 @@ var roomManager = null
 const gridOffset: Vector3 = Vector3(0.5, 0.0, -0.5)
 
 onready var tweenMovement: Tween = $tween_movement
-onready var anim: AnimationNodeStateMachinePlayback = get_node("model/RootNode/AnimationTree").get("parameters/playback")
+onready var anim: AnimationNodeStateMachinePlayback = get_node(animationPlayerPath).get("parameters/playback")
 
 # warning-ignore:unused_signal
 signal action_event(playerRef)
 
 func _ready():
-	$model/RootNode/AnimationTree.active = true
+	get_node(animationPlayerPath).active = true
 	Util.connect_safe(XToFocus, "focus_changed", self, "on_focus_changed")
 	# warning-ignore:return_value_discarded
 	connect("area_entered", self, "on_enter_area")
@@ -80,7 +82,7 @@ func move(var direction: int) -> void:
 		position = _currentPosition
 		rotation.y = _currentRotation
 		
-		anim.travel("idle")
+		travel_to("Idle")
 		return
 	
 # warning-ignore:return_value_discarded
@@ -88,7 +90,7 @@ func move(var direction: int) -> void:
 # warning-ignore:return_value_discarded
 	tweenMovement.start()
 	
-	anim.travel("walk")
+	travel_to("Walk")
 	
 	frozen.set_weight("move", true)
 
@@ -97,6 +99,13 @@ func check_minigame_event() -> bool:
 
 func set_frozen(identifier : String, val : bool):
 	frozen.set_weight(identifier, val)
+
+func travel_to(var nodeName: String) -> void:
+	anim.travel(nodeName)
+	
+	## TEMP (this is stupid... WHY THE FUCK DOES GODOT RESET THE ANIMATION LOOPING???)
+	if nodeName == "Walk" or nodeName == "Idle":
+		get_node(animationPlayerPath).get_parent().get_child(1).get_animation(nodeName).loop = true
 
 # warning-ignore:unused_argument
 func _input(event):
@@ -149,7 +158,7 @@ func tween_position_completed() -> void:
 	elif Input.is_action_pressed("move_right"):
 		move(MoveDirection.RIGHT)
 	else:
-		anim.travel("idle")
+		travel_to("Idle")
 
 func _exit_tree():
 	Statistics.metadata["position"] = translation - gridOffset

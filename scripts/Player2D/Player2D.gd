@@ -77,7 +77,7 @@ func _process(_delta):
 		
 		var _input_vector = make_input_vector_4way(get_input_vector())
 		if !Util.compare_v2(_input_vector, 0) && !is_moving():
-			if check_solid_relative(_input_vector):
+			if check_solid_relative(_input_vector): # check_solid_direction(_input_vector, get_input_index()):
 				set_facing(_input_vector)
 			else:
 				queue_move(_input_vector)
@@ -122,6 +122,12 @@ static func get_input_vector() -> Vector2:
 	return Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
+
+static func get_input_index() -> int:
+	return (Input.get_action_strength("move_up") +
+		Input.get_action_strength("move_right") * 2 +
+		Input.get_action_strength("move_down") * 4 +
+		Input.get_action_strength("move_left") * 8) as int
 
 static func make_input_vector_4way(iv : Vector2) -> Vector2:
 	return Vector2(

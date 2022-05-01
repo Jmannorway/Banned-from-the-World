@@ -36,7 +36,7 @@ func play_ambience(var track: AudioStream, var trackIndex: int = -1) -> void:
 		var _streamPlayer: AudioStreamPlayer = _tracks[trackIndex]
 		
 		_streamPlayer.stop()
-		_streamPlayer.stream_paused
+		_streamPlayer.stream_paused = false
 		_streamPlayer.stream = track
 		_streamPlayer.play()
 
