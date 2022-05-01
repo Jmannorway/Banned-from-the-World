@@ -2,10 +2,13 @@ extends Interactable
 
 class_name InteractableRoom
 
+signal prevent_event(selfRoom)
+
 export var roomName: String
 
 func _interact(var roomManager) -> void:
 	if Statistics.metadata["fog_stage"] < roomManager.rooms[roomName].unlockStage:
+		emit_signal("prevent_event", self)
 		return
 	
 	var _oldRoomName: String = roomManager.currentRoom.name

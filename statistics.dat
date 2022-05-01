@@ -4,7 +4,7 @@
 "inner_world_travel_count": 0,
 "intro_finished": true,
 "minigame_clears": 0,
-"position": Vector3( -1, 0, -0.78125 ),
+"position": Vector3( 1, 0, 1 ),
 "room": "bedroom",
 "unlocked_effects": {
 "ballerina": false,

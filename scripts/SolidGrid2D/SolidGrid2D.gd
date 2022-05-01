@@ -14,8 +14,8 @@ func _enter_tree():
 		clear_cell_function = "_clear_cell_in_world_grid_nav"
 
 # For use with integer position
-func set_solid(ipos : Vector2, solid : bool) -> void:
-	set_cellv(ipos, 0 if solid else INVALID_CELL)
+func set_solid(ipos : Vector2, solid : int) -> void:
+	set_cellv(ipos, solid)
 
 # For use with global position
 func set_solid_at_pixel(gpos : Vector2, solid : bool) -> void:
@@ -26,9 +26,13 @@ func move_solid(ipos : Vector2, imove : Vector2) -> void:
 	set_solid(ipos + imove, true)
 
 # For use with global position
-func move_solid_to_pixel(var gpos: Vector2, var dist: Vector2) -> void:
-	set_solid_at_pixel(gpos, false)
-	set_solid_at_pixel(gpos + dist, true)
+func move_solid_to_pixel(var gpos: Vector2, var dist: Vector2, var setTileIndex: int = INVALID_CELL) -> int:
+	var _nextTileIndex: int = get_cellv(gpos + dist)
+	
+#	set_solid_at_pixel(gpos, setTileIndex)
+#	set_solid_at_pixel(gpos + dist, 15) # solid = 15
+	
+	return _nextTileIndex
 
 # INTERNAL FUNCTIONS
 func _add_cell_to_world_grid(x : int, y : int, world_x : int, world_y : int):

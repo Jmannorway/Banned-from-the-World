@@ -337,8 +337,8 @@ script = ExtResource( 1 )
 controllingCamera = true
 
 [node name="max" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5 )
-movementSpeed = 140.0
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0.5 )
+movementSpeed = 200.0
 moveTime = 0.8
 
 [node name="rooms" type="Spatial" parent="."]
