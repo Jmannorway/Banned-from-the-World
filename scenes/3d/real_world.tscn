@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/3d/bedroom_test.tscn" type="PackedScene" id=2]
@@ -14,14 +14,17 @@
 [ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=12]
 [ext_resource path="res://scripts/SolidGrid3D.gd" type="Script" id=13]
 [ext_resource path="res://scenes/2d/tutorial/tutorial.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/3d/particles/fog particles/fog_particles_points.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/3d/particles/fog particles/cutscene_emission_point_texture.tres" type="Texture" id=16]
-[ext_resource path="res://scenes/3d/particles/fog particles/normal_emission_point_texture.tres" type="Texture" id=17]
+[ext_resource path="res://cutscenes/opening_animation_1.tres" type="Animation" id=16]
+[ext_resource path="res://cutscenes/opening_animation_2.tres" type="Animation" id=17]
+[ext_resource path="res://models/max/temp/Animations.glb" type="PackedScene" id=18]
+[ext_resource path="res://cutscenes/door.tres" type="Animation" id=20]
+[ext_resource path="res://cutscenes/deprecated/opening_cutscene_2.tres" type="Animation" id=21]
+[ext_resource path="res://cutscenes/deprecated/opening_cutscene_1.tres" type="Animation" id=22]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("ParticleManager:rotation_degrees")
+tracks/0/path = NodePath("main_camera/target_offset/camera/blocking_mesh:material/0:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -30,10 +33,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 90, 0 ) ]
+"values": [ Color( 0, 0, 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ParticleManager:translation")
+tracks/1/path = NodePath("max_animations:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -42,230 +45,46 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 1.1, 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("ParticleManager:point_texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 16 ) ]
-}
-
-[sub_resource type="Animation" id=1]
-resource_name = "opening_cutscene"
-length = 7.0
-tracks/0/type = "method"
-tracks/0/path = NodePath("main_camera")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 5, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"values": [ {
-"args": [ "cutscene_camera_bed", 0, 0.0 ],
-"method": "tween_to_first_node_in_group"
-}, {
-"args": [ "cutscene_camera_stand", 0, 2.0 ],
-"method": "tween_to_first_node_in_group"
-}, {
-"args": [ "cutscene_camera_door", 1, 2.0 ],
-"method": "tween_to_first_node_in_group"
-}, {
-"args": [ "player_3d", true, false ],
-"method": "add_offset_target_first_node_in_group"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("max")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ "opening_cutscene", true ],
-"method": "set_frozen"
-}, {
-"args": [ "opening_cutscene", false ],
-"method": "set_frozen"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("main_camera")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "cutscene_doorhandle_position" ],
-"method": "set_lookat_target_first_node_in_group"
-} ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("main_camera")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath("cutscene_nodes/room_grid_fog_cutscene")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "add_to_room_grid"
-} ]
-}
-tracks/5/type = "method"
-tracks/5/path = NodePath("cutscene_nodes/tutorial")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ true ],
-"method": "set_active"
-} ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("ParticleManager:point_texture")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("ParticleManager:translation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 1.1, 0, 0 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("ParticleManager:rotation_degrees")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 90, 0 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "opening_cutscene_2"
-length = 5.0
-tracks/0/type = "method"
-tracks/0/path = NodePath("max")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ "cutscene", true ],
-"method": "set_frozen"
-}, {
-"args": [ "cutscene", false ],
-"method": "set_frozen"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("main_camera")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "unset_lookat_target"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("main_camera")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "apply_offsets"
-} ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath("main_camera")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 5.0 ],
-"method": "tween_to_gameplay_position"
-} ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath(".:controllingCamera")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
 "values": [ true ]
 }
-tracks/5/type = "method"
-tracks/5/path = NodePath(".")
+tracks/2/type = "value"
+tracks/2/path = NodePath("max:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("max:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.5, 0, -2.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("max:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("max_animations:translation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -273,60 +92,56 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "bedroom", false ],
-"method": "request_room_change"
-} ]
+"update": 0,
+"values": [ Vector3( 1.79138, 0.0287004, -2.60353 ) ]
 }
-tracks/6/type = "method"
-tracks/6/path = NodePath("cutscene_nodes/room_grid_normal")
+tracks/6/type = "value"
+tracks/6/path = NodePath("max:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 5 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "add_to_room_grid"
-} ]
+"update": 0,
+"values": [ Vector2( 1.5, 0.5 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("ParticleManager:point_texture")
+tracks/7/path = NodePath("main_camera/target_offset/camera:fov")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ), ExtResource( 17 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 35.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("ParticleManager:translation")
+tracks/8/path = NodePath("main_camera/target_offset/camera:translation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 1.1, 0, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 2.122, 1.229, 0.1 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("ParticleManager:rotation_degrees")
+tracks/9/path = NodePath("main_camera/target_offset/camera:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 2, 5.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( -12.9, -167.76, 0 ) ]
 }
 
 [sub_resource type="BoxShape" id=2]
@@ -340,6 +155,7 @@ controllingCamera = true
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0.5 )
 movementSpeed = 200.0
 moveTime = 0.8
+position = Vector2( 1.5, 0.5 )
 
 [node name="rooms" type="Spatial" parent="."]
 
@@ -376,21 +192,33 @@ visible = false
 extents = Vector3( 3.24551, 2.31145, 2.66488 )
 
 [node name="cutscene_player" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
 anims/RESET = SubResource( 4 )
-anims/opening_cutscene = SubResource( 1 )
-anims/opening_cutscene_2 = SubResource( 3 )
+anims/door = ExtResource( 20 )
+anims/opening_animation_1 = ExtResource( 16 )
+anims/opening_animation_2 = ExtResource( 17 )
+anims/opening_cutscene_1 = ExtResource( 22 )
+anims/opening_cutscene_2 = ExtResource( 21 )
 script = ExtResource( 9 )
+debug = true
+starting_animation = "opening_animation_1"
+start_on_ready = true
+door_cutscene_name = "door"
 
 [node name="cutscene_nodes" type="Spatial" parent="."]
+visible = false
 
 [node name="camera_bed" type="Camera" parent="cutscene_nodes" groups=["cutscene_camera_bed"]]
 transform = Transform( -0.79335, 0.343017, -0.502926, 0, 0.826141, 0.563464, 0.608765, 0.447024, -0.655419, 1.18276, 1.80625, 0.0803223 )
+current = true
 
 [node name="camera_stand" type="Camera" parent="cutscene_nodes" groups=["cutscene_camera_stand"]]
 transform = Transform( -0.81411, 0.294334, -0.500591, 0, 0.862033, 0.506852, 0.58071, 0.412634, -0.70179, 0.398288, 2.1763, -0.880583 )
+current = true
 
 [node name="camera_door" type="Camera" parent="cutscene_nodes" groups=["cutscene_camera_door"]]
 transform = Transform( 0.988363, 0.0581003, -0.140583, 0, 0.924183, 0.381949, 0.152115, -0.377504, 0.913429, 0.847867, 1.90886, 1.68252 )
+current = true
 
 [node name="doorhandle_position" type="Position3D" parent="cutscene_nodes" groups=["cutscene_doorhandle_position"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17548, 1.07499, -3.01986 )
@@ -438,12 +266,21 @@ room_path = NodePath("../../rooms/bedroom")
 
 [node name="main_camera" parent="." instance=ExtResource( 4 )]
 
-[node name="ParticleManager" parent="." instance=ExtResource( 15 )]
-transform = Transform( -4.80825e-08, 0, 1, 0, 1, 0, -1.1, 0, -4.37114e-08, 1.1, 0, 0 )
-visible = false
-big_amount = 960
-medium_amount = 820
-point_texture = ExtResource( 16 )
+[node name="camera" parent="main_camera/target_offset" index="0"]
+transform = Transform( -0.977268, 0.0473306, -0.206656, 0, 0.974761, 0.22325, 0.212007, 0.218175, -0.952603, 2.122, 1.229, 0.1 )
+fov = 35.0
+dim_alpha = 1.0
+gameplay_translation = Vector3( 0, 12.177, 5.375 )
+gameplay_rotation_degrees = Vector3( -63.204, 0, 0 )
+
+[node name="blocking_mesh" parent="main_camera/target_offset/camera" index="0"]
+transform = Transform( 1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, -0.06 )
+
+[node name="max_animations" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1.3, 0, -1.96295e-07, 0, 1.3, 0, 1.96295e-07, 0, -1.3, 1.79138, 0.0287004, -2.60353 )
 
 [connection signal="animation_finished" from="cutscene_player" to="cutscene_player" method="_on_cutscene_player_animation_finished"]
 [connection signal="interacted" from="cutscene_nodes/door_interactable" to="cutscene_player" method="_on_door_interactable_interacted"]
+
+[editable path="main_camera"]
+[editable path="max_animations"]

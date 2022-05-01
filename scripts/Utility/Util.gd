@@ -17,10 +17,10 @@ static func goto_world(tree : SceneTree, world : int) -> void:
 		# Clear 3d world
 		tree.change_scene("res://scenes/empty.tscn")
 		# Load 2d scene
-		MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
-#		if Statistics.metadata["checkpoint"] == 0:
-#		else:
-#			print("warps to quickwarp screen")
+		if Statistics.metadata["checkpoint"] == 0:
+			MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
+		else:
+			print("warps to quickwarp screen")
 
 # TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 
@@ -158,16 +158,8 @@ static func max_v2(a : Vector2, b : Vector2) -> Vector2:
 	return Vector2(max(a.x, b.x), max(a.y, b.y))
 
 static func int_set_bit(i : int, bit : int, val : bool) -> int:
-	print(bit)
-	if val:
-		return i | (1 << bit)
-	else:
-		return i & (~(1 << bit))
+	return (i | (1 << bit)) & ~(int(!val) << bit)
 
 # fuck you
 static func tern(condition : bool, return_if_true, return_if_false):
 	return return_if_true if condition else return_if_false
-
-# it does what the function name says...
-static func loop_clamp(var value: int, var minVal: int, var maxVal: int) -> int:
-	return (value % (maxVal - minVal + int((maxVal - minVal) == 0))) + maxVal * int(value < minVal)

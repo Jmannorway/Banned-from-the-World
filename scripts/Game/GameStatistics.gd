@@ -70,6 +70,3 @@ func write_meta_file() -> void:
 	if _file.open(DATA_FILE, _file.WRITE) == OK:
 		_file.store_string(var2str(metadata))
 		_file.close()
-
-func _exit_tree():
-	write_meta_file()

@@ -363,7 +363,6 @@ script = ExtResource( 6 )
 width = 5
 offsetPerBlock = 3
 addElevation = 2
-length = 2
 walkUpDirection = 3
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase5"]
@@ -374,7 +373,6 @@ position = Vector2( 1164, -444 )
 monitoring = false
 script = ExtResource( 6 )
 width = 5
-length = 4
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase6"]
 polygon = PoolVector2Array( -60, -12, 60, -12, 60, -84, -60, -84 )
@@ -384,7 +382,6 @@ position = Vector2( 1236, 180 )
 monitoring = false
 script = ExtResource( 6 )
 width = 7
-length = 6
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase7"]
 polygon = PoolVector2Array( -84, -12, 84, -12, 84, -132, -84, -132 )
@@ -396,7 +393,6 @@ script = ExtResource( 6 )
 width = 9
 offsetPerBlock = 3
 addElevation = 2
-length = 3
 walkUpDirection = 2
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase8"]
@@ -408,7 +404,6 @@ monitoring = false
 script = ExtResource( 6 )
 width = 4
 offsetPerBlock = 2
-length = 2
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase9"]
 polygon = PoolVector2Array( -48, -12, 48, -12, 48, -36, -48, -36 )
@@ -419,7 +414,6 @@ monitoring = false
 script = ExtResource( 6 )
 width = 5
 offsetPerBlock = 2
-length = 2
 walkUpDirection = 1
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase10"]
@@ -442,7 +436,6 @@ monitoring = false
 script = ExtResource( 6 )
 width = 4
 addElevation = 2
-length = 4
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase12"]
 polygon = PoolVector2Array( -48, -12, 48, -12, 48, -84, -48, -84 )
@@ -453,7 +446,6 @@ monitoring = false
 script = ExtResource( 6 )
 width = 7
 offsetPerBlock = 3
-length = 3
 walkUpDirection = 1
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase13"]
@@ -464,7 +456,6 @@ position = Vector2( 804, -1020 )
 monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
-length = 3
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase14"]
 polygon = PoolVector2Array( -36, -12, 36, -12, 36, -60, -36, -60 )
@@ -475,7 +466,6 @@ monitoring = false
 script = ExtResource( 6 )
 width = 5
 offsetPerBlock = 2
-length = 2
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase15"]
 polygon = PoolVector2Array( -60, -12, 60, -12, 60, -36, -60, -36 )

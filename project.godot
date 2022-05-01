@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "ButtonAction",
 "language": "GDScript",
-"path": "res://scripts/menus/ButtonAction.gd"
+"path": "res://scripts/menu/ButtonAction.gd"
 }, {
 "base": "Spatial",
 "class": "CameraController",
@@ -112,7 +112,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "MenuController",
 "language": "GDScript",
-"path": "res://scripts/menus/MenuController.gd"
+"path": "res://scripts/menu/MenuController.gd"
 }, {
 "base": "ResourceGrid2D",
 "class": "NavigationGrid2D",
@@ -138,6 +138,11 @@ _global_script_classes=[ {
 "class": "PlayerAccess",
 "language": "GDScript",
 "path": "res://scripts/Player2D/PlayerAccess.gd"
+}, {
+"base": "Sprite",
+"class": "PlayerStart2D",
+"language": "GDScript",
+"path": "res://scripts/Player2D/PlayerStart2D.gd"
 }, {
 "base": "TileMap",
 "class": "ResourceGrid2D",
@@ -226,6 +231,7 @@ _global_script_class_icons={
 "PianoMinigameSpawner": "",
 "Player2D": "",
 "PlayerAccess": "",
+"PlayerStart2D": "",
 "ResourceGrid2D": "",
 "Room2D": "",
 "Room3D": "",

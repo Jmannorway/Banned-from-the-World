@@ -212,6 +212,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
 shape = SubResource( 9 )
 
 [node name="room_grid" type="GridMap" parent="."]
+visible = false
 mesh_library = ExtResource( 10 )
 cell_size = Vector3( 1, 1, 1 )
 data = {

@@ -9,7 +9,7 @@ var superStupidWorkaroundToFixMusic := 2
 onready var reverbEffectRef: AudioEffectReverb = AudioServer.get_bus_effect(1, 0)
 
 func _ready():
-#	play_music()
+	play_music()
 	Util.connect_safe(MapManager, "map_changed", self, "_on_MapManager_map_changed")
 
 func _on_MapManager_map_changed(n):

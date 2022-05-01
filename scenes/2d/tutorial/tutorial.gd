@@ -30,9 +30,7 @@ func accepting_accept_input() -> bool:
 	return active && state == TransitionState.WAIT
 
 func accept_input_just_pressed() -> bool:
-	return (
-		Input.is_action_just_pressed("menu") ||
-		Input.is_action_just_pressed("action"))
+	return Input.is_action_just_pressed("action")
 
 func _ready() -> void:
 	Util.connect_safe(self, "transition_finished", self, "_on_transition_finished")
@@ -47,3 +45,4 @@ func _on_transition_finished() -> void:
 		play_transition()
 	else:
 		set_active(false)
+		emit_signal("tutorial_finished")
