@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/3d/bedroom_test.tscn" type="PackedScene" id=2]
@@ -15,46 +15,34 @@
 [ext_resource path="res://scripts/SolidGrid3D.gd" type="Script" id=13]
 [ext_resource path="res://scenes/2d/tutorial/tutorial.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/3d/particles/fog particles/fog_particles_points.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/3d/particles/fog particles/cutscene_emission_point_texture.tres" type="Texture" id=16]
-[ext_resource path="res://scenes/3d/particles/fog particles/normal_emission_point_texture.tres" type="Texture" id=17]
+[ext_resource path="res://models/max/temp/Animations.glb" type="PackedScene" id=18]
+[ext_resource path="res://scenes/3d/AnimationPlayerExt.gd" type="Script" id=19]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("ParticleManager:rotation_degrees")
+
+[sub_resource type="Animation" id=5]
+resource_name = "opening"
+length = 39.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("main_camera")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 90, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ParticleManager:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 1.1, 0, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("ParticleManager:point_texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 16 ) ]
+"times": PoolRealArray( 0, 11.9, 36 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "opening_camera_phone_1", 0, 0.0 ],
+"method": "tween_to_first_node_in_group"
+}, {
+"args": [ "opening_camera_phone_2", 0, 0.0 ],
+"method": "tween_to_first_node_in_group"
+}, {
+"args": [ "cutscene_camera_door", 1, 3.0 ],
+"method": "tween_to_first_node_in_group"
+} ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -152,42 +140,6 @@ tracks/5/keys = {
 "args": [ true ],
 "method": "set_active"
 } ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("ParticleManager:point_texture")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("ParticleManager:translation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 1.1, 0, 0 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("ParticleManager:rotation_degrees")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 90, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -292,45 +244,191 @@ tracks/6/keys = {
 "method": "add_to_room_grid"
 } ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("ParticleManager:point_texture")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ), ExtResource( 17 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("ParticleManager:translation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 1.1, 0, 0 ), Vector3( 0, 0, 0 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("ParticleManager:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0, 2, 5.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 0, 0 ) ]
-}
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.2, 0.5, 0.2 )
+
+[sub_resource type="QuadMesh" id=8]
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 35.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 2.086, 1.378, -0.133 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("main:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -16.603, 185.349, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("main/blocker:material/0:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "cutscene"
+length = 60.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("max_animations/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Picking up phone", "Putting phone away", "Getting up from bed" ),
+"times": PoolRealArray( 0, 17.5, 27.1 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 30.2, 35.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 35.0, 35.0, 50.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("main:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 12.5, 17.5, 30.3, 35.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.122, 1.229, 0.1 ), Vector3( 2.122, 1.229, 0.1 ), Vector3( 0.79, 1.08, -0.311 ), Vector3( 0.79, 1.08, -0.311 ), Vector3( 0.56, 1.08, -0.716 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("main:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 12.5, 17.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -12.984, -167.76, 0 ), Vector3( -12.984, -167.76, 0 ), Vector3( -2.16, -146.51, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("main/blocker:material/0:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 42.3, 47.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "cutscene (copy)"
+length = 60.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("max_animations/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "Picking up phone", "Putting phone away", "Getting up from bed" ),
+"times": PoolRealArray( 0, 17.5, 27.07 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 16.2, 42 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 35.0, 40.0, 40.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("main:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 12.5, 16.3, 24.3, 35.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.122, 1.229, 0.1 ), Vector3( 2.122, 1.229, 0.1 ), Vector3( 1.626, 1.115, -0.139 ), Vector3( 1.626, 1.115, -0.139 ), Vector3( 1.5, 1.115, -0.423 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("main:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 12.5, 16.4, 24.3, 35.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -12.984, -167.76, 0 ), Vector3( -12.984, -167.76, 0 ), Vector3( -8.056, -168.166, 0 ), Vector3( -8.056, -168.166, 0 ), Vector3( -8.056, -168.166, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("main/blocker:material/0:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 42.3, 47.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="real_world" type="Spatial" groups=["room_manager"]]
 script = ExtResource( 1 )
@@ -338,6 +436,7 @@ controllingCamera = true
 
 [node name="max" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5 )
+visible = false
 movementSpeed = 140.0
 moveTime = 0.8
 
@@ -376,21 +475,27 @@ visible = false
 extents = Vector3( 3.24551, 2.31145, 2.66488 )
 
 [node name="cutscene_player" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
 anims/RESET = SubResource( 4 )
+anims/opening = SubResource( 5 )
 anims/opening_cutscene = SubResource( 1 )
 anims/opening_cutscene_2 = SubResource( 3 )
 script = ExtResource( 9 )
+start_on_ready = true
 
 [node name="cutscene_nodes" type="Spatial" parent="."]
 
 [node name="camera_bed" type="Camera" parent="cutscene_nodes" groups=["cutscene_camera_bed"]]
 transform = Transform( -0.79335, 0.343017, -0.502926, 0, 0.826141, 0.563464, 0.608765, 0.447024, -0.655419, 1.18276, 1.80625, 0.0803223 )
+current = true
 
 [node name="camera_stand" type="Camera" parent="cutscene_nodes" groups=["cutscene_camera_stand"]]
 transform = Transform( -0.81411, 0.294334, -0.500591, 0, 0.862033, 0.506852, 0.58071, 0.412634, -0.70179, 0.398288, 2.1763, -0.880583 )
+current = true
 
 [node name="camera_door" type="Camera" parent="cutscene_nodes" groups=["cutscene_camera_door"]]
 transform = Transform( 0.988363, 0.0581003, -0.140583, 0, 0.924183, 0.381949, 0.152115, -0.377504, 0.913429, 0.847867, 1.90886, 1.68252 )
+current = true
 
 [node name="doorhandle_position" type="Position3D" parent="cutscene_nodes" groups=["cutscene_doorhandle_position"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17548, 1.07499, -3.01986 )
@@ -438,12 +543,33 @@ room_path = NodePath("../../rooms/bedroom")
 
 [node name="main_camera" parent="." instance=ExtResource( 4 )]
 
-[node name="ParticleManager" parent="." instance=ExtResource( 15 )]
-transform = Transform( -4.80825e-08, 0, 1, 0, 1, 0, -1.1, 0, -4.37114e-08, 1.1, 0, 0 )
+[node name="max_animations" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1.3, 0, -1.96295e-07, 0, 1.3, 0, 1.96295e-07, 0, -1.3, 1.54628, 0.0287004, 0.609048 )
+
+[node name="main" type="Camera" parent="."]
+transform = Transform( -0.995645, 0.0266372, -0.0893357, 0, 0.958308, 0.285739, 0.0932223, 0.284494, -0.954135, 2.086, 1.378, -0.133 )
+current = true
+fov = 35.0
+
+[node name="blocker" type="MeshInstance" parent="main"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.052 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 7 )
+anims/cutscene = SubResource( 6 )
+"anims/cutscene (copy)" = SubResource( 10 )
+script = ExtResource( 19 )
+starting_animation = "cutscene"
+
+[node name="Manager" parent="." instance=ExtResource( 15 )]
 visible = false
 big_amount = 960
-medium_amount = 820
-point_texture = ExtResource( 16 )
+medium_amount = 800
 
 [connection signal="animation_finished" from="cutscene_player" to="cutscene_player" method="_on_cutscene_player_animation_finished"]
 [connection signal="interacted" from="cutscene_nodes/door_interactable" to="cutscene_player" method="_on_door_interactable_interacted"]
+
+[editable path="main_camera"]
+[editable path="max_animations"]

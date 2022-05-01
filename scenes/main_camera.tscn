@@ -27,7 +27,6 @@ movementSpeed = 20.0
 script = ExtResource( 3 )
 
 [node name="camera" type="Camera" parent="target_offset"]
-transform = Transform( 1, 0, 0, 0, 0.539138, 0.842217, 0, -0.842217, 0.539138, 0, 7.086, 4.109 )
 environment = SubResource( 4 )
 current = true
 script = ExtResource( 2 )
