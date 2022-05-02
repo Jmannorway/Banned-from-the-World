@@ -64,13 +64,20 @@ func next_effect() -> void:
 	set_effect(EFFECT_NAMES[i])
 	effect_index = i
 
+func prev_effect() -> void:
+	var i : int = wrapi(effect_index - 1, 0, EFFECT._MAX)
+	while !Statistics.metadata.unlocked_effects[EFFECT_NAMES[i]]:
+		print("Player2D: Skipped effect '", EFFECT_NAMES[i], "' because it was not unlocked")
+		i = wrapi((i - 1), 0, EFFECT._MAX)
+	set_effect(EFFECT_NAMES[i])
+	effect_index = i
+
 func _process(_delta):
 	if !frozen.is_weighted():
 		if Input.is_action_just_pressed("ui_page_up"):
 			next_effect()
 		elif Input.is_action_just_pressed("ui_page_down"):
-			effect_index = wrapi(effect_index - 1, 0, EFFECT_NAMES.size())
-			set_effect(EFFECT_NAMES[effect_index])
+			prev_effect()
 		
 		if Input.is_action_just_pressed("action"):
 			call(EFFECT_ACTION_FUNC_PRESET + effect)

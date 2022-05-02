@@ -23,6 +23,7 @@ static func create_new_game_metadata() -> Dictionary:
 	var _new = DEFAULT_METADATA.duplicate(true)
 	_new.unlocked_effects = Player2D.create_effects_dictionary(false)
 	_new.unlocked_effects.normal = true
+	_new.unlocked_effects.skater = true
 	return _new
 var metadata : Dictionary
 

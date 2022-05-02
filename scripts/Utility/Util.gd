@@ -17,10 +17,7 @@ static func goto_world(tree : SceneTree, world : int) -> void:
 		# Clear 3d world
 		tree.change_scene("res://scenes/empty.tscn")
 		# Load 2d scene
-		if Statistics.metadata["checkpoint"] == 0:
-			MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
-		else:
-			print("warps to quickwarp screen")
+		MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
 
 # TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 

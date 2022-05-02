@@ -14,7 +14,6 @@
 [ext_resource path="res://cutscenes/sister_in_bathroom.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scripts/single instance scripts/PianoMinigameCorridorWin.gd" type="Script" id=13]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
 params_blend_mode = 1
@@ -102,6 +101,7 @@ shader_param/noise = ExtResource( 8 )
 
 [node name="room_manager" type="Spatial"]
 script = ExtResource( 6 )
+controllingCamera = true
 
 [node name="rooms" type="Spatial" parent="."]
 
@@ -182,6 +182,10 @@ material/0 = null
 [node name="main_camera" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.36865 )
 
+[node name="camera" parent="main_camera/target_offset" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.539138, 0.842217, 0, -0.842217, 0.539138, 0, 7.086, 4.109 )
+start_in_game_position = true
+
 [node name="max" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 3.5 )
 
@@ -205,3 +209,5 @@ scene = ExtResource( 11 )
 is_2d = false
 
 [connection signal="area_entered" from="win" to="win" method="_on_Area_area_entered"]
+
+[editable path="main_camera"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://sprites/hub/blue_circle_empty.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Room2D/Room2D.gd" type="Script" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://sprites/hub/hub_pattern.png" type="Texture" id=14]
 [ext_resource path="res://scripts/Utility/Rotation_non_tool.gd" type="Script" id=15]
 [ext_resource path="res://sprites/effects/Pills.png" type="Texture" id=16]
+[ext_resource path="res://scenes/music_player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://sounds/music/hub.ogg" type="AudioStream" id=18]
 
 [sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
@@ -152,19 +154,19 @@ position = Vector2( -12, 12 )
 z_index = 1
 
 [node name="ConstructionSign" type="Sprite" parent="above"]
-visible = false
-position = Vector2( 84, 168 )
+position = Vector2( 96, 180 )
 texture = ExtResource( 3 )
+offset = Vector2( 0, -24 )
 
 [node name="ConstructionSign2" type="Sprite" parent="above"]
-visible = false
-position = Vector2( 252, 336 )
+position = Vector2( 252, 24 )
 texture = ExtResource( 3 )
+offset = Vector2( 0, -24 )
 
 [node name="ConstructionSign3" type="Sprite" parent="above"]
-visible = false
-position = Vector2( 252, 0 )
+position = Vector2( 252, 336 )
 texture = ExtResource( 3 )
+offset = Vector2( 0, -24 )
 
 [node name="solid_grid_2d" parent="above" instance=ExtResource( 6 )]
 position = Vector2( 12, 12 )
@@ -179,8 +181,11 @@ effect = "skater"
 texture = ExtResource( 13 )
 
 [node name="dealer_pickup" parent="." instance=ExtResource( 5 )]
-position = Vector2( 108, 108 )
+position = Vector2( 60, 108 )
 effect = "dealer"
 
 [node name="pills" type="Sprite" parent="dealer_pickup"]
 texture = ExtResource( 16 )
+
+[node name="music_player" parent="." instance=ExtResource( 17 )]
+song = ExtResource( 18 )

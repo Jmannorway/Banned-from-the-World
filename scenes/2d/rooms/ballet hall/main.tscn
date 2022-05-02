@@ -366,7 +366,7 @@ addElevation = 2
 walkUpDirection = 3
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase5"]
-polygon = PoolVector2Array( -12, 60, -12, -60, 108, -100, 108, 20 )
+polygon = PoolVector2Array( -12, 60, -12, -60, 36, -76, 36, 44 )
 
 [node name="staircase6" type="Area2D" parent="stairs"]
 position = Vector2( 1164, -444 )
@@ -375,7 +375,7 @@ script = ExtResource( 6 )
 width = 5
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase6"]
-polygon = PoolVector2Array( -60, -12, 60, -12, 60, -84, -60, -84 )
+polygon = PoolVector2Array( -60, -12, 60, -12, 60, -12, -60, -12 )
 
 [node name="staircase7" type="Area2D" parent="stairs"]
 position = Vector2( 1236, 180 )
@@ -384,7 +384,7 @@ script = ExtResource( 6 )
 width = 7
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase7"]
-polygon = PoolVector2Array( -84, -12, 84, -12, 84, -132, -84, -132 )
+polygon = PoolVector2Array( -84, -12, 84, -12, 84, -12, -84, -12 )
 
 [node name="staircase8" type="Area2D" parent="stairs"]
 position = Vector2( 1188, -1260 )
@@ -396,7 +396,7 @@ addElevation = 2
 walkUpDirection = 2
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase8"]
-polygon = PoolVector2Array( 12, 108, 12, -108, -180, -172, -180, 44 )
+polygon = PoolVector2Array( 12, 108, 12, -108, -36, -124, -36, 92 )
 
 [node name="staircase9" type="Area2D" parent="stairs"]
 position = Vector2( -768, -804 )
@@ -406,7 +406,7 @@ width = 4
 offsetPerBlock = 2
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase9"]
-polygon = PoolVector2Array( -48, -12, 48, -12, 48, -36, -48, -36 )
+polygon = PoolVector2Array( -48, -12, 48, -12, 48, -12, -48, -12 )
 
 [node name="staircase10" type="Area2D" parent="stairs"]
 position = Vector2( -756, -540 )
@@ -417,7 +417,7 @@ offsetPerBlock = 2
 walkUpDirection = 1
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase10"]
-polygon = PoolVector2Array( -60, 12, 60, 12, 60, 36, -60, 36 )
+polygon = PoolVector2Array( -60, 12, 60, 12, 60, 12, -60, 12 )
 
 [node name="staircase11" type="Area2D" parent="stairs"]
 position = Vector2( -588, -1296 )
@@ -438,7 +438,7 @@ width = 4
 addElevation = 2
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase12"]
-polygon = PoolVector2Array( -48, -12, 48, -12, 48, -84, -48, -84 )
+polygon = PoolVector2Array( -48, -12, 48, -12, 48, -12, -48, -12 )
 
 [node name="staircase13" type="Area2D" parent="stairs"]
 position = Vector2( -684, -324 )
@@ -449,7 +449,7 @@ offsetPerBlock = 3
 walkUpDirection = 1
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase13"]
-polygon = PoolVector2Array( -84, 12, 84, 12, 84, 60, -84, 60 )
+polygon = PoolVector2Array( -84, 12, 84, 12, 84, 12, -84, 12 )
 
 [node name="staircase14" type="Area2D" parent="stairs"]
 position = Vector2( 804, -1020 )
@@ -458,7 +458,7 @@ script = ExtResource( 6 )
 offsetPerBlock = 3
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase14"]
-polygon = PoolVector2Array( -36, -12, 36, -12, 36, -60, -36, -60 )
+polygon = PoolVector2Array( -36, -12, 36, -12, 36, -12, -36, -12 )
 
 [node name="staircase15" type="Area2D" parent="stairs"]
 position = Vector2( -108, -1332 )
@@ -468,7 +468,7 @@ width = 5
 offsetPerBlock = 2
 
 [node name="stairs_field" type="CollisionPolygon2D" parent="stairs/staircase15"]
-polygon = PoolVector2Array( -60, -12, 60, -12, 60, -36, -60, -36 )
+polygon = PoolVector2Array( -60, -12, 60, -12, 60, -12, -60, -12 )
 
 [node name="staircase16" type="Area2D" parent="stairs"]
 position = Vector2( 108, -1404 )
@@ -742,4 +742,5 @@ process_material = SubResource( 21 )
 texture = ExtResource( 15 )
 
 [node name="checkpoint" parent="." instance=ExtResource( 13 )]
+visible = false
 position = Vector2( 180, 420 )
