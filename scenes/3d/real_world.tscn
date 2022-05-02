@@ -152,7 +152,7 @@ script = ExtResource( 1 )
 controllingCamera = true
 
 [node name="max" parent="." instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0.5 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.5, 0, -2.5 )
 movementSpeed = 200.0
 moveTime = 0.8
 position = Vector2( 1.5, 0.5 )
@@ -269,7 +269,6 @@ room_path = NodePath("../../rooms/bedroom")
 [node name="camera" parent="main_camera/target_offset" index="0"]
 transform = Transform( -0.977268, 0.0473306, -0.206656, 0, 0.974761, 0.22325, 0.212007, 0.218175, -0.952603, 2.122, 1.229, 0.1 )
 fov = 35.0
-dim_alpha = 1.0
 gameplay_translation = Vector3( 0, 12.177, 5.375 )
 gameplay_rotation_degrees = Vector3( -63.204, 0, 0 )
 
