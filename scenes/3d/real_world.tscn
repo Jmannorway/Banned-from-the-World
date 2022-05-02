@@ -227,11 +227,15 @@ room_path = NodePath("../../rooms/bedroom")
 [node name="camera" parent="main_camera/target_offset" index="0"]
 transform = Transform( -0.977268, 0.0473306, -0.206656, 0, 0.974761, 0.22325, 0.212007, 0.218175, -0.952603, 2.122, 1.229, 0.1 )
 fov = 40.0
+dim_alpha = 0.86651
 gameplay_translation = Vector3( 0, 10, 4 )
 gameplay_rotation_degrees = Vector3( -63, 0, 0 )
 
 [node name="blocking_mesh" parent="main_camera/target_offset/camera" index="0"]
 transform = Transform( 1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, -0.06 )
+
+[node name="alpha_tween" parent="main_camera/target_offset/camera" index="2"]
+playback/active = true
 
 [connection signal="animation_finished" from="cutscene_player" to="cutscene_player" method="_on_cutscene_player_animation_finished"]
 [connection signal="interacted" from="cutscene_nodes/door_interactable" to="cutscene_player" method="_on_door_interactable_interacted"]
