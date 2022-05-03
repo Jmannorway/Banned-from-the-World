@@ -491,7 +491,6 @@ walkUpDirection = 2
 polygon = PoolVector2Array( 12, 36, 12, -36, -36, -52, -36, 20 )
 
 [node name="celing" type="Node2D" parent="."]
-visible = false
 z_index = 100
 script = ExtResource( 9 )
 clampArea = Vector2( 500, 400 )
@@ -658,7 +657,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 5000, 19 )
 
 [node name="celing2" type="Node2D" parent="."]
-visible = false
 z_index = 100
 script = ExtResource( 9 )
 clampArea = Vector2( 500, 400 )

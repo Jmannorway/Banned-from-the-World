@@ -30,6 +30,7 @@ margin_left = 10.0
 margin_right = 193.0
 margin_bottom = 15.0
 texture = ExtResource( 1 )
+region_rect = Rect2( 7, 20, 94, 15 )
 patch_margin_left = 14
 patch_margin_right = 14
 axis_stretch_vertical = 1
@@ -53,7 +54,7 @@ custom_constants/separation = 6
 margin_right = 183.0
 margin_bottom = 14.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "run"
 
 [node name="text" type="Label" parent="margin/menu_collection/run"]
@@ -67,7 +68,7 @@ margin_top = 20.0
 margin_right = 183.0
 margin_bottom = 34.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "interact"
 
 [node name="text" type="Label" parent="margin/menu_collection/interact"]
@@ -81,7 +82,7 @@ margin_top = 40.0
 margin_right = 183.0
 margin_bottom = 54.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "menu"
 
 [node name="text" type="Label" parent="margin/menu_collection/menu"]
@@ -95,7 +96,7 @@ margin_top = 60.0
 margin_right = 183.0
 margin_bottom = 74.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "focus"
 
 [node name="text" type="Label" parent="margin/menu_collection/focus"]
@@ -109,7 +110,7 @@ margin_top = 80.0
 margin_right = 183.0
 margin_bottom = 94.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "move_left"
 
 [node name="text" type="Label" parent="margin/menu_collection/move_left"]
@@ -123,7 +124,7 @@ margin_top = 100.0
 margin_right = 183.0
 margin_bottom = 114.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "move_right"
 
 [node name="text" type="Label" parent="margin/menu_collection/move_right"]
@@ -137,7 +138,7 @@ margin_top = 120.0
 margin_right = 183.0
 margin_bottom = 134.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "move_up"
 
 [node name="text" type="Label" parent="margin/menu_collection/move_up"]
@@ -151,7 +152,7 @@ margin_top = 140.0
 margin_right = 183.0
 margin_bottom = 154.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "move_down"
 
 [node name="text" type="Label" parent="margin/menu_collection/move_down"]
@@ -165,7 +166,7 @@ margin_top = 160.0
 margin_right = 183.0
 margin_bottom = 174.0
 script = ExtResource( 4 )
-action = 3
+action = 4
 
 [node name="text" type="Label" parent="margin/menu_collection/cancel"]
 margin_left = 70.0
