@@ -23,6 +23,11 @@ const VDIR4 = [
 	Vector2.RIGHT,
 	Vector2.DOWN,
 	Vector2.LEFT]
+const IDIR4 = {
+	Vector2.UP : 0,
+	Vector2.RIGHT : 1,
+	Vector2.DOWN : 2,
+	Vector2.LEFT : 3}
 enum BDIR{
 	UP_LEFT = 1,
 	UP = 2,

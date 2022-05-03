@@ -9,7 +9,6 @@ static func goto_world(tree : SceneTree, world : int) -> void:
 	MusicManager.clear_music()
 	
 	if world == Game.WORLD.OUTER:
-		Statistics.metadata["inner_world_travel_count"] += 1
 		# Clear 2d world
 		MapManager.clear_map()
 		# Load default 3d world
@@ -157,6 +156,9 @@ static func max_v2(a : Vector2, b : Vector2) -> Vector2:
 
 static func int_set_bit(i : int, bit : int, val : bool) -> int:
 	return (i | (1 << bit)) & ~(int(!val) << bit)
+
+static func int_get_bit(i : int, bit : int) -> bool:
+	return bool(i >> bit & 1)
 
 # fuck you
 static func tern(condition : bool, return_if_true, return_if_false):

@@ -83,7 +83,7 @@ func set_state(new_state : int) -> void:
 	# Stop any running tweening and calculate the amount of time left
 	if alpha_tween.is_active():
 		_tween_progress = alpha_tween.tell() / alpha_tween.get_runtime()
-		alpha_tween.stop_all()
+		alpha_tween.remove_all()
 	
 	if !visibility_timer.is_stopped():
 		visibility_timer.stop()

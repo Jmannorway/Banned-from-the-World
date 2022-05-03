@@ -1,0 +1,213 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://scenes/2d/quickwarp/Quickwarp.gd" type="Script" id=1]
+[ext_resource path="res://scenes/2d/quickwarp/max.png" type="Texture" id=2]
+[ext_resource path="res://scenes/2d/quickwarp/Cursor.gd" type="Script" id=3]
+[ext_resource path="res://scenes/2d/quickwarp/HubLocation.tres" type="Resource" id=4]
+[ext_resource path="res://scenes/2d/quickwarp/BalletHallLocation.tres" type="Resource" id=5]
+[ext_resource path="res://scenes/2d/quickwarp/fog_part_tex_smoke.png" type="Texture" id=6]
+[ext_resource path="res://scenes/2d/quickwarp/UnlockParticles.gd" type="Script" id=7]
+[ext_resource path="res://sprites/hub/hub_pattern_full_alpha.png" type="Texture" id=8]
+[ext_resource path="res://scenes/2d/quickwarp/CursorSmoke.tres" type="Material" id=9]
+
+[sub_resource type="ViewportTexture" id=14]
+viewport_path = NodePath("HubPatternViewport/GameViewport")
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.505495, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+width = 10
+
+[sub_resource type="ParticlesMaterial" id=15]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=16]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=18]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+color = Color( 0, 0.952941, 1, 1 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 3
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 392, 432 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 392, 0, 392, 432 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 784, 0, 392, 432 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Quickwarp" type="Node2D"]
+position = Vector2( 492, 372 )
+script = ExtResource( 1 )
+maps = {
+Vector2( 0, 0 ): ExtResource( 4 ),
+Vector2( 1, 0 ): ExtResource( 5 )
+}
+cursor = NodePath("Cursor")
+
+[node name="HubPatternViewport" type="Sprite" parent="."]
+position = Vector2( 336, 96 )
+scale = Vector2( 2.5, 2.5 )
+texture = SubResource( 14 )
+
+[node name="GameViewport" type="Viewport" parent="HubPatternViewport"]
+size = Vector2( 480, 360 )
+transparent_bg = true
+usage = 0
+render_target_v_flip = true
+
+[node name="WestUnlock" type="Particles2D" parent="HubPatternViewport/GameViewport"]
+position = Vector2( -24, 132 )
+process_material = SubResource( 15 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+checkpoint = 3
+
+[node name="SouthUnlock" type="Particles2D" parent="HubPatternViewport/GameViewport"]
+position = Vector2( 108, 252 )
+process_material = SubResource( 16 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+checkpoint = 2
+
+[node name="EastUnlock" type="Particles2D" parent="HubPatternViewport/GameViewport"]
+position = Vector2( 224, 132 )
+process_material = SubResource( 17 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+checkpoint = 1
+
+[node name="NorthUnlock" type="Particles2D" parent="HubPatternViewport/GameViewport"]
+position = Vector2( 108, 0 )
+process_material = SubResource( 18 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="Middle" type="Particles2D" parent="HubPatternViewport/GameViewport"]
+position = Vector2( 108, 132 )
+scale = Vector2( 0.48, 0.48 )
+process_material = SubResource( 13 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+checkpoint = 4
+
+[node name="HubPatternWeak" type="Sprite" parent="HubPatternViewport/GameViewport"]
+modulate = Color( 1, 1, 1, 0.52549 )
+position = Vector2( -132, -108 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="HubPattern" type="Sprite" parent="HubPatternViewport/GameViewport"]
+material = SubResource( 12 )
+position = Vector2( -132, -108 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Cursor" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+frames = SubResource( 5 )
+frame = 2
+playing = true
+offset = Vector2( 0, -48 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+radius = 240.0
+
+[node name="Shadow" type="AnimatedSprite" parent="Cursor"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2, 2 )
+z_as_relative = false
+frames = SubResource( 5 )
+offset = Vector2( 0, -48 )
+
+[node name="Tween" type="Tween" parent="Cursor"]
+
+[node name="Smoke" type="Particles2D" parent="Cursor"]
+position = Vector2( 0, -48 )
+z_as_relative = false
+amount = 20
+lifetime = 3.0
+preprocess = 3.0
+process_material = ExtResource( 9 )
+texture = ExtResource( 6 )

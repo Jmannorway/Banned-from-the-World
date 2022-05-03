@@ -70,5 +70,5 @@ func move_direction(dir : Vector2, dur : float, factor : float = 0.0) -> void:
 	move_direction = dir
 
 func finish_move() -> void:
-	$move_animation_tween.stop_all()
+	$move_animation_tween.remove_all()
 	offset = Vector2.ZERO

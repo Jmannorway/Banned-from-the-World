@@ -1,9 +1,10 @@
 extends Viewport
+tool
 
 class_name GameViewport
 
 enum MODE {TWO_DIMENSIONAL, THREE_DIMENSIONAL}
-var mode = MODE.TWO_DIMENSIONAL setget set_mode
+export(MODE) var mode = MODE.TWO_DIMENSIONAL setget set_mode
 
 func set_mode(val):
 	mode = val
