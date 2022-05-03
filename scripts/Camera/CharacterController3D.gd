@@ -80,6 +80,7 @@ func move(var direction: int) -> void:
 	
 	if roomManager.currentRoom.is_block_solid(Vector3(position.x - 0.5, translation.y, position.y - 0.5)): # check gridmap for occupied spaces
 		position = _currentPosition
+#		rotation.y = _currentRotation
 		
 		travel_to("Idle")
 		return

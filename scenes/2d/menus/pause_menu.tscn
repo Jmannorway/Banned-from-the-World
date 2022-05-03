@@ -2,7 +2,7 @@
 
 [ext_resource path="res://sprites/menus/menu cursor.png" type="Texture" id=1]
 [ext_resource path="res://sprites/menus/menu 9slice.png" type="Texture" id=2]
-[ext_resource path="res://scripts/menu/MenuController.gd" type="Script" id=3]
+[ext_resource path="res://scripts/menu/PauseMenu.gd" type="Script" id=3]
 [ext_resource path="res://scripts/menu/ButtonAction.gd" type="Script" id=4]
 
 [node name="menu_root" type="NinePatchRect"]
@@ -49,46 +49,45 @@ margin_right = 141.0
 margin_bottom = 84.0
 custom_constants/separation = 6
 
-[node name="new_game" type="CenterContainer" parent="margin/menu_collection"]
+[node name="resume" type="CenterContainer" parent="margin/menu_collection"]
 margin_right = 131.0
 margin_bottom = 14.0
 script = ExtResource( 4 )
-action = 1
-actionName = "3d/real_world"
+actionName = "resume"
 
-[node name="text" type="Label" parent="margin/menu_collection/new_game"]
-margin_left = 30.0
-margin_right = 100.0
+[node name="text" type="Label" parent="margin/menu_collection/resume"]
+margin_left = 39.0
+margin_right = 91.0
 margin_bottom = 14.0
-text = "New Game"
+text = "Resume"
 
-[node name="load" type="CenterContainer" parent="margin/menu_collection"]
+[node name="effects" type="CenterContainer" parent="margin/menu_collection"]
 margin_top = 20.0
 margin_right = 131.0
 margin_bottom = 34.0
 script = ExtResource( 4 )
 action = 2
-actionName = "load_game"
+actionName = "items"
 
-[node name="text" type="Label" parent="margin/menu_collection/load"]
-margin_left = 29.0
-margin_right = 101.0
+[node name="text" type="Label" parent="margin/menu_collection/effects"]
+margin_left = 44.0
+margin_right = 86.0
 margin_bottom = 14.0
-text = "Load Game"
+text = "Effects"
 
-[node name="options" type="CenterContainer" parent="margin/menu_collection"]
+[node name="awake" type="CenterContainer" parent="margin/menu_collection"]
 margin_top = 40.0
 margin_right = 131.0
 margin_bottom = 54.0
 script = ExtResource( 4 )
-action = 2
-actionName = "options"
+action = 1
+actionName = "3d/real_world"
 
-[node name="text" type="Label" parent="margin/menu_collection/options"]
-margin_left = 40.0
-margin_right = 91.0
+[node name="text" type="Label" parent="margin/menu_collection/awake"]
+margin_left = 45.0
+margin_right = 86.0
 margin_bottom = 14.0
-text = "Options"
+text = "Awake"
 
 [node name="quit" type="CenterContainer" parent="margin/menu_collection"]
 margin_top = 60.0

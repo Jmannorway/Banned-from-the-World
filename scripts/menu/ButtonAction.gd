@@ -1,6 +1,6 @@
 extends Control
 
-export (int, "Change Scene", "New Menu", "Change Option", "Cancel", "Quit")var action: int
+export (int, "Dummy", "Change Scene", "New Menu", "Change Option", "Cancel", "Quit")var action: int
 export var actionName: String
 
 class_name ButtonAction
@@ -39,6 +39,7 @@ func action() -> void:
 	emit_signal("action", action, actionName)
 
 enum Action {
+	DUMMY,
 	CHANGE_SCENE,
 	NEW_MENU,
 	CHANGE_OPTION,

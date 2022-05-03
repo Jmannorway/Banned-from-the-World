@@ -30,6 +30,7 @@ margin_left = 10.0
 margin_right = 295.0
 margin_bottom = 15.0
 texture = ExtResource( 1 )
+region_rect = Rect2( 7, 20, 94, 15 )
 patch_margin_left = 14
 patch_margin_right = 14
 axis_stretch_vertical = 1
@@ -53,7 +54,7 @@ custom_constants/separation = 6
 margin_right = 285.0
 margin_bottom = 14.0
 script = ExtResource( 4 )
-action = 2
+action = 3
 actionName = "fullscreen"
 
 [node name="text" type="Label" parent="margin/menu_collection/fullscreen"]
@@ -123,7 +124,7 @@ margin_top = 100.0
 margin_right = 285.0
 margin_bottom = 114.0
 script = ExtResource( 4 )
-action = 1
+action = 2
 actionName = "controls"
 
 [node name="text" type="Label" parent="margin/menu_collection/controls"]
@@ -137,7 +138,7 @@ margin_top = 120.0
 margin_right = 285.0
 margin_bottom = 134.0
 script = ExtResource( 4 )
-action = 3
+action = 4
 
 [node name="text" type="Label" parent="margin/menu_collection/cancel"]
 margin_left = 121.0

@@ -29,7 +29,7 @@ size = Vector2( 10, 10 )
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
 visible = true
-position = Vector2( 216, 432 )
+position = Vector2( 216, 456 )
 room_name = "ballet_main"
 index = 4
 
