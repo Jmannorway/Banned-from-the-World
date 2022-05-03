@@ -48,6 +48,8 @@ func _ready():
 		connect("area_shape_entered", self, "on_stairs_walking")
 # warning-ignore:return_value_discarded
 		connect("area_shape_exited", self, "on_stairs_exiting")
+		
+		objectRef = PlayerAccess.get_player_2d(get_tree())
 
 func update_stairs_area() -> void:
 	if !has_node("stairs_field"):
@@ -94,7 +96,6 @@ func step() -> void:
 
 # warning-ignore:unused_argument
 func on_character_enter(var directionFrom: Vector2) -> void:
-	objectRef = PlayerAccess.get_player_2d(get_tree())
 	enteredFrom = directionFrom
 	
 	match walkUpDirection:
