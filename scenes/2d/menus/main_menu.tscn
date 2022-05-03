@@ -30,6 +30,7 @@ margin_left = 10.0
 margin_right = 141.0
 margin_bottom = 15.0
 texture = ExtResource( 1 )
+region_rect = Rect2( 7, 20, 94, 15 )
 patch_margin_left = 14
 patch_margin_right = 14
 
@@ -52,6 +53,7 @@ custom_constants/separation = 6
 margin_right = 131.0
 margin_bottom = 14.0
 script = ExtResource( 4 )
+action = 1
 actionName = "3d/real_world"
 
 [node name="text" type="Label" parent="margin/menu_collection/new_game"]
@@ -65,7 +67,7 @@ margin_top = 20.0
 margin_right = 131.0
 margin_bottom = 34.0
 script = ExtResource( 4 )
-action = 1
+action = 2
 actionName = "load_game"
 
 [node name="text" type="Label" parent="margin/menu_collection/load"]
@@ -79,7 +81,7 @@ margin_top = 40.0
 margin_right = 131.0
 margin_bottom = 54.0
 script = ExtResource( 4 )
-action = 1
+action = 2
 actionName = "options"
 
 [node name="text" type="Label" parent="margin/menu_collection/options"]
@@ -93,7 +95,7 @@ margin_top = 60.0
 margin_right = 131.0
 margin_bottom = 74.0
 script = ExtResource( 4 )
-action = 4
+action = 5
 
 [node name="text" type="Label" parent="margin/menu_collection/quit"]
 margin_left = 51.0
