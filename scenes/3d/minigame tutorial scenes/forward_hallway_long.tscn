@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/characters/max.tscn" type="PackedScene" id=1]
-[ext_resource path="res://models/doorframe_nonuv.fbx" type="PackedScene" id=2]
+[ext_resource path="res://scenes/3d/ASSETS/doorframe_nonuv.fbx" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Room3D/RoomController.gd" type="Script" id=3]
-[ext_resource path="res://models/max_door_uv.fbx" type="PackedScene" id=4]
+[ext_resource path="res://scenes/3d/ASSETS/max_door_uv.fbx" type="PackedScene" id=4]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=6]
 [ext_resource path="res://scenes/x to focus/focus_scenes/focus_grid.tscn" type="PackedScene" id=7]
@@ -13,7 +13,6 @@
 [ext_resource path="res://scenes/3d/real_world.tscn" type="PackedScene" id=11]
 [ext_resource path="res://cutscenes/sister_in_bathroom.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scripts/single instance scripts/PianoMinigameCorridorWin.gd" type="Script" id=13]
-
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -102,6 +101,7 @@ shader_param/noise = ExtResource( 8 )
 
 [node name="room_manager" type="Spatial"]
 script = ExtResource( 6 )
+controllingCamera = true
 
 [node name="rooms" type="Spatial" parent="."]
 
@@ -182,6 +182,17 @@ material/0 = null
 [node name="main_camera" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.36865 )
 
+[node name="camera" parent="main_camera/target_offset" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.539138, 0.842217, 0, -0.842217, 0.539138, 0, 7.086, 4.109 )
+start_in_game_position = true
+dim_alpha = 0.93313
+
+[node name="transition_tween" parent="main_camera/target_offset/camera" index="1"]
+playback/active = true
+
+[node name="alpha_tween" parent="main_camera/target_offset/camera" index="2"]
+playback/active = true
+
 [node name="max" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 3.5 )
 
@@ -205,3 +216,5 @@ scene = ExtResource( 11 )
 is_2d = false
 
 [connection signal="area_entered" from="win" to="win" method="_on_Area_area_entered"]
+
+[editable path="main_camera"]

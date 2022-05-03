@@ -168,7 +168,7 @@ func move_position(steps : Vector2) -> void:
 	var _move_distance = steps * Game.SNAP
 	
 	if solid:
-		lastSolidIndex = WorldGrid.get_solid_grid(layer).move_solid_to_pixel(global_position, _move_distance, lastSolidIndex)
+		WorldGrid.get_solid_grid(layer).move_solid_to_pixel_deprecated(global_position, _move_distance)
 	
 	position += _move_distance
 	last_move = steps

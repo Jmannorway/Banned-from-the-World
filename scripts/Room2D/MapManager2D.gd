@@ -69,6 +69,7 @@ func change_map(map_scene : PackedScene) -> void:
 	current_map = map_scene
 	
 	if current_map:
+		MusicManager.clear_music()
 		set_map_instance_child(map_scene.instance())
 	else:
 		current_map_instance = null

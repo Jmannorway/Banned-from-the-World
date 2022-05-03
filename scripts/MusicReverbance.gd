@@ -22,6 +22,7 @@ func _process(delta):
 	update_reverb()
 
 func play_music() -> void:
+	MusicManager.clear_music()
 	MusicManager.play_music(musicToPlay)
 	set_process(true)
 

@@ -6,6 +6,7 @@ enum DIRECTION {UP, LEFT, RIGHT, DOWN}
 
 static func goto_world(tree : SceneTree, world : int) -> void:
 	Game.set_world(world)
+	MusicManager.clear_music()
 	
 	if world == Game.WORLD.OUTER:
 		Statistics.metadata["inner_world_travel_count"] += 1
@@ -17,10 +18,7 @@ static func goto_world(tree : SceneTree, world : int) -> void:
 		# Clear 3d world
 		tree.change_scene("res://scenes/empty.tscn")
 		# Load 2d scene
-		if Statistics.metadata["checkpoint"] == 0:
-			MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
-		else:
-			print("warps to quickwarp screen")
+		MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
 
 # TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
 

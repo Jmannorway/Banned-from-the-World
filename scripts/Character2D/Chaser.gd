@@ -11,7 +11,8 @@ func _ready():
 	chase_player()
 
 func chase_player():
-	new_follow_path(PlayerAccess.get_player_2d(get_tree()).global_position)
+	if PlayerAccess.player_2d_exists(get_tree()):
+		new_follow_path(PlayerAccess.get_player_2d(get_tree()).global_position)
 
 func check_for_player():
 	if ($interactable_detector_2d.get_facing_interactable(self, Vector2.LEFT) ||

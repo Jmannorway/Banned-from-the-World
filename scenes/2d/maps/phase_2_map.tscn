@@ -32,6 +32,7 @@ preview = true
 size = Vector2( 1224, 984 )
 
 [node name="player_start" parent="." instance=ExtResource( 5 )]
+visible = true
 position = Vector2( 300, 156 )
 room_name = "hub"
 

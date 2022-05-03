@@ -18,7 +18,7 @@ func set_solid(ipos : Vector2, solid : int) -> void:
 	set_cellv(ipos, solid)
 
 # For use with global position
-func set_solid_at_pixel(gpos : Vector2, solid : bool) -> void:
+func set_solid_at_pixel(gpos : Vector2, solid : int) -> void:
 	set_solid(world_to_map(gpos), solid)
 
 func move_solid(ipos : Vector2, imove : Vector2) -> void:
@@ -33,6 +33,10 @@ func move_solid_to_pixel(var gpos: Vector2, var dist: Vector2, var setTileIndex:
 #	set_solid_at_pixel(gpos + dist, 15) # solid = 15
 	
 	return _nextTileIndex
+
+func move_solid_to_pixel_deprecated(gpos : Vector2, dist : Vector2, setTileIndex : int = INVALID_CELL):
+	set_solid_at_pixel(gpos, setTileIndex)
+	set_solid_at_pixel(gpos + dist, 15) # solid = 15
 
 # INTERNAL FUNCTIONS
 func _add_cell_to_world_grid(x : int, y : int, world_x : int, world_y : int):
