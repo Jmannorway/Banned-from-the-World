@@ -6,6 +6,7 @@ enum DIRECTION {UP, LEFT, RIGHT, DOWN}
 
 static func goto_world(tree : SceneTree, world : int) -> void:
 	Game.set_world(world)
+	MusicManager.clear_music()
 	
 	if world == Game.WORLD.OUTER:
 		Statistics.metadata["inner_world_travel_count"] += 1

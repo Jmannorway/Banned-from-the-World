@@ -178,6 +178,7 @@ position = Vector2( 108, 132 )
 effect = "skater"
 
 [node name="skateboard" type="Sprite" parent="skateboard_pickup"]
+visible = false
 texture = ExtResource( 13 )
 
 [node name="dealer_pickup" parent="." instance=ExtResource( 5 )]
@@ -185,6 +186,7 @@ position = Vector2( 60, 108 )
 effect = "dealer"
 
 [node name="pills" type="Sprite" parent="dealer_pickup"]
+visible = false
 texture = ExtResource( 16 )
 
 [node name="music_player" parent="." instance=ExtResource( 17 )]
