@@ -1,6 +1,6 @@
 extends Character2D
 
-class_name Player2D
+class_name Player2DDeprecated
 
 const WALK_SPEED := 2.0
 const RUN_SPEED := 4.0
@@ -85,6 +85,23 @@ func prev_effect() -> void:
 	set_effect(EFFECT_NAMES[i])
 	effect_index = i
 
+func _process(_delta):
+	if !frozen.is_weighted():
+		if Input.is_action_just_pressed("ui_page_up"):
+			next_effect()
+		elif Input.is_action_just_pressed("ui_page_down"):
+			prev_effect()
+		
+		if Input.is_action_just_pressed("run"):
+			call(EFFECT_ACTION_FUNC_PRESET + effect)
+		
+		var _input_vector = make_input_vector_4way(get_input_vector())
+		if !Util.compare_v2(_input_vector, 0) && !is_moving():
+			if check_solid_relative(_input_vector): # check_solid_direction(_input_vector, get_input_index()):
+				set_facing(_input_vector)
+			else:
+				queue_move(_input_vector)
+
 func _post_process_move():
 	._post_process_move()
 	
@@ -112,13 +129,13 @@ func action_katana() -> void:
 
 # SIGNAL CALLBACKS
 func _on_XToFocus_focus_changed(val):
-	set_frozen(XToFocus.name, val)
+	frozen.set_weight(XToFocus.name, val)
 
 func _on_menu_visibility_changed(menu):
-	set_frozen(menu.name, menu.visible)
+	frozen.set_weight(menu.name, menu.visible)
 
 func _on_MapManager_changing_map():
-	set_frozen(MapManager.name, true)
+	frozen.set_weight(MapManager.name, true)
 
 # UTILITY
 static func get_input_vector() -> Vector2:

@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=10 format=2]
 
-[ext_resource path="res://sprites/characters/skater_max.png" type="Texture" id=1]
+[ext_resource path="res://sprites/characters/max/skater.png" type="Texture" id=1]
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )

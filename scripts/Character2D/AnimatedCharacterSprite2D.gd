@@ -9,8 +9,19 @@ var sprite_direction : Vector2 setget set_sprite_direction
 var move_direction : Vector2
 export(int) var idle_frame = 1
 
+const ANI_DIR := {
+	"right" : Vector2.RIGHT,
+	"left" : Vector2.LEFT,
+	"up" : Vector2.UP,
+	"down" : Vector2.DOWN}
+
 # warning-ignore:unused_signal
 signal move_animation_finished
+
+func _ready():
+	if ANI_DIR.has(animation):
+		sprite_direction = ANI_DIR[animation]
+		move_direction = ANI_DIR[animation]
 
 func idle():
 	stop()
@@ -31,8 +42,17 @@ func get_animation_from_direction(dir : Vector2) -> String:
 	
 	return _animation
 
+func rotate_clockwise():
+	var _dir = sprite_direction
+	_dir = _dir.rotated(deg2rad(90))
+	_dir.x = round(_dir.x)
+	_dir.y = round(_dir.y)
+	set_sprite_direction(_dir)
+
 func set_sprite_direction(dir : Vector2):
+	var _f = frame
 	animation = get_animation_from_direction(dir)
+	frame = _f
 	sprite_direction = dir
 
 func look_in_direction(dir : Vector2) -> void:
@@ -45,8 +65,6 @@ func play_direction(steps : Vector2, direction : Vector2, duration : float) -> v
 	if _animation.empty():
 		idle()
 	elif _animation != animation || !is_playing():
-		# TODO: Huh? Is this even necessary
-		set_sprite_direction(direction)
 		play(_animation)
 	
 	move_direction(steps, duration)
