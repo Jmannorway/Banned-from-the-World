@@ -1,12 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/2d/character & player/character_2d.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Character2D/CharacterStates/PlayerIdle.gd" type="Script" id=2]
 [ext_resource path="res://scenes/2d/interactable/interactable_detector_2d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/2d/interactable/interactable_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Interactable2D/Interactable2D.gd" type="Script" id=5]
 [ext_resource path="res://animations/max/max.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://scripts/Player2D/Player2D.gd" type="Script" id=7]
+[ext_resource path="res://scripts/Character2D/EffectStates/EffectState.gd" type="Script" id=8]
+[ext_resource path="res://scripts/Character2D/StateMachine.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Character2D/EffectStates/Dealer.gd" type="Script" id=10]
+[ext_resource path="res://scripts/Character2D/EffectStates/Ballerina.gd" type="Script" id=11]
+[ext_resource path="res://scripts/Character2D/EffectStates/Katana.gd" type="Script" id=12]
+[ext_resource path="res://scripts/Character2D/EffectStates/Skater.gd" type="Script" id=13]
+[ext_resource path="res://scripts/Character2D/EffectStates/Ghost.gd" type="Script" id=14]
+[ext_resource path="res://animations/max/dealer.tres" type="SpriteFrames" id=15]
+[ext_resource path="res://animations/max/katana.tres" type="SpriteFrames" id=16]
+[ext_resource path="res://animations/max/skater.tres" type="SpriteFrames" id=17]
+[ext_resource path="res://animations/max/ballerina.tres" type="SpriteFrames" id=18]
+[ext_resource path="res://animations/max/katana_fight.tres" type="SpriteFrames" id=19]
 
 [node name="player" groups=["player_2d"] instance=ExtResource( 1 )]
 script = ExtResource( 7 )
@@ -17,15 +28,38 @@ animation = "down"
 frame = 1
 playing = false
 
-[node name="state_machine" parent="." index="1"]
-default_state = "player_idle"
+[node name="effect_state" type="Node" parent="." index="2"]
+script = ExtResource( 9 )
+default_state = "normal"
+process = false
 
-[node name="player_idle" type="Node" parent="state_machine" index="3"]
-script = ExtResource( 2 )
+[node name="normal" type="Node" parent="effect_state" index="0"]
+script = ExtResource( 8 )
+look = ExtResource( 6 )
 
-[node name="interactable_2d" parent="." index="2" instance=ExtResource( 4 )]
+[node name="ballerina" type="Node" parent="effect_state" index="1"]
+script = ExtResource( 11 )
+look = ExtResource( 18 )
+
+[node name="skater" type="Node" parent="effect_state" index="2"]
+script = ExtResource( 13 )
+look = ExtResource( 17 )
+
+[node name="katana" type="Node" parent="effect_state" index="3"]
+script = ExtResource( 12 )
+look = ExtResource( 16 )
+fight_animation = ExtResource( 19 )
+
+[node name="dealer" type="Node" parent="effect_state" index="4"]
+script = ExtResource( 10 )
+look = ExtResource( 15 )
+
+[node name="ghost" type="Node" parent="effect_state" index="5"]
+script = ExtResource( 14 )
+
+[node name="interactable_2d" parent="." index="3" instance=ExtResource( 4 )]
 collision_layer = 16
 script = ExtResource( 5 )
 
-[node name="interactable_detector_2d" parent="." index="3" instance=ExtResource( 3 )]
+[node name="interactable_detector_2d" parent="." index="4" instance=ExtResource( 3 )]
 collision_mask = 15

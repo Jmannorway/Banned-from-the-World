@@ -11,9 +11,9 @@ func enter():
 
 func process(delta: float) -> String:
 	if move_finished:
-		return "_"
+		return POP_STATE
 	else:
-		return ""
+		return KEEP_STATE
 
 func _on_move_finished():
 	move_finished = true

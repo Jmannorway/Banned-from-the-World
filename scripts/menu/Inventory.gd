@@ -5,7 +5,7 @@ signal activate_item(itemName)
 func _ready():
 	set_cursor_focus(currentX, currentY)
 	
-	connect("activate_item", PlayerAccess.get_player_2d(get_tree()), "set_effect")
+#	connect("activate_item", PlayerAccess.get_player_2d(get_tree()), "set_effect")
 
 func receive_action(var action: int, var actionName: String) -> void:
 	if action == ButtonAction.Action.DUMMY:

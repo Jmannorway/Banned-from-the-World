@@ -15,100 +15,19 @@ const EFFECT_NAMES := [
 	"ballerina",
 	"skater",
 	"ghost"]
-
-export(Dictionary) var effects
-var effect_index := 0
-const EFFECT_ACTION_FUNC_PRESET = "action_"
-static func create_effects_dictionary(default = null) -> Dictionary:
-	var _eff := {}
-	for n in EFFECT_NAMES:
-		_eff[n] = default
-	return _eff
-
-var effect : String = EFFECT_NAMES[0] setget set_effect
-func set_effect(val : String) -> void:
-	if effect != val && effects.has(val):
-		# Exit effect
-		match effect:
-			"skater":
-				walk_speed = WALK_SPEED
-				run_speed = RUN_SPEED
-				set_move_speed(walk_speed)
-			"dealer":
-				MapManager.viewport_sprite.set_effect(0)
-			"ballerina":
-				pass
-			"dealer":
-				pass
-			"katana":
-				pass
-		
-		effect = val
-		
-		# Enter effect
-		match effect:
-			"skater":
-				walk_speed = RUN_SPEED * 2
-				run_speed = RUN_SPEED * 2
-				set_move_speed(walk_speed)
-			"ballerina":
-				pass
-			"dealer":
-				pass
-			"katana":
-				pass
-		
-		sprite.frames = effects[effect].frames
-		print("Player2D: ", effect)
-	else:
-		print("Player2D: Tried setting the same effect or invalid effect")
+onready var effect_state := $effect_state
+onready var interactable_detector := $interactable_detector_2d
 
 func _ready():
 	# TODO: Connect to menu element that sets the effect
 	Util.connect_safe(MapManager, "changing_map", self, "_on_MapManager_changing_map")
 	Util.connect_safe(XToFocus, "focus_changed", self, "_on_XToFocus_focus_changed")
 	Util.connect_safe(Ui.get_menu(), "visibility_changed", self, "_on_menu_visibility_changed", [Ui.get_menu()])
+	effect_state.init([self])
 
-func next_effect() -> void:
-	var i : int = (effect_index + 1) % EFFECT._MAX
-	while !Statistics.metadata.unlocked_effects[EFFECT_NAMES[i]]:
-		print("Player2D: Skipped effect '", EFFECT_NAMES[i], "' because it was not unlocked")
-		i = (i + 1) % EFFECT._MAX
-	set_effect(EFFECT_NAMES[i])
-	effect_index = i
-
-func prev_effect() -> void:
-	var i : int = wrapi(effect_index - 1, 0, EFFECT._MAX)
-	while !Statistics.metadata.unlocked_effects[EFFECT_NAMES[i]]:
-		print("Player2D: Skipped effect '", EFFECT_NAMES[i], "' because it was not unlocked")
-		i = wrapi((i - 1), 0, EFFECT._MAX)
-	set_effect(EFFECT_NAMES[i])
-	effect_index = i
-
-func _post_process_move():
-	._post_process_move()
-	
-	if !frozen.is_weighted() && Input.is_action_just_pressed("interact") && !is_moving():
-		$interactable_detector_2d.interact_with_facing(self, calculate_move_offset(facing))
-
-# ACTIONS
-func action_normal() -> void:
-	if move_speed == walk_speed:
-		set_move_speed(run_speed)
-	else:
-		set_move_speed(walk_speed)
-
-func action_dealer() -> void:
-	MapManager.viewport_sprite.set_next_effect()
-
-func action_skater() -> void:
-	pass
-
-func action_ballerina() -> void:
-	pass
-
-func action_katana() -> void:
-	pass
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("action"):
+		effect_state.get_current_state().action()
 
 # SIGNAL CALLBACKS
 func _on_XToFocus_focus_changed(val):

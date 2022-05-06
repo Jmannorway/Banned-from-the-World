@@ -45,6 +45,7 @@ enum MOBILITY {
 signal changed_facing_direction(facing)
 signal move_started
 signal move_finished
+signal move_processed
 
 export var solid := true
 export(MOBILITY) var mobility = MOBILITY.NORMAL # TODO: Implement
@@ -89,6 +90,7 @@ func _process_move() -> void:
 		_move(queued_move.steps, queued_move.direction)
 
 	queued_move.clear()
+	emit_signal("move_processed")
 	_post_process_move()
 
 # Override for post movement behavior
