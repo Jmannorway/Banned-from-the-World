@@ -29,11 +29,14 @@ var metadata : Dictionary
 
 enum CHECKPOINT {
 	NORTH,
-	WEST,
 	EAST,
 	SOUTH,
+	WEST,
 	_MAX
 }
+
+func is_checkpoint_unlocked_direction(dir : Vector2) -> bool:
+	return Util.int_get_bit(metadata.checkpoint, Game.IDIR4[dir])
 
 enum MINIGAME {
 	PIANO = 1,

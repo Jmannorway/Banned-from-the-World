@@ -5,7 +5,7 @@
 [ext_resource path="res://sprites/ghost town/ghost.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://tiles/floor_tiles.tres" type="TileSet" id=4]
 [ext_resource path="res://tiles/ghost_town_decorations.tres" type="TileSet" id=5]
-[ext_resource path="res://scenes/2d/character & player/npc.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/2d/character & player/npc_deprecated.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/sounds/walk1.wav" type="AudioStream" id=8]
 [ext_resource path="res://sounds/sounds/walk2.wav" type="AudioStream" id=9]
 [ext_resource path="res://sounds/sounds/walk3.wav" type="AudioStream" id=10]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/2d/collision grid/navigation_grid_2d.tscn" type="PackedScene" id=12]
 [ext_resource path="res://sprites/ghost town/small_tree_sf.tres" type="SpriteFrames" id=13]
 [ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=14]
+
 
 [node name="ghost_town" type="YSort"]
 script = ExtResource( 2 )

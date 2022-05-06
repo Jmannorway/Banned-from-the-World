@@ -20,12 +20,12 @@ func move() -> void:
 	# if player is moving to the tile that this wall is moving to then force the player to move backwards
 	# if the player is currently on the tile then push it
 	if _interactable:
+		print("found interactable")
 		var _character : Character2D = _interactable.get_parent()
 		if _character.is_moving():
 			_character.reverse_move()
 		else:
 			if _character.move_speed < move_speed + ADDED_PUSH_SPEED:
 				_character.set_move_speed(move_speed + ADDED_PUSH_SPEED)
-			_character.queue_move(direction, 0)
-	
+			_character.queue_move_state(direction, 0)
 	queue_move(direction)

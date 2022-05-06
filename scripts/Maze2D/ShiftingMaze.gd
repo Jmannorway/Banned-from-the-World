@@ -270,9 +270,7 @@ func reset_visuals():
 	reset_moving_walls()
 
 func reset_moving_walls():
-	if $shifting_wall_tween.is_active():
-		$shifting_wall_tween.stop_all()
-	
+	$shifting_wall_tween.remove_all()
 	moving_wall_tiles.clear()
 	moving_wall_tiles.position = Vector2.ZERO
 	

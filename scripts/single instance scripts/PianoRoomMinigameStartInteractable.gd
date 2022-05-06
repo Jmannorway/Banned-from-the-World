@@ -8,7 +8,7 @@ func _ready():
 func step():
 	if !touched:
 		var _player = PlayerAccess.get_player_2d(get_tree())
-		_player.frozen.set_weight("minigame", true)
+		_player.set_frozen("minigame", true)
 		$piano_game_cutscene.play("cutscene");
 		touched = true
 

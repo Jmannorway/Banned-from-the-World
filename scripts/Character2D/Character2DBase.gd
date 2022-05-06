@@ -143,8 +143,8 @@ func calculate_move_offset(steps : Vector2) -> Vector2:
 
 # EXTERNALLY CALLABLE
 # Queue a move to be processed
-func queue_move(_direction : Vector2, _priority : int = 0) -> void:
-	queued_move.set_move(calculate_move_offset(_direction), _direction, _priority)
+func queue_move(_direction : Vector2, _priority : int = 0) -> bool:
+	return queued_move.set_move(calculate_move_offset(_direction), _direction, _priority)
 
 # Checks if the relative block in direction is solid
 func check_solid_relative(steps : Vector2) -> bool:

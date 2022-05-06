@@ -104,6 +104,6 @@ func toggle_fade():
 		emit_signal("unfocus")
 		_a = 0.0
 	
-	$visibility_tween.stop_all()
+	$visibility_tween.remove_all()
 	$visibility_tween.interpolate_property(object, alpha_path, null, _a, fade_duration)
 	$visibility_tween.start()
