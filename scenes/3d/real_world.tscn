@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://scripts/Room3D/RoomManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/3d/bedroom_klaudia.tscn" type="PackedScene" id=2]
@@ -14,9 +14,207 @@
 [ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=12]
 [ext_resource path="res://scripts/SolidGrid3D.gd" type="Script" id=13]
 [ext_resource path="res://scenes/2d/tutorial/tutorial.tscn" type="PackedScene" id=14]
+[ext_resource path="res://models/max/textures/1234_eyebrows_BaseColor.png" type="Texture" id=15]
 [ext_resource path="res://cutscenes/opening_animation_1.tres" type="Animation" id=16]
 [ext_resource path="res://cutscenes/opening_animation_2.tres" type="Animation" id=17]
+[ext_resource path="res://models/max/textures/1234_plaster_Roughness.png" type="Texture" id=18]
+[ext_resource path="res://models/max/textures/1234_eyebrows_Normal.png" type="Texture" id=19]
 [ext_resource path="res://cutscenes/door.tres" type="Animation" id=20]
+[ext_resource path="res://models/max/textures/1234_plaster_BaseColor.png" type="Texture" id=21]
+[ext_resource path="res://models/max/textures/1234_plaster_Normal.png" type="Texture" id=22]
+[ext_resource path="res://models/master shader test/base_shader.tres" type="Shader" id=23]
+[ext_resource path="res://models/max/textures/1234_hands_BaseColor.png" type="Texture" id=24]
+[ext_resource path="res://models/max/textures/1234_hands_Normal.png" type="Texture" id=25]
+[ext_resource path="res://models/max/textures/1234_hair_Roughness.png" type="Texture" id=26]
+[ext_resource path="res://models/max/textures/1234_hoodie_Roughness.png" type="Texture" id=27]
+[ext_resource path="res://models/max/textures/1234_pants_Roughness.png" type="Texture" id=28]
+[ext_resource path="res://models/max/textures/1234_socks_Roughness.png" type="Texture" id=29]
+[ext_resource path="res://models/max/textures/1234_pants_Normal.png" type="Texture" id=30]
+[ext_resource path="res://models/max/textures/1234_hoodiepocket_BaseColor.png" type="Texture" id=31]
+[ext_resource path="res://models/max/textures/1234_hoodie_Normal.png" type="Texture" id=32]
+[ext_resource path="res://models/max/textures/1234_socks_BaseColor.png" type="Texture" id=33]
+[ext_resource path="res://models/max/textures/1234_socks_Normal.png" type="Texture" id=34]
+[ext_resource path="res://models/max/textures/1234_hair_Normal.png" type="Texture" id=35]
+[ext_resource path="res://models/max/textures/1234_hair_BaseColor.png" type="Texture" id=36]
+[ext_resource path="res://models/max/textures/1234_hoodiepocket_Roughness.png" type="Texture" id=37]
+[ext_resource path="res://models/max/textures/1234_hoodieyellow_Normal.png" type="Texture" id=38]
+[ext_resource path="res://models/max/textures/1234_hoodieyellow_Roughness.png" type="Texture" id=39]
+[ext_resource path="res://models/max/textures/1234_hoodiepocket_Normal.png" type="Texture" id=40]
+[ext_resource path="res://models/max/textures/1234_eyebrows_Roughness.png" type="Texture" id=41]
+[ext_resource path="res://models/max/textures/1234_hands_Roughness.png" type="Texture" id=42]
+[ext_resource path="res://models/max/textures/1234_hoodieyellow_BaseColor.png" type="Texture" id=43]
+[ext_resource path="res://models/max/textures/1234_pants_BaseColor.png" type="Texture" id=44]
+[ext_resource path="res://models/max/textures/1234_hoodie_BaseColor.png" type="Texture" id=45]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 21 )
+shader_param/texture_roughness = ExtResource( 18 )
+shader_param/texture_normal = ExtResource( 22 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 15 )
+shader_param/texture_roughness = ExtResource( 41 )
+shader_param/texture_normal = ExtResource( 19 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 15 )
+shader_param/texture_roughness = ExtResource( 41 )
+shader_param/texture_normal = ExtResource( 19 )
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.251
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 36 )
+shader_param/texture_roughness = ExtResource( 26 )
+shader_param/texture_normal = ExtResource( 35 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 24 )
+shader_param/texture_roughness = ExtResource( 42 )
+shader_param/texture_normal = ExtResource( 25 )
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 45 )
+shader_param/texture_roughness = ExtResource( 27 )
+shader_param/texture_normal = ExtResource( 32 )
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 31 )
+shader_param/texture_roughness = ExtResource( 37 )
+shader_param/texture_normal = ExtResource( 40 )
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 43 )
+shader_param/texture_roughness = ExtResource( 39 )
+shader_param/texture_normal = ExtResource( 38 )
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 44 )
+shader_param/texture_roughness = ExtResource( 28 )
+shader_param/texture_normal = ExtResource( 30 )
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 23 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 0.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 1, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 33 )
+shader_param/texture_roughness = ExtResource( 29 )
+shader_param/texture_normal = ExtResource( 34 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=5]
 
@@ -132,6 +330,47 @@ movementSpeed = 200.0
 moveTime = 0.8
 position = Vector2( 1.5, 0.5 )
 
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneBandaid" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="1"]
+material/0 = SubResource( 6 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneEyebrows" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="2"]
+material/0 = SubResource( 7 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneEyelashes" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="3"]
+material/0 = SubResource( 8 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneHair__layer_1" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="4"]
+material/0 = SubResource( 9 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneHair_layer_2" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="5"]
+material/0 = SubResource( 9 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneHair_layer_3" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="6"]
+material/0 = SubResource( 9 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneHair_layer_4" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="7"]
+material/0 = SubResource( 9 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneHands" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="8"]
+material/0 = SubResource( 10 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneHoodie" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="9"]
+material/0 = SubResource( 11 )
+material/1 = SubResource( 11 )
+material/2 = SubResource( 11 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneHoodie_pocket" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="10"]
+material/0 = SubResource( 12 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneHoodie_rope_knot" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="11"]
+material/0 = SubResource( 13 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_donePants" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="13"]
+material/0 = SubResource( 14 )
+
+[node name="max_rig_2Max_RiggedMaxed_rigged_doneSocks" parent="max/new_max/max_rig_2Max_RiggedMaxed_rigged_doneMAX/max_rig_2Max_RiggedMaxed_rigged_doneJoints/Skeleton" index="15"]
+material/0 = SubResource( 15 )
+
 [node name="AnimationTree" parent="max/new_max" index="2"]
 parameters/playback = SubResource( 5 )
 
@@ -227,15 +466,11 @@ room_path = NodePath("../../rooms/bedroom")
 [node name="camera" parent="main_camera/target_offset" index="0"]
 transform = Transform( -0.977268, 0.0473306, -0.206656, 0, 0.974761, 0.22325, 0.212007, 0.218175, -0.952603, 2.122, 1.229, 0.1 )
 fov = 40.0
-dim_alpha = 0.86651
 gameplay_translation = Vector3( 0, 10, 4 )
 gameplay_rotation_degrees = Vector3( -63, 0, 0 )
 
 [node name="blocking_mesh" parent="main_camera/target_offset/camera" index="0"]
 transform = Transform( 1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, -0.06 )
-
-[node name="alpha_tween" parent="main_camera/target_offset/camera" index="2"]
-playback/active = true
 
 [connection signal="animation_finished" from="cutscene_player" to="cutscene_player" method="_on_cutscene_player_animation_finished"]
 [connection signal="interacted" from="cutscene_nodes/door_interactable" to="cutscene_player" method="_on_door_interactable_interacted"]

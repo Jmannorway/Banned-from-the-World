@@ -41,12 +41,12 @@ index = 3
 
 [node name="player_start_stage_stairs" parent="." instance=ExtResource( 4 )]
 visible = true
-position = Vector2( -756, -609 )
+position = Vector2( 108, 108 )
 room_name = "ballet_main"
 
 [node name="player_start_stage" parent="." instance=ExtResource( 4 )]
 visible = true
-position = Vector2( 84, -1644 )
+position = Vector2( 396, -1812 )
 room_name = "ballet_stage"
 index = 2
 
