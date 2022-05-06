@@ -21,7 +21,7 @@ func process(delta : float) -> String:
 		else:
 			character.set_facing(_move)
 			set_move_timer()
-	return ""
+	return KEEP_STATE
 
 func enter():
 	move = false
