@@ -10,10 +10,6 @@
 
 [node name="player" groups=["player_2d"] instance=ExtResource( 1 )]
 script = ExtResource( 7 )
-solid = true
-mobility = 0
-move_speed = 2.0
-default_state = "player_idle"
 
 [node name="animated_character_sprite_2d" parent="." index="0"]
 frames = ExtResource( 6 )
@@ -24,7 +20,7 @@ playing = false
 [node name="state_machine" parent="." index="1"]
 default_state = "player_idle"
 
-[node name="player_idle" type="Node" parent="state_machine" index="4"]
+[node name="player_idle" type="Node" parent="state_machine" index="3"]
 script = ExtResource( 2 )
 
 [node name="interactable_2d" parent="." index="2" instance=ExtResource( 4 )]
