@@ -10,7 +10,7 @@ func process(delta: float) -> String:
 	
 	# TODO: This is debug, remove. Player effects should change through the menu
 	if Input.is_action_just_pressed("debug_test"):
-		character.effect_state.swap_next()
+		character.set_effect("")
 		print(character.effect_state.get_current_state().name)
 	
 	var _input_vector = Player2D.make_input_vector_4way(Player2D.get_input_vector())

@@ -11,5 +11,7 @@ script = ExtResource( 2 )
 [node name="action_hint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 4, 604 )
 scale = Vector2( 2, 2 )
+frame = 1
 
 [node name="menu" parent="." instance=ExtResource( 1 )]
+items = [ "Close", null, false, "Photo Album", null, false, "Wake Up", null, false ]

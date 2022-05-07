@@ -25,6 +25,19 @@ func _ready():
 	Util.connect_safe(Ui.get_menu(), "visibility_changed", self, "_on_menu_visibility_changed", [Ui.get_menu()])
 	effect_state.init([self])
 
+func set_effect(val : String):
+	$animations.play("transition_animation (copy)")
+	wait($animations.get_animation("transition_animation (copy)").length)
+	effect_state.swap_next()
+	return
+	if effect_state.get_current_state().name == val:
+		effect_state.pop()
+	else:
+		if effect_state.get_stack_size() == 1:
+			effect_state.push_by_name(val)
+		else:
+			effect_state.swap_by_name(val)
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action"):
 		effect_state.get_current_state().action()
