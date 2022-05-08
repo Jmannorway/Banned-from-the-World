@@ -41,7 +41,7 @@ func queue_move_state(_direction : Vector2, _priority : int = 0) -> bool:
 func wait(dur : float) -> void:
 	var _wait_state = behavior_state.get_state_by_name("wait")
 	_wait_state.duration = dur
-	behavior_state.push(dur)
+	behavior_state.push(_wait_state)
 
 # INTERNAL FUNCTIONS
 func _ready():
