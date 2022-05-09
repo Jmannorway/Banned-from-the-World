@@ -1,40 +1,40 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=270 format=2]
 
 [ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/textures/door/door_Metallic.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Room3D/RoomController.gd" type="Script" id=3]
 [ext_resource path="res://models/textures/door/door_Base_color.png" type="Texture" id=4]
-[ext_resource path="res://scenes/3d/walls_floor.fbx" type="PackedScene" id=5]
-[ext_resource path="res://scenes/3d/ASSETS/max_window_uv.fbx" type="PackedScene" id=6]
-[ext_resource path="res://scenes/3d/ASSETS/max_pills_nonuv.fbx" type="PackedScene" id=7]
-[ext_resource path="res://scenes/3d/ASSETS/max_windowframe_uv.fbx" type="PackedScene" id=8]
+[ext_resource path="res://scenes/3d/ASSETS/max_walls_three.fbx" type="PackedScene" id=5]
+[ext_resource path="res://models/textures/window/windowframe_Base_color.png" type="Texture" id=6]
+[ext_resource path="res://scenes/3d/ASSETS/windowframe.fbx" type="PackedScene" id=7]
+[ext_resource path="res://scenes/3d/ASSETS/Kettle_UV.fbx" type="PackedScene" id=8]
 [ext_resource path="res://scenes/3d/ASSETS/max_album_uv.fbx" type="PackedScene" id=9]
 [ext_resource path="res://models/meshlibs/test_lib.tres" type="MeshLibrary" id=10]
 [ext_resource path="res://scenes/3d/ASSETS/Nightstand_w_UV.fbx" type="PackedScene" id=11]
-[ext_resource path="res://scenes/3d/ASSETS/max_keyboard_uv.fbx" type="PackedScene" id=12]
+[ext_resource path="res://models/textures/keyboard/keyboard_normals.png" type="Texture" id=12]
 [ext_resource path="res://models/textures/shelf_Base_color.png" type="Texture" id=13]
 [ext_resource path="res://models/textures/mug/mug2_Normal.png" type="Texture" id=14]
 [ext_resource path="res://scenes/3d/ASSETS/desk.fbx" type="PackedScene" id=15]
-[ext_resource path="res://scenes/3d/ASSETS/max_pc_uv.fbx" type="PackedScene" id=16]
+[ext_resource path="res://default_env.tres" type="Environment" id=16]
 [ext_resource path="res://models/textures/desk/DESK_Base_color.png" type="Texture" id=17]
 [ext_resource path="res://models/textures/chair/chair_Base_color.png" type="Texture" id=18]
 [ext_resource path="res://models/textures/chair/chair_Metallic.png" type="Texture" id=19]
-[ext_resource path="res://scenes/3d/ASSETS/bowl_nonuv.fbx" type="PackedScene" id=20]
+[ext_resource path="res://scenes/3d/ASSETS/Mouse.fbx" type="PackedScene" id=20]
 [ext_resource path="res://models/textures/chair/chair_Normal_OpenGL.png" type="Texture" id=21]
-[ext_resource path="res://scenes/3d/ASSETS/fork_nonuv.fbx" type="PackedScene" id=22]
-[ext_resource path="res://scenes/3d/ASSETS/cardboard_box_nonuv.fbx" type="PackedScene" id=23]
-[ext_resource path="res://models/textures/walls_temp.png" type="Texture" id=24]
+[ext_resource path="res://scenes/3d/ASSETS/Pc_box.fbx" type="PackedScene" id=22]
+[ext_resource path="res://scenes/3d/ASSETS/Box.fbx" type="PackedScene" id=23]
+[ext_resource path="res://scenes/3d/ASSETS/max_floor.fbx" type="PackedScene" id=24]
 [ext_resource path="res://models/textures/chair/chair_Roughness.png" type="Texture" id=25]
-[ext_resource path="res://scenes/3d/ASSETS/iphone_nonuv.fbx" type="PackedScene" id=26]
-[ext_resource path="res://scenes/3d/ASSETS/pcscreen_NEW_nonuv.fbx" type="PackedScene" id=27]
-[ext_resource path="res://scenes/3d/ASSETS/pc_mouse_nonuv.fbx" type="PackedScene" id=28]
-[ext_resource path="res://scenes/3d/ASSETS/plate_nonuv.fbx" type="PackedScene" id=29]
+[ext_resource path="res://scenes/3d/ASSETS/Phone.fbx" type="PackedScene" id=26]
+[ext_resource path="res://scenes/3d/ASSETS/Plate.fbx" type="PackedScene" id=27]
+[ext_resource path="res://scenes/3d/ASSETS/Spoon.fbx" type="PackedScene" id=28]
+[ext_resource path="res://scenes/3d/ASSETS/Fork.fbx" type="PackedScene" id=29]
 [ext_resource path="res://scenes/3d/ASSETS/pillow_uv.fbx" type="PackedScene" id=30]
-[ext_resource path="res://scenes/3d/ASSETS/soda_can_nonuv.fbx" type="PackedScene" id=31]
-[ext_resource path="res://scenes/3d/ASSETS/spoon_nonuv.fbx" type="PackedScene" id=32]
-[ext_resource path="res://scenes/3d/ASSETS/trashcan_nonuv.fbx" type="PackedScene" id=33]
-[ext_resource path="res://scenes/3d/ASSETS/warderobe_nonuv.fbx" type="PackedScene" id=34]
-[ext_resource path="res://scenes/3d/ASSETS/max_lavalamp_nonuv.fbx" type="PackedScene" id=35]
+[ext_resource path="res://scenes/3d/ASSETS/Sodacan.fbx" type="PackedScene" id=31]
+[ext_resource path="res://scenes/3d/ASSETS/Pc_screen.fbx" type="PackedScene" id=32]
+[ext_resource path="res://scenes/3d/ASSETS/Trashcan.fbx" type="PackedScene" id=33]
+[ext_resource path="res://scenes/3d/ASSETS/Bottle.fbx" type="PackedScene" id=34]
+[ext_resource path="res://models/textures/lava/LAVALAMP_Base_color.png" type="Texture" id=35]
 [ext_resource path="res://scenes/x to focus/focus_scenes/focus_grid.tscn" type="PackedScene" id=36]
 [ext_resource path="res://scripts/single instance scripts/BedroomPhotoAlbumInteractable.gd" type="Script" id=37]
 [ext_resource path="res://scenes/3d/ASSETS/carpet.fbx" type="PackedScene" id=38]
@@ -47,6 +47,8 @@
 [ext_resource path="res://shaders/base_shader.tres" type="Shader" id=45]
 [ext_resource path="res://models/textures/mug/mug2_Roughness.png" type="Texture" id=46]
 [ext_resource path="res://models/textures/mug/mug_Base_color.png" type="Texture" id=47]
+[ext_resource path="res://models/textures/keyboard/keyboard_base_volor.png" type="Texture" id=48]
+[ext_resource path="res://scenes/3d/ASSETS/keyboard.fbx" type="PackedScene" id=49]
 [ext_resource path="res://scenes/3d/ASSETS/mug1.fbx" type="PackedScene" id=50]
 [ext_resource path="res://models/bedroom/bookshelf1.fbx" type="PackedScene" id=51]
 [ext_resource path="res://models/textures/noods_Base_color.png" type="Texture" id=52]
@@ -57,6 +59,106 @@
 [ext_resource path="res://scenes/3d/ASSETS/doorframe_1.fbx" type="PackedScene" id=57]
 [ext_resource path="res://scenes/3d/ASSETS/door_pivot.fbx" type="PackedScene" id=58]
 [ext_resource path="res://models/textures/pillow_Base_color.png" type="Texture" id=59]
+[ext_resource path="res://scenes/3d/ASSETS/lava_lamp.fbx" type="PackedScene" id=60]
+[ext_resource path="res://models/textures/bed/bed_Base_color.png" type="Texture" id=61]
+[ext_resource path="res://models/textures/nighttable/nightstand_Normal_OpenGL.png" type="Texture" id=62]
+[ext_resource path="res://models/textures/nighttable/nightstand_Base_color.png" type="Texture" id=63]
+[ext_resource path="res://models/textures/phone/phone_Base_color.png" type="Texture" id=64]
+[ext_resource path="res://models/textures/phone/phone_Normal_OpenGL.png" type="Texture" id=65]
+[ext_resource path="res://models/textures/lava/LAVALAMP_Roughness.png" type="Texture" id=66]
+[ext_resource path="res://models/textures/phone/phone_Roughness.png" type="Texture" id=67]
+[ext_resource path="res://models/textures/nighttable/nightstand_Roughness.png" type="Texture" id=68]
+[ext_resource path="res://models/textures/lava/LAVALAMP_Metallic.png" type="Texture" id=69]
+[ext_resource path="res://models/textures/pc screen/screen_Normal_OpenGL.png" type="Texture" id=70]
+[ext_resource path="res://models/textures/pc_box/pc_box_Normal_OpenGL.png" type="Texture" id=71]
+[ext_resource path="res://models/textures/cutlery/talerz_Base_color.png" type="Texture" id=72]
+[ext_resource path="res://models/textures/cutlery/fork_Base_color.png" type="Texture" id=73]
+[ext_resource path="res://models/textures/pc_box/pc_box_Base_color.png" type="Texture" id=74]
+[ext_resource path="res://models/textures/pc_box/pc_box_Roughness.png" type="Texture" id=75]
+[ext_resource path="res://models/textures/cutlery/fork_Roughness.png" type="Texture" id=76]
+[ext_resource path="res://models/textures/pc screen/screen_Roughness.png" type="Texture" id=77]
+[ext_resource path="res://models/textures/cutlery/spoon_Metallic.png" type="Texture" id=78]
+[ext_resource path="res://models/textures/mouse/mouse_Base_color.png" type="Texture" id=79]
+[ext_resource path="res://models/textures/mouse/mouse_Normal_OpenGL.png" type="Texture" id=80]
+[ext_resource path="res://models/textures/pc screen/screen_Base_color.png" type="Texture" id=81]
+[ext_resource path="res://models/textures/cutlery/spoon_Roughness.png" type="Texture" id=82]
+[ext_resource path="res://models/textures/trsh_Base_color.png" type="Texture" id=83]
+[ext_resource path="res://models/textures/cutlery/fork_Metallic.png" type="Texture" id=84]
+[ext_resource path="res://models/textures/cutlery/spoon_Base_color.png" type="Texture" id=85]
+[ext_resource path="res://scenes/3d/ASSETS/yellow note.fbx" type="PackedScene" id=86]
+[ext_resource path="res://scenes/3d/ASSETS/poster.fbx" type="PackedScene" id=87]
+[ext_resource path="res://scenes/3d/ASSETS/Dresser.fbx" type="PackedScene" id=88]
+[ext_resource path="res://models/textures/notes/yellow_note3_Base_color.png" type="Texture" id=89]
+[ext_resource path="res://models/textures/bottle/bottle_Base_color.png" type="Texture" id=90]
+[ext_resource path="res://models/textures/posters/poster_texture.png" type="Texture" id=91]
+[ext_resource path="res://models/textures/notes/yellow_note2_Base_color.png" type="Texture" id=92]
+[ext_resource path="res://models/textures/dresser_Base_color.png" type="Texture" id=93]
+[ext_resource path="res://models/textures/notes/yellow_note1_Base_color.png" type="Texture" id=94]
+[ext_resource path="res://models/textures/box_cardboard_Base_color.png" type="Texture" id=95]
+[ext_resource path="res://models/textures/can/soda_Base_color.png" type="Texture" id=96]
+[ext_resource path="res://models/textures/can/soda_Metallic.png" type="Texture" id=97]
+[ext_resource path="res://models/textures/can/soda_Roughness.png" type="Texture" id=98]
+[ext_resource path="res://scenes/3d/ASSETS/window.fbx" type="PackedScene" id=99]
+[ext_resource path="res://models/textures/window/window1_wtransparencyBase_color.png" type="Texture" id=100]
+[ext_resource path="res://scenes/3d/ASSETS/book1.fbx" type="PackedScene" id=101]
+[ext_resource path="res://scenes/3d/ASSETS/book2.fbx" type="PackedScene" id=102]
+[ext_resource path="res://models/textures/kettle/kettle_Base_color.png" type="Texture" id=103]
+[ext_resource path="res://models/textures/kettle/kettle_Roughness.png" type="Texture" id=104]
+[ext_resource path="res://models/textures/kettle/kettle_Metallic.png" type="Texture" id=105]
+[ext_resource path="res://models/textures/walls_floor/max_floor.png" type="Texture" id=106]
+[ext_resource path="res://scenes/3d/ASSETS/balcony_floor.fbx" type="PackedScene" id=107]
+[ext_resource path="res://scenes/3d/ASSETS/balcony_wall_front.fbx" type="PackedScene" id=108]
+[ext_resource path="res://scenes/3d/ASSETS/railing1.fbx" type="PackedScene" id=109]
+[ext_resource path="res://scenes/3d/ASSETS/balcony_wall_side.fbx" type="PackedScene" id=110]
+[ext_resource path="res://models/textures/balcony/balcony_wall_color.png" type="Texture" id=111]
+[ext_resource path="res://models/textures/balcony/railing_Base_color.png" type="Texture" id=112]
+[ext_resource path="res://scenes/3d/ASSETS/book3.fbx" type="PackedScene" id=113]
+[ext_resource path="res://scenes/3d/ASSETS/book4.fbx" type="PackedScene" id=114]
+[ext_resource path="res://models/textures/album/spiral_Base_color.png" type="Texture" id=115]
+[ext_resource path="res://scenes/3d/ASSETS/book5.fbx" type="PackedScene" id=116]
+[ext_resource path="res://models/textures/books/book2_Base_color_1.png" type="Texture" id=117]
+[ext_resource path="res://models/textures/books/book5_Base_color_1.png" type="Texture" id=118]
+[ext_resource path="res://models/textures/books/book1_Base_color_1.png" type="Texture" id=119]
+[ext_resource path="res://models/textures/album/cover_base_color_fixa.png" type="Texture" id=120]
+[ext_resource path="res://models/textures/books/book2_Base_color_2.png" type="Texture" id=121]
+[ext_resource path="res://models/textures/books/book3_Base_color_1.png" type="Texture" id=122]
+[ext_resource path="res://models/textures/books/book2_Base_color_3.png" type="Texture" id=123]
+[ext_resource path="res://models/textures/books/book1_Base_color_2.png" type="Texture" id=124]
+[ext_resource path="res://models/textures/books/book4_Base_color_2.png" type="Texture" id=125]
+[ext_resource path="res://models/textures/books/book3_Base_color_3.png" type="Texture" id=126]
+[ext_resource path="res://models/textures/album/page_Base_color_w_picture.png" type="Texture" id=127]
+[ext_resource path="res://shaders/base_shader_transparent.tres" type="Shader" id=128]
+[ext_resource path="res://scenes/3d/ASSETS/Game.fbx" type="PackedScene" id=129]
+[ext_resource path="res://models/textures/games/game_Base_color_11.png" type="Texture" id=130]
+[ext_resource path="res://models/textures/games/game_Base_color_9.png" type="Texture" id=131]
+[ext_resource path="res://models/textures/games/game_Base_color_10.png" type="Texture" id=132]
+[ext_resource path="res://models/textures/games/game_Base_color_3.png" type="Texture" id=133]
+[ext_resource path="res://models/textures/games/game_Base_color_1.png" type="Texture" id=134]
+[ext_resource path="res://models/textures/books/book3_Base_color_4.png" type="Texture" id=135]
+[ext_resource path="res://models/textures/books/book3_Base_color_5.png" type="Texture" id=136]
+[ext_resource path="res://models/textures/books/book4_Base_color_3.png" type="Texture" id=137]
+[ext_resource path="res://models/textures/books/book4_Base_color_4.png" type="Texture" id=138]
+[ext_resource path="res://models/textures/books/book1_Base_color_3.png" type="Texture" id=139]
+[ext_resource path="res://models/textures/books/book1_Base_color_4.png" type="Texture" id=140]
+[ext_resource path="res://models/textures/games/game_Base_color_2.png" type="Texture" id=141]
+[ext_resource path="res://models/textures/games/game_Base_color_8.png" type="Texture" id=142]
+[ext_resource path="res://models/textures/games/game_Base_color_7.png" type="Texture" id=143]
+[ext_resource path="res://models/textures/games/game_Base_color_6.png" type="Texture" id=144]
+[ext_resource path="res://models/textures/games/game_Base_color_4.png" type="Texture" id=145]
+[ext_resource path="res://models/textures/games/game_Base_color_5.png" type="Texture" id=146]
+[ext_resource path="res://scenes/3d/ASSETS/Backpack.fbx" type="PackedScene" id=147]
+[ext_resource path="res://models/textures/backpack/backpacxk_Normal_OpenGL.png" type="Texture" id=148]
+[ext_resource path="res://models/textures/backpack/backpacxk_Roughness.png" type="Texture" id=149]
+[ext_resource path="res://models/textures/backpack/backpacxk_Base_color.png" type="Texture" id=150]
+[ext_resource path="res://models/textures/door/doorframe_Base_color.png" type="Texture" id=151]
+[ext_resource path="res://scenes/3d/ASSETS/Patio_Chair_UV.fbx" type="PackedScene" id=152]
+[ext_resource path="res://models/textures/patio_Base_color.png" type="Texture" id=153]
+[ext_resource path="res://models/textures/balcony/housefront_base_color.png" type="Texture" id=154]
+[ext_resource path="res://scenes/3d/ASSETS/Pills.fbx" type="PackedScene" id=155]
+[ext_resource path="res://scenes/3d/ASSETS/max_wall_south.fbx" type="PackedScene" id=156]
+[ext_resource path="res://models/textures/pills_Base_color.png" type="Texture" id=157]
+[ext_resource path="res://models/textures/balcony/balcony_floor_base.png" type="Texture" id=158]
+[ext_resource path="res://models/textures/walls_floor/max_wallpaper.png" type="Texture" id=159]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -142,6 +244,261 @@ shader_param/color_strength = 10.0
 shader_param/alpha = 1.0
 shader_param/noise = ExtResource( 40 )
 
+[sub_resource type="ShaderMaterial" id=60]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 127 )
+
+[sub_resource type="ShaderMaterial" id=61]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=62]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=63]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=64]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=65]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=66]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=67]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=68]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=69]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 127 )
+
+[sub_resource type="ShaderMaterial" id=70]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 1.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 115 )
+
+[sub_resource type="ShaderMaterial" id=71]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 120 )
+
+[sub_resource type="StreamTexture" id=73]
+flags = 20
+load_path = "res://.import/cover_Base_color.png-a31a1ac89da542c236986c008361644d.stex"
+
+[sub_resource type="ShaderMaterial" id=72]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = SubResource( 73 )
+
+[sub_resource type="ShaderMaterial" id=121]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 150 )
+shader_param/texture_roughness = ExtResource( 149 )
+shader_param/texture_normal = ExtResource( 148 )
+
+[sub_resource type="ShaderMaterial" id=55]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 6 )
+
+[sub_resource type="ShaderMaterial" id=74]
+shader = ExtResource( 128 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 100 )
+
+[sub_resource type="ShaderMaterial" id=33]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 2.392
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 63 )
+shader_param/texture_roughness = ExtResource( 68 )
+shader_param/texture_normal = ExtResource( 62 )
+
 [sub_resource type="ShaderMaterial" id=28]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -157,10 +514,6 @@ shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 59 )
 
-[sub_resource type="StreamTexture" id=29]
-flags = 20
-load_path = "res://.import/lambert2_Base_color.png-0e1985671e3eecc2349322a15d4fff66.stex"
-
 [sub_resource type="ShaderMaterial" id=30]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -174,7 +527,70 @@ shader_param/depth_scale = 0.05
 shader_param/depth_min_layers = 8
 shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
-shader_param/texture_albedo = SubResource( 29 )
+shader_param/texture_albedo = ExtResource( 61 )
+
+[sub_resource type="ShaderMaterial" id=35]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 79 )
+shader_param/texture_normal = ExtResource( 80 )
+
+[sub_resource type="ShaderMaterial" id=48]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 95 )
+
+[sub_resource type="ShaderMaterial" id=36]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 3.471
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 83 )
+
+[sub_resource type="ShaderMaterial" id=32]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 35 )
+shader_param/texture_metallic = ExtResource( 69 )
+shader_param/texture_roughness = ExtResource( 66 )
 
 [sub_resource type="ShaderMaterial" id=21]
 shader = ExtResource( 45 )
@@ -209,18 +625,6 @@ shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 42 )
 
-[sub_resource type="SpatialMaterial" id=15]
-albedo_color = Color( 0.501961, 0.317647, 0.317647, 1 )
-
-[sub_resource type="SpatialMaterial" id=16]
-albedo_texture = ExtResource( 24 )
-
-[sub_resource type="SpatialMaterial" id=17]
-albedo_texture = ExtResource( 24 )
-
-[sub_resource type="SpatialMaterial" id=18]
-albedo_texture = ExtResource( 24 )
-
 [sub_resource type="ShaderMaterial" id=22]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -238,7 +642,7 @@ shader_param/texture_albedo = ExtResource( 13 )
 
 [sub_resource type="ShaderMaterial" id=23]
 shader = ExtResource( 45 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/albedo = Color( 1, 0.313726, 0.313726, 1 )
 shader_param/metallic = 0.0
 shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
 shader_param/specular_scale = 1.0
@@ -285,7 +689,7 @@ shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 52 )
 
-[sub_resource type="ShaderMaterial" id=27]
+[sub_resource type="ShaderMaterial" id=49]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/metallic = 0.0
@@ -298,9 +702,55 @@ shader_param/depth_scale = 0.05
 shader_param/depth_min_layers = 8
 shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 52 )
+
+[sub_resource type="ShaderMaterial" id=75]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 151 )
+
+[sub_resource type="ShaderMaterial" id=27]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 2.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 4 )
 shader_param/texture_metallic = ExtResource( 2 )
 shader_param/texture_roughness = ExtResource( 56 )
+
+[sub_resource type="ShaderMaterial" id=31]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 48 )
+shader_param/texture_normal = ExtResource( 12 )
 
 [sub_resource type="ShaderMaterial" id=26]
 shader = ExtResource( 45 )
@@ -319,6 +769,1114 @@ shader_param/texture_albedo = ExtResource( 17 )
 shader_param/texture_metallic = ExtResource( 54 )
 shader_param/texture_roughness = ExtResource( 55 )
 
+[sub_resource type="ShaderMaterial" id=34]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 64 )
+shader_param/texture_roughness = ExtResource( 67 )
+shader_param/texture_normal = ExtResource( 65 )
+
+[sub_resource type="ShaderMaterial" id=37]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 74 )
+shader_param/texture_roughness = ExtResource( 75 )
+shader_param/texture_normal = ExtResource( 71 )
+
+[sub_resource type="ShaderMaterial" id=38]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 3.275
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 81 )
+shader_param/texture_roughness = ExtResource( 77 )
+shader_param/texture_normal = ExtResource( 70 )
+
+[sub_resource type="ShaderMaterial" id=39]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 73 )
+shader_param/texture_metallic = ExtResource( 84 )
+shader_param/texture_roughness = ExtResource( 76 )
+
+[sub_resource type="ShaderMaterial" id=40]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 72 )
+
+[sub_resource type="ShaderMaterial" id=41]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 85 )
+shader_param/texture_metallic = ExtResource( 78 )
+shader_param/texture_roughness = ExtResource( 82 )
+
+[sub_resource type="ShaderMaterial" id=42]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 94 )
+
+[sub_resource type="ShaderMaterial" id=43]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 92 )
+
+[sub_resource type="ShaderMaterial" id=44]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 89 )
+
+[sub_resource type="SpatialMaterial" id=45]
+flags_transparent = true
+albedo_texture = ExtResource( 91 )
+
+[sub_resource type="ShaderMaterial" id=46]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 93 )
+
+[sub_resource type="ShaderMaterial" id=47]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 90 )
+
+[sub_resource type="ShaderMaterial" id=50]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 2.098
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 96 )
+shader_param/texture_metallic = ExtResource( 97 )
+shader_param/texture_roughness = ExtResource( 98 )
+
+[sub_resource type="ShaderMaterial" id=56]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.5
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 103 )
+shader_param/texture_metallic = ExtResource( 105 )
+shader_param/texture_roughness = ExtResource( 104 )
+
+[sub_resource type="ShaderMaterial" id=76]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 119 )
+
+[sub_resource type="ShaderMaterial" id=94]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 139 )
+
+[sub_resource type="ShaderMaterial" id=95]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 140 )
+
+[sub_resource type="ShaderMaterial" id=77]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 0.341176, 0.67451, 0.780392, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 124 )
+
+[sub_resource type="ShaderMaterial" id=78]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 0, 1, 0.929412, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 119 )
+
+[sub_resource type="ShaderMaterial" id=79]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 124 )
+
+[sub_resource type="ShaderMaterial" id=80]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 124 )
+
+[sub_resource type="ShaderMaterial" id=81]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 117 )
+
+[sub_resource type="ShaderMaterial" id=82]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 0.368627, 0.368627, 0.368627, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 123 )
+
+[sub_resource type="ShaderMaterial" id=83]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 121 )
+
+[sub_resource type="ShaderMaterial" id=84]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 4.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 123 )
+
+[sub_resource type="ShaderMaterial" id=85]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 126 )
+
+[sub_resource type="ShaderMaterial" id=96]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 136 )
+
+[sub_resource type="ShaderMaterial" id=86]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 122 )
+
+[sub_resource type="ShaderMaterial" id=97]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 135 )
+
+[sub_resource type="ShaderMaterial" id=87]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 0.819608, 0.654902, 0.823529, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 122 )
+
+[sub_resource type="ShaderMaterial" id=98]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 0.454902, 0.564706, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 135 )
+
+[sub_resource type="ShaderMaterial" id=89]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 125 )
+
+[sub_resource type="ShaderMaterial" id=99]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 137 )
+
+[sub_resource type="ShaderMaterial" id=100]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 138 )
+
+[sub_resource type="Shader" id=90]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.4.stable's SpatialMaterial.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_toon,specular_toon;
+
+const float master_specular = 0.7;
+const float master_roughness = 0.2;
+
+// Albedo color variables
+uniform vec4 albedo : hint_color = vec4(1.0);
+uniform sampler2D texture_albedo : hint_albedo;
+
+// Metallic variables
+uniform float metallic : hint_range(0.0, 1.0) = 0.0;
+uniform sampler2D texture_metallic : hint_white;
+uniform vec4 metallic_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+
+// Scalar variables
+uniform float specular_scale : hint_range(0.0, 4.0) = 1.0;
+
+// Roughness variables
+uniform float roughness_scale : hint_range(0.0, 4.0) = 1.0;
+uniform sampler2D texture_roughness : hint_white;
+uniform vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+
+// Normal variables
+uniform sampler2D texture_normal : hint_normal;
+uniform float normal_scale : hint_range(-16,16) = 1.0; 
+
+// Depth variables
+uniform sampler2D texture_depth : hint_black;
+uniform float depth_scale = 0.05;
+uniform int depth_min_layers = 8;
+uniform int depth_max_layers = 32;
+uniform vec2 depth_flip = vec2(1.0, 1.0);
+
+const float point_size = 1.0;
+const vec3 uv1_scale = vec3(1.0);
+const vec3 uv1_offset = vec3(0.0);
+const vec3 uv2_scale = vec3(1.0);
+const vec3 uv2_offset = vec3(0.0);
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	{
+		vec3 view_dir = normalize(normalize(-VERTEX)*mat3(TANGENT*depth_flip.x,-BINORMAL*depth_flip.y,NORMAL));
+		float depth = texture(texture_depth, base_uv).r;
+		vec2 ofs = base_uv - view_dir.xy / view_dir.z * (depth * depth_scale);
+		base_uv=ofs;
+	}
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * master_roughness * roughness_scale;
+	SPECULAR = master_specular * specular_scale;
+	NORMALMAP = texture(texture_normal,base_uv).rgb;
+	NORMALMAP_DEPTH = normal_scale;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=91]
+shader = SubResource( 90 )
+shader_param/albedo = Color( 0, 1, 0.976471, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 118 )
+
+[sub_resource type="ShaderMaterial" id=92]
+shader = SubResource( 90 )
+shader_param/albedo = Color( 0.768627, 0.929412, 0.45098, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 118 )
+
+[sub_resource type="ShaderMaterial" id=93]
+shader = SubResource( 90 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 118 )
+
+[sub_resource type="ShaderMaterial" id=101]
+shader = SubResource( 90 )
+shader_param/albedo = Color( 1, 0.403922, 0.403922, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 118 )
+
+[sub_resource type="ShaderMaterial" id=102]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 134 )
+
+[sub_resource type="ShaderMaterial" id=103]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 141 )
+
+[sub_resource type="ShaderMaterial" id=104]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 133 )
+
+[sub_resource type="ShaderMaterial" id=105]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 145 )
+
+[sub_resource type="ShaderMaterial" id=106]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 141 )
+
+[sub_resource type="ShaderMaterial" id=107]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 146 )
+
+[sub_resource type="ShaderMaterial" id=108]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 144 )
+
+[sub_resource type="ShaderMaterial" id=109]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 141 )
+
+[sub_resource type="ShaderMaterial" id=110]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 141 )
+
+[sub_resource type="ShaderMaterial" id=111]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 143 )
+
+[sub_resource type="ShaderMaterial" id=112]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 131 )
+
+[sub_resource type="ShaderMaterial" id=113]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 141 )
+
+[sub_resource type="ShaderMaterial" id=114]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 142 )
+
+[sub_resource type="ShaderMaterial" id=115]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 131 )
+
+[sub_resource type="ShaderMaterial" id=116]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 142 )
+
+[sub_resource type="ShaderMaterial" id=117]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 142 )
+
+[sub_resource type="ShaderMaterial" id=118]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 134 )
+
+[sub_resource type="ShaderMaterial" id=119]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 132 )
+
+[sub_resource type="ShaderMaterial" id=120]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 130 )
+
+[sub_resource type="ShaderMaterial" id=131]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 157 )
+
+[sub_resource type="Animation" id=132]
+resource_name = "Take 001"
+length = 4.95833
+tracks/0/type = "transform"
+tracks/0/path = NodePath("group3/pills")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.166667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.208333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.291667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.458333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.541667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.583333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.708333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.791667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.916667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.958333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=122]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 153 )
+
+[sub_resource type="Animation" id=123]
+resource_name = "Take 001"
+length = 4.95833
+
+[sub_resource type="ShaderMaterial" id=124]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 159 )
+
+[sub_resource type="ShaderMaterial" id=125]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 159 )
+
+[sub_resource type="ShaderMaterial" id=126]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 159 )
+
+[sub_resource type="ShaderMaterial" id=133]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 159 )
+
+[sub_resource type="ShaderMaterial" id=127]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 106 )
+
+[sub_resource type="ShaderMaterial" id=58]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 158 )
+
+[sub_resource type="ShaderMaterial" id=129]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 154 )
+
+[sub_resource type="ShaderMaterial" id=130]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 111 )
+
+[sub_resource type="ShaderMaterial" id=59]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 112 )
+
 [node name="bedroom" type="ImmediateGeometry"]
 material_override = SubResource( 1 )
 cast_shadow = 0
@@ -332,7 +1890,7 @@ size = Vector2( 2.141, 1.346 )
 rectHeight = 0.027
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70224, 1.25445, 0.365582 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70227, 1.25377, 0.366014 )
 light_color = Color( 0.85098, 0.054902, 0.709804, 1 )
 omni_range = 2.53414
 omni_attenuation = 2.54912
@@ -346,7 +1904,7 @@ omni_attenuation = 2.54912
 script = ExtResource( 39 )
 
 [node name="OmniLight2" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17938, 1.25445, -2.29564 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17818, 1.24728, -2.28621 )
 light_color = Color( 0.560784, 0.529412, 0.952941, 1 )
 light_energy = 0.4
 omni_range = 3.2376
@@ -361,7 +1919,7 @@ spot_angle = 29.3618
 spot_angle_attenuation = 1.46409
 
 [node name="SpotLight2" type="SpotLight" parent="."]
-transform = Transform( 0.611932, 0.113051, -0.782789, -0.0310918, 0.992405, 0.119018, 0.790299, -0.0484925, 0.610799, -4.23397, 1.52776, 0.706884 )
+transform = Transform( 0.611932, 0.113051, -0.782789, -0.0310918, 0.992405, 0.119018, 0.790299, -0.0484927, 0.610799, -4.23397, 1.52776, 0.706884 )
 light_color = Color( 0.309804, 0.952941, 1, 1 )
 light_energy = 16.0
 spot_range = 5.62779
@@ -429,22 +1987,69 @@ script = ExtResource( 41 )
 [node name="max_album_uv" parent="max_bedroom" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.418656, 0.94475, -2.32161 )
 
-[node name="max_keyboard_uv" parent="max_bedroom" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06181, 0.856718, -2.29499 )
+[node name="page_1" parent="max_bedroom/max_album_uv/RootNode/Album1" index="0"]
+material/0 = SubResource( 60 )
 
-[node name="max_pc_uv" parent="max_bedroom" instance=ExtResource( 16 )]
-transform = Transform( 0.98799, 0, -0.154521, 0, 1, 0, 0.154521, 0, 0.98799, -0.474798, 0.263383, -2.45567 )
+[node name="page_2" parent="max_bedroom/max_album_uv/RootNode/Album1" index="1"]
+material/0 = SubResource( 61 )
 
-[node name="max_pills_nonuv" parent="max_bedroom" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39951, 0.960641, 0.359683 )
+[node name="page_3" parent="max_bedroom/max_album_uv/RootNode/Album1" index="2"]
+material/0 = SubResource( 62 )
 
-[node name="max_windowframe_uv" parent="max_bedroom" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00369, 1.50515, 0 )
+[node name="page_4" parent="max_bedroom/max_album_uv/RootNode/Album1" index="3"]
+material/0 = SubResource( 63 )
 
-[node name="max_window_uv" parent="max_bedroom/max_windowframe_uv" instance=ExtResource( 6 )]
+[node name="page_5" parent="max_bedroom/max_album_uv/RootNode/Album1" index="4"]
+material/0 = SubResource( 64 )
+
+[node name="page_6" parent="max_bedroom/max_album_uv/RootNode/Album1" index="5"]
+material/0 = SubResource( 65 )
+
+[node name="page_7" parent="max_bedroom/max_album_uv/RootNode/Album1" index="6"]
+material/0 = SubResource( 66 )
+
+[node name="page_8" parent="max_bedroom/max_album_uv/RootNode/Album1" index="7"]
+material/0 = SubResource( 67 )
+
+[node name="page_9" parent="max_bedroom/max_album_uv/RootNode/Album1" index="8"]
+material/0 = SubResource( 68 )
+
+[node name="page_10" parent="max_bedroom/max_album_uv/RootNode/Album1" index="9"]
+material/0 = SubResource( 69 )
+
+[node name="spine_rings" parent="max_bedroom/max_album_uv/RootNode/Album1" index="10"]
+material/0 = SubResource( 70 )
+
+[node name="cover1" parent="max_bedroom/max_album_uv/RootNode/Album1" index="11"]
+material/0 = SubResource( 71 )
+
+[node name="cover2" parent="max_bedroom/max_album_uv/RootNode/Album1" index="12"]
+transform = Transform( 1, 3.35276e-08, -2.02442e-15, -2.23517e-08, 1, -9.23706e-14, 1.22849e-15, 0, 1, 0, 0, 0 )
+material/0 = SubResource( 72 )
+
+[node name="Backpack" parent="max_bedroom" instance=ExtResource( 147 )]
+transform = Transform( -0.843334, 0.52322, -0.122592, -0.0304804, 0.181185, 0.982976, 0.536525, 0.832714, -0.136852, 0, 0.0819009, 1.57767 )
+
+[node name="polySurface2" parent="max_bedroom/Backpack/RootNode" index="0"]
+material/0 = SubResource( 121 )
+
+[node name="windowframe" parent="max_bedroom" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10395, 1.505, 0 )
+
+[node name="Window_frame_UV" parent="max_bedroom/windowframe/RootNode" index="0"]
+material/0 = SubResource( 55 )
+
+[node name="window" parent="max_bedroom" instance=ExtResource( 99 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.07853, 1.50774, 0.00149705 )
+
+[node name="Window_UV" parent="max_bedroom/window/RootNode" index="0"]
+material/0 = SubResource( 74 )
 
 [node name="Nightstand_w_UV" parent="max_bedroom" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53236, 0.448174, 0.457143 )
+
+[node name="Nightstand_UV" parent="max_bedroom/Nightstand_w_UV/RootNode" index="0"]
+material/0 = SubResource( 33 )
 
 [node name="pillow_uv" parent="max_bedroom" instance=ExtResource( 30 )]
 transform = Transform( 0.978137, 0, -0.207963, 0, 1, 0, 0.207963, 0, 0.978137, 2.60655, 0.371797, 1.5346 )
@@ -459,41 +2064,30 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.667, 0.356044, 1.474 )
 [node name="bed_vpolySurface4" parent="max_bedroom/Bed_v2/RootNode" index="0"]
 material/0 = SubResource( 30 )
 
-[node name="bowl_nonuv" parent="max_bedroom" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73029, 0.958638, -2.46298 )
+[node name="Mouse" parent="max_bedroom" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585057, 0.921532, -2.21079 )
 
-[node name="fork_nonuv" parent="max_bedroom/bowl_nonuv" instance=ExtResource( 22 )]
-transform = Transform( 0.834242, -0.551397, -0.00128958, 0, -0.00233874, 0.999997, -0.551398, -0.83424, -0.00195107, 0, 0.0479009, 0 )
+[node name="pc_mouse" parent="max_bedroom/Mouse/RootNode" index="0"]
+material/0 = SubResource( 35 )
 
-[node name="cardboard_box_nonuv" parent="max_bedroom" instance=ExtResource( 23 )]
-transform = Transform( 0.377485, 0, -0.926016, 0, 1, 0, 0.926016, 0, 0.377485, -0.745769, 2.32088, 1.46491 )
+[node name="Box" parent="max_bedroom" instance=ExtResource( 23 )]
+transform = Transform( 0.377485, 0, -0.926016, 0, 1, 0, 0.926016, 0, 0.377485, -0.746, 2.321, 1.465 )
 
-[node name="iphone_nonuv" parent="max_bedroom" instance=ExtResource( 26 )]
-transform = Transform( 0.437587, 0.899176, 3.93042e-08, 0, -4.37114e-08, 1, 0.899176, -0.437587, -1.91275e-08, 2.34456, 0.909864, 0.67209 )
+[node name="polySurface2" parent="max_bedroom/Box/RootNode" index="0"]
+material/0 = SubResource( 48 )
 
-[node name="pcscreen_NEW_nonuv" parent="max_bedroom" instance=ExtResource( 27 )]
-transform = Transform( 0.994125, 0, -0.108242, 0, 1, 0, 0.108242, 0, 0.994125, -1.00571, 1.20475, -2.60586 )
+[node name="Trashcan" parent="max_bedroom" instance=ExtResource( 33 )]
+transform = Transform( 0.848048, 0, 0.529919, 0, 1, 0, -0.529919, 0, 0.848048, 0.341, 0.235, -2.563 )
 
-[node name="pc_mouse_nonuv" parent="max_bedroom" instance=ExtResource( 28 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565329, 0.932155, -2.21702 )
+[node name="polySurface2" parent="max_bedroom/Trashcan/RootNode" index="0"]
+material/0 = SubResource( 36 )
 
-[node name="plate_nonuv" parent="max_bedroom" instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55649, 0.925922, -2.77486 )
+[node name="lava_lamp" parent="max_bedroom" instance=ExtResource( 60 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74778, 1.19913, 0.355287 )
 
-[node name="soda_can_nonuv" parent="max_bedroom" instance=ExtResource( 31 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56815, 0.987346, -2.14257 )
-
-[node name="spoon_nonuv" parent="max_bedroom" instance=ExtResource( 32 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71416, 1.03752, -2.54867 )
-
-[node name="trashcan_nonuv" parent="max_bedroom" instance=ExtResource( 33 )]
-transform = Transform( 0.853551, 0, 0.52101, 0, 1, 0, -0.52101, 0, 0.853551, 0.341333, 0.235466, -2.56264 )
-
-[node name="max_lavalamp_nonuv" parent="max_bedroom" instance=ExtResource( 35 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70202, 1.19738, 0.368214 )
-
-[node name="warderobe_nonuv" parent="max_bedroom" instance=ExtResource( 34 )]
-transform = Transform( -0.999778, 0, -0.0210819, 0, 1, 0, 0.0210819, 0, -0.999778, -0.974841, 1.06085, 1.5659 )
+[node name="lava_lamp" parent="max_bedroom/lava_lamp/RootNode" index="0"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.00179565, 0.0302226 )
+material/0 = SubResource( 32 )
 
 [node name="chair_1" parent="max_bedroom" instance=ExtResource( 44 )]
 transform = Transform( 0.582165, 0, 0.81307, 0, 1, 0, -0.81307, 0, 0.582165, -1.56, 0.683706, -1.519 )
@@ -507,20 +2101,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0 )
 
 [node name="carpet" parent="max_bedroom/carpet/RootNode" index="0"]
 material/0 = SubResource( 19 )
-
-[node name="walls_floor" parent="max_bedroom" instance=ExtResource( 5 )]
-
-[node name="FLOOR" parent="max_bedroom/walls_floor/RootNode/max_constructioin" index="0"]
-material/0 = SubResource( 15 )
-
-[node name="max_wall_east" parent="max_bedroom/walls_floor/RootNode/max_constructioin" index="1"]
-material/0 = SubResource( 16 )
-
-[node name="max_wall_west" parent="max_bedroom/walls_floor/RootNode/max_constructioin" index="2"]
-material/0 = SubResource( 17 )
-
-[node name="max_wall_north" parent="max_bedroom/walls_floor/RootNode/max_constructioin" index="3"]
-material/0 = SubResource( 18 )
 
 [node name="bookshelf1" parent="max_bedroom" instance=ExtResource( 51 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.59411, 0.996126, -0.852271 )
@@ -541,6 +2121,13 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.415867, 0.9919, -2.62
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -2.98023e-08, 0, 0 )
 material/0 = SubResource( 23 )
 
+[node name="mug3" parent="max_bedroom" instance=ExtResource( 50 )]
+transform = Transform( -0.999272, 0, 1.11869, 0, 1.5, 0, -1.11869, 0, -0.999272, 2.32881, 2.04611, -2.12786 )
+
+[node name="cup1" parent="max_bedroom/mug3/RootNode" index="0"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -2.98023e-08, 0, 0 )
+material/0 = SubResource( 23 )
+
 [node name="mug2" parent="max_bedroom" instance=ExtResource( 50 )]
 transform = Transform( -0.456898, 0, -1.42872, 0, 1.5, 0, 1.42872, 0, -0.456898, -1.39337, 1.76831, -2.62559 )
 
@@ -555,8 +2142,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.250038, 1.78012, -2.4664 )
 transform = Transform( 0.00742069, 0, 0.00670323, 0, 0.01, 0, -0.00670323, 0, 0.00742069, 5.96046e-08, 1.19209e-07, 0 )
 material/0 = SubResource( 24 )
 
+[node name="noodles2" parent="max_bedroom" instance=ExtResource( 53 )]
+transform = Transform( 0.893607, 0, -0.448851, 0, 1, 0, 0.448851, 0, 0.893607, -0.378405, 1.83235, -2.64593 )
+
+[node name="noodles" parent="max_bedroom/noodles2/RootNode" index="0"]
+transform = Transform( 0.00742069, 0, 0.00670323, 0, 0.01, 0, -0.00670323, 0, 0.00742069, 5.96046e-08, 1.19209e-07, 0 )
+material/0 = SubResource( 49 )
+
+[node name="noodles3" parent="max_bedroom" instance=ExtResource( 53 )]
+transform = Transform( 0.866966, 0, 0.498367, 0, 1, 0, -0.498367, 0, 0.866966, -0.377925, 1.78012, -2.64847 )
+
+[node name="noodles" parent="max_bedroom/noodles3/RootNode" index="0"]
+transform = Transform( 0.00742069, 0, 0.00670323, 0, 0.01, 0, -0.00670323, 0, 0.00742069, 5.96046e-08, 1.19209e-07, 0 )
+material/0 = SubResource( 24 )
+
 [node name="doorframe_1" parent="max_bedroom" instance=ExtResource( 57 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49312, 1.09483, -3.05414 )
+
+[node name="door_framke_simpler" parent="max_bedroom/doorframe_1/RootNode/doors" index="0"]
+material/0 = SubResource( 75 )
 
 [node name="door_pivot" parent="max_bedroom" instance=ExtResource( 58 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49312, 1.09483, -3.05414 )
@@ -565,28 +2169,729 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49312, 1.09483, -3.05414 )
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.19209e-07, -0.0638661, 0 )
 material/0 = SubResource( 27 )
 
+[node name="keyboard" parent="max_bedroom" instance=ExtResource( 49 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10571, 0.84736, -2.23085 )
+
+[node name="PC_Keyboard_UV" parent="max_bedroom/keyboard/RootNode" index="0"]
+material/0 = SubResource( 31 )
+
 [node name="desk" parent="max_bedroom" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0.84475, -2.527 )
 
 [node name="Desk_w_UV" parent="max_bedroom/desk/RootNode" index="0"]
 material/0 = SubResource( 26 )
 
+[node name="Phone" parent="max_bedroom" instance=ExtResource( 26 )]
+transform = Transform( 0.422618, 0.906308, 3.9616e-08, 0, -4.37114e-08, 1, 0.906308, -0.422618, -1.84732e-08, 2.34, 0.91, 0.672 )
+
+[node name="phone1" parent="max_bedroom/Phone/RootNode/group3" index="0"]
+material/0 = SubResource( 34 )
+
+[node name="Pc_box" parent="max_bedroom" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49973, 0.250995, -2.42765 )
+
+[node name="pc_frame" parent="max_bedroom/Pc_box/RootNode" index="0"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+material/0 = SubResource( 37 )
+
+[node name="Pc_screen" parent="max_bedroom" instance=ExtResource( 32 )]
+transform = Transform( 0.994125, 0, -0.108242, 0, 1, 0, 0.108242, 0, 0.994125, -1.006, 1.20303, -2.606 )
+
+[node name="polySurface2" parent="max_bedroom/Pc_screen/RootNode" index="0"]
+material/0 = SubResource( 38 )
+
+[node name="Fork" parent="max_bedroom" instance=ExtResource( 29 )]
+transform = Transform( 1, 0.000628318, 0, -3.14161e-05, 0.0500002, 0.998749, 0.000627533, -0.998749, 0.0500002, -1.5707, 0.931991, -2.71049 )
+
+[node name="fork" parent="max_bedroom/Fork/RootNode" index="0"]
+material/0 = SubResource( 39 )
+
+[node name="Fork2" parent="max_bedroom" instance=ExtResource( 29 )]
+transform = Transform( 0.753464, 0.489067, -0.0244599, -2.82301e-05, 0.0449296, 0.897482, 0.489678, -0.752521, 0.0376879, -0.344789, 1.69533, -2.52656 )
+
+[node name="fork" parent="max_bedroom/Fork2/RootNode" index="0"]
+material/0 = SubResource( 39 )
+
+[node name="Fork3" parent="max_bedroom" instance=ExtResource( 29 )]
+transform = Transform( 0.753464, 0.489067, -0.0244599, -2.82301e-05, 0.0449296, 0.897482, 0.489678, -0.752521, 0.0376879, 2.38856, 0.361939, -2.1021 )
+
+[node name="fork" parent="max_bedroom/Fork3/RootNode" index="0"]
+material/0 = SubResource( 39 )
+
+[node name="Plate" parent="max_bedroom" instance=ExtResource( 27 )]
+transform = Transform( -0.0992329, 0, -0.995064, 0, 1, 0, 0.995064, 0, -0.0992329, -1.52359, 0.926, -2.7 )
+
+[node name="tallerk5" parent="max_bedroom/Plate/RootNode" index="0"]
+material/0 = SubResource( 40 )
+
+[node name="Plate2" parent="max_bedroom" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70216, 1.69542, -2.64638 )
+
+[node name="tallerk5" parent="max_bedroom/Plate2/RootNode" index="0"]
+material/0 = SubResource( 40 )
+
+[node name="Plate3" parent="max_bedroom" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70216, 1.70449, -2.64638 )
+
+[node name="tallerk5" parent="max_bedroom/Plate3/RootNode" index="0"]
+material/0 = SubResource( 40 )
+
+[node name="Plate4" parent="max_bedroom" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6936, 1.71407, -2.64638 )
+
+[node name="tallerk5" parent="max_bedroom/Plate4/RootNode" index="0"]
+material/0 = SubResource( 40 )
+
+[node name="Plate5" parent="max_bedroom" instance=ExtResource( 27 )]
+transform = Transform( -0.64639, 0, 0.763007, 0, 1, 0, -0.763007, 0, -0.64639, 2.34244, 0.0149423, -0.103836 )
+
+[node name="tallerk5" parent="max_bedroom/Plate5/RootNode" index="0"]
+material/0 = SubResource( 40 )
+
+[node name="Plate6" parent="max_bedroom" instance=ExtResource( 27 )]
+transform = Transform( -0.64639, 0, 0.763007, 0, 1, 0, -0.763007, 0, -0.64639, 2.40541, 0.359921, -2.0835 )
+
+[node name="tallerk5" parent="max_bedroom/Plate6/RootNode" index="0"]
+material/0 = SubResource( 40 )
+
+[node name="Spoon" parent="max_bedroom" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, -0.950797, -0.309814, 0, 0.309814, -0.950797, -1.39066, 1.81705, -2.67812 )
+
+[node name="spoon" parent="max_bedroom/Spoon/RootNode" index="0"]
+material/0 = SubResource( 41 )
+
+[node name="yellow note" parent="max_bedroom" instance=ExtResource( 86 )]
+transform = Transform( 0.998662, -0.0517085, 0, 0.0517085, 0.998662, 0, 0, 0, 1, 0.332371, 2.0079, -2.99793 )
+
+[node name="pPlane3" parent="max_bedroom/yellow note/RootNode" index="0"]
+material/0 = SubResource( 42 )
+
+[node name="yellow note2" parent="max_bedroom" instance=ExtResource( 86 )]
+transform = Transform( 0.967959, 0.251107, 0, -0.251107, 0.967959, 0, 0, 0, 1, 0.679888, 1.45658, -2.99793 )
+
+[node name="pPlane3" parent="max_bedroom/yellow note2/RootNode" index="0"]
+transform = Transform( 0.01, 4.65661e-10, 0, -4.65661e-10, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+material/0 = SubResource( 43 )
+
+[node name="yellow note3" parent="max_bedroom" instance=ExtResource( 86 )]
+transform = Transform( 0.998876, -0.0394298, -0.0262955, 0.0414367, 0.995874, 0.0807349, 0.0230036, -0.0817338, 0.996389, -1.77709, 1.58975, -2.36509 )
+
+[node name="pPlane3" parent="max_bedroom/yellow note3/RootNode" index="0"]
+transform = Transform( 0.01, 4.51109e-10, 0, -4.83851e-10, 0.01, 0, 1.45519e-11, 0, 0.01, 0, 0, 0 )
+material/0 = SubResource( 44 )
+
+[node name="poster" parent="max_bedroom" instance=ExtResource( 87 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47364, 1.95923, -2.68291 )
+
+[node name="pPlane4" parent="max_bedroom/poster/RootNode" index="0"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, -0.312796 )
+material/0 = SubResource( 45 )
+
+[node name="Dresser" parent="max_bedroom" instance=ExtResource( 88 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.975, 1.06609, 1.5 )
+
+[node name="polySurface6" parent="max_bedroom/Dresser/RootNode" index="0"]
+material/0 = SubResource( 46 )
+
+[node name="Bottle" parent="max_bedroom" instance=ExtResource( 34 )]
+transform = Transform( 0.4608, 0.708, -0.535162, 0.00390218, 0.601375, 0.798958, 0.887496, -0.370248, 0.274351, 0.281716, 0.452106, -2.43482 )
+
+[node name="bottle" parent="max_bedroom/Bottle/RootNode/group3" index="0"]
+material/0 = SubResource( 47 )
+
+[node name="Bottle2" parent="max_bedroom" instance=ExtResource( 34 )]
+transform = Transform( -4.37019e-08, -0.999783, -0.0208552, 1, -4.37114e-08, 0, -9.11614e-10, -0.0208552, 0.999783, 0.0571734, 0.0320655, -2.30037 )
+
+[node name="bottle" parent="max_bedroom/Bottle2/RootNode/group3" index="0"]
+material/0 = SubResource( 47 )
+
+[node name="Bottle5" parent="max_bedroom" instance=ExtResource( 34 )]
+transform = Transform( -4.30303e-08, -0.984418, 0.175848, 1, -4.37114e-08, 0, 7.68655e-09, 0.175848, 0.984418, 2.31845, 0.263017, -0.688479 )
+
+[node name="bottle" parent="max_bedroom/Bottle5/RootNode/group3" index="0"]
+material/0 = SubResource( 47 )
+
+[node name="Bottle3" parent="max_bedroom" instance=ExtResource( 34 )]
+transform = Transform( -0.998503, 0, -0.0546887, 0, 1, 0, 0.0546888, 0, -0.998503, 2.60814, 0.314232, 0.264566 )
+
+[node name="bottle" parent="max_bedroom/Bottle3/RootNode/group3" index="0"]
+material/0 = SubResource( 47 )
+
+[node name="Bottle4" parent="max_bedroom" instance=ExtResource( 34 )]
+transform = Transform( -0.260506, 0.512612, -0.818147, -0.952863, -4.1651e-08, 0.303401, 0.155527, 0.85862, 0.488449, 0.00347483, 0.0414236, -2.47061 )
+
+[node name="bottle" parent="max_bedroom/Bottle4/RootNode/group3" index="0"]
+material/0 = SubResource( 47 )
+
+[node name="Sodacan" parent="max_bedroom" instance=ExtResource( 31 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575784, 0.978831, -2.69901 )
+
+[node name="polySurface1" parent="max_bedroom/Sodacan/RootNode" index="0"]
+transform = Transform( -0.000244671, 0, 0.00999701, 0, 0.01, 0, -0.00999701, 0, -0.000244671, 0, 0, 0 )
+material/0 = SubResource( 50 )
+
+[node name="Sodacan3" parent="max_bedroom" instance=ExtResource( 31 )]
+transform = Transform( 0.0398353, 0, -0.999206, 0, 1, 0, 0.999206, 0, 0.0398353, -0.414852, 1.75492, -2.53718 )
+
+[node name="polySurface1" parent="max_bedroom/Sodacan3/RootNode" index="0"]
+transform = Transform( -0.000244671, 0, 0.00999701, 0, 0.01, 0, -0.00999701, 0, -0.000244671, 0, 0, 0 )
+material/0 = SubResource( 50 )
+
+[node name="Sodacan2" parent="max_bedroom" instance=ExtResource( 31 )]
+transform = Transform( 0.9845, 0.162726, 0.0654163, 0.169523, -0.978543, -0.117111, 0.0449557, 0.126385, -0.990962, 0.307538, 0.453837, -2.68613 )
+
+[node name="polySurface1" parent="max_bedroom/Sodacan2/RootNode" index="0"]
+transform = Transform( -0.000244671, 0, 0.00999701, 0, 0.01, 0, -0.00999701, 0, -0.000244671, 0, 0, 0 )
+material/0 = SubResource( 50 )
+
+[node name="Kettle_UV" parent="max_bedroom" instance=ExtResource( 8 )]
+transform = Transform( 0.710468, 0, 0.70373, 0, 1, 0, -0.70373, 0, 0.710468, -2.52048, 0.18701, -1.34837 )
+
+[node name="polySurface3" parent="max_bedroom/Kettle_UV/RootNode" index="0"]
+material/0 = SubResource( 56 )
+
+[node name="books" type="Spatial" parent="max_bedroom"]
+
+[node name="book1_0" parent="max_bedroom/books" instance=ExtResource( 101 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 1.58861, -1.17202 )
+
+[node name="polySurface2" parent="max_bedroom/books/book1_0/RootNode" index="0"]
+material/0 = SubResource( 76 )
+
+[node name="book1_6" parent="max_bedroom/books" instance=ExtResource( 101 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51881, 1.58861, -1.75543 )
+
+[node name="polySurface2" parent="max_bedroom/books/book1_6/RootNode" index="0"]
+material/0 = SubResource( 94 )
+
+[node name="book1_7" parent="max_bedroom/books" instance=ExtResource( 101 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51881, 1.58861, -1.63969 )
+
+[node name="polySurface2" parent="max_bedroom/books/book1_7/RootNode" index="0"]
+material/0 = SubResource( 95 )
+
+[node name="book1_2" parent="max_bedroom/books" instance=ExtResource( 101 )]
+transform = Transform( 0.998798, -0.0490241, 2.14291e-09, 0, -4.37114e-08, -1, 0.0490241, 0.998798, -4.36588e-08, 2.49782, 0.261381, -1.01797 )
+
+[node name="polySurface2" parent="max_bedroom/books/book1_2/RootNode" index="0"]
+material/0 = SubResource( 77 )
+
+[node name="book1_3" parent="max_bedroom/books" instance=ExtResource( 101 )]
+transform = Transform( 0.99835, 0.0574246, -2.51011e-09, 0, -4.37114e-08, -1, -0.0574246, 0.99835, -4.36393e-08, 2.49782, 0.372372, -1.025 )
+
+[node name="polySurface2" parent="max_bedroom/books/book1_3/RootNode" index="0"]
+transform = Transform( 0.01, -5.82077e-11, -1.73472e-18, 5.82077e-11, 0.01, 0, -1.73472e-18, -2.77556e-17, 0.01, 0, 0, 0 )
+material/0 = SubResource( 78 )
+
+[node name="book1_4" parent="max_bedroom/books" instance=ExtResource( 101 )]
+transform = Transform( 0.962913, 0.269811, -1.17938e-08, 0, -4.37114e-08, -1, -0.269811, 0.962913, -4.20903e-08, 2.49782, 0.482691, -1.025 )
+
+[node name="polySurface2" parent="max_bedroom/books/book1_4/RootNode" index="0"]
+material/0 = SubResource( 79 )
+
+[node name="book1_5" parent="max_bedroom/books" instance=ExtResource( 101 )]
+transform = Transform( -0.881543, 0.472105, -2.06364e-08, 0, -4.37114e-08, -1, -0.472105, -0.881543, 3.85334e-08, 2.49782, 0.606417, -0.94028 )
+
+[node name="polySurface2" parent="max_bedroom/books/book1_5/RootNode" index="0"]
+material/0 = SubResource( 79 )
+
+[node name="book1_1" parent="max_bedroom/books" instance=ExtResource( 101 )]
+transform = Transform( 0.965245, 0.261341, 0.00173331, 0, -0.0066322, 0.999978, 0.261347, -0.965224, -0.0064017, 2.56316, 1.18737, -0.977522 )
+
+[node name="polySurface2" parent="max_bedroom/books/book1_1/RootNode" index="0"]
+material/0 = SubResource( 80 )
+
+[node name="book2_0" parent="max_bedroom/books" instance=ExtResource( 102 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 1.59895, -1.02867 )
+
+[node name="polySurface1" parent="max_bedroom/books/book2_0/RootNode" index="0"]
+material/0 = SubResource( 81 )
+
+[node name="book2_3" parent="max_bedroom/books" instance=ExtResource( 102 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 0.424751, -0.549015 )
+
+[node name="polySurface1" parent="max_bedroom/books/book2_3/RootNode" index="0"]
+material/0 = SubResource( 82 )
+
+[node name="book2_4" parent="max_bedroom/books" instance=ExtResource( 102 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 0.424751, -1.62104 )
+
+[node name="polySurface1" parent="max_bedroom/books/book2_4/RootNode" index="0"]
+material/0 = SubResource( 82 )
+
+[node name="book2_5" parent="max_bedroom/books" instance=ExtResource( 102 )]
+transform = Transform( 1, 0, 0, 0, 0.991063, -0.133398, 0, 0.133398, 0.991063, 2.49782, 0.424751, -1.80438 )
+
+[node name="polySurface1" parent="max_bedroom/books/book2_5/RootNode" index="0"]
+material/0 = SubResource( 82 )
+
+[node name="book2_1" parent="max_bedroom/books" instance=ExtResource( 102 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 1.59895, -0.869284 )
+
+[node name="polySurface1" parent="max_bedroom/books/book2_1/RootNode" index="0"]
+material/0 = SubResource( 83 )
+
+[node name="book2_2" parent="max_bedroom/books" instance=ExtResource( 102 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 1.59895, -0.70796 )
+
+[node name="polySurface1" parent="max_bedroom/books/book2_2/RootNode" index="0"]
+material/0 = SubResource( 84 )
+
+[node name="book3_0" parent="max_bedroom/books" instance=ExtResource( 113 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 0.954692, -1.18866 )
+
+[node name="book_3" parent="max_bedroom/books/book3_0/RootNode" index="0"]
+material/0 = SubResource( 85 )
+
+[node name="book3_4" parent="max_bedroom/books" instance=ExtResource( 113 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 0.954692, -0.789062 )
+
+[node name="book_3" parent="max_bedroom/books/book3_4/RootNode" index="0"]
+material/0 = SubResource( 96 )
+
+[node name="book3_1" parent="max_bedroom/books" instance=ExtResource( 113 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 0.954692, -1.09105 )
+
+[node name="book_3" parent="max_bedroom/books/book3_1/RootNode" index="0"]
+material/0 = SubResource( 86 )
+
+[node name="book3_5" parent="max_bedroom/books" instance=ExtResource( 113 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6022, 1.54166, -2.12221 )
+
+[node name="book_3" parent="max_bedroom/books/book3_5/RootNode" index="0"]
+material/0 = SubResource( 97 )
+
+[node name="book3_6" parent="max_bedroom/books" instance=ExtResource( 113 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6022, 1.54166, -2.01693 )
+
+[node name="book_3" parent="max_bedroom/books/book3_6/RootNode" index="0"]
+material/0 = SubResource( 86 )
+
+[node name="book3_7" parent="max_bedroom/books" instance=ExtResource( 113 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49936, 1.54166, -1.91695 )
+
+[node name="book_3" parent="max_bedroom/books/book3_7/RootNode" index="0"]
+material/0 = SubResource( 86 )
+
+[node name="book3_2" parent="max_bedroom/books" instance=ExtResource( 113 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 0.954692, -0.990183 )
+
+[node name="book_3" parent="max_bedroom/books/book3_2/RootNode" index="0"]
+material/0 = SubResource( 87 )
+
+[node name="book3_3" parent="max_bedroom/books" instance=ExtResource( 113 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 0.954692, -0.89015 )
+
+[node name="book_3" parent="max_bedroom/books/book3_3/RootNode" index="0"]
+material/0 = SubResource( 98 )
+
+[node name="book4_0" parent="max_bedroom/books" instance=ExtResource( 114 )]
+transform = Transform( 1, 0, 0, 0, 0.994571, -0.10406, 0, 0.10406, 0.994571, 2.52467, 0.994387, -0.493438 )
+
+[node name="book_4" parent="max_bedroom/books/book4_0/RootNode" index="0"]
+material/0 = SubResource( 89 )
+
+[node name="book4_1" parent="max_bedroom/books" instance=ExtResource( 114 )]
+transform = Transform( 1, 0, 0, 0, 0.990382, -0.138361, 0, 0.138361, 0.990382, 2.49782, 0.994387, -0.534938 )
+
+[node name="book_4" parent="max_bedroom/books/book4_1/RootNode" index="0"]
+material/0 = SubResource( 89 )
+
+[node name="book4_2" parent="max_bedroom/books" instance=ExtResource( 114 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49782, 1.57494, -1.55708 )
+
+[node name="book_4" parent="max_bedroom/books/book4_2/RootNode" index="0"]
+material/0 = SubResource( 99 )
+
+[node name="book4_3" parent="max_bedroom/books" instance=ExtResource( 114 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 2.56104, 1.57494, -1.84312 )
+
+[node name="book_4" parent="max_bedroom/books/book4_3/RootNode" index="0"]
+material/0 = SubResource( 100 )
+
+[node name="book5_0" parent="max_bedroom/books" instance=ExtResource( 116 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4798, 1.59907, -0.499147 )
+
+[node name="book_5" parent="max_bedroom/books/book5_0/RootNode" index="0"]
+material/0 = SubResource( 91 )
+
+[node name="book5_2" parent="max_bedroom/books" instance=ExtResource( 116 )]
+transform = Transform( 1, 0, 0, 0, 0.99933, -0.0366088, 0, 0.0366088, 0.99933, 2.4798, 1.59907, -0.581575 )
+
+[node name="book_5" parent="max_bedroom/books/book5_2/RootNode" index="0"]
+material/0 = SubResource( 92 )
+
+[node name="book5_1" parent="max_bedroom/books" instance=ExtResource( 116 )]
+transform = Transform( 1, 0, 0, 0, 0.941888, -0.335928, 0, 0.335928, 0.941888, 2.53019, 1.00621, -0.629939 )
+
+[node name="book_5" parent="max_bedroom/books/book5_1/RootNode" index="0"]
+material/0 = SubResource( 93 )
+
+[node name="book5_3" parent="max_bedroom/books" instance=ExtResource( 116 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50497, 1.6207, -2.29193 )
+
+[node name="book_5" parent="max_bedroom/books/book5_3/RootNode" index="0"]
+material/0 = SubResource( 93 )
+
+[node name="book5_4" parent="max_bedroom/books" instance=ExtResource( 116 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55473, 1.6207, -2.21066 )
+
+[node name="book_5" parent="max_bedroom/books/book5_4/RootNode" index="0"]
+material/0 = SubResource( 101 )
+
+[node name="games" type="Spatial" parent="max_bedroom"]
+
+[node name="Game" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -2.30808 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 102 )
+
+[node name="Game2" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.51326, 0.973982, -2.26368 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game2/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 103 )
+
+[node name="Game3" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -2.21916 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game3/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 104 )
+
+[node name="Game4" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -2.17357 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game4/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 105 )
+
+[node name="Game5" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -2.12794 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game5/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 106 )
+
+[node name="Game6" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.39853, 0.973982, -2.08166 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game6/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 107 )
+
+[node name="Game7" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -2.03136 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game7/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 108 )
+
+[node name="Game8" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -1.98651 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game8/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 109 )
+
+[node name="Game9" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.49364, 0.973982, -1.94346 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game9/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 102 )
+
+[node name="Game10" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -1.90237 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game10/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 110 )
+
+[node name="Game11" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -1.86216 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game11/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 111 )
+
+[node name="Game19" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.00135293, -0.0108239, -0.99994, -0.0204812, -0.999731, 0.0108493, -0.999789, 0.0204947, 0.00113088, 2.4783, 0.209924, -2.1053 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game19/RootNode" index="0"]
+transform = Transform( 0.01, -1.45519e-11, 9.09495e-13, 0, 0.00999999, 2.81375e-12, 9.09495e-13, -1.21787e-11, 0.01, -0.0114574, 0.00376201, 0.0129361 )
+material/0 = SubResource( 112 )
+
+[node name="Game20" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.00135293, -0.0108239, -0.99994, -0.0204812, -0.999731, 0.0108493, -0.999789, 0.0204947, 0.00113088, 2.4783, 0.251062, -2.1053 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game20/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 113 )
+
+[node name="Game21" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.00135293, -0.0108239, -0.99994, -0.0204812, -0.999731, 0.0108493, -0.999789, 0.0204947, 0.00113088, 2.4783, 0.290637, -2.1053 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game21/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 111 )
+
+[node name="Game22" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.00135293, -0.0108239, -0.99994, -0.0204812, -0.999731, 0.0108493, -0.999789, 0.0204947, 0.00113088, 2.4783, 0.330127, -2.1053 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game22/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 111 )
+
+[node name="Game12" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.51907, 0.973982, -1.81908 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game12/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 114 )
+
+[node name="Game13" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.5229, 0.973982, -1.77264 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game13/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 115 )
+
+[node name="Game14" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -1.72971 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game14/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 116 )
+
+[node name="Game15" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -1.68338 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game15/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 117 )
+
+[node name="Game16" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -1.64351 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game16/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 118 )
+
+[node name="Game17" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.4783, 0.973982, -1.60005 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game17/RootNode" index="0"]
+transform = Transform( 0.01, -1.66533e-16, 2.11506e-17, -4.44089e-16, 0.00999999, -6.93889e-16, 2.11506e-17, 2.22045e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 119 )
+
+[node name="Game18" parent="max_bedroom/games" instance=ExtResource( 129 )]
+transform = Transform( -0.0876252, 4.75259e-08, -0.996153, 0.996153, -4.47134e-08, -0.0876252, -4.87059e-08, -1, -4.34251e-08, 2.43895, 0.973982, -1.55779 )
+
+[node name="polySurface5" parent="max_bedroom/games/Game18/RootNode" index="0"]
+transform = Transform( 0.01, -2.77556e-16, 2.11506e-17, -5.55112e-16, 0.00999999, -8.88178e-16, 2.11506e-17, 2.498e-16, 0.01, -0.0114575, 0.00376201, 0.0129359 )
+material/0 = SubResource( 120 )
+
+[node name="Pills" parent="max_bedroom" instance=ExtResource( 155 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52974, 0.960084, 0.307957 )
+
+[node name="pills" parent="max_bedroom/Pills/RootNode/group3" index="0"]
+material/0 = SubResource( 131 )
+
+[node name="Pills2" parent="max_bedroom" instance=ExtResource( 155 )]
+transform = Transform( -3.56295e-08, -0.815108, -0.57931, 1, -4.37114e-08, 0, -2.53224e-08, -0.57931, 0.815108, 2.47788, 0.220433, 0.458356 )
+
+[node name="pills" parent="max_bedroom/Pills2/RootNode/group3" index="0"]
+material/0 = SubResource( 131 )
+
+[node name="AnimationPlayer" parent="max_bedroom/Pills2/RootNode" index="1"]
+"anims/Take 001" = SubResource( 132 )
+
+[node name="Patio_Chair_UV" parent="max_bedroom" instance=ExtResource( 152 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75055, 0.593683, -3.10152 )
+
+[node name="polySurface14" parent="max_bedroom/Patio_Chair_UV/RootNode" index="0"]
+material/0 = SubResource( 122 )
+
+[node name="Patio_Chair_UV2" parent="max_bedroom" instance=ExtResource( 152 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75055, 0.593683, -2.20612 )
+
+[node name="polySurface14" parent="max_bedroom/Patio_Chair_UV2/RootNode" index="0"]
+material/0 = SubResource( 122 )
+
+[node name="AnimationPlayer" parent="max_bedroom/Patio_Chair_UV2/RootNode" index="1"]
+"anims/Take 001" = SubResource( 123 )
+
+[node name="max_walls_three" parent="max_bedroom" instance=ExtResource( 5 )]
+
+[node name="max_wall_east" parent="max_bedroom/max_walls_three/RootNode/max_constructioin" index="0"]
+material/0 = SubResource( 124 )
+
+[node name="max_wall_west" parent="max_bedroom/max_walls_three/RootNode/max_constructioin" index="1"]
+material/0 = SubResource( 125 )
+
+[node name="max_wall_north" parent="max_bedroom/max_walls_three/RootNode/max_constructioin" index="2"]
+material/0 = SubResource( 126 )
+
+[node name="max_wall_south" parent="max_bedroom" instance=ExtResource( 156 )]
+visible = false
+
+[node name="max_wall_south" parent="max_bedroom/max_wall_south/RootNode/max_constructioin" index="0"]
+material/0 = SubResource( 133 )
+
+[node name="max_floor" parent="max_bedroom" instance=ExtResource( 24 )]
+
+[node name="max_floor" parent="max_bedroom/max_floor/RootNode/max_constructioin" index="0"]
+material/0 = SubResource( 127 )
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.99999, -0.00331627, 0.00283693, 0, 0.650053, 0.759889, -0.00436415, -0.759882, 0.650047, 0.282203, 4.30064, 1.81071 )
+environment = ExtResource( 16 )
 current = true
+
+[node name="balcony" type="Spatial" parent="."]
+
+[node name="balcony_floor" parent="balcony" instance=ExtResource( 107 )]
+
+[node name="floor2" parent="balcony/balcony_floor/RootNode" index="0"]
+material/0 = SubResource( 58 )
+
+[node name="balcony_wall_front" parent="balcony" instance=ExtResource( 108 )]
+
+[node name="wall_balcony" parent="balcony/balcony_wall_front/RootNode/outdoor_walls" index="0"]
+material/0 = SubResource( 129 )
+
+[node name="balcony_wall_side" parent="balcony" instance=ExtResource( 110 )]
+visible = false
+
+[node name="wall16" parent="balcony/balcony_wall_side/RootNode/outdoor_walls" index="0"]
+material/0 = SubResource( 130 )
+
+[node name="railing1" parent="balcony" instance=ExtResource( 109 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69086, 0.554368, -1.97219 )
+
+[node name="railing" parent="balcony/railing1/RootNode" index="0"]
+material/0 = SubResource( 59 )
 
 [connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]
 [connection signal="area_exited" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_exited"]
 
+[editable path="max_bedroom/max_album_uv"]
+[editable path="max_bedroom/Backpack"]
+[editable path="max_bedroom/windowframe"]
+[editable path="max_bedroom/window"]
+[editable path="max_bedroom/Nightstand_w_UV"]
 [editable path="max_bedroom/pillow_uv"]
 [editable path="max_bedroom/Bed_v2"]
+[editable path="max_bedroom/Mouse"]
+[editable path="max_bedroom/Box"]
+[editable path="max_bedroom/Trashcan"]
+[editable path="max_bedroom/lava_lamp"]
 [editable path="max_bedroom/chair_1"]
 [editable path="max_bedroom/carpet"]
-[editable path="max_bedroom/walls_floor"]
 [editable path="max_bedroom/bookshelf1"]
 [editable path="max_bedroom/bookshelf2"]
 [editable path="max_bedroom/mug1"]
+[editable path="max_bedroom/mug3"]
 [editable path="max_bedroom/mug2"]
 [editable path="max_bedroom/noodles"]
+[editable path="max_bedroom/noodles2"]
+[editable path="max_bedroom/noodles3"]
+[editable path="max_bedroom/doorframe_1"]
 [editable path="max_bedroom/door_pivot"]
+[editable path="max_bedroom/keyboard"]
 [editable path="max_bedroom/desk"]
+[editable path="max_bedroom/Phone"]
+[editable path="max_bedroom/Pc_box"]
+[editable path="max_bedroom/Pc_screen"]
+[editable path="max_bedroom/Fork"]
+[editable path="max_bedroom/Fork2"]
+[editable path="max_bedroom/Fork3"]
+[editable path="max_bedroom/Plate"]
+[editable path="max_bedroom/Plate2"]
+[editable path="max_bedroom/Plate3"]
+[editable path="max_bedroom/Plate4"]
+[editable path="max_bedroom/Plate5"]
+[editable path="max_bedroom/Plate6"]
+[editable path="max_bedroom/Spoon"]
+[editable path="max_bedroom/yellow note"]
+[editable path="max_bedroom/yellow note2"]
+[editable path="max_bedroom/yellow note3"]
+[editable path="max_bedroom/poster"]
+[editable path="max_bedroom/Dresser"]
+[editable path="max_bedroom/Bottle"]
+[editable path="max_bedroom/Bottle2"]
+[editable path="max_bedroom/Bottle5"]
+[editable path="max_bedroom/Bottle3"]
+[editable path="max_bedroom/Bottle4"]
+[editable path="max_bedroom/Sodacan"]
+[editable path="max_bedroom/Sodacan3"]
+[editable path="max_bedroom/Sodacan2"]
+[editable path="max_bedroom/Kettle_UV"]
+[editable path="max_bedroom/books/book1_0"]
+[editable path="max_bedroom/books/book1_6"]
+[editable path="max_bedroom/books/book1_7"]
+[editable path="max_bedroom/books/book1_2"]
+[editable path="max_bedroom/books/book1_3"]
+[editable path="max_bedroom/books/book1_4"]
+[editable path="max_bedroom/books/book1_5"]
+[editable path="max_bedroom/books/book1_1"]
+[editable path="max_bedroom/books/book2_0"]
+[editable path="max_bedroom/books/book2_3"]
+[editable path="max_bedroom/books/book2_4"]
+[editable path="max_bedroom/books/book2_5"]
+[editable path="max_bedroom/books/book2_1"]
+[editable path="max_bedroom/books/book2_2"]
+[editable path="max_bedroom/books/book3_0"]
+[editable path="max_bedroom/books/book3_4"]
+[editable path="max_bedroom/books/book3_1"]
+[editable path="max_bedroom/books/book3_5"]
+[editable path="max_bedroom/books/book3_6"]
+[editable path="max_bedroom/books/book3_7"]
+[editable path="max_bedroom/books/book3_2"]
+[editable path="max_bedroom/books/book3_3"]
+[editable path="max_bedroom/books/book4_0"]
+[editable path="max_bedroom/books/book4_1"]
+[editable path="max_bedroom/books/book4_2"]
+[editable path="max_bedroom/books/book4_3"]
+[editable path="max_bedroom/books/book5_0"]
+[editable path="max_bedroom/books/book5_2"]
+[editable path="max_bedroom/books/book5_1"]
+[editable path="max_bedroom/books/book5_3"]
+[editable path="max_bedroom/books/book5_4"]
+[editable path="max_bedroom/games/Game"]
+[editable path="max_bedroom/games/Game2"]
+[editable path="max_bedroom/games/Game3"]
+[editable path="max_bedroom/games/Game4"]
+[editable path="max_bedroom/games/Game5"]
+[editable path="max_bedroom/games/Game6"]
+[editable path="max_bedroom/games/Game7"]
+[editable path="max_bedroom/games/Game8"]
+[editable path="max_bedroom/games/Game9"]
+[editable path="max_bedroom/games/Game10"]
+[editable path="max_bedroom/games/Game11"]
+[editable path="max_bedroom/games/Game19"]
+[editable path="max_bedroom/games/Game20"]
+[editable path="max_bedroom/games/Game21"]
+[editable path="max_bedroom/games/Game22"]
+[editable path="max_bedroom/games/Game12"]
+[editable path="max_bedroom/games/Game13"]
+[editable path="max_bedroom/games/Game14"]
+[editable path="max_bedroom/games/Game15"]
+[editable path="max_bedroom/games/Game16"]
+[editable path="max_bedroom/games/Game17"]
+[editable path="max_bedroom/games/Game18"]
+[editable path="max_bedroom/Pills"]
+[editable path="max_bedroom/Pills2"]
+[editable path="max_bedroom/Patio_Chair_UV"]
+[editable path="max_bedroom/Patio_Chair_UV2"]
+[editable path="max_bedroom/max_walls_three"]
+[editable path="max_bedroom/max_wall_south"]
+[editable path="max_bedroom/max_floor"]
+[editable path="balcony/balcony_floor"]
+[editable path="balcony/balcony_wall_front"]
+[editable path="balcony/balcony_wall_side"]
+[editable path="balcony/railing1"]
