@@ -1,0 +1,13 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform vec2 velocity = vec2(1.0, 0.0);
+uniform vec2 scale = vec2(1.0);
+uniform vec2 offset = vec2(0.0);
+
+void fragment()
+{
+	COLOR = texture(TEXTURE, UV * scale + offset + TIME * velocity);
+}"

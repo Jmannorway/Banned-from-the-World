@@ -6,7 +6,8 @@ class_name PlayerStart2D
 
 export(String) var room_name
 const CHECKPOINT_INDEX := 9999
-export var index := 0
+export(int) var index := 0
+export(int) var layer := 0
 
 # Makes this instance's index unique by setting the other indices
 export(bool) var make_unique setget set_make_unique
@@ -22,6 +23,7 @@ func _ready():
 			_player = PlayerAccess.spawn_player_2d()
 		
 		_player.position = Util.snap_v2(position, Game.SNAP) + Vector2.ONE * Game.SNAP / 2
+		_player.layer = layer
 		MapManager.reset_player_start_index()
 		
 		if !room_name.empty():

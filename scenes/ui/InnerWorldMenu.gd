@@ -23,6 +23,6 @@ func _on_inner_world_menu_item_activated(index):
 		0:
 			Ui.set_in_menu(false)
 		1:
-			Util.goto_world(get_tree(), Game.WORLD.INNER)
+			Temp.goto_world(get_tree(), Game.WORLD.INNER)
 		2:
-			Util.goto_world(get_tree(), Game.WORLD.OUTER)
+			Temp.goto_world(get_tree(), Game.WORLD.OUTER)

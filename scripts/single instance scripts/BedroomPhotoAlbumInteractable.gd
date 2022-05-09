@@ -7,7 +7,7 @@ var _previous_rotation = -1
 
 # warning-ignore:unused_argument
 func _interact(var roomManager) -> void:
-	Util.goto_world(get_tree(), Game.WORLD.INNER)
+	Temp.goto_world(get_tree(), Game.WORLD.INNER)
 #	get_tree().change_scene_to(blankScene)
 #	MapManager.warp_to_map(changeToScene, 0)
 #	Game.set_world(Game.WORLD.INNER)

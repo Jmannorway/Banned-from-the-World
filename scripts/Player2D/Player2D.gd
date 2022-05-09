@@ -15,6 +15,11 @@ const EFFECT_NAMES := [
 	"ballerina",
 	"skater",
 	"ghost"]
+static func create_effects_dictionary(_default) -> Dictionary:
+	var _dic := {}
+	for key in EFFECT_NAMES:
+		_dic[key] = _default
+	return _dic
 onready var effect_state := $effect_state
 onready var interactable_detector := $interactable_detector_2d
 

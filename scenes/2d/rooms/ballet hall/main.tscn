@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/2d/collision grid/sound_grid_2d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/2d/collision grid/solid_grid_2d.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://sprites/balle hall/casted_light.png" type="Texture" id=10]
 [ext_resource path="res://sprites/balle hall/spot_light.png" type="Texture" id=11]
 [ext_resource path="res://shaders/canvas item/glow_light.gdshader" type="Shader" id=12]
-[ext_resource path="res://scenes/2d/interactable/interactable_checkpoint_2d.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sprites/douh.png" type="Texture" id=14]
 [ext_resource path="res://sprites/douh_smallest.png" type="Texture" id=15]
 [ext_resource path="res://sprites/douh_small.png" type="Texture" id=16]
@@ -758,7 +757,3 @@ amount = 1000
 lifetime = 2.0
 process_material = SubResource( 21 )
 texture = ExtResource( 15 )
-
-[node name="checkpoint" parent="." instance=ExtResource( 13 )]
-visible = false
-position = Vector2( 180, 420 )

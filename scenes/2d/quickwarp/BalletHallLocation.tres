@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource( 1 )
 map_path = "res://scenes/2d/maps/ballet_map.tscn"
-player_start_index = 0
+player_start_index = 1

@@ -1,0 +1,19 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform sampler2D frames: hint_albedo;
+uniform float count;
+uniform float duration;
+uniform float frame_width;
+uniform float start_x = 0;
+
+void fragment()
+{
+	float frame = floor(mod(TIME, count * duration) / duration);
+	float offset = floor((UV.x - start_x) / frame_width);
+	COLOR = texture(frames, UV + vec2((mod(offset + frame, count) - offset) * frame_width, 0));
+}
+"

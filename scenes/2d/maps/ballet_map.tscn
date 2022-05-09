@@ -14,47 +14,29 @@
 [node name="ballet_map" type="YSort"]
 script = ExtResource( 1 )
 
-[node name="room_loader_2d" parent="." instance=ExtResource( 2 )]
+[node name="main" parent="." instance=ExtResource( 2 )]
 room_name = "ballet_main"
 room = ExtResource( 3 )
 preview = true
 size = Vector2( 100, 100 )
 
-[node name="room_loader_2d2" parent="." instance=ExtResource( 2 )]
+[node name="stage" parent="." instance=ExtResource( 2 )]
 position = Vector2( 408, -1728 )
 room_name = "ballet_stage"
 room = ExtResource( 6 )
 preview = true
 size = Vector2( 10, 10 )
 
-[node name="player_start" parent="." instance=ExtResource( 4 )]
-visible = true
-position = Vector2( 216, 456 )
-room_name = "ballet_main"
-index = 4
-
 [node name="player_start_main" parent="." instance=ExtResource( 4 )]
 visible = true
-position = Vector2( 228, 500 )
+position = Vector2( 228, 516 )
 room_name = "ballet_main"
-index = 3
-
-[node name="player_start_stage_stairs" parent="." instance=ExtResource( 4 )]
-visible = true
-position = Vector2( -756, -609 )
-room_name = "ballet_main"
+index = 1
 
 [node name="player_start_stage" parent="." instance=ExtResource( 4 )]
 visible = true
-position = Vector2( 84, -1644 )
+position = Vector2( 228, -3204 )
 room_name = "ballet_stage"
-index = 2
-
-[node name="player_start_stage2" parent="." instance=ExtResource( 4 )]
-visible = true
-position = Vector2( 180, 444 )
-room_name = "ballet_stage"
-index = 1
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
 target_group = "player_2d"

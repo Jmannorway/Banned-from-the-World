@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/2d/rooms/ghost town/middle_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/2d/rooms/ghost town/clouds.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/2d/rooms/ghost town/below.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/2d/visuals/clouds.tscn" type="PackedScene" id=4]
+
+[node name="main" type="YSort"]
+
+[node name="clouds" parent="." instance=ExtResource( 4 )]
+z_index = -1
+
+[node name="below" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 24, 24 )
+format = 1
+tile_data = PoolIntArray( 524301, 0, 0, 524302, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0 )
+
+[node name="middle" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 24, 24 )
+cell_tile_origin = 2
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( 589831, 0, 0 )
+
+[node name="above" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 24, 24 )
+format = 1
+tile_data = PoolIntArray( 262150, 1, 0, 327682, 0, 0, 458768, 2, 0, 589833, 2, 0, 720899, 2, 0, 786449, 3, 0, 917513, 2, 0 )

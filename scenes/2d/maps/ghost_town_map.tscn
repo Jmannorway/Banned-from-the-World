@@ -1,38 +1,39 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://scenes/2d/rooms/ghost town/ghost_town_main_room.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/2d/rooms/ghost town/ghost_town_side_room.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/2d/rooms/ghost town old/ghost_town_side_room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/2d/rooms/ghost town old/ghost_town_main_room.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/2d/rooms/ghost town old/ghost_town_top_room.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/2d/rooms/ghost town/ghost_town_top_room.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=8]
-[ext_resource path="res://scenes/x to focus/focus_scene.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/2d/interactable/interactable_warp_2d.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/2d/interactable/interactable_warp_2d.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=10]
 
 [node name="ghost_town_map" type="YSort"]
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 
-[node name="main" parent="." instance=ExtResource( 2 )]
+[node name="main" parent="." instance=ExtResource( 9 )]
 room_name = "main"
-room = ExtResource( 1 )
+room = ExtResource( 3 )
 preview = true
 
-[node name="side" parent="." instance=ExtResource( 2 )]
+[node name="side" parent="." instance=ExtResource( 9 )]
 position = Vector2( 480, 0 )
 room_name = "side"
-room = ExtResource( 5 )
+room = ExtResource( 2 )
 preview = true
 size = Vector2( 624, 456 )
 
-[node name="top" parent="." instance=ExtResource( 2 )]
+[node name="top" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, -360 )
 room_name = "top"
-room = ExtResource( 7 )
+room = ExtResource( 5 )
 preview = true
 
-[node name="player_start2" parent="." instance=ExtResource( 4 )]
+[node name="player_start2" parent="." instance=ExtResource( 7 )]
+visible = true
 position = Vector2( 324, 204 )
 room_name = "main"
 
@@ -62,19 +63,19 @@ position = Vector2( 228, 12 )
 scale = Vector2( 20.48, 1 )
 room_name = "main"
 
-[node name="main_main_camera_2d" parent="." instance=ExtResource( 3 )]
+[node name="main_main_camera_2d" parent="." instance=ExtResource( 1 )]
 target_group = "player"
 target_is_character = true
 smoothing_enabled = true
 
-[node name="focus_scene" parent="." instance=ExtResource( 9 )]
+[node name="focus_scene" parent="." instance=ExtResource( 4 )]
 is_2d = false
 
-[node name="piano_room_warp" parent="." instance=ExtResource( 11 )]
+[node name="piano_room_warp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 324, 156 )
 map_path = "res://scenes/2d/maps/house_of_culture.tscn"
 
-[node name="player_start" parent="." instance=ExtResource( 4 )]
+[node name="player_start" parent="." instance=ExtResource( 7 )]
 visible = true
 position = Vector2( 228, 184 )
 room_name = "main"

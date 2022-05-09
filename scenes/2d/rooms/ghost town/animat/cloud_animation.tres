@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://shaders/canvas item/animation.tres" type="Shader" id=1]
+[ext_resource path="res://scenes/2d/rooms/ghost town/img/clouds.png" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/count = 2.0
+shader_param/duration = 0.4
+shader_param/frame_width = 0.5
+shader_param/start_x = 0.0
+shader_param/frames = ExtResource( 2 )

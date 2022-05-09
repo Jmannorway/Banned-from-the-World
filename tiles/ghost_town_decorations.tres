@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" load_steps=9 format=2]
 
-[ext_resource path="res://sprites/ghost town/cloud_c.tres" type="Texture" id=1]
-[ext_resource path="res://sprites/ghost town/eyes.tres" type="Texture" id=2]
-[ext_resource path="res://sprites/ghost town/cloud_d.tres" type="Texture" id=3]
-[ext_resource path="res://sprites/ghost town/cloud_b.tres" type="Texture" id=4]
-[ext_resource path="res://sprites/ghost town/cloud_a.tres" type="Texture" id=5]
-[ext_resource path="res://sprites/ghost town/small_tree.tres" type="Texture" id=6]
-[ext_resource path="res://sprites/ghost town/bubbles.tres" type="Texture" id=7]
-[ext_resource path="res://sprites/ghost town/big_tree.tres" type="Texture" id=8]
+[ext_resource path="res://sprites/ghost town old/cloud_c.tres" type="Texture" id=1]
+[ext_resource path="res://sprites/ghost town old/eyes.tres" type="Texture" id=2]
+[ext_resource path="res://sprites/ghost town old/cloud_d.tres" type="Texture" id=3]
+[ext_resource path="res://sprites/ghost town old/cloud_b.tres" type="Texture" id=4]
+[ext_resource path="res://sprites/ghost town old/cloud_a.tres" type="Texture" id=5]
+[ext_resource path="res://sprites/ghost town old/small_tree.tres" type="Texture" id=6]
+[ext_resource path="res://sprites/ghost town old/bubbles.tres" type="Texture" id=7]
+[ext_resource path="res://sprites/ghost town old/big_tree.tres" type="Texture" id=8]
 
 [resource]
 2/name = "eyes.tres 2"

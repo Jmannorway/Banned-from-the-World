@@ -185,7 +185,6 @@ centered = false
 scale = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 2
 playing = true
 offset = Vector2( 0, -48 )
 script = ExtResource( 3 )
@@ -206,7 +205,7 @@ offset = Vector2( 0, -48 )
 [node name="Smoke" type="Particles2D" parent="Cursor"]
 position = Vector2( 0, -48 )
 z_as_relative = false
-amount = 20
+amount = 30
 lifetime = 3.0
 preprocess = 3.0
 process_material = ExtResource( 9 )

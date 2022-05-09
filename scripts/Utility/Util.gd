@@ -1,26 +1,5 @@
 class_name Util
 
-enum DIRECTION {UP, LEFT, RIGHT, DOWN}
-
-# TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-
-static func goto_world(tree : SceneTree, world : int) -> void:
-	Game.set_world(world)
-	MusicManager.clear_music()
-	
-	if world == Game.WORLD.OUTER:
-		# Clear 2d world
-		MapManager.clear_map()
-		# Load default 3d world
-		tree.change_scene("res://scenes/3d/real_world.tscn")
-	else:
-		# Clear 3d world
-		tree.change_scene("res://scenes/empty.tscn")
-		# Load 2d scene
-		MapManager.warp_to_map_by_path("res://scenes/2d/maps/phase_2_map.tscn")
-
-# TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-
 """
 Set an object property. You can set nested object's properties by supplying
 an array with the nested object's names
