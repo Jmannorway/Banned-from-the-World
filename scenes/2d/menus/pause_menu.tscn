@@ -7,10 +7,11 @@
 
 [node name="menu_root" type="NinePatchRect"]
 pause_mode = 2
-margin_left = 26.0
-margin_top = 35.0
-margin_right = 177.0
-margin_bottom = 128.0
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 163.0
+margin_bottom = 105.0
+rect_scale = Vector2( 2, 2 )
 rect_clip_content = true
 texture = ExtResource( 2 )
 patch_margin_left = 15

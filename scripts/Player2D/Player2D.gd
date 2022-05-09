@@ -22,6 +22,7 @@ static func create_effects_dictionary(_default) -> Dictionary:
 	return _dic
 onready var effect_state := $effect_state
 onready var interactable_detector := $interactable_detector_2d
+var queued_effect : String
 
 func _ready():
 	# TODO: Connect to menu element that sets the effect
@@ -31,21 +32,25 @@ func _ready():
 	effect_state.init([self])
 
 func set_effect(val : String):
-	$animations.play("transition_animation (copy)")
-	wait($animations.get_animation("transition_animation (copy)").length)
-	effect_state.swap_next()
-	return
-	if effect_state.get_current_state().name == val:
+	queued_effect = val
+
+func _set_effect():
+	$animations.play("transition_animation")
+	wait($animations.get_animation("transition_animation").length)
+	if effect_state.get_current_state().name == queued_effect:
 		effect_state.pop()
 	else:
 		if effect_state.get_stack_size() == 1:
-			effect_state.push_by_name(val)
+			effect_state.push_by_name(queued_effect)
 		else:
-			effect_state.swap_by_name(val)
+			effect_state.swap_by_name(queued_effect)
+	queued_effect = ""
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action"):
 		effect_state.get_current_state().action()
+	if !queued_effect.empty() && behavior_state.get_current_state().name == "player_idle":
+		_set_effect()
 
 # SIGNAL CALLBACKS
 func _on_XToFocus_focus_changed(val):

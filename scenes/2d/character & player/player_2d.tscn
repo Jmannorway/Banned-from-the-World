@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/2d/character & player/character_2d.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Character2D/CharacterStates/PlayerIdle.gd" type="Script" id=2]
 [ext_resource path="res://scenes/2d/interactable/interactable_detector_2d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/2d/interactable/interactable_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Interactable2D/Interactable2D.gd" type="Script" id=5]
@@ -86,85 +87,8 @@ tracks/4/keys = {
 "values": [ null ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "transition_animation"
-length = 2.0
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("effect_transition_sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("effect_transition_sprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0.0, 45.0, 90.0, 45.0, 90.0, 45.0, 90.0, 45.0, 90.0, 45.0, 90.0, 45.0, 90.0, 45.0, 90.0, 45.0, 90.0, 45.0, 90.0, 45.0, 90.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("animated_character_sprite_2d:material")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 23 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("animated_character_sprite_2d:material:shader_param/blend")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("effect_transition_sprite:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("effect_transition_sprite:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
 [sub_resource type="Animation" id=3]
-resource_name = "transition_animation (copy)"
+resource_name = "transition_animation"
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -249,6 +173,12 @@ animation = "down"
 frame = 1
 playing = false
 
+[node name="behavior_state" parent="." index="1"]
+default_state = "player_idle"
+
+[node name="player_idle" type="Node" parent="behavior_state" index="3"]
+script = ExtResource( 2 )
+
 [node name="effect_state" type="Node" parent="." index="2"]
 script = ExtResource( 9 )
 default_state = "normal"
@@ -289,8 +219,7 @@ collision_mask = 15
 
 [node name="animations" type="AnimationPlayer" parent="." index="5"]
 anims/RESET = SubResource( 1 )
-anims/transition_animation = SubResource( 2 )
-"anims/transition_animation (copy)" = SubResource( 3 )
+anims/transition_animation = SubResource( 3 )
 
 [node name="effect_transition_sprite" type="Sprite" parent="." index="6"]
 visible = false

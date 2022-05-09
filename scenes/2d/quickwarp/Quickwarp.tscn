@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/2d/quickwarp/Quickwarp.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/quickwarp/max.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/2d/quickwarp/UnlockParticles.gd" type="Script" id=7]
 [ext_resource path="res://sprites/hub/hub_pattern_full_alpha.png" type="Texture" id=8]
 [ext_resource path="res://scenes/2d/quickwarp/CursorSmoke.tres" type="Material" id=9]
+[ext_resource path="res://scenes/empty.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ViewportTexture" id=14]
 viewport_path = NodePath("HubPatternViewport/GameViewport")
@@ -122,6 +123,7 @@ Vector2( 0, 0 ): ExtResource( 4 ),
 Vector2( 1, 0 ): ExtResource( 5 )
 }
 cursor = NodePath("Cursor")
+empty = ExtResource( 10 )
 
 [node name="HubPatternViewport" type="Sprite" parent="."]
 position = Vector2( 336, 96 )
@@ -185,6 +187,7 @@ centered = false
 scale = Vector2( 0.5, 0.5 )
 z_index = 1
 frames = SubResource( 5 )
+frame = 1
 playing = true
 offset = Vector2( 0, -48 )
 script = ExtResource( 3 )

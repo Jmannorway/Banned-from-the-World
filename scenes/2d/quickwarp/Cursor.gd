@@ -4,6 +4,7 @@ export(float) var radius
 export(float) var travel_duration := 0.75
 var direction : Vector2
 var goal_position : Vector2
+var active : bool = true
 
 func is_moving() -> bool:
 	return $Tween.is_active()
@@ -13,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	var _input = Player2D.make_input_vector_4way(Player2D.get_input_vector())
-	if !_input.is_equal_approx(Vector2.ZERO) && !_input.is_equal_approx(direction):
+	if active && !_input.is_equal_approx(Vector2.ZERO) && !_input.is_equal_approx(direction):
 		var _new_position
 		var _new_direction
 		if _input.dot(direction) == -1.0:

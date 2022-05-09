@@ -31,6 +31,7 @@ func custom_actions_menu(var action: int, var actionName: String) -> void:
 func pause(var status: bool) -> void:
 	get_tree().paused = status
 	set_active(get_tree().paused)
+	inAnotherMenu = inAnotherMenu && status
 
 func _override_input(var event) -> void:
 	if Input.is_action_just_pressed("menu") and !inAnotherMenu:

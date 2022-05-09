@@ -24,6 +24,8 @@ margin_left = -308.0
 margin_top = 12.0
 margin_right = -12.0
 margin_bottom = 58.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 296, 0 )
 alignment = 2
 
 [node name="item_frame" type="TextureRect" parent="item_hirearchy"]
@@ -136,4 +138,6 @@ margin_left = 898.0
 margin_top = 8.0
 margin_right = 952.0
 margin_bottom = 62.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 4, 4 )
 texture = ExtResource( 9 )
