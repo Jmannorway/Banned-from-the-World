@@ -17,6 +17,9 @@ func set_make_unique(val):
 func _ready():
 	visible = Engine.editor_hint
 	
+	if Engine.editor_hint:
+		return
+	
 	if MapManager.player_start_index == index:
 		var _player = PlayerAccess.get_player_2d(get_tree())
 		if !_player:

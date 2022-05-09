@@ -2,6 +2,7 @@ extends Control
 
 class_name MenuController
 
+export var selectorPath: NodePath
 export var menuButtonsPath: NodePath
 
 var menuItems: Array
@@ -9,11 +10,21 @@ var currentX: int
 var currentY: int
 
 var parentMenu: MenuController
+var selector: Control
 
-onready var selector: Control = $selector_margin
+var active: bool = true
 
 func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+	
 	_get_menu_buttons()
+	_get_selector()
+
+func _get_selector() -> void:
+	if selectorPath.is_empty():
+		return
+	
+	selector = get_node(selectorPath)
 
 func _input(event):
 	if _ignore_input(event):
@@ -50,7 +61,7 @@ func _override_input(var event) -> void:
 		return
 	
 	if Input.is_action_just_pressed("interact"):
-		menuItems[currentX][currentY].action()
+		menuItems[currentX][currentY].send_action()
 		return
 	
 	currentX += int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -59,7 +70,10 @@ func _override_input(var event) -> void:
 	currentX = wrapi(currentX, 0, menuItems.size())
 	currentY = wrapi(currentY, 0, menuItems[currentX].size())
 	
-	selector.rect_position.y = menuItems[currentX][currentY].rect_position.y + 10
+	set_cursor_focus(currentX, currentY)
+
+func set_cursor_focus(var x: int, var y: int) -> void:
+	selector.rect_position.y = menuItems[x][y].rect_position.y + 10
 
 func remove_menu() -> void:
 	if parentMenu == null:
@@ -82,5 +96,6 @@ func new_menu(var menu: PackedScene) -> void:
 	set_active(false)
 
 func set_active(var status: bool) -> void:
+	active = status
 	set_process_input(status)
 	visible = status

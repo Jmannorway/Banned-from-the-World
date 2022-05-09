@@ -1,7 +1,6 @@
 [gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/2d/character & player/character_2d.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Character2D/CharacterStates/PlayerIdle.gd" type="Script" id=2]
 [ext_resource path="res://scenes/2d/interactable/interactable_detector_2d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/2d/interactable/interactable_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Interactable2D/Interactable2D.gd" type="Script" id=5]
@@ -249,12 +248,6 @@ frames = ExtResource( 6 )
 animation = "down"
 frame = 1
 playing = false
-
-[node name="behavior_state" parent="." index="1"]
-default_state = "player_idle"
-
-[node name="player_idle" type="Node" parent="behavior_state" index="3"]
-script = ExtResource( 2 )
 
 [node name="effect_state" type="Node" parent="." index="2"]
 script = ExtResource( 9 )
