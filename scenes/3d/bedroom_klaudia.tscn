@@ -1,4 +1,4 @@
-[gd_scene load_steps=270 format=2]
+[gd_scene load_steps=280 format=2]
 
 [ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/textures/door/door_Metallic.png" type="Texture" id=2]
@@ -152,13 +152,19 @@
 [ext_resource path="res://models/textures/backpack/backpacxk_Base_color.png" type="Texture" id=150]
 [ext_resource path="res://models/textures/door/doorframe_Base_color.png" type="Texture" id=151]
 [ext_resource path="res://scenes/3d/ASSETS/Patio_Chair_UV.fbx" type="PackedScene" id=152]
-[ext_resource path="res://models/textures/patio_Base_color.png" type="Texture" id=153]
+[ext_resource path="res://models/textures/patiochair_Base_color.png" type="Texture" id=153]
 [ext_resource path="res://models/textures/balcony/housefront_base_color.png" type="Texture" id=154]
 [ext_resource path="res://scenes/3d/ASSETS/Pills.fbx" type="PackedScene" id=155]
 [ext_resource path="res://scenes/3d/ASSETS/max_wall_south.fbx" type="PackedScene" id=156]
 [ext_resource path="res://models/textures/pills_Base_color.png" type="Texture" id=157]
 [ext_resource path="res://models/textures/balcony/balcony_floor_base.png" type="Texture" id=158]
 [ext_resource path="res://models/textures/walls_floor/max_wallpaper.png" type="Texture" id=159]
+[ext_resource path="res://models/textures/floor_trash/tshirt.png" type="Texture" id=160]
+[ext_resource path="res://models/textures/floor_trash/sock1.png" type="Texture" id=161]
+[ext_resource path="res://models/textures/floor_trash/trash_1.png" type="Texture" id=162]
+[ext_resource path="res://scenes/3d/ASSETS/shirt.fbx" type="PackedScene" id=163]
+[ext_resource path="res://scenes/3d/ASSETS/sock.fbx" type="PackedScene" id=164]
+[ext_resource path="res://scenes/3d/ASSETS/trash_1.fbx" type="PackedScene" id=165]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -502,6 +508,21 @@ shader_param/texture_normal = ExtResource( 62 )
 [sub_resource type="ShaderMaterial" id=28]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 2.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 59 )
+
+[sub_resource type="ShaderMaterial" id=134]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 0.329412, 0.54902, 1 )
 shader_param/metallic = 0.0
 shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
 shader_param/specular_scale = 1.0
@@ -1723,25 +1744,6 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.166667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.208333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.291667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.458333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.541667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.583333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.708333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.791667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.916667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.958333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="ShaderMaterial" id=122]
-shader = ExtResource( 45 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/metallic = 0.0
-shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/specular_scale = 1.0
-shader_param/roughness_scale = 1.0
-shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/normal_scale = 1.0
-shader_param/depth_scale = 0.05
-shader_param/depth_min_layers = 8
-shader_param/depth_max_layers = 32
-shader_param/depth_flip = Vector2( 1, 1 )
-shader_param/texture_albedo = ExtResource( 153 )
-
-[sub_resource type="Animation" id=123]
-resource_name = "Take 001"
-length = 4.95833
-
 [sub_resource type="ShaderMaterial" id=124]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -1817,6 +1819,18 @@ shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 106 )
 
+[sub_resource type="SpatialMaterial" id=135]
+flags_transparent = true
+albedo_texture = ExtResource( 160 )
+
+[sub_resource type="SpatialMaterial" id=136]
+flags_transparent = true
+albedo_texture = ExtResource( 162 )
+
+[sub_resource type="SpatialMaterial" id=137]
+flags_transparent = true
+albedo_texture = ExtResource( 161 )
+
 [sub_resource type="ShaderMaterial" id=58]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -1876,6 +1890,25 @@ shader_param/depth_min_layers = 8
 shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 112 )
+
+[sub_resource type="ShaderMaterial" id=122]
+shader = ExtResource( 45 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/metallic = 0.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/specular_scale = 1.0
+shader_param/roughness_scale = 1.0
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/normal_scale = 1.0
+shader_param/depth_scale = 0.05
+shader_param/depth_min_layers = 8
+shader_param/depth_max_layers = 32
+shader_param/depth_flip = Vector2( 1, 1 )
+shader_param/texture_albedo = ExtResource( 153 )
+
+[sub_resource type="Animation" id=123]
+resource_name = "Take 001"
+length = 4.95833
 
 [node name="bedroom" type="ImmediateGeometry"]
 material_override = SubResource( 1 )
@@ -2057,6 +2090,13 @@ transform = Transform( 0.978137, 0, -0.207963, 0, 1, 0, 0.207963, 0, 0.978137, 2
 [node name="Pillow_UV" parent="max_bedroom/pillow_uv/RootNode/Bed" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30617, 0 )
 material/0 = SubResource( 28 )
+
+[node name="pillow_uv2" parent="max_bedroom" instance=ExtResource( 30 )]
+transform = Transform( 0.698006, -0.00529636, -0.103957, 0.00523858, 0.705705, -0.0007802, 0.10396, 0, 0.698026, -3.87243, 0.19265, -3.14014 )
+
+[node name="Pillow_UV" parent="max_bedroom/pillow_uv2/RootNode/Bed" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30617, 0 )
+material/0 = SubResource( 134 )
 
 [node name="Bed_v2" parent="max_bedroom" instance=ExtResource( 43 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.667, 0.356044, 1.474 )
@@ -2696,7 +2736,7 @@ transform = Transform( 0.01, -2.77556e-16, 2.11506e-17, -5.55112e-16, 0.00999999
 material/0 = SubResource( 120 )
 
 [node name="Pills" parent="max_bedroom" instance=ExtResource( 155 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52974, 0.960084, 0.307957 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78603, 0.907865, 0.230501 )
 
 [node name="pills" parent="max_bedroom/Pills/RootNode/group3" index="0"]
 material/0 = SubResource( 131 )
@@ -2709,21 +2749,6 @@ material/0 = SubResource( 131 )
 
 [node name="AnimationPlayer" parent="max_bedroom/Pills2/RootNode" index="1"]
 "anims/Take 001" = SubResource( 132 )
-
-[node name="Patio_Chair_UV" parent="max_bedroom" instance=ExtResource( 152 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75055, 0.593683, -3.10152 )
-
-[node name="polySurface14" parent="max_bedroom/Patio_Chair_UV/RootNode" index="0"]
-material/0 = SubResource( 122 )
-
-[node name="Patio_Chair_UV2" parent="max_bedroom" instance=ExtResource( 152 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75055, 0.593683, -2.20612 )
-
-[node name="polySurface14" parent="max_bedroom/Patio_Chair_UV2/RootNode" index="0"]
-material/0 = SubResource( 122 )
-
-[node name="AnimationPlayer" parent="max_bedroom/Patio_Chair_UV2/RootNode" index="1"]
-"anims/Take 001" = SubResource( 123 )
 
 [node name="max_walls_three" parent="max_bedroom" instance=ExtResource( 5 )]
 
@@ -2746,6 +2771,24 @@ material/0 = SubResource( 133 )
 
 [node name="max_floor" parent="max_bedroom/max_floor/RootNode/max_constructioin" index="0"]
 material/0 = SubResource( 127 )
+
+[node name="shirt" parent="max_bedroom" instance=ExtResource( 163 )]
+transform = Transform( 0.575833, 0, 0.817567, 0, 1, 0, -0.817567, 0, 0.575833, -1.81637, 1.49035, -1.70369 )
+
+[node name="shirt" parent="max_bedroom/shirt/RootNode" index="0"]
+material/0 = SubResource( 135 )
+
+[node name="trash_1" parent="max_bedroom" instance=ExtResource( 165 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65304, 0.00589149, -0.552116 )
+
+[node name="pPlane6" parent="max_bedroom/trash_1/RootNode" index="0"]
+material/0 = SubResource( 136 )
+
+[node name="sock" parent="max_bedroom" instance=ExtResource( 164 )]
+transform = Transform( 0.867001, 0, 0.498306, 0, 1, 0, -0.498306, 0, 0.867001, -2.77433, 0.00125919, 1.64775 )
+
+[node name="pPlane4" parent="max_bedroom/sock/RootNode" index="0"]
+material/0 = SubResource( 137 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.99999, -0.00331627, 0.00283693, 0, 0.650053, 0.759889, -0.00436415, -0.759882, 0.650047, 0.282203, 4.30064, 1.81071 )
@@ -2770,11 +2813,26 @@ visible = false
 [node name="wall16" parent="balcony/balcony_wall_side/RootNode/outdoor_walls" index="0"]
 material/0 = SubResource( 130 )
 
-[node name="railing1" parent="balcony" instance=ExtResource( 109 )]
+[node name="railing" parent="balcony" instance=ExtResource( 109 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69086, 0.554368, -1.97219 )
 
-[node name="railing" parent="balcony/railing1/RootNode" index="0"]
+[node name="railing" parent="balcony/railing/RootNode" index="0"]
 material/0 = SubResource( 59 )
+
+[node name="Patio_Chair_UV" parent="balcony" instance=ExtResource( 152 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75055, 0.593683, -3.10152 )
+
+[node name="polySurface14" parent="balcony/Patio_Chair_UV/RootNode" index="0"]
+material/0 = SubResource( 122 )
+
+[node name="Patio_Chair_UV2" parent="balcony" instance=ExtResource( 152 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75055, 0.593683, -2.20612 )
+
+[node name="polySurface14" parent="balcony/Patio_Chair_UV2/RootNode" index="0"]
+material/0 = SubResource( 122 )
+
+[node name="AnimationPlayer" parent="balcony/Patio_Chair_UV2/RootNode" index="1"]
+"anims/Take 001" = SubResource( 123 )
 
 [connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]
 [connection signal="area_exited" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_exited"]
@@ -2785,6 +2843,7 @@ material/0 = SubResource( 59 )
 [editable path="max_bedroom/window"]
 [editable path="max_bedroom/Nightstand_w_UV"]
 [editable path="max_bedroom/pillow_uv"]
+[editable path="max_bedroom/pillow_uv2"]
 [editable path="max_bedroom/Bed_v2"]
 [editable path="max_bedroom/Mouse"]
 [editable path="max_bedroom/Box"]
@@ -2886,12 +2945,15 @@ material/0 = SubResource( 59 )
 [editable path="max_bedroom/games/Game18"]
 [editable path="max_bedroom/Pills"]
 [editable path="max_bedroom/Pills2"]
-[editable path="max_bedroom/Patio_Chair_UV"]
-[editable path="max_bedroom/Patio_Chair_UV2"]
 [editable path="max_bedroom/max_walls_three"]
 [editable path="max_bedroom/max_wall_south"]
 [editable path="max_bedroom/max_floor"]
+[editable path="max_bedroom/shirt"]
+[editable path="max_bedroom/trash_1"]
+[editable path="max_bedroom/sock"]
 [editable path="balcony/balcony_floor"]
 [editable path="balcony/balcony_wall_front"]
 [editable path="balcony/balcony_wall_side"]
-[editable path="balcony/railing1"]
+[editable path="balcony/railing"]
+[editable path="balcony/Patio_Chair_UV"]
+[editable path="balcony/Patio_Chair_UV2"]

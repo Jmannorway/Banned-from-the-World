@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/patio_Base_color.png-2fe501e09afe142b7a5960e8d7fac1d9.stex"
+path="res://.import/tshirt.png-e5cec9097cdc91b03b74edee0791f55d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/textures/patio_Base_color.png"
-dest_files=[ "res://.import/patio_Base_color.png-2fe501e09afe142b7a5960e8d7fac1d9.stex" ]
+source_file="res://models/textures/floor_trash/tshirt.png"
+dest_files=[ "res://.import/tshirt.png-e5cec9097cdc91b03b74edee0791f55d.stex" ]
 
 [params]
 
