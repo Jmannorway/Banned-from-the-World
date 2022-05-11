@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/textures/door/door_Metallic.png" type="Texture" id=2]
@@ -60,6 +60,7 @@
 [ext_resource path="res://scenes/3d/ASSETS/door_pivot.fbx" type="PackedScene" id=58]
 [ext_resource path="res://models/textures/pillow_Base_color.png" type="Texture" id=59]
 [ext_resource path="res://scenes/3d/ASSETS/wall_material.tres" type="Material" id=60]
+[ext_resource path="res://scripts/SolidGrid3D.gd" type="Script" id=61]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -409,16 +410,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.740712 )
 shape = SubResource( 9 )
 
 [node name="room_grid" type="GridMap" parent="."]
-visible = false
 mesh_library = ExtResource( 10 )
 cell_size = Vector3( 1, 1, 1 )
 data = {
 "cells": PoolIntArray( 2, 0, 1376256, 65532, 0, 0, 0, 1, 1376256, 1, 1, 1376256, 65532, 1, 0, 65534, 1, 1376256, 65535, 1, 1376256, 65533, 2, 0, 1, 65532, 0, 65533, 65532, 0, 0, 65533, 1376256, 1, 65533, 1, 2, 65533, 1376256, 65532, 65533, 0, 65534, 65533, 1376256, 65535, 65533, 1376256, 2, 65534, 1376256, 65532, 65534, 0, 65534, 65534, 1376256, 2, 65535, 0, 3, 65535, 0, 65532, 65535, 0 )
 }
+script = ExtResource( 61 )
 __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
+room_path = NodePath("..")
 
 [node name="focus_grid" parent="." instance=ExtResource( 36 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.532638 )

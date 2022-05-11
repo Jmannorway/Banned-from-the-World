@@ -22,7 +22,7 @@ cell_size = Vector2( 24, 24 )
 cell_tile_origin = 2
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 589831, 0, 0 )
+tile_data = PoolIntArray( 131078, 0, 0, 327693, 0, 0, 393227, 0, 0, 524292, 0, 0, 720897, 0, 0 )
 
 [node name="above" type="TileMap" parent="."]
 z_index = 1
