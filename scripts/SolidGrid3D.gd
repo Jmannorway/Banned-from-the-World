@@ -4,6 +4,7 @@ export(NodePath) var room_path
 export(bool) var add_on_ready
 
 func _ready():
+	visible = false
 	if add_on_ready:
 		add_to_room_grid()
 

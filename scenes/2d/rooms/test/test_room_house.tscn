@@ -10,9 +10,11 @@
 script = ExtResource( 1 )
 
 [node name="player_start" parent="." instance=ExtResource( 2 )]
+visible = true
 position = Vector2( 204, 156 )
 
 [node name="player_start2" parent="." instance=ExtResource( 2 )]
+visible = true
 position = Vector2( 228, 156 )
 index = 1
 
