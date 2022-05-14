@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/douh_smallest.png-74b97ff6a1826a27d45729f20cbba24b.stex"
+path="res://.import/floor.png-2406b83f91f3eb4fc0be56c0b991038b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/douh_smallest.png"
-dest_files=[ "res://.import/douh_smallest.png-74b97ff6a1826a27d45729f20cbba24b.stex" ]
+source_file="res://sprites/misc sprite sheets/floor.png"
+dest_files=[ "res://.import/floor.png-2406b83f91f3eb4fc0be56c0b991038b.stex" ]
 
 [params]
 

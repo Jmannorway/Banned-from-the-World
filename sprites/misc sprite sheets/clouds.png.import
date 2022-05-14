@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/clouds.png-e9454e9fc06b8a5842c6922d1fa6b36b.stex"
+path="res://.import/clouds.png-2a7133e1f8da092512f06c95af76a954.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ghost town old/misc sprite sheets/clouds.png"
-dest_files=[ "res://.import/clouds.png-e9454e9fc06b8a5842c6922d1fa6b36b.stex" ]
+source_file="res://sprites/misc sprite sheets/clouds.png"
+dest_files=[ "res://.import/clouds.png-2a7133e1f8da092512f06c95af76a954.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Trees_1.png-6ef89c472a670819f22ce7b409df584d.stex"
+path="res://.import/douh_smallest.png-fc2b44a156c5e28925aa34d492e202aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ghost town old/big tree/Trees_1.png"
-dest_files=[ "res://.import/Trees_1.png-6ef89c472a670819f22ce7b409df584d.stex" ]
+source_file="res://sprites/particles/douh_smallest.png"
+dest_files=[ "res://.import/douh_smallest.png-fc2b44a156c5e28925aa34d492e202aa.stex" ]
 
 [params]
 

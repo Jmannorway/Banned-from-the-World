@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=4 format=2]
 
-[ext_resource path="res://sprites/ghost town old/misc sprite sheets/floor.png" type="Texture" id=1]
+[ext_resource path="res://sprites/misc sprite sheets/floor.png" type="Texture" id=1]
 [ext_resource path="res://sprites/piano room/Floor_tile.png" type="Texture" id=2]
 
 [sub_resource type="NavigationPolygon" id=1]

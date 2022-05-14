@@ -2,7 +2,8 @@
 
 [ext_resource path="res://scenes/2d/transition manager/transition_manager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/transition manager/gradient3.png" type="Texture" id=2]
-[ext_resource path="res://sprites/transition_texture.png" type="Texture" id=4]
+[ext_resource path="res://sprites/particles/transition_texture.png" type="Texture" id=4]
+
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;

@@ -2,8 +2,9 @@
 
 [ext_resource path="res://scenes/3d/particles/fog particles/fog_particle_big.tres" type="Material" id=1]
 [ext_resource path="res://scenes/3d/particles/fog particles/fog_particles_material.tres" type="Material" id=2]
-[ext_resource path="res://sprites/douh_small.png" type="Texture" id=3]
+[ext_resource path="res://sprites/particles/douh_small.png" type="Texture" id=3]
 [ext_resource path="res://scenes/3d/particles/fog particles/fog_particles.gd" type="Script" id=4]
+
 
 [sub_resource type="QuadMesh" id=3]
 material = ExtResource( 1 )

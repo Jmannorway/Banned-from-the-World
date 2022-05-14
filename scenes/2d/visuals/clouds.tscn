@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://sprites/ghost town old/misc sprite sheets/clouds.png" type="Texture" id=1]
+[ext_resource path="res://sprites/misc sprite sheets/clouds.png" type="Texture" id=1]
 [ext_resource path="res://shaders/canvas item/scrolling_texture.tres" type="Shader" id=2]
 [ext_resource path="res://scripts/Parallax.gd" type="Script" id=3]
 

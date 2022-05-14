@@ -11,9 +11,9 @@
 [ext_resource path="res://sprites/balle hall/casted_light.png" type="Texture" id=10]
 [ext_resource path="res://sprites/balle hall/spot_light.png" type="Texture" id=11]
 [ext_resource path="res://shaders/canvas item/glow_light.gdshader" type="Shader" id=12]
-[ext_resource path="res://sprites/douh.png" type="Texture" id=14]
-[ext_resource path="res://sprites/douh_smallest.png" type="Texture" id=15]
-[ext_resource path="res://sprites/douh_small.png" type="Texture" id=16]
+[ext_resource path="res://sprites/particles/douh.png" type="Texture" id=14]
+[ext_resource path="res://sprites/particles/douh_smallest.png" type="Texture" id=15]
+[ext_resource path="res://sprites/particles/douh_small.png" type="Texture" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 12 )
