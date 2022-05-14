@@ -74,8 +74,8 @@ target_is_character = true
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
 visible = true
-position = Vector2( 252, 108 )
-room_name = "hall"
+position = Vector2( 108, 108 )
+room_name = "piano"
 
 [node name="focus_scene_imagined_corridor" parent="." instance=ExtResource( 7 )]
 scene = ExtResource( 6 )

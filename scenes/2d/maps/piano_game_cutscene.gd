@@ -1,7 +1,7 @@
 extends AnimationPlayer
 
 func tutorial_hint():
-	Ui.get_action_hint().show_action_hint(Ui.get_action_hint().HINT.X)
+	Ui.get_action_hint().show_action_hint(Ui.get_action_hint().HINT.C)
 
 func start_minigame():
 	var _minigame = Util.get_first_node_in_group(get_tree(), "minigame")

@@ -31,12 +31,12 @@ size = Vector2( 10, 10 )
 visible = true
 position = Vector2( 228, 516 )
 room_name = "ballet_main"
+index = 1
 
 [node name="player_start_stage_stairs" parent="." instance=ExtResource( 4 )]
 visible = true
 position = Vector2( 228, -3204 )
 room_name = "ballet_stage"
-index = 1
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
 target_group = "player_2d"

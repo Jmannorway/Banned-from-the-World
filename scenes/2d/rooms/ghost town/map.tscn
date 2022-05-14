@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=4]
 
 [node name="mappu" type="YSort"]
+position = Vector2( 0, -1 )
 script = ExtResource( 4 )
 
 [node name="main" parent="." instance=ExtResource( 1 )]
