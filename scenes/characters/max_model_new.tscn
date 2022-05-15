@@ -1,9 +1,6 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://models/max/new_max.glb" type="PackedScene" id=1]
-[ext_resource path="res://models/max/textures/Tex_Test2_face_Roughness.png" type="Texture" id=2]
-[ext_resource path="res://models/max/textures/Tex_Test2_face_Normal.png" type="Texture" id=3]
-[ext_resource path="res://models/max/textures/Tex_Test2_face_BaseColor.png" type="Texture" id=4]
 [ext_resource path="res://models/master shader test/base_shader.tres" type="Shader" id=5]
 
 [sub_resource type="ShaderMaterial" id=21]
@@ -19,21 +16,18 @@ shader_param/depth_scale = 0.05
 shader_param/depth_min_layers = 8
 shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
-shader_param/texture_albedo = ExtResource( 4 )
-shader_param/texture_roughness = ExtResource( 2 )
-shader_param/texture_normal = ExtResource( 3 )
 
 [sub_resource type="AnimationNodeAnimation" id=3]
 animation = "Book"
 
 [sub_resource type="AnimationNodeAnimation" id=15]
-animation = "Door part 2"
+animation = "Door Part 2"
 
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "Idle"
 
 [sub_resource type="AnimationNodeAnimation" id=16]
-animation = "Door part 1"
+animation = "Door Part 1"
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Walk"
