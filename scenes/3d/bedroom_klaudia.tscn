@@ -2007,7 +2007,6 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
-room_path = NodePath("..")
 
 [node name="focus_grid" parent="." instance=ExtResource( 36 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.532638 )
