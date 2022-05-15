@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float dim : hint_range(0.0, 1.0) = 0.5;
+uniform float wave_intensity : hint_range(0.0, 0.1) = 0.01;
+uniform float wave_uv_factor : hint_range(1.0, 64.0) = 16.0;
+uniform float contrast : hint_range(0.0, 4.0) = 0.0;
+
+float make_bw(vec3 col) {return col.r*0.299 + col.g*0.587 + col.b*0.114;}
+
+void fragment()
+{
+	vec2 uv_add = vec2(sin(TIME + UV.x * wave_uv_factor), cos(TIME + UV.y * wave_uv_factor)) * wave_intensity;
+	uv_add = vec2(0.0);
+	vec2 screen_uv = SCREEN_UV + uv_add;
+	vec2 uv = UV + uv_add;
+	
+	vec4 screen = texture(SCREEN_TEXTURE, screen_uv);
+	vec4 screen_bw = vec4(vec3(pow(make_bw(screen.rgb), 1.0 + contrast)) * (1.0 - dim), screen.a);
+	vec4 img = texture(TEXTURE, uv);
+	float bw_factor = smoothstep(0.0, 0.1, img.a);
+	COLOR = mix(screen, screen_bw, bw_factor);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/dim = 0.59
+shader_param/wave_intensity = 0.005
+shader_param/wave_uv_factor = 24.4
+shader_param/contrast = 0.0

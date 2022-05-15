@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/2d/rooms/ghost town/middle_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/2d/rooms/ghost town/clouds.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/2d/rooms/ghost town/below.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/2d/visuals/clouds.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/2d/character & player/character_2d.tscn" type="PackedScene" id=5]
+[ext_resource path="res://animations/ghost.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://scenes/2d/collision grid/solid_grid_2d.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/Room2D/Room2D.gd" type="Script" id=8]
+
+[node name="main" type="YSort"]
+script = ExtResource( 8 )
+
+[node name="clouds" parent="." instance=ExtResource( 4 )]
+z_index = -1
+
+[node name="below" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 24, 24 )
+format = 1
+tile_data = PoolIntArray( 524301, 0, 0, 524302, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0 )
+
+[node name="middle" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 24, 24 )
+cell_tile_origin = 2
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( 131078, 0, 0, 327693, 0, 0, 393227, 0, 0, 524292, 0, 0, 720897, 0, 0 )
+
+[node name="ghost" parent="middle" instance=ExtResource( 5 )]
+position = Vector2( 420, 276 )
+
+[node name="animated_character_sprite_2d" parent="middle/ghost" index="0"]
+frames = ExtResource( 6 )
+animation = "down"
+frame = 1
+
+[node name="behavior_state" parent="middle/ghost" index="1"]
+default_state = "roam"
+
+[node name="ghost2" parent="middle" instance=ExtResource( 5 )]
+position = Vector2( 84, 108 )
+
+[node name="animated_character_sprite_2d" parent="middle/ghost2" index="0"]
+frames = ExtResource( 6 )
+animation = "down"
+
+[node name="behavior_state" parent="middle/ghost2" index="1"]
+default_state = "roam"
+
+[node name="ghost3" parent="middle" instance=ExtResource( 5 )]
+position = Vector2( 396, 84 )
+
+[node name="animated_character_sprite_2d" parent="middle/ghost3" index="0"]
+frames = ExtResource( 6 )
+animation = "down"
+
+[node name="behavior_state" parent="middle/ghost3" index="1"]
+default_state = "roam"
+
+[node name="above" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 24, 24 )
+format = 1
+tile_data = PoolIntArray( 262150, 1, 0, 327682, 0, 0, 458768, 2, 0, 589833, 2, 0, 720899, 2, 0, 786439, 2, 0, 786449, 3, 0 )
+
+[node name="solid_grid_2d" parent="." instance=ExtResource( 7 )]
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 0, 0, 65555, 0, 0, 131072, 0, 0, 131078, 0, 0, 131091, 0, 0, 196608, 0, 0, 196627, 0, 0, 262144, 0, 0, 262163, 0, 0, 327680, 0, 0, 327693, 0, 0, 327699, 0, 0, 393216, 0, 0, 393227, 0, 0, 393235, 0, 0, 458752, 0, 0, 458771, 0, 0, 524288, 0, 0, 524292, 0, 0, 524307, 0, 0, 589824, 0, 0, 589843, 0, 0, 655360, 0, 0, 655379, 0, 0, 720896, 0, 0, 720897, 0, 0, 720915, 0, 0, 786432, 0, 0, 786451, 0, 0, 851968, 0, 0, 851987, 0, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0 )
+
+[editable path="middle/ghost"]
+[editable path="middle/ghost2"]
+[editable path="middle/ghost3"]
