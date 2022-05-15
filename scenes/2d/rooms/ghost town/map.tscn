@@ -5,8 +5,8 @@
 [ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=4]
 [ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/2d/rooms/ghost town/transition.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/2d/interactable/interactable_warp_2d.tscn" type="PackedScene" id=8]
 
 [node name="mappu" type="YSort"]
 script = ExtResource( 4 )
@@ -16,16 +16,15 @@ room_name = "main"
 room = ExtResource( 2 )
 preview = true
 
-[node name="transition" parent="." instance=ExtResource( 1 )]
-position = Vector2( 96, -1751 )
-room_name = "transition"
-room = ExtResource( 6 )
-preview = true
-size = Vector2( 480, 720 )
-
 [node name="player_start" parent="." instance=ExtResource( 3 )]
 visible = true
-position = Vector2( 240, 181 )
+position = Vector2( 228, 180 )
+room_name = "main"
+index = 1
+
+[node name="player_start_forest" parent="." instance=ExtResource( 3 )]
+visible = true
+position = Vector2( 324, -1596 )
 room_name = "main"
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
@@ -34,9 +33,19 @@ target_is_character = true
 free = true
 
 [node name="main2transition" parent="." instance=ExtResource( 7 )]
-position = Vector2( 324, -1043 )
+position = Vector2( 420, -1044 )
 room_name = "transition"
 
 [node name="transition2main" parent="." instance=ExtResource( 7 )]
-position = Vector2( 324, -1019 )
+position = Vector2( 420, -1020 )
 room_name = "main"
+
+[node name="interactable_2d" parent="." instance=ExtResource( 8 )]
+position = Vector2( 324, -1644 )
+map_path = "res://scenes/2d/maps/phase_2_map.tscn"
+on_step = true
+
+[node name="city_warp" parent="." instance=ExtResource( 8 )]
+position = Vector2( 996, 468 )
+map_path = "res://scenes/2d/maps/phase_2_map.tscn"
+player_animation = "fall_to_city"
