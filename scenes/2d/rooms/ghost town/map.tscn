@@ -20,12 +20,12 @@ preview = true
 visible = true
 position = Vector2( 228, 180 )
 room_name = "main"
-index = 1
 
 [node name="player_start_forest" parent="." instance=ExtResource( 3 )]
 visible = true
 position = Vector2( 324, -1620 )
 room_name = "main"
+index = 1
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
 target_group = "player_2d"
