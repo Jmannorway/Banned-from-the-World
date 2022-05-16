@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/2d/rooms/ghost town/middle_tileset_broken_animated.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/2d/rooms/ghost town/middle_tileset_broken.tres" type="TileSet" id=2]
+[ext_resource path="res://scripts/Room2D/Room2D.gd" type="Script" id=3]
+
+[node name="knife_corridor" type="YSort"]
+script = ExtResource( 3 )
+
+[node name="knives_animated" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 24, 24 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( 262145, 536870946, 0, 262153, 34, 0, 393220, 36, 0, 393222, 536870948, 0, 524289, 536870947, 0, 524297, 35, 0, 655364, 37, 0, 655366, 536870949, 0, 786436, 39, 0, 786438, 536870951, 0 )
+
+[node name="knives" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 24, 24 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( 196613, 33, 1, 917509, 33, 1 )

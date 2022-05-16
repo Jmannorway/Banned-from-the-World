@@ -24,7 +24,7 @@ index = 1
 
 [node name="player_start_forest" parent="." instance=ExtResource( 3 )]
 visible = true
-position = Vector2( 324, -1596 )
+position = Vector2( 324, -1620 )
 room_name = "main"
 
 [node name="main_camera_2d" parent="." instance=ExtResource( 5 )]
@@ -42,7 +42,7 @@ room_name = "main"
 
 [node name="interactable_2d" parent="." instance=ExtResource( 8 )]
 position = Vector2( 324, -1644 )
-map_path = "res://scenes/2d/maps/phase_2_map.tscn"
+map_path = "res://scenes/2d/rooms/knife forest/main.tscn"
 on_step = true
 
 [node name="city_warp" parent="." instance=ExtResource( 8 )]

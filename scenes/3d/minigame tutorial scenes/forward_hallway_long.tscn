@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/characters/max.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/3d/ASSETS/doorframe_nonuv.fbx" type="PackedScene" id=2]
+[ext_resource path="res://scenes/3d/ASSETS/doorframe_1.fbx" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Room3D/RoomController.gd" type="Script" id=3]
 [ext_resource path="res://scenes/3d/ASSETS/max_door_uv.fbx" type="PackedScene" id=4]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=5]
@@ -185,12 +185,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.36865 )
 [node name="camera" parent="main_camera/target_offset" index="0"]
 transform = Transform( 1, 0, 0, 0, 0.539138, 0.842217, 0, -0.842217, 0.539138, 0, 7.086, 4.109 )
 start_in_game_position = true
-dim_alpha = 0.93313
 
 [node name="transition_tween" parent="main_camera/target_offset/camera" index="1"]
-playback/active = true
-
-[node name="alpha_tween" parent="main_camera/target_offset/camera" index="2"]
 playback/active = true
 
 [node name="max" parent="." instance=ExtResource( 1 )]
