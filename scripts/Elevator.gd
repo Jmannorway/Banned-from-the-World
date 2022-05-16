@@ -1,5 +1,5 @@
 tool
-extends Node2D
+extends Room2D
 
 export var elevation: int setget set_elevation
 export var isOpen: bool setget open_elevator
@@ -8,12 +8,13 @@ onready var anim: AnimationPlayer = $AnimationPlayer
 
 func open_elevator(var status: bool) -> void:
 	var _oldOpen: bool = isOpen
-	isOpen = status
 	
-	if _oldOpen == status:
+	if _oldOpen == status or anim == null:
 		return
 	
-	if status:
+	isOpen = status
+	
+	if status and anim:
 		anim.play("Doors")
 	else:
 		anim.play_backwards("Doors")

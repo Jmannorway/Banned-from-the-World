@@ -49,7 +49,7 @@ func _ready():
 # warning-ignore:return_value_discarded
 		connect("area_shape_exited", self, "on_stairs_exiting")
 		
-		objectRef = PlayerAccess.get_player_2d(get_tree())
+#		objectRef = PlayerAccess.get_player_2d(get_tree())
 
 func update_stairs_area() -> void:
 	if !has_node("stairs_field"):
@@ -97,6 +97,11 @@ func step() -> void:
 # warning-ignore:unused_argument
 func on_character_enter(var directionFrom: Vector2) -> void:
 	enteredFrom = directionFrom
+	
+	if objectRef == null:
+		printerr("[ERROR] : No object found to set offset.")
+		
+		return
 	
 	match walkUpDirection:
 		2:
@@ -165,7 +170,7 @@ func on_stairs_exiting(var areaRID: RID, var area, var shapeID: int, var localSh
 # warning-ignore:unused_argument
 # warning-ignore:unused_argument
 func on_stairs_walking(var areaRID: RID, var area: Area2D, var shapeID: int, var localShapeID: int) -> void:
-	pass
+	objectRef = area.get_parent()
 #	if enteredFromShapeIndex < 0:
 #		# enter stair
 #		enteredFromShapeIndex = localShapeID
