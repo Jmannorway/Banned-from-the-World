@@ -217,3 +217,4 @@ tile_data = PoolIntArray( -65538, 15, 0, -65537, 15, 0, -131072, 15, 0, -131071,
 
 [node name="interactable_2d" parent="." instance=ExtResource( 6 )]
 position = Vector2( -12, -36 )
+map_path = "res://scenes/2d/rooms/ghost town/map.tscn"

@@ -37,6 +37,12 @@ visible = true
 position = Vector2( -96, -48 )
 room_name = "ally"
 
+[node name="player_start_from_ghost_town" parent="." instance=ExtResource( 3 )]
+visible = true
+position = Vector2( 360, -360 )
+room_name = "ally"
+index = 1
+
 [node name="main_camera_2d" parent="." instance=ExtResource( 6 )]
 target_group = "player_2d"
 target_is_character = true

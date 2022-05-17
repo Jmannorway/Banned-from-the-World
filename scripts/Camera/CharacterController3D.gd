@@ -6,6 +6,7 @@ export var movementSpeed: float = 4.0
 export var moveOffset: float = 1.0
 export var moveTime: float = 0.4
 
+export var animationTreePath: NodePath
 export var animationPlayerPath: NodePath
 
 var interactiveReference: Interactable = null
@@ -21,13 +22,14 @@ var roomManager = null
 const gridOffset: Vector3 = Vector3(0.5, 0.0, -0.5)
 
 onready var tweenMovement: Tween = $tween_movement
-onready var anim: AnimationNodeStateMachinePlayback = get_node(animationPlayerPath).get("parameters/playback")
+onready var animPlayer: AnimationPlayer = get_node(animationPlayerPath)
+onready var anim: AnimationNodeStateMachinePlayback = get_node(animationTreePath).get("parameters/playback")
 
 # warning-ignore:unused_signal
 signal action_event(playerRef)
 
 func _ready():
-	get_node(animationPlayerPath).active = true
+	get_node(animationTreePath).active = true
 	Util.connect_safe(XToFocus, "focus_changed", self, "on_focus_changed")
 	# warning-ignore:return_value_discarded
 	connect("area_entered", self, "on_enter_area")

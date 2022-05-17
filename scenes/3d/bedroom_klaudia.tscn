@@ -1,4 +1,4 @@
-[gd_scene load_steps=280 format=2]
+[gd_scene load_steps=281 format=2]
 
 [ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/textures/door/door_Metallic.png" type="Texture" id=2]
@@ -171,6 +171,9 @@ flags_unshaded = true
 params_blend_mode = 1
 params_cull_mode = 2
 albedo_color = Color( 0.694118, 0.0431373, 0.0431373, 1 )
+
+[sub_resource type="BoxShape" id=138]
+extents = Vector3( 0.2, 0.5, 1 )
 
 [sub_resource type="BoxShape" id=9]
 extents = Vector3( 0.2, 0.5, 0.2 )
@@ -1968,11 +1971,12 @@ collision_layer = 4
 collision_mask = 0
 monitoring = false
 script = ExtResource( 1 )
+activatePlayerAnimation = "Window"
 roomName = "balcony"
 
 [node name="CollisionShape" type="CollisionShape" parent="room_events/to_balcony"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
-shape = SubResource( 9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.0331205 )
+shape = SubResource( 138 )
 
 [node name="to_hallway" type="Area" parent="room_events"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
@@ -1991,6 +1995,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 37 )
+activatePlayerAnimation = "Book"
 
 [node name="CollisionShape" type="CollisionShape" parent="room_events/photo_album"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.740712 )
