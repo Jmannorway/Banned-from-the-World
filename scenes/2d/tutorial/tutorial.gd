@@ -26,6 +26,8 @@ func set_active(val : bool) -> void:
 	
 	active = val
 
+signal tutorial_finished
+
 func accepting_accept_input() -> bool:
 	return active && state == TransitionState.WAIT
 

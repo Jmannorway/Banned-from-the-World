@@ -23,3 +23,7 @@ func _process(delta: float) -> void:
 
 func _on_photo_album_area_entered(area):
 	player = PlayerAccess.get_player_3d(get_tree())
+
+
+func _on_photo_album_area_exited(area: Area) -> void:
+	player = null

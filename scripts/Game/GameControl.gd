@@ -20,9 +20,9 @@ func _ready():
 	
 	var _tutorial = get_node("../cutscene_nodes/tutorial")
 	_tutorial.connect(
-			"transition_finished",
+			"tutorial_finished",
 			self,
-			"_on_tutorial_transition_finished",
+			"_on_tutorial_tutorial_finished",
 			[_tutorial])
 
 func _on_door_interactable_interacted() -> void:
@@ -34,5 +34,5 @@ func _on_cutscene_player_animation_finished(anim_name: String) -> void:
 		Statistics.metadata.intro_finished = true
 		Statistics.write_meta_file()
 
-func _on_tutorial_transition_finished(tutorial_node) -> void:
+func _on_tutorial_tutorial_finished(tutorial_node) -> void:
 	play("opening_animation_2")

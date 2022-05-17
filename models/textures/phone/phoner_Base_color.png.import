@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/phone_Mixed_AO.png-4828866c3de8ac3efa153999a7a96a3e.stex"
+path="res://.import/phoner_Base_color.png-3cdd7a2080fe1f881d6396f4260e2389.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/textures/phone/phone_Mixed_AO.png"
-dest_files=[ "res://.import/phone_Mixed_AO.png-4828866c3de8ac3efa153999a7a96a3e.stex" ]
+source_file="res://models/textures/phone/phoner_Base_color.png"
+dest_files=[ "res://.import/phoner_Base_color.png-3cdd7a2080fe1f881d6396f4260e2389.stex" ]
 
 [params]
 
@@ -20,10 +20,10 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

@@ -29,7 +29,6 @@ void fragment()
 }"
 
 [sub_resource type="StreamTexture" id=3]
-load_path = "res://.import/tutorlal.png-281a117da6c091d594498408a01a01e6.stex"
 
 [resource]
 shader = SubResource( 2 )
