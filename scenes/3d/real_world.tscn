@@ -205,7 +205,7 @@ parameters/playback = SubResource( 5 )
 
 [node name="bedroom" parent="rooms" instance=ExtResource( 2 )]
 
-[node name="room_grid" parent="rooms/bedroom" index="6"]
+[node name="room_grid" parent="rooms/bedroom" index="7"]
 data = {
 "cells": PoolIntArray( 2, 0, 1376256, 65532, 0, 0, 0, 1, 1376256, 1, 1, 1376256, 65532, 1, 0, 65534, 1, 1376256, 65535, 1, 1376256, 65533, 2, 0, 1, 65532, 0, 65533, 65532, 0, 0, 65533, 1376256, 1, 65533, 1, 2, 65533, 1376256, 65532, 65533, 0, 65534, 65533, 1376256, 65535, 65533, 1376256, 2, 65534, 1376256, 65532, 65534, 0, 65534, 65534, 1376256, 2, 65535, 0, 3, 65535, 0, 65532, 65535, 0 )
 }
@@ -322,7 +322,7 @@ autoplay = true
 [editable path="max"]
 [editable path="max/new_max"]
 [editable path="rooms/bedroom"]
-[editable path="rooms/bedroom/max_bedroom/max_album_uv"]
+[editable path="rooms/bedroom/max_bedroom/Book"]
 [editable path="rooms/bedroom/max_bedroom/Backpack"]
 [editable path="rooms/bedroom/max_bedroom/windowframe"]
 [editable path="rooms/bedroom/max_bedroom/window"]

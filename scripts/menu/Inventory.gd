@@ -36,7 +36,7 @@ func _get_menu_buttons() -> void:
 		print("[WARNING] : Cannot initialize ", name, ". No path set for the menu button list.")
 
 func _override_input(var event) -> void:
-	if Input.is_action_just_pressed("focus"):
+	if Input.is_action_just_pressed("menu"):
 		remove_menu()
 	
 	if menuItems.empty():

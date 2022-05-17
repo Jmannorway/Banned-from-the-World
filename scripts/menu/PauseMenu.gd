@@ -34,6 +34,9 @@ func pause(var status: bool) -> void:
 	inAnotherMenu = inAnotherMenu && status
 
 func _override_input(var event) -> void:
+	if Game.world == Game.WORLD.OUTER:
+		return
+	
 	if Input.is_action_just_pressed("menu") and !inAnotherMenu:
 		pause(!get_tree().paused)
 		

@@ -27,7 +27,7 @@ func new_follow_path(var toPoint: Vector2) -> void:
 	path = WorldGrid.get_navigation_grid(layer).get_navigation_path(global_position, toPoint)
 	
 	if path.empty():
-		printerr("The Enemy Path is empty. Make sure that you have selected a valid position.")
+		printerr("The Enemy Path is empty. ", toPoint, " Make sure that you have selected a valid position.")
 		return
 	
 	follow_path()

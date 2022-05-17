@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/2d/rooms/ghost town/middle_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/2d/rooms/ghost town/clouds.tres" type="TileSet" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/2d/rooms/ghost town/middle_tileset_corrupted.tres" type="TileSet" id=14]
 [ext_resource path="res://scenes/2d/rooms/ghost town/img/floor_tiles_wines.png" type="Texture" id=15]
 [ext_resource path="res://scenes/2d/rooms/ghost town/img/corrupted_texture.png" type="Texture" id=16]
+[ext_resource path="res://audio/music/Quazi Conductor.ogg" type="AudioStream" id=17]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 2
@@ -213,6 +214,10 @@ texture = ExtResource( 15 )
 [node name="CorruptedTexture" type="Sprite" parent="corruption3"]
 position = Vector2( -480, 0.0017395 )
 texture = ExtResource( 16 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
 
 [editable path="middle/ghost"]
 [editable path="middle/ghost2"]
