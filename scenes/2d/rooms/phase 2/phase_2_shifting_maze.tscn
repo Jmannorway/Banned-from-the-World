@@ -35,11 +35,11 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.768627 )
 frames = ExtResource( 7 )
 animation = "down"
-frame = 2
+frame = 3
 playing = true
 
 [node name="interactable_2d" parent="warp" instance=ExtResource( 5 )]
-map_path = "res://scenes/2d/maps/ballet_map.tscn"
+map_path = "res://scenes/2d/maps/city_map.tscn"
 
 [node name="spin_timer" type="Timer" parent="warp"]
 wait_time = 0.2

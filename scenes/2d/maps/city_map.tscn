@@ -1,18 +1,70 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/2d/rooms/city/city_main.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=4]
+[ext_resource path="res://scenes/2d/rooms/city/ally.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/2d/misc/elevator.tscn" type="PackedScene" id=8]
 
 [node name="map" type="YSort"]
 script = ExtResource( 4 )
 
+[node name="elevator" parent="." instance=ExtResource( 1 )]
+position = Vector2( -408, -1104 )
+room_name = "elevator"
+room = ExtResource( 8 )
+preview = true
+size = Vector2( 0, 0 )
+
 [node name="city" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72, -984 )
 room_name = "city"
 room = ExtResource( 2 )
+preview = true
+size = Vector2( 480, 320 )
+
+[node name="ally" parent="." instance=ExtResource( 1 )]
+room_name = "ally"
+room = ExtResource( 5 )
+preview = true
 size = Vector2( 480, 320 )
 
 [node name="player_start" parent="." instance=ExtResource( 3 )]
-position = Vector2( 232, 280 )
+visible = true
+position = Vector2( -96, -48 )
+room_name = "ally"
+
+[node name="player_start_from_ghost_town" parent="." instance=ExtResource( 3 )]
+visible = true
+position = Vector2( 360, -360 )
+room_name = "ally"
+index = 1
+
+[node name="main_camera_2d" parent="." instance=ExtResource( 6 )]
+target_group = "player_2d"
+target_is_character = true
+free = true
+
+[node name="Vignette" parent="main_camera_2d/CanvasLayer" index="0"]
+visible = false
+
+[node name="interactable_2d" parent="." instance=ExtResource( 7 )]
+position = Vector2( 84, -755 )
 room_name = "city"
+on_step = false
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 0, -288 )
+
+[node name="interactable_2d2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 60, -755 )
+room_name = "city"
+on_step = false
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 0, -288 )
+
+[editable path="main_camera_2d"]

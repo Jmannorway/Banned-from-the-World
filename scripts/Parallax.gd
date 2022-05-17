@@ -1,6 +1,7 @@
 tool
 extends Node2D
 
+export var offset: Vector2
 export var clampArea: Vector2 = Vector2(100.0, 100.0) setget set_area
 export var speed: Vector2 = Vector2.ONE
 export var targetPath: NodePath
@@ -39,7 +40,7 @@ func _process(delta):
 	target = Util.get_first_node_in_group(get_tree(), "camera")
 	
 	if target:
-		position = -Vector2(target.global_position.x * speed.x, target.global_position.y * speed.y)
+		position = offset - Vector2(target.global_position.x * speed.x, target.global_position.y * speed.y)
 
 func _draw():
 	return

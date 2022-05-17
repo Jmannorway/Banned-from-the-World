@@ -7,10 +7,20 @@ var _previous_rotation = -1
 
 # warning-ignore:unused_argument
 func _interact(var roomManager) -> void:
+	if !activatePlayerAnimation.empty() and player != null:
+		player.anim.travel(activatePlayerAnimation)
+		player.set_frozen("book_animation", true)
+		
+		var _sceneTimer: SceneTreeTimer = get_tree().create_timer(player.animPlayer.get_animation(activatePlayerAnimation).length, false)
+		_sceneTimer.connect("timeout", self, "change_on_anim_finished")
+		
+#		player.animPlayer.connect("animation_finished", self, "change_on_anim_finished")
+		return
+	
+	change_on_anim_finished()
+
+func change_on_anim_finished() -> void:
 	Temp.goto_world(get_tree(), Game.WORLD.INNER)
-#	get_tree().change_scene_to(blankScene)
-#	MapManager.warp_to_map(changeToScene, 0)
-#	Game.set_world(Game.WORLD.INNER)
 
 func _process(delta: float) -> void:
 	if is_instance_valid(player):

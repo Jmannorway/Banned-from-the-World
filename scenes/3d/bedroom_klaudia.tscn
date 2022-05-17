@@ -169,6 +169,9 @@ params_blend_mode = 1
 params_cull_mode = 2
 albedo_color = Color( 0.694118, 0.0431373, 0.0431373, 1 )
 
+[sub_resource type="BoxShape" id=138]
+extents = Vector3( 0.2, 0.5, 1 )
+
 [sub_resource type="BoxShape" id=9]
 extents = Vector3( 0.2, 0.5, 0.2 )
 
@@ -1754,21 +1757,6 @@ shader_param/depth_max_layers = 32
 shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 159 )
 
-[sub_resource type="ShaderMaterial" id=138]
-shader = ExtResource( 45 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/metallic = 0.0
-shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/specular_scale = 1.0
-shader_param/roughness_scale = 1.0
-shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/normal_scale = 1.0
-shader_param/depth_scale = 0.05
-shader_param/depth_min_layers = 8
-shader_param/depth_max_layers = 32
-shader_param/depth_flip = Vector2( 1, 1 )
-shader_param/texture_albedo = ExtResource( 159 )
-
 [sub_resource type="ShaderMaterial" id=127]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -1937,11 +1925,12 @@ collision_layer = 4
 collision_mask = 0
 monitoring = false
 script = ExtResource( 1 )
+activatePlayerAnimation = "Window"
 roomName = "balcony"
 
 [node name="CollisionShape" type="CollisionShape" parent="room_events/to_balcony"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5 )
-shape = SubResource( 9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.0331205 )
+shape = SubResource( 138 )
 
 [node name="to_hallway" type="Area" parent="room_events"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
@@ -1960,13 +1949,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 37 )
+activatePlayerAnimation = "Book"
 
 [node name="CollisionShape" type="CollisionShape" parent="room_events/photo_album"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.740712 )
 shape = SubResource( 9 )
 
 [node name="room_grid" type="GridMap" parent="."]
-visible = false
 mesh_library = ExtResource( 10 )
 cell_size = Vector3( 1, 1, 1 )
 data = {
@@ -2728,9 +2717,6 @@ material/0 = SubResource( 126 )
 
 [node name="max_wall_south" parent="max_bedroom" instance=ExtResource( 156 )]
 visible = false
-
-[node name="max_wall_south" parent="max_bedroom/max_wall_south/RootNode/max_constructioin" index="0"]
-material/0 = SubResource( 138 )
 
 [node name="max_floor" parent="max_bedroom" instance=ExtResource( 24 )]
 

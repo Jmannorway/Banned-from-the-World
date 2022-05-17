@@ -317,7 +317,6 @@ add_on_ready = false
 
 [node name="staircase" type="Area2D" parent="stairs"]
 position = Vector2( 516, 252 )
-monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
 walkUpDirection = 3
@@ -327,7 +326,6 @@ polygon = PoolVector2Array( -12, 36, -12, -36, 36, -52, 36, 20 )
 
 [node name="staircase2" type="Area2D" parent="stairs"]
 position = Vector2( 516, 132 )
-monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
 walkUpDirection = 3
@@ -337,7 +335,6 @@ polygon = PoolVector2Array( -12, 36, -12, -36, 36, -52, 36, 20 )
 
 [node name="staircase3" type="Area2D" parent="stairs"]
 position = Vector2( -36, 132 )
-monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
 walkUpDirection = 2
@@ -347,7 +344,6 @@ polygon = PoolVector2Array( 12, 36, 12, -36, -36, -52, -36, 20 )
 
 [node name="staircase4" type="Area2D" parent="stairs"]
 position = Vector2( -36, 252 )
-monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
 walkUpDirection = 2
@@ -357,7 +353,6 @@ polygon = PoolVector2Array( 12, 36, 12, -36, -36, -52, -36, 20 )
 
 [node name="staircase5" type="Area2D" parent="stairs"]
 position = Vector2( 300, -492 )
-monitoring = false
 script = ExtResource( 6 )
 width = 5
 offsetPerBlock = 3
@@ -370,7 +365,6 @@ polygon = PoolVector2Array( -12, 60, -12, -60, 108, -100, 108, 20 )
 
 [node name="staircase6" type="Area2D" parent="stairs"]
 position = Vector2( 1164, -444 )
-monitoring = false
 script = ExtResource( 6 )
 width = 5
 length = 4
@@ -380,7 +374,6 @@ polygon = PoolVector2Array( -60, -12, 60, -12, 60, -84, -60, -84 )
 
 [node name="staircase7" type="Area2D" parent="stairs"]
 position = Vector2( 1236, 180 )
-monitoring = false
 script = ExtResource( 6 )
 width = 7
 length = 6
@@ -390,7 +383,6 @@ polygon = PoolVector2Array( -84, -12, 84, -12, 84, -132, -84, -132 )
 
 [node name="staircase8" type="Area2D" parent="stairs"]
 position = Vector2( 1188, -1260 )
-monitoring = false
 script = ExtResource( 6 )
 width = 9
 offsetPerBlock = 3
@@ -403,7 +395,6 @@ polygon = PoolVector2Array( 12, 108, 12, -108, -180, -172, -180, 44 )
 
 [node name="staircase9" type="Area2D" parent="stairs"]
 position = Vector2( -768, -804 )
-monitoring = false
 script = ExtResource( 6 )
 width = 4
 offsetPerBlock = 2
@@ -414,7 +405,6 @@ polygon = PoolVector2Array( -48, -12, 48, -12, 48, -36, -48, -36 )
 
 [node name="staircase10" type="Area2D" parent="stairs"]
 position = Vector2( -756, -540 )
-monitoring = false
 script = ExtResource( 6 )
 width = 5
 offsetPerBlock = 2
@@ -426,7 +416,6 @@ polygon = PoolVector2Array( -60, 12, 60, 12, 60, 36, -60, 36 )
 
 [node name="staircase11" type="Area2D" parent="stairs"]
 position = Vector2( -588, -1296 )
-monitoring = false
 script = ExtResource( 6 )
 width = 4
 offsetPerBlock = 3
@@ -437,7 +426,6 @@ polygon = PoolVector2Array( -12, 48, -12, -48, 36, -64, 36, 32 )
 
 [node name="staircase12" type="Area2D" parent="stairs"]
 position = Vector2( -864, -1044 )
-monitoring = false
 script = ExtResource( 6 )
 width = 4
 addElevation = 2
@@ -448,7 +436,6 @@ polygon = PoolVector2Array( -48, -12, 48, -12, 48, -84, -48, -84 )
 
 [node name="staircase13" type="Area2D" parent="stairs"]
 position = Vector2( -684, -324 )
-monitoring = false
 script = ExtResource( 6 )
 width = 7
 offsetPerBlock = 3
@@ -460,7 +447,6 @@ polygon = PoolVector2Array( -84, 12, 84, 12, 84, 60, -84, 60 )
 
 [node name="staircase14" type="Area2D" parent="stairs"]
 position = Vector2( 804, -1020 )
-monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
 length = 3
@@ -470,7 +456,6 @@ polygon = PoolVector2Array( -36, -12, 36, -12, 36, -60, -36, -60 )
 
 [node name="staircase15" type="Area2D" parent="stairs"]
 position = Vector2( -108, -1332 )
-monitoring = false
 script = ExtResource( 6 )
 width = 5
 offsetPerBlock = 2
@@ -481,7 +466,6 @@ polygon = PoolVector2Array( -60, -12, 60, -12, 60, 12, -60, 12 )
 
 [node name="staircase16" type="Area2D" parent="stairs"]
 position = Vector2( 108, -1404 )
-monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
 walkUpDirection = 3
@@ -491,7 +475,6 @@ polygon = PoolVector2Array( -12, 36, -12, -36, 36, -52, 36, 20 )
 
 [node name="staircase17" type="Area2D" parent="stairs"]
 position = Vector2( 708, -1356 )
-monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
 walkUpDirection = 2
@@ -501,7 +484,6 @@ polygon = PoolVector2Array( 12, 36, 12, -36, -36, -52, -36, 20 )
 
 [node name="staircase18" type="Area2D" parent="stairs"]
 position = Vector2( 1116, -1524 )
-monitoring = false
 script = ExtResource( 6 )
 offsetPerBlock = 3
 walkUpDirection = 2

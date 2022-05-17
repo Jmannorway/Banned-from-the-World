@@ -47,5 +47,6 @@ on_step = true
 
 [node name="city_warp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 996, 468 )
-map_path = "res://scenes/2d/maps/phase_2_map.tscn"
+map_path = "res://scenes/2d/maps/city_map.tscn"
+player_start_index = 1
 player_animation = "fall_to_city"

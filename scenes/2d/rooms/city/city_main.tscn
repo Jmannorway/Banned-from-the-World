@@ -1,9 +1,306 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=34 format=2]
 
+[ext_resource path="res://sprites/city/roof_floor.png" type="Texture" id=1]
+[ext_resource path="res://sprites/city/roof_guard.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Room2D/Room2D.gd" type="Script" id=3]
+[ext_resource path="res://scenes/2d/collision grid/solid_grid_2d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/city/Ballet_hall_without_stair_stuff_and pillars.png" type="Texture" id=5]
+[ext_resource path="res://sprites/city/stair_stuff_2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/city/stair_stuff_1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/city/pillars.png" type="Texture" id=8]
+[ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/2d/interactable/interactable_warp_2d.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/city/tower.png" type="Texture" id=11]
+[ext_resource path="res://sprites/city/background_all.png" type="Texture" id=12]
+[ext_resource path="res://sprites/city/roof_ladder.png" type="Texture" id=13]
+[ext_resource path="res://sprites/city/building5.png" type="Texture" id=14]
+[ext_resource path="res://sprites/city/building10.png" type="Texture" id=15]
+[ext_resource path="res://sprites/city/building3.png" type="Texture" id=16]
+[ext_resource path="res://sprites/city/building4.png" type="Texture" id=17]
+[ext_resource path="res://sprites/city/building16.png" type="Texture" id=18]
+[ext_resource path="res://sprites/city/building6.png" type="Texture" id=19]
+[ext_resource path="res://sprites/city/building17.png" type="Texture" id=20]
+[ext_resource path="res://sprites/city/building20.png" type="Texture" id=21]
+[ext_resource path="res://sprites/city/building1.png" type="Texture" id=22]
+[ext_resource path="res://sprites/city/building12.png" type="Texture" id=23]
+[ext_resource path="res://sprites/city/building9.png" type="Texture" id=24]
+[ext_resource path="res://sprites/city/building2.png" type="Texture" id=25]
+[ext_resource path="res://sprites/city/roof_details_2.png" type="Texture" id=26]
+[ext_resource path="res://sprites/city/building13.png" type="Texture" id=27]
+[ext_resource path="res://sprites/city/building15.png" type="Texture" id=28]
+[ext_resource path="res://sprites/city/roof_detail.png" type="Texture" id=29]
+[ext_resource path="res://sprites/city/vents.png" type="Texture" id=30]
+[ext_resource path="res://sprites/city/building21.png" type="Texture" id=31]
+[ext_resource path="res://sprites/city/background_no_moon.png" type="Texture" id=32]
 
-[node name="room" type="YSort"]
+[sub_resource type="TileSet" id=1]
+0/name = "roof_floor.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 120, 120 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "roof_guard.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 72, 24 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 24, 24 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="city" type="YSort"]
 script = ExtResource( 3 )
 
-[node name="city" type="Sprite" parent="."]
-centered = false
+[node name="roof_top" type="TileMap" parent="."]
+z_index = -2
+tile_set = SubResource( 1 )
+cell_size = Vector2( 24, 24 )
+cell_custom_transform = Transform2D( 24, 0, 0, 24, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -458737, 0, 0, -458732, 0, 0, -458727, 0, 0, -65556, 0, 0, -65551, 0, 0, -65546, 0, 0, -65541, 0, 0, -131072, 0, 0, -131067, 0, 0, -131062, 0, 0, -131057, 0, 0, -131052, 0, 0, -131047, 0, 0 )
+
+[node name="guard" type="TileMap" parent="roof_top"]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 24, 24 )
+cell_custom_transform = Transform2D( 24, 0, 0, 24, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -131087, 1, 1, -131086, 1, 1, -131085, 1, 1, -131084, 1, 1, -131083, 1, 1, -131082, 1, 1, -131081, 1, 1, -131080, 1, 1, -131079, 1, 1, -131078, 1, 1, -131077, 1, 1, -131076, 1, 1, -131075, 1, 1, -131074, 1, 1, -131073, 1, 1, -196608, 1, 1, -196607, 1, 1, -196606, 1, 1, -196605, 1, 1, -196604, 1, 1, -196603, 1, 1, -196602, 1, 1, -196601, 1, 1, -196600, 1, 1, -196599, 1, 1, -196598, 1, 1, -196597, 1, 1, -196596, 1, 1, -196595, 1, 1, -196594, 1, 1, -65561, 0, 0 )
+
+[node name="BalletHallWithoutStairStuffAndPillars" type="Sprite" parent="."]
+position = Vector2( 540, -253 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="StairStuff2" type="Sprite" parent="BalletHallWithoutStairStuffAndPillars"]
+position = Vector2( -61.5, 130 )
+texture = ExtResource( 6 )
+
+[node name="StairStuff3" type="Sprite" parent="BalletHallWithoutStairStuffAndPillars"]
+position = Vector2( 61.5, 130 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="StairStuff1" type="Sprite" parent="BalletHallWithoutStairStuffAndPillars"]
+position = Vector2( -109, 100 )
+z_index = 3
+texture = ExtResource( 7 )
+
+[node name="StairStuff4" type="Sprite" parent="BalletHallWithoutStairStuffAndPillars"]
+position = Vector2( 109, 100 )
+z_index = 3
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="Pillars" type="Sprite" parent="BalletHallWithoutStairStuffAndPillars"]
+position = Vector2( -26, 5 )
+z_index = 2
+texture = ExtResource( 8 )
+
+[node name="Tower" type="Sprite" parent="."]
+position = Vector2( -480, -251 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="Vents" type="Sprite" parent="."]
+position = Vector2( -72, 48 )
+texture = ExtResource( 30 )
+
+[node name="Vents2" type="Sprite" parent="."]
+position = Vector2( -144, 48 )
+texture = ExtResource( 30 )
+
+[node name="Vents3" type="Sprite" parent="."]
+position = Vector2( -456, 48 )
+texture = ExtResource( 30 )
+
+[node name="Vents4" type="Sprite" parent="."]
+position = Vector2( 672, 48 )
+texture = ExtResource( 30 )
+
+[node name="Vents5" type="Sprite" parent="."]
+position = Vector2( 552, 48 )
+texture = ExtResource( 30 )
+
+[node name="solid_grid_2d" parent="." instance=ExtResource( 4 )]
+z_index = 10
+tile_data = PoolIntArray( -524273, 15, 0, -524272, 15, 0, -524271, 15, 0, -524270, 15, 0, -524269, 15, 0, -524268, 15, 0, -524267, 15, 0, -524266, 15, 0, -524265, 15, 0, -524264, 15, 0, -524263, 15, 0, -524262, 15, 0, -524261, 15, 0, -524260, 15, 0, -524259, 15, 0, -458738, 15, 0, -458722, 15, 0, -393201, 15, 0, -393200, 15, 0, -393199, 15, 0, -393198, 15, 0, -393197, 15, 0, -393196, 15, 0, -393192, 15, 0, -393191, 15, 0, -393190, 15, 0, -393189, 15, 0, -393188, 15, 0, -393187, 15, 0, -327666, 15, 0, -327661, 15, 0, -327655, 15, 0, -327650, 15, 0, -262130, 15, 0, -262114, 15, 0, -131097, 15, 0, -131096, 15, 0, -131095, 15, 0, -131090, 15, 0, -131089, 15, 0, -131088, 15, 0, -131087, 15, 0, -131086, 15, 0, -131085, 15, 0, -131084, 15, 0, -131083, 15, 0, -131082, 15, 0, -131081, 15, 0, -131080, 15, 0, -131079, 15, 0, -131078, 15, 0, -131077, 15, 0, -131076, 15, 0, -131075, 15, 0, -131074, 15, 0, -131073, 15, 0, -196608, 15, 0, -196607, 15, 0, -196606, 15, 0, -196605, 15, 0, -196604, 15, 0, -196603, 15, 0, -196602, 15, 0, -196601, 15, 0, -196600, 15, 0, -196599, 15, 0, -196598, 15, 0, -196597, 15, 0, -196596, 15, 0, -196595, 15, 0, -196594, 15, 0, -196578, 15, 0, -65562, 15, 0, -131042, 15, 0, -26, 15, 0, -65506, 15, 0, 65511, 15, 0, 65512, 15, 0, 65513, 15, 0, 65514, 15, 0, 65515, 15, 0, 65516, 15, 0, 65517, 15, 0, 65518, 15, 0, 65519, 15, 0, 65520, 15, 0, 65521, 15, 0, 65522, 15, 0, 65523, 15, 0, 65524, 15, 0, 65525, 15, 0, 65526, 15, 0, 65527, 15, 0, 65528, 15, 0, 65529, 15, 0, 65530, 15, 0, 65531, 15, 0, 65532, 15, 0, 65533, 15, 0, 65534, 15, 0, 65535, 15, 0, 0, 15, 0, 1, 15, 0, 2, 15, 0, 3, 15, 0, 4, 15, 0, 5, 15, 0, 6, 15, 0, 7, 15, 0, 8, 15, 0, 9, 15, 0, 10, 15, 0, 11, 15, 0, 12, 15, 0, 13, 15, 0, 14, 15, 0, 15, 15, 0, 16, 15, 0, 17, 15, 0, 18, 15, 0, 19, 15, 0, 20, 15, 0, 21, 15, 0, 22, 15, 0, 23, 15, 0, 24, 15, 0, 25, 15, 0, 26, 15, 0, 27, 15, 0, 28, 15, 0, 29, 15, 0 )
+
+[node name="interactable_2d" parent="." instance=ExtResource( 10 )]
+position = Vector2( 540, -180 )
+scale = Vector2( 3, 1 )
+map_path = "res://scenes/2d/maps/ballet_map.tscn"
+
+[node name="interactable_2d2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -480, -96 )
+scale = Vector2( 4, 1 )
+room_name = "elevator"
+
+[node name="BackgroundAll" type="Sprite" parent="."]
+position = Vector2( -168, -168 )
+z_index = -5
+texture = ExtResource( 12 )
+
+[node name="Building16" type="Sprite" parent="BackgroundAll"]
+position = Vector2( -216, 72 )
+texture = ExtResource( 18 )
+
+[node name="Building3" type="Sprite" parent="BackgroundAll"]
+position = Vector2( 48, 120 )
+texture = ExtResource( 16 )
+
+[node name="Building1" type="Sprite" parent="BackgroundAll"]
+position = Vector2( -96, 48 )
+texture = ExtResource( 22 )
+
+[node name="Building21" type="Sprite" parent="BackgroundAll"]
+position = Vector2( 0, 48 )
+texture = ExtResource( 31 )
+
+[node name="Building15" type="Sprite" parent="BackgroundAll"]
+position = Vector2( -72, 0 )
+texture = ExtResource( 28 )
+
+[node name="Building17" type="Sprite" parent="BackgroundAll"]
+position = Vector2( 144, -48 )
+texture = ExtResource( 20 )
+
+[node name="Building20" type="Sprite" parent="BackgroundAll"]
+position = Vector2( -144, 48 )
+texture = ExtResource( 21 )
+
+[node name="Building9" type="Sprite" parent="BackgroundAll"]
+position = Vector2( 168, 72 )
+texture = ExtResource( 24 )
+
+[node name="Building2" type="Sprite" parent="BackgroundAll"]
+position = Vector2( 72, 24 )
+texture = ExtResource( 25 )
+
+[node name="Building10" type="Sprite" parent="BackgroundAll"]
+position = Vector2( 216, 72 )
+texture = ExtResource( 15 )
+
+[node name="Building4" type="Sprite" parent="BackgroundAll"]
+position = Vector2( 120, 72 )
+texture = ExtResource( 17 )
+
+[node name="Building6" type="Sprite" parent="BackgroundAll"]
+position = Vector2( -48, 72 )
+texture = ExtResource( 19 )
+
+[node name="Building12" type="Sprite" parent="BackgroundAll"]
+position = Vector2( -168, -24 )
+texture = ExtResource( 23 )
+
+[node name="Building5" type="Sprite" parent="BackgroundAll"]
+position = Vector2( -168, 96 )
+texture = ExtResource( 14 )
+
+[node name="Building13" type="Sprite" parent="BackgroundAll"]
+position = Vector2( -24, 48 )
+texture = ExtResource( 27 )
+
+[node name="BackgroundAll2" type="Sprite" parent="."]
+position = Vector2( 312, -168 )
+z_index = -5
+texture = ExtResource( 32 )
+
+[node name="Building16" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( -216, 72 )
+texture = ExtResource( 18 )
+
+[node name="Building3" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( 48, 120 )
+texture = ExtResource( 16 )
+
+[node name="Building1" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( -96, 48 )
+texture = ExtResource( 22 )
+
+[node name="Building21" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( 0, 48 )
+texture = ExtResource( 31 )
+
+[node name="Building15" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( -72, 0 )
+texture = ExtResource( 28 )
+
+[node name="Building17" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( 144, -48 )
+texture = ExtResource( 20 )
+
+[node name="Building20" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( -144, 48 )
+texture = ExtResource( 21 )
+
+[node name="Building9" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( 168, 72 )
+texture = ExtResource( 24 )
+
+[node name="Building2" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( 72, 24 )
+texture = ExtResource( 25 )
+
+[node name="Building10" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( 216, 72 )
+texture = ExtResource( 15 )
+
+[node name="Building4" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( 120, 72 )
+texture = ExtResource( 17 )
+
+[node name="Building6" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( -48, 72 )
+texture = ExtResource( 19 )
+
+[node name="Building12" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( -168, -24 )
+texture = ExtResource( 23 )
+
+[node name="Building5" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( -168, 96 )
+texture = ExtResource( 14 )
+
+[node name="Building13" type="Sprite" parent="BackgroundAll2"]
+position = Vector2( -24, 48 )
+texture = ExtResource( 27 )
+
+[node name="RoofDetail" type="Sprite" parent="."]
+position = Vector2( 288, 48 )
+texture = ExtResource( 29 )
+
+[node name="RoofDetail2" type="Sprite" parent="."]
+position = Vector2( -384, 48 )
+texture = ExtResource( 29 )
+
+[node name="RoofLadder" type="Sprite" parent="."]
+position = Vector2( -276, -62 )
+z_index = -1
+texture = ExtResource( 13 )
+
+[node name="RoofDetails2" type="Sprite" parent="."]
+position = Vector2( 120, -24 )
+z_index = 6
+texture = ExtResource( 26 )

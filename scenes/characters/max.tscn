@@ -12,7 +12,8 @@ extents = Vector3( 0.2, 0.6, 0.2 )
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 1 )
-animationPlayerPath = NodePath("new_max/AnimationTree")
+animationTreePath = NodePath("new_max/AnimationTree")
+animationPlayerPath = NodePath("new_max/AnimationPlayer")
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
