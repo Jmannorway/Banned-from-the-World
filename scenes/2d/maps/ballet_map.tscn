@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://scenes/2d/interactable/interactable_warp_2d.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/MusicReverbance.gd" type="Script" id=9]
 [ext_resource path="res://audio/music/Unfortunate.ogg" type="AudioStream" id=10]
+[ext_resource path="res://scenes/2d/interactable/interactable_effect_pickup_2d.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/effects/Ballerina.png" type="Texture" id=12]
 
 [node name="ballet_map" type="YSort"]
 script = ExtResource( 1 )
@@ -55,7 +57,14 @@ script = ExtResource( 9 )
 musicToPlay = ExtResource( 10 )
 maxDistance = 4000.0
 
-[node name="interactable_2d" parent="." instance=ExtResource( 7 )]
+[node name="warp2stage" parent="." instance=ExtResource( 7 )]
 position = Vector2( 408, -1752 )
 scale = Vector2( 8, 1 )
 room_name = "ballet_stage"
+
+[node name="ballerina_effect_pickup" parent="." instance=ExtResource( 11 )]
+position = Vector2( -684, 132 )
+effect = "ballerina"
+
+[node name="shoes" type="Sprite" parent="ballerina_effect_pickup"]
+texture = ExtResource( 12 )
