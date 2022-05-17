@@ -5,3 +5,6 @@ func get_menu():
 
 func get_action_hint():
 	return $action_hint
+
+func get_effect_notifier():
+	return $effect_notification
