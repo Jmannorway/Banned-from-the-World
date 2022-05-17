@@ -1,0 +1,194 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=1]
+[ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/2d/rooms/knife forest/main.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/2d/character & player/player_start_2d.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/2d/interactable/interactable_warp_2d.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/2d/rooms/knife forest/knife_corridor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/FollowCamera2D.gd" type="Script" id=9]
+[ext_resource path="res://scenes/2d/visuals/clouds_gray.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/2d/rooms/knife forest/candy_crossing.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/2d/rooms/knife forest/glass_corridor.tscn" type="PackedScene" id=12]
+
+[node name="map" type="YSort"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -168.0 ],
+"_edit_vertical_guides_": [ 996.0 ]
+}
+
+[node name="main" parent="." instance=ExtResource( 2 )]
+room_name = "main"
+room = ExtResource( 3 )
+preview = true
+
+[node name="knife_corridor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 840, -216 )
+room_name = "knife_corridor"
+room = ExtResource( 8 )
+preview = true
+
+[node name="candy_crossing" parent="." instance=ExtResource( 2 )]
+position = Vector2( 576, 360 )
+room_name = "candy_crossing"
+room = ExtResource( 11 )
+preview = true
+
+[node name="glass_corridor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1296, 240 )
+room_name = "glass_corridor"
+room = ExtResource( 12 )
+preview = true
+
+[node name="player_start" parent="." instance=ExtResource( 4 )]
+visible = true
+position = Vector2( -12, 60 )
+room_name = "main"
+
+[node name="ghost_town_warp" parent="." instance=ExtResource( 5 )]
+position = Vector2( -12, 34 )
+map_path = "res://scenes/2d/rooms/ghost town/map.tscn"
+player_start_index = 1
+on_step = true
+
+[node name="main_camera_2d" parent="." instance=ExtResource( 6 )]
+target_group = "player_2d"
+target_is_character = true
+free = true
+
+[node name="clouds" parent="." instance=ExtResource( 10 )]
+modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
+script = ExtResource( 9 )
+
+[node name="knife_warps" type="Node" parent="."]
+
+[node name="item2knife_corridor" parent="knife_warps" instance=ExtResource( 7 )]
+position = Vector2( 192, 372 )
+scale = Vector2( 2, 1 )
+room_name = "knife_corridor"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 816, -240 )
+
+[node name="item2knife_corridor2" parent="knife_warps" instance=ExtResource( 7 )]
+position = Vector2( -216, 132 )
+scale = Vector2( 2, 1 )
+room_name = "knife_corridor"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 1224, 0 )
+
+[node name="knife_corridor2item" parent="knife_warps" instance=ExtResource( 7 )]
+position = Vector2( 1008, 132 )
+scale = Vector2( 2, 1 )
+room_name = "main"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( -816, 240 )
+
+[node name="knife_corridor2main" parent="knife_warps" instance=ExtResource( 7 )]
+position = Vector2( 1008, -132 )
+scale = Vector2( 2, 1 )
+room_name = "main"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( -1608, 144 )
+
+[node name="main2knife_corridor" parent="knife_warps" instance=ExtResource( 7 )]
+position = Vector2( -600, 12 )
+scale = Vector2( 2, 1 )
+room_name = "knife_corridor"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 1608, -144 )
+
+[node name="glass_warps" type="Node" parent="."]
+
+[node name="main2glass_corridor" parent="glass_warps" instance=ExtResource( 7 )]
+position = Vector2( -276, -276 )
+room_name = "glass_corridor"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 1728, 888 )
+
+[node name="glass_corridor2main" parent="glass_warps" instance=ExtResource( 7 )]
+position = Vector2( 1452, 612 )
+room_name = "main"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( -1728, -888 )
+
+[node name="main2glass_corridor2" parent="glass_warps" instance=ExtResource( 7 )]
+position = Vector2( -60, -348 )
+room_name = "glass_corridor"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 1512, 672 )
+
+[node name="glass_corridor2main2" parent="glass_warps" instance=ExtResource( 7 )]
+position = Vector2( 1452, 324 )
+room_name = "main"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( -1512, -672 )
+
+[node name="candy_warps" type="Node" parent="."]
+
+[node name="orange_main2crossing" parent="candy_warps" instance=ExtResource( 7 )]
+position = Vector2( 180, -348 )
+room_name = "candy_crossing"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 312, 912 )
+
+[node name="orange_crossing2main" parent="candy_warps" instance=ExtResource( 7 )]
+position = Vector2( 492, 564 )
+room_name = "main"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( -312, -912 )
+
+[node name="green_main2crossing" parent="candy_warps" instance=ExtResource( 7 )]
+position = Vector2( 372, -300 )
+room_name = "candy_crossing"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 384, 960 )
+
+[node name="green_crossing2main" parent="candy_warps" instance=ExtResource( 7 )]
+position = Vector2( 756, 660 )
+room_name = "main"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( -384, -960 )
+
+[node name="magenta_main2crossing" parent="candy_warps" instance=ExtResource( 7 )]
+position = Vector2( -324, 156 )
+room_name = "candy_crossing"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 1080, 312 )
+
+[node name="magenta_crossing2main" parent="candy_warps" instance=ExtResource( 7 )]
+position = Vector2( 756, 468 )
+room_name = "main"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( -1080, -312 )
+
+[node name="purple_main2crossing" parent="candy_warps" instance=ExtResource( 7 )]
+position = Vector2( 348, 372 )
+room_name = "candy_crossing"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 600, 192 )
+
+[node name="purple_crossing2main" parent="candy_warps" instance=ExtResource( 7 )]
+position = Vector2( 948, 564 )
+room_name = "main"
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( -600, -192 )
