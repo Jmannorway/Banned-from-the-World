@@ -1,5 +1,6 @@
 extends Interactable
 
+export var playBook: NodePath
 export var changeToScene: PackedScene
 export var blankScene: PackedScene
 var player : CharacterController3D = null
@@ -8,6 +9,10 @@ var _previous_rotation = -1
 # warning-ignore:unused_argument
 func _interact(var roomManager) -> void:
 	if !activatePlayerAnimation.empty() and player != null:
+		var _bookAnim: AnimationPlayer = get_node(playBook)
+		if _bookAnim.has_animation(activatePlayerAnimation):
+			_bookAnim.play(activatePlayerAnimation)
+		
 		player.anim.travel(activatePlayerAnimation)
 		player.set_frozen("book_animation", true)
 		
@@ -33,7 +38,6 @@ func _process(delta: float) -> void:
 
 func _on_photo_album_area_entered(area):
 	player = PlayerAccess.get_player_3d(get_tree())
-
 
 func _on_photo_album_area_exited(area: Area) -> void:
 	player = null

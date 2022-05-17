@@ -54,7 +54,7 @@ func _ignore_input(var event) -> bool:
 	return event is InputEventMouseMotion or event is InputEventJoypadMotion or event is InputEventJoypadButton or event is InputEventMouseButton
 
 func _override_input(var event) -> void:
-	if Input.is_action_just_pressed("focus"):
+	if Input.is_action_just_pressed("menu"):
 		remove_menu()
 	
 	if menuItems.empty():

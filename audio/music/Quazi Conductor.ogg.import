@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Quazi Conductor.ogg-c9ffc3271f3377ebf29dab3322c99468.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Quazi Conductor.ogg"
+dest_files=[ "res://.import/Quazi Conductor.ogg-c9ffc3271f3377ebf29dab3322c99468.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

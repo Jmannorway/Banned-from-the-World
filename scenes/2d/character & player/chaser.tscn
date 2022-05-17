@@ -14,7 +14,6 @@ penaltyMap = ExtResource( 2 )
 [node name="animated_character_sprite_2d" parent="." index="0"]
 frames = ExtResource( 1 )
 animation = "down"
-frame = 2
 
 [node name="path_update_interval" type="Timer" parent="." index="1"]
 wait_time = 2.0

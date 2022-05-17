@@ -204,7 +204,7 @@ parameters/playback = SubResource( 5 )
 
 [node name="bedroom" parent="rooms" instance=ExtResource( 2 )]
 
-[node name="room_grid" parent="rooms/bedroom" index="6"]
+[node name="room_grid" parent="rooms/bedroom" index="7"]
 data = {
 "cells": PoolIntArray( 2, 0, 1376256, 65532, 0, 0, 0, 1, 1376256, 1, 1, 1376256, 65532, 1, 0, 65534, 1, 1376256, 65535, 1, 1376256, 65533, 2, 0, 1, 65532, 0, 65533, 65532, 0, 0, 65533, 1376256, 1, 65533, 1, 2, 65533, 1376256, 65532, 65533, 0, 65534, 65533, 1376256, 65535, 65533, 1376256, 2, 65534, 1376256, 65532, 65534, 0, 65534, 65534, 1376256, 2, 65535, 0, 3, 65535, 0, 65532, 65535, 0 )
 }
@@ -295,15 +295,11 @@ room_path = NodePath("../../rooms/bedroom")
 [node name="camera" parent="main_camera/target_offset" index="0"]
 transform = Transform( -0.977268, 0.0473306, -0.206656, 0, 0.974761, 0.22325, 0.212007, 0.218175, -0.952603, 2.122, 1.229, 0.1 )
 fov = 40.0
-dim_alpha = 0.221429
 gameplay_translation = Vector3( 0, 10, 4 )
 gameplay_rotation_degrees = Vector3( -63, 0, 0 )
 
 [node name="blocking_mesh" parent="main_camera/target_offset/camera" index="0"]
 transform = Transform( 1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, -0.06 )
-
-[node name="alpha_tween" parent="main_camera/target_offset/camera" index="2"]
-playback/active = true
 
 [node name="Phone(1)" parent="." instance=ExtResource( 15 )]
 transform = Transform( -1.3, 0, -0.000930339, 0, 1.3, 0, 0.000930339, 0, -1.3, 1.558, 0.756, 0.664 )
@@ -321,7 +317,7 @@ material/0 = SubResource( 6 )
 [editable path="max"]
 [editable path="max/new_max"]
 [editable path="rooms/bedroom"]
-[editable path="rooms/bedroom/max_bedroom/max_album_uv"]
+[editable path="rooms/bedroom/max_bedroom/Book"]
 [editable path="rooms/bedroom/max_bedroom/Backpack"]
 [editable path="rooms/bedroom/max_bedroom/windowframe"]
 [editable path="rooms/bedroom/max_bedroom/window"]
