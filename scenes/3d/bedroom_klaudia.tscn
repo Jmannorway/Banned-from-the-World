@@ -1,4 +1,4 @@
-[gd_scene load_steps=281 format=2]
+[gd_scene load_steps=276 format=2]
 
 [ext_resource path="res://scripts/Interactable3D/InteractableRoom.gd" type="Script" id=1]
 [ext_resource path="res://models/textures/door/door_Metallic.png" type="Texture" id=2]
@@ -25,7 +25,6 @@
 [ext_resource path="res://scenes/3d/ASSETS/Box.fbx" type="PackedScene" id=23]
 [ext_resource path="res://scenes/3d/ASSETS/max_floor.fbx" type="PackedScene" id=24]
 [ext_resource path="res://models/textures/chair/chair_Roughness.png" type="Texture" id=25]
-[ext_resource path="res://scenes/3d/ASSETS/Phone.fbx" type="PackedScene" id=26]
 [ext_resource path="res://scenes/3d/ASSETS/Plate.fbx" type="PackedScene" id=27]
 [ext_resource path="res://scenes/3d/ASSETS/Spoon.fbx" type="PackedScene" id=28]
 [ext_resource path="res://scenes/3d/ASSETS/Fork.fbx" type="PackedScene" id=29]
@@ -63,10 +62,7 @@
 [ext_resource path="res://models/textures/bed/bed_Base_color.png" type="Texture" id=61]
 [ext_resource path="res://models/textures/nighttable/nightstand_Normal_OpenGL.png" type="Texture" id=62]
 [ext_resource path="res://models/textures/nighttable/nightstand_Base_color.png" type="Texture" id=63]
-[ext_resource path="res://models/textures/phone/phone_Base_color.png" type="Texture" id=64]
-[ext_resource path="res://models/textures/phone/phone_Normal_OpenGL.png" type="Texture" id=65]
 [ext_resource path="res://models/textures/lava/LAVALAMP_Roughness.png" type="Texture" id=66]
-[ext_resource path="res://models/textures/phone/phone_Roughness.png" type="Texture" id=67]
 [ext_resource path="res://models/textures/nighttable/nightstand_Roughness.png" type="Texture" id=68]
 [ext_resource path="res://models/textures/lava/LAVALAMP_Metallic.png" type="Texture" id=69]
 [ext_resource path="res://models/textures/pc screen/screen_Normal_OpenGL.png" type="Texture" id=70]
@@ -165,6 +161,7 @@
 [ext_resource path="res://scenes/3d/ASSETS/shirt.fbx" type="PackedScene" id=163]
 [ext_resource path="res://scenes/3d/ASSETS/sock.fbx" type="PackedScene" id=164]
 [ext_resource path="res://scenes/3d/ASSETS/trash_1.fbx" type="PackedScene" id=165]
+[ext_resource path="res://scenes/3d/ASSETS/wall_material.tres" type="Material" id=166]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -792,23 +789,6 @@ shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 17 )
 shader_param/texture_metallic = ExtResource( 54 )
 shader_param/texture_roughness = ExtResource( 55 )
-
-[sub_resource type="ShaderMaterial" id=34]
-shader = ExtResource( 45 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/metallic = 0.0
-shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/specular_scale = 1.0
-shader_param/roughness_scale = 1.0
-shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/normal_scale = 1.0
-shader_param/depth_scale = 0.05
-shader_param/depth_min_layers = 8
-shader_param/depth_max_layers = 32
-shader_param/depth_flip = Vector2( 1, 1 )
-shader_param/texture_albedo = ExtResource( 64 )
-shader_param/texture_roughness = ExtResource( 67 )
-shader_param/texture_normal = ExtResource( 65 )
 
 [sub_resource type="ShaderMaterial" id=37]
 shader = ExtResource( 45 )
@@ -1747,21 +1727,6 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.166667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.208333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.291667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.458333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.541667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.583333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.708333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.791667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.916667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.958333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.04167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.16667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.20833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.29167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.33333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.375, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.41667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.45833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.70833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.79167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.83333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.875, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.91667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 4.95833, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="ShaderMaterial" id=124]
-shader = ExtResource( 45 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/metallic = 0.0
-shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/specular_scale = 1.0
-shader_param/roughness_scale = 1.0
-shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/normal_scale = 1.0
-shader_param/depth_scale = 0.05
-shader_param/depth_min_layers = 8
-shader_param/depth_max_layers = 32
-shader_param/depth_flip = Vector2( 1, 1 )
-shader_param/texture_albedo = ExtResource( 159 )
-
 [sub_resource type="ShaderMaterial" id=125]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -1778,21 +1743,6 @@ shader_param/depth_flip = Vector2( 1, 1 )
 shader_param/texture_albedo = ExtResource( 159 )
 
 [sub_resource type="ShaderMaterial" id=126]
-shader = ExtResource( 45 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/metallic = 0.0
-shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/specular_scale = 1.0
-shader_param/roughness_scale = 1.0
-shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
-shader_param/normal_scale = 1.0
-shader_param/depth_scale = 0.05
-shader_param/depth_min_layers = 8
-shader_param/depth_max_layers = 32
-shader_param/depth_flip = Vector2( 1, 1 )
-shader_param/texture_albedo = ExtResource( 159 )
-
-[sub_resource type="ShaderMaterial" id=133]
 shader = ExtResource( 45 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/metallic = 0.0
@@ -1913,6 +1863,10 @@ shader_param/texture_albedo = ExtResource( 153 )
 resource_name = "Take 001"
 length = 4.95833
 
+[sub_resource type="PlaneMesh" id=139]
+material = ExtResource( 166 )
+size = Vector2( 6, 3.1 )
+
 [node name="bedroom" type="ImmediateGeometry"]
 material_override = SubResource( 1 )
 cast_shadow = 0
@@ -2015,7 +1969,6 @@ __meta__ = {
 
 [node name="focus_grid" parent="." instance=ExtResource( 36 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0.00711703, -0.213975, -0.532638 )
-visible = false
 material/0 = SubResource( 13 )
 script = ExtResource( 41 )
 
@@ -2227,12 +2180,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996, 0.84475, -2.527 )
 
 [node name="Desk_w_UV" parent="max_bedroom/desk/RootNode" index="0"]
 material/0 = SubResource( 26 )
-
-[node name="Phone" parent="max_bedroom" instance=ExtResource( 26 )]
-transform = Transform( 0.422618, 0.906308, 3.9616e-08, 0, -4.37114e-08, 1, 0.906308, -0.422618, -1.84732e-08, 2.34, 0.91, 0.672 )
-
-[node name="phone1" parent="max_bedroom/Phone/RootNode/group3" index="0"]
-material/0 = SubResource( 34 )
 
 [node name="Pc_box" parent="max_bedroom" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49973, 0.250995, -2.42765 )
@@ -2760,7 +2707,7 @@ material/0 = SubResource( 131 )
 [node name="max_walls_three" parent="max_bedroom" instance=ExtResource( 5 )]
 
 [node name="max_wall_east" parent="max_bedroom/max_walls_three/RootNode/max_constructioin" index="0"]
-material/0 = SubResource( 124 )
+material/0 = ExtResource( 166 )
 
 [node name="max_wall_west" parent="max_bedroom/max_walls_three/RootNode/max_constructioin" index="1"]
 material/0 = SubResource( 125 )
@@ -2770,9 +2717,6 @@ material/0 = SubResource( 126 )
 
 [node name="max_wall_south" parent="max_bedroom" instance=ExtResource( 156 )]
 visible = false
-
-[node name="max_wall_south" parent="max_bedroom/max_wall_south/RootNode/max_constructioin" index="0"]
-material/0 = SubResource( 133 )
 
 [node name="max_floor" parent="max_bedroom" instance=ExtResource( 24 )]
 
@@ -2841,6 +2785,11 @@ material/0 = SubResource( 122 )
 [node name="AnimationPlayer" parent="balcony/Patio_Chair_UV2/RootNode" index="1"]
 "anims/Take 001" = SubResource( 123 )
 
+[node name="back_wall" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.55165, 1.95189 )
+mesh = SubResource( 139 )
+material/0 = null
+
 [connection signal="area_entered" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_entered"]
 [connection signal="area_exited" from="room_events/photo_album" to="room_events/photo_album" method="_on_photo_album_area_exited"]
 
@@ -2870,7 +2819,6 @@ material/0 = SubResource( 122 )
 [editable path="max_bedroom/door_pivot"]
 [editable path="max_bedroom/keyboard"]
 [editable path="max_bedroom/desk"]
-[editable path="max_bedroom/Phone"]
 [editable path="max_bedroom/Pc_box"]
 [editable path="max_bedroom/Pc_screen"]
 [editable path="max_bedroom/Fork"]

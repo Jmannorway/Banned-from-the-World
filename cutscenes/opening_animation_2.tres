@@ -179,3 +179,67 @@ tracks/13/keys = {
 "method": "add_to_room_grid"
 } ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("Phone(1)/RootNode/AnimationPlayer:playback_speed")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1.0 ]
+}
+tracks/15/type = "method"
+tracks/15/path = NodePath("Phone(1)/RootNode/AnimationPlayer")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Take 001", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/16/type = "method"
+tracks/16/path = NodePath("Phone(1)/RootNode/AnimationPlayer")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 14.9 ],
+"method": "advance"
+} ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("rooms/bedroom/max_bedroom/Nightstand_w_UV:translation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 29.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector3( 2.5, 0.5, 0.342 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Phone(1):translation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 29.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector3( 1.53915, 0.908156, 0.371827 ) ]
+}

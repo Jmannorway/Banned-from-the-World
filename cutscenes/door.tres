@@ -41,10 +41,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2.7, 4.3, 4.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 4.3, 4.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.708, 0.029, -2.207 ), Vector3( 1.708, 0.029, -2.207 ), Vector3( 1.84253, 0.00170588, -2.48276 ), Vector3( 1.5, 0, -2.5 ) ]
+"values": [ Vector3( 1.43616, -0.0505159, -2.31223 ), Vector3( 1.43616, -0.0505159, -2.31223 ), Vector3( 1.5, 0, -2.5 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("max:rotation_degrees")
@@ -105,8 +105,8 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"clips": PoolStringArray( "Door part 1", "Door part 2" ),
-"times": PoolRealArray( 0, 2.7 )
+"clips": PoolStringArray( "Door Part 1", "Door Part 2" ),
+"times": PoolRealArray( 0, 1.8 )
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("max/new_max/AnimationTree:active")

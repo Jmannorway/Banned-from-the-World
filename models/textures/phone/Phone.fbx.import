@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Phone.fbx-91c249b718e747daecd070f78a3fae4b.scn"
+path="res://.import/Phone.fbx-e82dddf766eb7cc4e17ec94fc2bd3307.scn"
 
 [deps]
 
-source_file="res://scenes/3d/ASSETS/Phone.fbx"
-dest_files=[ "res://.import/Phone.fbx-91c249b718e747daecd070f78a3fae4b.scn" ]
+source_file="res://models/textures/phone/Phone.fbx"
+dest_files=[ "res://.import/Phone.fbx-e82dddf766eb7cc4e17ec94fc2bd3307.scn" ]
 
 [params]
 
