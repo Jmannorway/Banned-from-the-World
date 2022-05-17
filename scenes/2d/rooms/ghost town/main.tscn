@@ -59,7 +59,6 @@ position = Vector2( 588, -444 )
 [node name="animated_character_sprite_2d" parent="middle/ghost" index="0"]
 frames = ExtResource( 6 )
 animation = "down"
-frame = 1
 
 [node name="behavior_state" parent="middle/ghost" index="1"]
 default_state = "roam"
@@ -70,6 +69,7 @@ position = Vector2( 780, -468 )
 [node name="animated_character_sprite_2d" parent="middle/ghost2" index="0"]
 frames = ExtResource( 6 )
 animation = "down"
+frame = 1
 
 [node name="behavior_state" parent="middle/ghost2" index="1"]
 default_state = "roam"
@@ -80,7 +80,6 @@ position = Vector2( 468, -372 )
 [node name="animated_character_sprite_2d" parent="middle/ghost3" index="0"]
 frames = ExtResource( 6 )
 animation = "down"
-frame = 1
 
 [node name="behavior_state" parent="middle/ghost3" index="1"]
 default_state = "roam"
@@ -91,6 +90,7 @@ position = Vector2( 708, -348 )
 [node name="animated_character_sprite_2d" parent="middle/ghost4" index="0"]
 frames = ExtResource( 6 )
 animation = "down"
+frame = 1
 
 [node name="behavior_state" parent="middle/ghost4" index="1"]
 default_state = "roam"
@@ -101,7 +101,6 @@ position = Vector2( 540, -492 )
 [node name="animated_character_sprite_2d" parent="middle/ghost5" index="0"]
 frames = ExtResource( 6 )
 animation = "down"
-frame = 1
 
 [node name="behavior_state" parent="middle/ghost5" index="1"]
 default_state = "roam"
@@ -112,7 +111,6 @@ position = Vector2( -84, -396 )
 [node name="animated_character_sprite_2d" parent="middle/ghost6" index="0"]
 frames = ExtResource( 6 )
 animation = "down"
-frame = 1
 
 [node name="behavior_state" parent="middle/ghost6" index="1"]
 default_state = "roam"
@@ -123,7 +121,6 @@ position = Vector2( -36, -516 )
 [node name="animated_character_sprite_2d" parent="middle/ghost7" index="0"]
 frames = ExtResource( 6 )
 animation = "down"
-frame = 1
 
 [node name="behavior_state" parent="middle/ghost7" index="1"]
 default_state = "roam"
@@ -135,7 +132,6 @@ position = Vector2( 468, -156 )
 [node name="animated_character_sprite_2d" parent="middle/item_ghost" index="0"]
 frames = ExtResource( 6 )
 animation = "down"
-frame = 1
 
 [node name="behavior_state" parent="middle/item_ghost" index="1"]
 default_state = "roam"

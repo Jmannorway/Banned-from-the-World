@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/2d/rooms/ghost town/middle_tileset_broken.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/2d/rooms/ghost town/clouds.tres" type="TileSet" id=2]
+[ext_resource path="res://audio/music/knife_forest.ogg" type="AudioStream" id=3]
+[ext_resource path="res://shaders/canvas item/outline.tres" type="Shader" id=4]
 [ext_resource path="res://scenes/2d/interactable/interactable_effect_pickup_2d.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/effects/Katana.png" type="Texture" id=6]
 [ext_resource path="res://scenes/2d/collision grid/solid_grid_2d.tscn" type="PackedScene" id=7]
@@ -13,6 +15,10 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 10 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 4 )
+shader_param/outline_color = Color( 1, 1, 1, 1 )
 
 [node name="main" type="YSort"]
 script = ExtResource( 8 )
@@ -37,7 +43,6 @@ modulate = Color( 0.729412, 0.729412, 0.729412, 1 )
 material = SubResource( 1 )
 frames = ExtResource( 12 )
 animation = "down"
-frame = 1
 
 [node name="behavior_state" parent="middle/ghost" index="1"]
 default_state = "roam"
@@ -50,7 +55,6 @@ modulate = Color( 0.729412, 0.729412, 0.729412, 1 )
 material = SubResource( 1 )
 frames = ExtResource( 12 )
 animation = "down"
-frame = 1
 
 [node name="behavior_state" parent="middle/ghost2" index="1"]
 default_state = "roam"
@@ -75,7 +79,12 @@ position = Vector2( 12, 396 )
 effect = "katana"
 
 [node name="katana" type="Sprite" parent="katana_pickup"]
+material = SubResource( 2 )
 texture = ExtResource( 6 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 
 [editable path="middle/ghost"]
 [editable path="middle/ghost2"]

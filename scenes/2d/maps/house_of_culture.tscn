@@ -65,6 +65,7 @@ size = Vector2( 144, 168 )
 [node name="hall" parent="." instance=ExtResource( 1 )]
 room_name = "hall"
 room = ExtResource( 9 )
+preview = true
 size = Vector2( 360, 192 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
@@ -74,8 +75,8 @@ target_is_character = true
 
 [node name="player_start" parent="." instance=ExtResource( 4 )]
 visible = true
-position = Vector2( 108, 108 )
-room_name = "piano"
+position = Vector2( 276, 108 )
+room_name = "hall"
 
 [node name="focus_scene_imagined_corridor" parent="." instance=ExtResource( 7 )]
 scene = ExtResource( 6 )

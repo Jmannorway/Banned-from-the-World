@@ -9,7 +9,7 @@
 margin_left = 12.0
 margin_top = 12.0
 margin_right = 163.0
-margin_bottom = 105.0
+margin_bottom = 86.0
 rect_clip_content = true
 texture = ExtResource( 2 )
 patch_margin_left = 15
@@ -49,40 +49,26 @@ custom_constants/margin_bottom = 10
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 141.0
-margin_bottom = 84.0
+margin_bottom = 64.0
 custom_constants/separation = 6
 
-[node name="new_game" type="CenterContainer" parent="margin/menu_collection"]
+[node name="start" type="CenterContainer" parent="margin/menu_collection"]
 margin_right = 131.0
 margin_bottom = 14.0
 script = ExtResource( 4 )
 action = 1
 actionName = "3d/real_world"
 
-[node name="text" type="Label" parent="margin/menu_collection/new_game"]
-margin_left = 30.0
-margin_right = 100.0
+[node name="text" type="Label" parent="margin/menu_collection/start"]
+margin_left = 51.0
+margin_right = 80.0
 margin_bottom = 14.0
-text = "New Game"
+text = "Start"
 
-[node name="load" type="CenterContainer" parent="margin/menu_collection"]
+[node name="options" type="CenterContainer" parent="margin/menu_collection"]
 margin_top = 20.0
 margin_right = 131.0
 margin_bottom = 34.0
-script = ExtResource( 4 )
-action = 2
-actionName = "load_game"
-
-[node name="text" type="Label" parent="margin/menu_collection/load"]
-margin_left = 29.0
-margin_right = 101.0
-margin_bottom = 14.0
-text = "Load Game"
-
-[node name="options" type="CenterContainer" parent="margin/menu_collection"]
-margin_top = 40.0
-margin_right = 131.0
-margin_bottom = 54.0
 script = ExtResource( 4 )
 action = 2
 actionName = "options"
@@ -94,9 +80,9 @@ margin_bottom = 14.0
 text = "Options"
 
 [node name="quit" type="CenterContainer" parent="margin/menu_collection"]
-margin_top = 60.0
+margin_top = 40.0
 margin_right = 131.0
-margin_bottom = 74.0
+margin_bottom = 54.0
 script = ExtResource( 4 )
 action = 5
 

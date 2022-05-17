@@ -22,6 +22,7 @@ func interact():
 		_effect_notifier.show_notification(effect)
 		
 		PlayerAccess.get_player_2d(get_tree()).set_frozen(name, true)
+		Statistics.write_meta_file()
 
 func _on_effect_notifier_notification_dismissed():
 	PlayerAccess.get_player_2d(get_tree()).set_frozen(name, false)

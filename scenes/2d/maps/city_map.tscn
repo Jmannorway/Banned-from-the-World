@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/2d/rooms/city/city_main.tscn" type="PackedScene" id=2]
@@ -8,6 +8,14 @@
 [ext_resource path="res://scenes/2d/main_camera_2d.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/2d/interactable/interactable_room_changer_2d.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/2d/misc/elevator.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/2d/interactable/interactable_effect_pickup_2d.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sprites/effects/Skateboard.png" type="Texture" id=10]
+[ext_resource path="res://shaders/canvas item/outline.tres" type="Shader" id=11]
+[ext_resource path="res://sprites/effects/Pills.png" type="Texture" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 11 )
+shader_param/outline_color = Color( 1, 1, 1, 1 )
 
 [node name="map" type="YSort"]
 script = ExtResource( 4 )
@@ -16,7 +24,6 @@ script = ExtResource( 4 )
 position = Vector2( -408, -1104 )
 room_name = "elevator"
 room = ExtResource( 8 )
-preview = true
 size = Vector2( 0, 0 )
 
 [node name="city" parent="." instance=ExtResource( 1 )]
@@ -34,8 +41,14 @@ size = Vector2( 480, 320 )
 
 [node name="player_start" parent="." instance=ExtResource( 3 )]
 visible = true
-position = Vector2( -96, -48 )
+position = Vector2( -84, -60 )
 room_name = "ally"
+
+[node name="player_start_city_ballet" parent="." instance=ExtResource( 3 )]
+visible = true
+position = Vector2( 612, -1140 )
+room_name = "city"
+index = 2
 
 [node name="player_start_from_ghost_town" parent="." instance=ExtResource( 3 )]
 visible = true
@@ -66,5 +79,38 @@ on_step = false
 teleport = true
 teleport_relative = true
 teleport_coords = Vector2( 0, -288 )
+
+[node name="interactable_2d3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 84, -1044 )
+room_name = "ally"
+on_step = false
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 0, 288 )
+
+[node name="interactable_2d4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 60, -1044 )
+room_name = "ally"
+on_step = false
+teleport = true
+teleport_relative = true
+teleport_coords = Vector2( 0, 288 )
+
+[node name="skateboard_pickup" parent="." instance=ExtResource( 9 )]
+position = Vector2( 36, -132 )
+effect = "skater"
+
+[node name="skateboard" type="Sprite" parent="skateboard_pickup"]
+material = SubResource( 1 )
+position = Vector2( 5, -24 )
+texture = ExtResource( 10 )
+
+[node name="pill_pickup" parent="." instance=ExtResource( 9 )]
+position = Vector2( 444, -1140 )
+effect = "dealer"
+
+[node name="pills" type="Sprite" parent="pill_pickup"]
+material = SubResource( 1 )
+texture = ExtResource( 12 )
 
 [editable path="main_camera_2d"]

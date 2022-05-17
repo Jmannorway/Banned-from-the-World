@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://sprites/piano minigame/Piano circle.png" type="Texture" id=1]
 [ext_resource path="res://scenes/2d/minigame/piano/max.gd" type="Script" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://sprites/piano minigame/max_heheh.png" type="Texture" id=14]
 [ext_resource path="res://sprites/piano minigame/note.png" type="Texture" id=15]
 [ext_resource path="res://scenes/2d/minigame/piano/minigame.gd" type="Script" id=16]
-[ext_resource path="res://scenes/2d/minigame/piano/sounds/girl.mp3" type="AudioStream" id=17]
 [ext_resource path="res://scenes/2d/minigame/piano/direction.gd" type="Script" id=18]
 [ext_resource path="res://sprites/piano minigame/Arrow yellow.png" type="Texture" id=19]
 [ext_resource path="res://scenes/2d/minigame/piano/sounds/metronome.wav" type="AudioStream" id=20]
@@ -108,21 +107,20 @@ texture = ExtResource( 3 )
 
 [node name="piano" type="Sprite" parent="minigame/decoration"]
 position = Vector2( 0, 2 )
-rotation = 1765.7
+rotation = 1763.06
 texture = ExtResource( 1 )
 script = ExtResource( 26 )
 rotation_speed = -15
 
 [node name="hands" type="AnimatedSprite" parent="minigame/decoration"]
-rotation = -1751.95
+rotation = -1749.31
 frames = ExtResource( 6 )
 animation = "hands"
-frame = 1
 playing = true
 script = ExtResource( 26 )
 
 [node name="middle" type="Sprite" parent="minigame/decoration"]
-rotation = 3035.86
+rotation = 3038.5
 texture = ExtResource( 7 )
 script = ExtResource( 26 )
 
@@ -188,7 +186,6 @@ script = ExtResource( 11 )
 stream = ExtResource( 20 )
 
 [node name="music" type="AudioStreamPlayer" parent="minigame"]
-stream = ExtResource( 17 )
 
 [node name="states" type="Node" parent="minigame"]
 

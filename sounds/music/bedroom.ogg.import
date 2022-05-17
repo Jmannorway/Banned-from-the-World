@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bedroom.ogg-8fff4a9fe3fa69306c3f01d2dfea4da9.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/bedroom.ogg"
+dest_files=[ "res://.import/bedroom.ogg-8fff4a9fe3fa69306c3f01d2dfea4da9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

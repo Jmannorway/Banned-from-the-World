@@ -18,7 +18,7 @@ preview = true
 
 [node name="player_start" parent="." instance=ExtResource( 3 )]
 visible = true
-position = Vector2( 348, -132 )
+position = Vector2( 228, 180 )
 room_name = "main"
 
 [node name="player_start_forest" parent="." instance=ExtResource( 3 )]

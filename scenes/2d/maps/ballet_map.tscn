@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Room2D/Map2D.gd" type="Script" id=1]
 [ext_resource path="res://scenes/2d/room_loader_2d.tscn" type="PackedScene" id=2]
@@ -12,6 +12,15 @@
 [ext_resource path="res://audio/music/Unfortunate.ogg" type="AudioStream" id=10]
 [ext_resource path="res://scenes/2d/interactable/interactable_effect_pickup_2d.tscn" type="PackedScene" id=11]
 [ext_resource path="res://sprites/effects/Ballerina.png" type="Texture" id=12]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=1]
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 24
 
 [node name="ballet_map" type="YSort"]
 script = ExtResource( 1 )
@@ -68,3 +77,46 @@ effect = "ballerina"
 
 [node name="shoes" type="Sprite" parent="ballerina_effect_pickup"]
 texture = ExtResource( 12 )
+
+[node name="city_warp" parent="." instance=ExtResource( 8 )]
+position = Vector2( 156, 540 )
+map_path = "res://scenes/2d/maps/city_map.tscn"
+player_start_index = 2
+
+[node name="city_warp2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 180, 540 )
+map_path = "res://scenes/2d/maps/city_map.tscn"
+player_start_index = 2
+
+[node name="city_warp3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 204, 540 )
+map_path = "res://scenes/2d/maps/city_map.tscn"
+player_start_index = 2
+
+[node name="city_warp4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 228, 540 )
+map_path = "res://scenes/2d/maps/city_map.tscn"
+player_start_index = 2
+
+[node name="city_warp5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 252, 540 )
+map_path = "res://scenes/2d/maps/city_map.tscn"
+player_start_index = 2
+
+[node name="city_warp6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 276, 540 )
+map_path = "res://scenes/2d/maps/city_map.tscn"
+player_start_index = 2
+
+[node name="city_warp7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 300, 540 )
+map_path = "res://scenes/2d/maps/city_map.tscn"
+player_start_index = 2
+
+[node name="entrance_gradient" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = SubResource( 3 )
+position = Vector2( 228, 516 )
+rotation = 1.5708
+scale = Vector2( 1, 168 )
+texture = SubResource( 2 )

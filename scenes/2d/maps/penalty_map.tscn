@@ -15,6 +15,7 @@ room = ExtResource( 4 )
 preview = true
 
 [node name="player_start" parent="." instance=ExtResource( 1 )]
+visible = true
 position = Vector2( 252, 180 )
 room_name = "shifting_maze_penalty"
 
